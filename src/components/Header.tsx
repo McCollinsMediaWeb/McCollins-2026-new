@@ -74,13 +74,19 @@ export default function Header() {
         {/* Center: Desktop Nav Links */}
         <nav className="desktop-nav">
           <Link href="#about" className="nav-link">
-            ABOUT
+            <span className="roll-text">
+              <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
+            </span>
           </Link>
           <Link href="#services" className="nav-link">
-            SERVICES
+            <span className="roll-text">
+              <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
+            </span>
           </Link>
           <Link href="#work" className="nav-link">
-            WORK
+            <span className="roll-text">
+              <span className="roll-text-inner" data-text="WORK">WORK</span>
+            </span>
           </Link>
         </nav>
 
@@ -88,7 +94,9 @@ export default function Header() {
         <div className="header-actions">
           <Link href="#contact" className="cta-button">
             <span className="dot-indicator"></span>
-            LET'S TALK
+            <span className="cta-text">
+              <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
+            </span>
           </Link>
 
           <button

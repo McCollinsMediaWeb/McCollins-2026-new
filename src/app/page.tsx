@@ -62,6 +62,7 @@ export default function Home() {
           display: "inline-block",
           overflow: "hidden",
           verticalAlign: "bottom",
+          marginRight: "0.25em",
         }}
       >
         <span
@@ -73,7 +74,6 @@ export default function Home() {
         >
           {word}
         </span>
-        {" "}
       </span>
     ));
   };
@@ -237,6 +237,114 @@ export default function Home() {
           }
         );
       }
+
+      // 5. Work Section Animations
+      const workCards = containerRef.current?.querySelectorAll(".work-card");
+      const eventListeners: Array<{
+        element: Element;
+        type: string;
+        handler: any;
+      }> = [];
+
+      if (workCards && workCards.length > 0) {
+        workCards.forEach((card) => {
+          gsap.fromTo(card,
+            { y: 60, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 88%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+
+          // Cursor follow hover video box effect
+          const hoverBox = card.querySelector(".hover-video-box");
+          const video = card.querySelector(".hover-video-box video") as HTMLVideoElement;
+
+          if (hoverBox && video) {
+            // Set initial transforms for centering
+            gsap.set(hoverBox, { xPercent: -50, yPercent: -50 });
+
+            const onMouseEnter = (e: MouseEvent) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              
+              // Position box instantly to current cursor position
+              gsap.set(hoverBox, { x, y });
+              gsap.to(hoverBox, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.45,
+                ease: "power3.out"
+              });
+              video.play().catch(() => {});
+            };
+
+            const onMouseMove = (e: MouseEvent) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+
+              gsap.to(hoverBox, {
+                x,
+                y,
+                duration: 0.6,
+                ease: "power3.out",
+                overwrite: "auto"
+              });
+            };
+
+            const onMouseLeave = () => {
+              gsap.to(hoverBox, {
+                opacity: 0,
+                scale: 0.6,
+                duration: 0.4,
+                ease: "power3.in"
+              });
+              video.pause();
+            };
+
+            card.addEventListener("mouseenter", onMouseEnter as any);
+            card.addEventListener("mousemove", onMouseMove as any);
+            card.addEventListener("mouseleave", onMouseLeave as any);
+
+            eventListeners.push({ element: card, type: "mouseenter", handler: onMouseEnter });
+            eventListeners.push({ element: card, type: "mousemove", handler: onMouseMove });
+            eventListeners.push({ element: card, type: "mouseleave", handler: onMouseLeave });
+          }
+        });
+      }
+
+      // 6. Work Container Parallax Scroll
+      const workContainer = containerRef.current?.querySelector(".work-container");
+      if (workContainer) {
+        gsap.fromTo(workContainer,
+          { y: 80 },
+          {
+            y: -80,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".work-section",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      return () => {
+        eventListeners.forEach(({ element, type, handler }) => {
+          element.removeEventListener(type, handler);
+        });
+      };
     },
     { scope: containerRef }
   );
@@ -300,7 +408,7 @@ export default function Home() {
         <section className={`${styles.servicesSection} services-section`}>
           <div className={`${styles.servicesContainer} services-container`}>
             <h2 className={`${styles.servicesIntroText} services-text`}>
-              {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance.")}
+              {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance")}
               {" "}
               <span
                 className="word"
@@ -333,31 +441,200 @@ export default function Home() {
                 <div className={styles.servicesGrid}>
                   <div className={styles.servicesCol}>
                     <a href="#brand" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Brand Development
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Brand Development</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Brand Development</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                     <a href="#web" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Web
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Web</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Web</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                     <a href="#performance" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Performance Marketing
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Performance Marketing</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Performance Marketing</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                   </div>
                   <div className={styles.servicesCol}>
                     <a href="#automation" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Marketing Automation
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Marketing Automation</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Marketing Automation</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                     <a href="#content" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Content Production
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Content Production</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Content Production</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                     <a href="#social" className={styles.serviceListItem}>
-                      <span className={styles.arrowIcon}>↗</span> Social Media
+                      <span className="roll-text">
+                        <span className="roll-text-inner-dual">
+                          <span className="roll-text-primary">
+                            <span className="service-icon" />
+                            <span>Social Media</span>
+                          </span>
+                          <span className="roll-text-hover">
+                            <span className="service-icon" />
+                            <span>Social Media</span>
+                          </span>
+                        </span>
+                      </span>
                     </a>
                   </div>
                 </div>
                 <a href="#all-services" className={styles.allServicesButton}>
                   <span className="dot-indicator"></span>
-                  ALL SERVICES
+                  <span className="roll-text">
+                    <span className="roll-text-inner" data-text="ALL SERVICES">ALL SERVICES</span>
+                  </span>
                 </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================== WORK SECTION ================== */}
+        <section className={`${styles.workSection} work-section`}>
+          <div className={`${styles.workContainer} work-container`}>
+            <div className={styles.workHeader}>
+              <div className={styles.workHeaderTitle}>OUR WORK</div>
+              <a href="#work" className="roll-text">
+                <span className="roll-text-inner" data-text="SEE THE WORK">SEE THE WORK</span>
+              </a>
+            </div>
+
+            <div className={styles.workGrid}>
+              {/* Pioneer Card (Full Width) */}
+              <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`}>
+                <div className={styles.workCardImageWrapper}>
+                  <img
+                    src="/works/pioneer.jpg"
+                    alt="Pioneer Case Study"
+                    className={styles.workImage}
+                  />
+                  <div className={styles.viewBadge}>
+                    <span>VIEW</span>
+                  </div>
+                </div>
+                <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                  <div className={styles.hoverVideoInner}>
+                    <span className={styles.hoverVideoTitle}>Case Study Pioneer</span>
+                    <div className={styles.hoverVideoContainer}>
+                      <video
+                        src="/herobannervideo.mp4"
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Columns (LG and Benz) */}
+              <div className={styles.workColumns}>
+                {/* LG Card */}
+                <div className={`${styles.workCard} work-card`}>
+                  <div className={styles.workCardImageWrapper}>
+                    <img
+                      src="/works/lg.jpg"
+                      alt="LG Case Study"
+                      className={styles.workImage}
+                    />
+                    <div className={styles.viewBadge}>
+                      <span>VIEW</span>
+                    </div>
+                  </div>
+                  <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                    <div className={styles.hoverVideoInner}>
+                      <span className={styles.hoverVideoTitle}>Case Study LG</span>
+                      <div className={styles.hoverVideoContainer}>
+                        <video
+                          src="/herobannervideo.mp4"
+                          loop
+                          muted
+                          playsInline
+                          preload="auto"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Benz Card */}
+                <div className={`${styles.workCard} work-card`}>
+                  <div className={styles.workCardImageWrapper}>
+                    <img
+                      src="/works/benz.jpg"
+                      alt="Mercedes-Benz Case Study"
+                      className={styles.workImage}
+                    />
+                    <div className={styles.viewBadge}>
+                      <span>VIEW</span>
+                    </div>
+                  </div>
+                  <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                    <div className={styles.hoverVideoInner}>
+                      <span className={styles.hoverVideoTitle}>Case Study Benz</span>
+                      <div className={styles.hoverVideoContainer}>
+                        <video
+                          src="/herobannervideo.mp4"
+                          loop
+                          muted
+                          playsInline
+                          preload="auto"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

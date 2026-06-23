@@ -64,14 +64,16 @@ a {
 }
 
 .header-container {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 28px 48px;
+  align-items: center;
+  max-width: 1500px;
   height: 84px;
-  transition: padding 0.3s ease;
+  margin: 0 auto;
+  padding: 28px 0px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  transition: padding .3s;
+  display: flex;
 }
 
 .site-header.scrolled .header-container {
@@ -166,6 +168,108 @@ a {
   border-color: var(--accent-blue);
   box-shadow: 0 0 16px var(--accent-blue-glow);
   transform: translateY(-1px);
+}
+
+.cta-text {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  height: 1.2em;
+  line-height: 1.2em;
+  vertical-align: middle;
+}
+
+.cta-text-inner {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.cta-text-inner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent-blue);
+}
+
+.cta-button:hover .cta-text-inner {
+  transform: translateY(-100%);
+}
+
+/* Global rolling text hover transition for anchors */
+.roll-text {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  height: 1.2em;
+  line-height: 1.2em;
+  vertical-align: middle;
+}
+
+.roll-text-inner {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.roll-text-inner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent-blue);
+}
+
+a:hover .roll-text-inner {
+  transform: translateY(-100%);
+}
+
+.roll-text-inner-dual {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.roll-text-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roll-text-hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent-blue);
+  white-space: nowrap;
+}
+
+.service-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: currentColor;
+  mask: url('/arrow-icon.png') no-repeat center / contain;
+  -webkit-mask: url('/arrow-icon.png') no-repeat center / contain;
+}
+
+a:hover .roll-text-inner-dual {
+  transform: translateY(-100%);
 }
 
 /* Pulsing dot indicator */
