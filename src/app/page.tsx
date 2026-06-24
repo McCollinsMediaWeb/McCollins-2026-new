@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -11,11 +11,85 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const BRAND_ROW_1 = [
+  { src: "/home-page-brands/Toshiba_logo 1.png", alt: "Toshiba" },
+  { src: "/home-page-brands/Pioneer_logo 1.png", alt: "Pioneer" },
+  { src: "/home-page-brands/costa-coffee-white.png.png", alt: "Costa Coffee" },
+  { src: "/home-page-brands/mmi-white.png.png", alt: "MMI" },
+  { src: "/home-page-brands/oak-berry-white.png.png", alt: "Oak Berry" },
+  { src: "/home-page-brands/dxb-white.png.png", alt: "Dubai Airport Freezone" },
+  { src: "/home-page-brands/fujifilm-white.png.png", alt: "Fujifilm" },
+];
+
+const BRAND_ROW_2 = [
+  { src: "/home-page-brands/trader-vics-white.png.png", alt: "Trader Vic's" },
+  { src: "/home-page-brands/wagamama-white.png.png", alt: "Wagamama" },
+  { src: "/home-page-brands/rta-white.png.png", alt: "RTA" },
+  { src: "/home-page-brands/energizer-white.png.png", alt: "Energizer" },
+  { src: "/home-page-brands/damac-white.png.png", alt: "Damac" },
+  { src: "/home-page-brands/trader-vics-white.png.png", alt: "Trader Vic's" },
+  { src: "/home-page-brands/wagamama-white.png.png", alt: "Wagamama" },
+];
+
+const CORE_SERVICES = [
+  {
+    titleFirst: "Brand",
+    titleSecond: "DEVELOPMENT",
+    desc: "Crafting cohesive brand identities that resonate across cultures and command a global presence.",
+    img: "/home-page-services/brand_development.png"
+  },
+  {
+    titleFirst: "Web",
+    titleSecond: "DEVELOPMENT",
+    desc: "Developing high-performance, responsive websites engineered to convert global audiences into loyal customers.",
+    img: "/home-page-services/web_development.png"
+  },
+  {
+    titleFirst: "Social",
+    titleSecond: "MEDIA",
+    desc: "Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.",
+    img: "/home-page-services/social_media.png"
+  },
+  {
+    titleFirst: "Performance",
+    titleSecond: "MARKETING",
+    desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
+    img: "/home-page-services/performance_marketing.png"
+  },
+  {
+    titleFirst: "Marketing",
+    titleSecond: "AUTOMATION",
+    desc: "Driving sustainable growth through data-driven automation engineered for global consistency and local relevance.",
+    img: "/home-page-services/marketing_automation.png"
+  },
+  {
+    titleFirst: "Content",
+    titleSecond: "PRODUCTION",
+    desc: "Blending cinematic storytelling with strategic intent to produce content that resonates locally and scales globally.",
+    img: "/home-page-services/content_production.png"
+  }
+];
+
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const coverRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const servicesTrackRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handlePrevService = () => {
+    setActiveServiceIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNextService = () => {
+    setActiveServiceIndex((prev) => Math.min(CORE_SERVICES.length - 1, prev + 1));
+  };
 
   const logoPaths = [
     "M183.042 70.2614C181.038 59.3462 170.848 52.2684 159.805 54.1019C151.021 55.5515 144.455 62.9277 143.944 72.0521V245.884H90.9881V69.7071C89.5384 62.9277 85.1467 57.4276 78.7511 54.9546C72.8672 52.7374 66.3437 53.5049 61.0567 57.3423C56.6224 60.5827 53.1688 65.6992 52.9982 72.0095V245.842H0L0.0852928 66.5093C1.2365 56.5321 3.62421 47.5783 8.57014 39.0935C18.6752 21.6548 36.0285 7.96827 56.0254 4.38674C77.7705 0.506741 101.264 4.85573 117.551 20.2904C126.761 12.4025 137.292 7.15819 149.06 4.81314C173.15 -0.00488067 195.449 4.68518 213.698 21.2285L219.71 27.283C230.668 39.5199 236.722 54.912 236.722 71.4979V186.107L236.85 245.842H183.042V70.2188V70.2614Z",
@@ -340,6 +414,24 @@ export default function Home() {
         );
       }
 
+      // 7. Brands Horizontal Infinite Scroll
+      gsap.to(".track-left", {
+        xPercent: -50,
+        ease: "none",
+        duration: 35,
+        repeat: -1,
+      });
+
+      gsap.fromTo(".track-right",
+        { xPercent: -50 },
+        {
+          xPercent: 0,
+          ease: "none",
+          duration: 35,
+          repeat: -1,
+        }
+      );
+
       return () => {
         eventListeners.forEach(({ element, type, handler }) => {
           element.removeEventListener(type, handler);
@@ -347,6 +439,27 @@ export default function Home() {
       };
     },
     { scope: containerRef }
+  );
+
+  useGSAP(
+    () => {
+      const track = servicesTrackRef.current;
+      if (!track) return;
+
+      const firstCard = track.children[0] as HTMLElement;
+      if (!firstCard) return;
+
+      const cardWidth = firstCard.offsetWidth;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap) || 0;
+
+      gsap.to(track, {
+        x: -(cardWidth + gap) * activeServiceIndex,
+        duration: 0.85,
+        ease: "power3.out"
+      });
+    },
+    { dependencies: [activeServiceIndex], scope: containerRef }
   );
 
   return (
@@ -634,6 +747,113 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* ================== BRANDS SECTION ================== */}
+        <section className={`${styles.brandsSection} brands-section`}>
+          <div className={styles.brandsRow}>
+            <div className={`${styles.brandsTrack} track-left`}>
+              <div className={styles.brandsList}>
+                {BRAND_ROW_1.map((brand, i) => (
+                  <div key={`brand-1-${i}`} className={styles.brandLogoWrapper}>
+                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                  </div>
+                ))}
+              </div>
+              <div className={styles.brandsList} aria-hidden="true">
+                {BRAND_ROW_1.map((brand, i) => (
+                  <div key={`brand-1-dup-${i}`} className={styles.brandLogoWrapper}>
+                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.brandsRow}>
+            <div className={`${styles.brandsTrack} track-right`}>
+              <div className={styles.brandsList}>
+                {BRAND_ROW_2.map((brand, i) => (
+                  <div key={`brand-2-${i}`} className={styles.brandLogoWrapper}>
+                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                  </div>
+                ))}
+              </div>
+              <div className={styles.brandsList} aria-hidden="true">
+                {BRAND_ROW_2.map((brand, i) => (
+                  <div key={`brand-2-dup-${i}`} className={styles.brandLogoWrapper}>
+                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================== SERVICES SLIDER SECTION ================== */}
+        <section className={`${styles.servicesSliderSection} services-slider-section`}>
+          <div className={styles.servicesSliderContainer}>
+            {/* Left Controls Column */}
+            <div className={styles.servicesControlsCol}>
+              <div className={styles.servicesControlsHeader}>
+                <h2 className={styles.servicesSliderTitle}>
+                  <span className={styles.italicSerif}>Our</span>{" "}
+                  <span className={styles.boldDelight}>CORE Services</span>
+                </h2>
+              </div>
+              <div className={styles.servicesControlsFooter}>
+                <div className={styles.servicesSliderIndex}>
+                  {String(activeServiceIndex + 1).padStart(2, "0")} / {String(CORE_SERVICES.length).padStart(2, "0")}
+                </div>
+                <div className={styles.servicesSliderNavButtons}>
+                  <button
+                    onClick={handlePrevService}
+                    disabled={!mounted || activeServiceIndex === 0}
+                    className={`${styles.servicesSliderArrowBtn} ${(!mounted || activeServiceIndex === 0) ? styles.disabled : ""}`}
+                    aria-label="Previous Service"
+                  >
+                    ←
+                  </button>
+                  <button
+                    onClick={handleNextService}
+                    disabled={mounted && activeServiceIndex === CORE_SERVICES.length - 1}
+                    className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
+                    aria-label="Next Service"
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Cards Column */}
+            <div className={styles.servicesCardsCol}>
+              <div className={styles.servicesSliderViewport}>
+                <div className={styles.servicesSliderTrack} ref={servicesTrackRef}>
+                  {CORE_SERVICES.map((service, i) => (
+                    <div
+                      key={`service-card-${i}`}
+                      className={`${styles.serviceCard} ${i === activeServiceIndex ? styles.activeCard : ""}`}
+                    >
+                      <div className={styles.serviceCardImageWrapper}>
+                        <img
+                          src={service.img}
+                          alt={`${service.titleFirst} ${service.titleSecond}`}
+                          className={styles.serviceCardImage}
+                        />
+                      </div>
+                      <div className={styles.serviceCardContent}>
+                        <h3 className={styles.serviceCardTitle}>
+                          <span className={styles.italicSerif}>{service.titleFirst}</span>{" "}
+                          <span className={styles.boldDelight}>{service.titleSecond}</span>
+                        </h3>
+                        <p className={styles.serviceCardDesc}>{service.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
