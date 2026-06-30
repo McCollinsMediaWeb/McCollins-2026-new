@@ -811,15 +811,15 @@ export default function Home() {
                 <div className={styles.servicesSliderNavButtons}>
                   <button
                     onClick={handlePrevService}
-                    disabled={!mounted || activeServiceIndex === 0}
-                    className={`${styles.servicesSliderArrowBtn} ${(!mounted || activeServiceIndex === 0) ? styles.disabled : ""}`}
+                    disabled={mounted ? (activeServiceIndex === 0) : undefined}
+                    className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === 0) ? styles.disabled : ""}`}
                     aria-label="Previous Service"
                   >
                     ←
                   </button>
                   <button
                     onClick={handleNextService}
-                    disabled={mounted && activeServiceIndex === CORE_SERVICES.length - 1}
+                    disabled={mounted ? (activeServiceIndex === CORE_SERVICES.length - 1) : undefined}
                     className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
                     aria-label="Next Service"
                   >
