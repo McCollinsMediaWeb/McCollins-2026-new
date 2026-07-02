@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
-  const containerRef = useRef<HTMLFooterElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 
   useGSAP(
