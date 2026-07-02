@@ -22,7 +22,7 @@ const NAV_LINKS = [
 
 export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const tl = useRef<gsap.core.Timeline>();
+  const tl = useRef<gsap.core.Timeline | null>(null);
   const pathname = usePathname();
 
   // Prevent scrolling when open
