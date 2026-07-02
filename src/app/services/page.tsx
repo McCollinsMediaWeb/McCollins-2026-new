@@ -219,7 +219,7 @@ export default function ServicesPage() {
             <div className={styles.imageCol}>
               <Image
                 src={service.image}
-                alt={`${service.word1} ${service.word2}`}
+                alt={service.words.map(w => w.text).join(' ')}
                 fill
                 className={styles.serviceImage}
               />

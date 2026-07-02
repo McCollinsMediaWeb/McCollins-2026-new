@@ -90,7 +90,7 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
         },
         "-=0.5"
       );
-  }, { scope: overlayRef });
+  }, { scope: overlayRef, dependencies: [] });
 
   // Trigger animation based on isOpen prop
   useEffect(() => {
