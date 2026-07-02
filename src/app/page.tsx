@@ -31,6 +31,37 @@ const BRAND_ROW_2 = [
   { src: "/home-page-brands/wagamama-white.png.png", alt: "Wagamama" },
 ];
 
+const EXPERTISE_ITEMS = [
+  { img: "/home-page-expertise/image1.jpg", titleFirst: "REAL", titleSecond: "Estate" },
+  { img: "/home-page-expertise/image2.jpg", titleFirst: "LUXURY", titleSecond: "" },
+  { img: "/home-page-expertise/image3.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
+  { img: "/home-page-expertise/image4.jpg", titleFirst: "TECHNOLOGY", titleSecond: "" },
+];
+
+const WHY_CHOOSE_US_ITEMS = [
+  {
+    img: "/home-why-choose-us/image1.jpg",
+    titleBold: "DATA-DRIVEN",
+    titleItalic: "Approach",
+    titleOrder: "bold-first",
+    desc: "Fueling your brand's evolution with precision analytics and real-time market insights."
+  },
+  {
+    img: "/home-why-choose-us/image2.jpg",
+    titleItalic: "Creative &",
+    titleBold: "INNOVATIVE",
+    titleOrder: "italic-first",
+    desc: "Transforming disruptive ideas into high-impact digital experiences across every continent."
+  },
+  {
+    img: "/home-why-choose-us/image3.jpg",
+    titleBold: "TRANSPARENT",
+    titleItalic: "Reporting",
+    titleOrder: "bold-first",
+    desc: "Honest analytics and actionable insights to ensure your investment drives measurable impact."
+  }
+];
+
 const CORE_SERVICES = [
   {
     titleFirst: "Brand",
@@ -77,6 +108,8 @@ export default function Home() {
   const svgRef = useRef<SVGSVGElement>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const servicesTrackRef = useRef<HTMLDivElement>(null);
+  const [activeExpertiseIndex, setActiveExpertiseIndex] = useState(0);
+  const expertiseTrackRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -89,6 +122,14 @@ export default function Home() {
 
   const handleNextService = () => {
     setActiveServiceIndex((prev) => Math.min(CORE_SERVICES.length - 1, prev + 1));
+  };
+
+  const handlePrevExpertise = () => {
+    setActiveExpertiseIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNextExpertise = () => {
+    setActiveExpertiseIndex((prev) => Math.min(Math.max(0, EXPERTISE_ITEMS.length - 3), prev + 1));
   };
 
   const logoPaths = [
@@ -432,6 +473,130 @@ export default function Home() {
         }
       );
 
+      // 8. Core Services Slider Reveal
+      const servicesHeader = containerRef.current?.querySelector("." + styles.servicesControlsHeader);
+      const servicesFooter = containerRef.current?.querySelector("." + styles.servicesControlsFooter);
+      const serviceCards = containerRef.current?.querySelectorAll("." + styles.serviceCard);
+
+      if (servicesHeader) {
+        gsap.from(servicesHeader, {
+          scrollTrigger: {
+            trigger: ".services-slider-section",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
+
+      if (servicesFooter) {
+        gsap.from(servicesFooter, {
+          scrollTrigger: {
+            trigger: ".services-slider-section",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: "power3.out",
+        });
+      }
+
+      if (serviceCards && serviceCards.length > 0) {
+        serviceCards.forEach((card, index) => {
+          gsap.from(card.children, {
+            scrollTrigger: {
+              trigger: ".services-slider-section",
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.15,
+            ease: "power3.out",
+            clearProps: "all",
+          });
+        });
+      }
+
+      // 9. Expertise Section Reveal
+      const expertiseHeader = containerRef.current?.querySelector("." + styles.expertiseHeader);
+      const expertiseCards = containerRef.current?.querySelectorAll("." + styles.expertiseCard);
+
+      if (expertiseHeader) {
+        gsap.from(expertiseHeader, {
+          scrollTrigger: {
+            trigger: ".expertise-section",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
+
+      if (expertiseCards && expertiseCards.length > 0) {
+        expertiseCards.forEach((card, index) => {
+          gsap.from(card.children, {
+            scrollTrigger: {
+              trigger: ".expertise-section",
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.15,
+            ease: "power3.out",
+            clearProps: "all",
+          });
+        });
+      }
+
+      // 10. Why Choose Us Reveal
+      const whyChooseUsTitle = containerRef.current?.querySelector("." + styles.whyChooseUsTitle);
+      const whyChooseUsCards = containerRef.current?.querySelectorAll("." + styles.whyChooseUsCard);
+
+      if (whyChooseUsTitle) {
+        gsap.from(whyChooseUsTitle, {
+          scrollTrigger: {
+            trigger: ".why-choose-us-section",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
+
+      if (whyChooseUsCards && whyChooseUsCards.length > 0) {
+        whyChooseUsCards.forEach((card, index) => {
+          gsap.from(card.children, {
+            scrollTrigger: {
+              trigger: ".why-choose-us-section",
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.15,
+            ease: "power3.out",
+            clearProps: "all",
+          });
+        });
+      }
+
       return () => {
         eventListeners.forEach(({ element, type, handler }) => {
           element.removeEventListener(type, handler);
@@ -460,6 +625,27 @@ export default function Home() {
       });
     },
     { dependencies: [activeServiceIndex], scope: containerRef }
+  );
+
+  useGSAP(
+    () => {
+      const track = expertiseTrackRef.current;
+      if (!track) return;
+
+      const firstCard = track.children[0] as HTMLElement;
+      if (!firstCard) return;
+
+      const cardWidth = firstCard.offsetWidth;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap) || 0;
+
+      gsap.to(track, {
+        x: -(cardWidth + gap) * activeExpertiseIndex,
+        duration: 0.85,
+        ease: "power3.out"
+      });
+    },
+    { dependencies: [activeExpertiseIndex], scope: containerRef }
   );
 
   return (
@@ -857,6 +1043,88 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ================== EXPERTISE SECTION ================== */}
+        <section className={`${styles.expertiseSection} expertise-section`}>
+          <div className={styles.expertiseHeader}>
+            <h2 className={styles.expertiseTitle}>EXPERTISE</h2>
+            <div className={styles.expertiseNav}>
+              <button
+                onClick={handlePrevExpertise}
+                disabled={mounted ? (activeExpertiseIndex === 0) : undefined}
+                className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex === 0) ? styles.disabled : ""}`}
+                aria-label="Previous Expertise"
+              >
+                ←
+              </button>
+              <button
+                onClick={handleNextExpertise}
+                disabled={mounted ? (activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) : undefined}
+                className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) ? styles.disabled : ""}`}
+                aria-label="Next Expertise"
+              >
+                →
+              </button>
+            </div>
+          </div>
+          
+          <div className={styles.expertiseSliderViewport}>
+            <div className={styles.expertiseSliderTrack} ref={expertiseTrackRef}>
+              {EXPERTISE_ITEMS.map((item, i) => (
+                <div key={`expertise-card-${i}`} className={styles.expertiseCard}>
+                  <div className={styles.expertiseCardImageWrapper}>
+                    <img
+                      src={item.img}
+                      alt={`${item.titleFirst} ${item.titleSecond}`}
+                      className={styles.expertiseCardImage}
+                    />
+                  </div>
+                  <h3 className={styles.expertiseCardTitle}>
+                    <span className={styles.boldTitle}>{item.titleFirst}</span>{" "}
+                    {item.titleSecond && <span className={styles.italicTitle}>{item.titleSecond}</span>}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================== WHY CHOOSE US SECTION ================== */}
+        <section className={`${styles.whyChooseUsSection} why-choose-us-section`}>
+          <h2 className={styles.whyChooseUsTitle}>
+            <span className={styles.italicTitle}>Why</span>{" "}
+            <span className={styles.boldTitle}>CHOOSE US</span>
+          </h2>
+          <div className={styles.whyChooseUsGrid}>
+            {WHY_CHOOSE_US_ITEMS.map((item, i) => (
+              <div key={`why-choose-us-${i}`} className={`${styles.whyChooseUsCard} why-choose-us-card`}>
+                <div className={styles.whyChooseUsImageWrapper}>
+                  <img
+                    src={item.img}
+                    alt={item.titleBold}
+                    className={styles.whyChooseUsImage}
+                  />
+                </div>
+                <div className={styles.whyChooseUsCardContent}>
+                  <h3 className={styles.whyChooseUsCardTitle}>
+                    {item.titleOrder === "bold-first" ? (
+                      <>
+                        <span className={styles.boldTitle}>{item.titleBold}</span>{" "}
+                        <span className={styles.italicTitle}>{item.titleItalic}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className={styles.italicTitle}>{item.titleItalic}</span>{" "}
+                        <span className={styles.boldTitle}>{item.titleBold}</span>
+                      </>
+                    )}
+                  </h3>
+                  <p className={styles.whyChooseUsCardDesc}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
     </div>

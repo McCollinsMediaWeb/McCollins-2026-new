@@ -74,6 +74,8 @@ export const metadata: Metadata = {
   description: "Next-generation creative agency building immersive web experiences.",
 };
 
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,6 +87,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Header />
           {children}
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
