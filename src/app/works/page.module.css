@@ -1,0 +1,152 @@
+.worksContainer {
+  width: 100%;
+  background-color: #f6f6f6;
+  min-height: 100vh;
+}
+
+/* =========================================
+   Intro Section
+   ========================================= */
+.introSection {
+  padding: 180px 40px 100px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.introText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.2;
+  font-weight: 400;
+  color: #111111;
+  max-width: 1000px;
+  letter-spacing: -0.01em;
+}
+
+.wordWrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.2em;
+}
+
+.wordInner {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* =========================================
+   Gallery Section
+   ========================================= */
+.gallerySection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectBlock {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Will use aspect-ratio or min-height depending on image, 
+     but setting a reasonable default or letting image dictate height */
+}
+
+.projectImageWrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  line-height: 0; /* removes bottom gap for images */
+}
+
+.projectImage {
+  width: 100%;
+  max-height: calc(100vh - 100px);
+  object-fit: cover;
+  display: block;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+.projectOverlayText {
+  position: absolute;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.textBlack {
+  color: #111111;
+}
+
+/* Specific position adjustments for overlays based on design */
+.overlayMercedes {
+  top: 60%;
+}
+
+.overlayPioneer {
+  top: 55%;
+}
+
+.overlayOakberry {
+  bottom: 20%;
+}
+
+.overlayCleaning {
+  top: 25%;
+}
+
+.overlayFujifilm {
+  top: 20%;
+}
+
+.overlayLG {
+  bottom: 10%;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   Strategy Banner Section
+   ========================================= */
+.strategyBanner {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.strategyText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  max-width: 800px;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 768px) {
+  .introSection {
+    padding: 140px 20px 80px;
+  }
+}

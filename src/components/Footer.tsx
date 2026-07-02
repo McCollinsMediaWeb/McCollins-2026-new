@@ -71,7 +71,7 @@ export default function Footer() {
           <div className={styles.linksGrid}>
             <ul className={styles.linksList}>
               <li><Link href="/">Home</Link></li>
-              <li><Link href="/#work">Work</Link></li>
+              <li><Link href="/works">Work</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/services">Services</Link></li>
               <li><Link href="/#contact">Contact</Link></li>

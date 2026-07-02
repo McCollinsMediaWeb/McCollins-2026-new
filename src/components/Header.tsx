@@ -8,7 +8,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isLightMode = pathname === "/about" || pathname === "/services";
+  const isLightMode = pathname === "/about" || pathname === "/services" || pathname === "/works";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +86,7 @@ export default function Header() {
               <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
             </span>
           </Link>
-          <Link href="#work" className="nav-link">
+          <Link href="/works" className="nav-link">
             <span className="roll-text">
               <span className="roll-text-inner" data-text="WORK">WORK</span>
             </span>
@@ -132,7 +132,7 @@ export default function Header() {
             SERVICES
           </Link>
           <Link
-            href="#work"
+            href="/works"
             className="mobile-nav-link"
             onClick={toggleMobileMenu}
           >
