@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import styles from "./Footer.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,8 +11,11 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
   const containerRef = useRef<HTMLFooterElement>(null);
+  const pathname = usePathname();
 
   useGSAP(
     () => {
@@ -53,7 +57,7 @@ export default function Footer() {
         });
       }
     },
-    { scope: containerRef }
+    { scope: containerRef, dependencies: [pathname] }
   );
 
   return (
@@ -66,11 +70,11 @@ export default function Footer() {
           </h2>
           <div className={styles.linksGrid}>
             <ul className={styles.linksList}>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Work</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/#work">Work</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/#contact">Contact</Link></li>
             </ul>
             <ul className={styles.linksList}>
               <li><a href="#">Instagram ↗</a></li>

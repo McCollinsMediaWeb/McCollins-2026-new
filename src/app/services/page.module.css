@@ -1,0 +1,326 @@
+.servicesContainer {
+  background-color: #f6f6f6;
+  color: #111111;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 140px;
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.heroSection {
+  padding: 0 40px;
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(80px, 12vw, 220px);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #212121;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.titleChar {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.heroDesc {
+  max-width: 600px;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.4;
+  color: #777777;
+  font-weight: 400;
+}
+
+/* =========================================
+   Services List Section
+   ========================================= */
+.servicesSection {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.verticalLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(40px + 30%); /* Aligns with the end of the image column */
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.serviceRow {
+  display: grid;
+  grid-template-columns: 30% 1fr 20%;
+  gap: 60px;
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.serviceRow:last-child {
+  border-bottom: none;
+}
+
+.imageCol {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.serviceRow:hover .serviceImage {
+  transform: scale(1);
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+.serviceTitle {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.9;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleWordItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #212121;
+}
+
+.titleWordBold {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #212121;
+}
+
+.serviceDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+  max-width: 400px;
+}
+
+.includesCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.includesLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  color: #000000;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.includesList li {
+  font-size: 13px;
+  color: #777777;
+  padding: 6px 12px;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* =========================================
+   Ascension Model Section
+   ========================================= */
+.ascensionSection {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+.ascensionHeader {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  color: #212121;
+}
+
+.ascensionGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr 1fr;
+  gap: 20px;
+  height: 400px;
+}
+
+.ascensionCard {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.cardBlack {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.cardWhite {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cardImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.ascensionCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.cardImageWrapper + .cardContent {
+  color: #ffffff;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-size: 32px;
+}
+
+.cardDesc {
+  font-size: 13px;
+  opacity: 0.8;
+  max-width: 200px;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 1024px) {
+  .serviceRow {
+    grid-template-columns: 40% 1fr;
+    gap: 40px;
+  }
+  
+  .includesCol {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .includesList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .verticalLine {
+    left: calc(40px + 40%);
+  }
+
+  .ascensionGrid {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    grid-auto-rows: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesContainer {
+    padding-top: 100px;
+  }
+  
+  .heroSection, .servicesSection, .ascensionSection {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .verticalLine {
+    display: none;
+  }
+  
+  .serviceRow {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 60px 0;
+  }
+  
+  .contentCol {
+    padding-left: 0;
+  }
+  
+  .ascensionGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isLightMode = pathname === "/about" || pathname === "/services";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +23,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
+    <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""}`}>
       <div className="header-container">
         {/* Left: SVG Logo */}
         <Link href="/" className="logo-link" aria-label="McCollins Home">
@@ -73,12 +76,12 @@ export default function Header() {
 
         {/* Center: Desktop Nav Links */}
         <nav className="desktop-nav">
-          <Link href="#about" className="nav-link">
+          <Link href="/about" className="nav-link">
             <span className="roll-text">
               <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
             </span>
           </Link>
-          <Link href="#services" className="nav-link">
+          <Link href="/services" className="nav-link">
             <span className="roll-text">
               <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
             </span>
@@ -115,14 +118,14 @@ export default function Header() {
       <div className={`mobile-nav-dropdown ${isMobileMenuOpen ? "open" : ""}`}>
         <nav className="mobile-nav">
           <Link
-            href="#about"
+            href="/about"
             className="mobile-nav-link"
             onClick={toggleMobileMenu}
           >
             ABOUT
           </Link>
           <Link
-            href="#services"
+            href="/services"
             className="mobile-nav-link"
             onClick={toggleMobileMenu}
           >
