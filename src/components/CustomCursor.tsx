@@ -20,6 +20,9 @@ export default function CustomCursor() {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
+    // Set initial centering
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
     // Use gsap.quickTo for high performance following
     const xTo = gsap.quickTo(cursor, "x", { duration: 0.2, ease: "power3" });
     const yTo = gsap.quickTo(cursor, "y", { duration: 0.2, ease: "power3" });

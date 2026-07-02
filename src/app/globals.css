@@ -27,6 +27,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  cursor: url('/arrow-icon.png'), auto;
+}
+
+a, button, input, select, textarea {
+  cursor: url('/arrow-icon.png'), pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -450,10 +455,4 @@ html.lenis body {
   opacity: 0;
   transform: translateY(280px);
   will-change: transform, opacity;
-}
-
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
 }
