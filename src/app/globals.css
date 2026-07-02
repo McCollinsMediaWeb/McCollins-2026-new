@@ -451,3 +451,9 @@ html.lenis body {
   transform: translateY(280px);
   will-change: transform, opacity;
 }
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}

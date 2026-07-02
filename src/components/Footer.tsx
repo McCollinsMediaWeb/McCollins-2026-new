@@ -24,10 +24,10 @@ export default function Footer() {
             start: "top 80%",
             toggleActions: "play none none none",
           },
-          y: 60,
+          y: 50,
           opacity: 0,
-          duration: 1,
-          stagger: 0.1,
+          duration: 1.2,
+          stagger: 0.12,
           ease: "power3.out",
           clearProps: "all",
         });

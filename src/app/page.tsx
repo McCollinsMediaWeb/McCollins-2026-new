@@ -257,14 +257,14 @@ export default function Home() {
       tl.to(letters, {
         y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.08,
-        ease: "expo.out",
+        duration: 1.4,
+        stagger: 0.05,
+        ease: "power3.out",
       })
       .to(svg, {
         scale: 1,
         duration: 2,
-        ease: "expo.out",
+        ease: "power3.out",
       }, "<");
 
       // Tagline/Subtitle bar fade in & slide up
@@ -314,7 +314,7 @@ export default function Home() {
       gsap.from(".services-divider", {
         scrollTrigger: {
           trigger: ".services-section",
-          start: "top 75%",
+          start: "top 80%",
           toggleActions: "play none none none",
         },
         scaleX: 0,
@@ -326,12 +326,12 @@ export default function Home() {
       gsap.from(".services-footer", {
         scrollTrigger: {
           trigger: ".services-section",
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none none",
         },
         y: 40,
         opacity: 0,
-        duration: 1,
+        duration: 1.2,
         ease: "power3.out",
       });
 
@@ -364,15 +364,16 @@ export default function Home() {
       if (workCards && workCards.length > 0) {
         workCards.forEach((card) => {
           gsap.fromTo(card,
-            { y: 60, opacity: 0 },
+            { y: 50, opacity: 0, scale: 0.98 },
             {
               y: 0,
               opacity: 1,
+              scale: 1,
               duration: 1.2,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: card,
-                start: "top 88%",
+                start: "top 85%",
                 toggleActions: "play none none none",
               },
             }
@@ -482,12 +483,12 @@ export default function Home() {
         gsap.from(servicesHeader, {
           scrollTrigger: {
             trigger: ".services-slider-section",
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
           y: 40,
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           ease: "power3.out",
         });
       }
@@ -496,12 +497,12 @@ export default function Home() {
         gsap.from(servicesFooter, {
           scrollTrigger: {
             trigger: ".services-slider-section",
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
           y: 40,
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           delay: 0.2,
           ease: "power3.out",
         });
@@ -512,13 +513,14 @@ export default function Home() {
           gsap.from(card.children, {
             scrollTrigger: {
               trigger: ".services-slider-section",
-              start: "top 70%",
+              start: "top 80%",
               toggleActions: "play none none none",
             },
-            y: 60,
+            y: 50,
             opacity: 0,
-            duration: 1,
-            delay: index * 0.15,
+            scale: 0.96,
+            duration: 1.2,
+            delay: index * 0.12,
             ease: "power3.out",
             clearProps: "all",
           });
@@ -533,12 +535,12 @@ export default function Home() {
         gsap.from(expertiseHeader, {
           scrollTrigger: {
             trigger: ".expertise-section",
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
           y: 40,
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           ease: "power3.out",
         });
       }
@@ -548,13 +550,14 @@ export default function Home() {
           gsap.from(card.children, {
             scrollTrigger: {
               trigger: ".expertise-section",
-              start: "top 70%",
+              start: "top 80%",
               toggleActions: "play none none none",
             },
-            y: 60,
+            y: 50,
             opacity: 0,
-            duration: 1,
-            delay: index * 0.15,
+            scale: 0.96,
+            duration: 1.2,
+            delay: index * 0.12,
             ease: "power3.out",
             clearProps: "all",
           });
@@ -569,12 +572,12 @@ export default function Home() {
         gsap.from(whyChooseUsTitle, {
           scrollTrigger: {
             trigger: ".why-choose-us-section",
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
           y: 40,
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           ease: "power3.out",
         });
       }
@@ -584,13 +587,14 @@ export default function Home() {
           gsap.from(card.children, {
             scrollTrigger: {
               trigger: ".why-choose-us-section",
-              start: "top 70%",
+              start: "top 80%",
               toggleActions: "play none none none",
             },
-            y: 60,
+            y: 50,
             opacity: 0,
-            duration: 1,
-            delay: index * 0.15,
+            scale: 0.96,
+            duration: 1.2,
+            delay: index * 0.12,
             ease: "power3.out",
             clearProps: "all",
           });

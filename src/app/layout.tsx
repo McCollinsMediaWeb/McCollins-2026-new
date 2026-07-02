@@ -75,6 +75,7 @@ export const metadata: Metadata = {
 };
 
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -85,6 +86,7 @@ export default function RootLayout({
     <html lang="en" className={`${delight.variable} ${playfairDisplay.variable}`}>
       <body>
         <SmoothScroll>
+          <CustomCursor />
           <Header />
           {children}
           <Footer />

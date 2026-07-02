@@ -1,0 +1,32 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor.hovered {
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+@media (max-width: 1024px) {
+  .cursor {
+    display: none !important;
+  }
+}
+@media (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+}
