@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import NavigationMenu from "./NavigationMenu";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -95,7 +96,7 @@ export default function Header() {
 
         {/* Right: CTA & Hamburger Menu */}
         <div className="header-actions">
-          <Link href="#contact" className="cta-button">
+          <Link href="/contact" className="cta-button">
             <span className="dot-indicator"></span>
             <span className="cta-text">
               <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
@@ -114,40 +115,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      <div className={`mobile-nav-dropdown ${isMobileMenuOpen ? "open" : ""}`}>
-        <nav className="mobile-nav">
-          <Link
-            href="/about"
-            className="mobile-nav-link"
-            onClick={toggleMobileMenu}
-          >
-            ABOUT
-          </Link>
-          <Link
-            href="/services"
-            className="mobile-nav-link"
-            onClick={toggleMobileMenu}
-          >
-            SERVICES
-          </Link>
-          <Link
-            href="/works"
-            className="mobile-nav-link"
-            onClick={toggleMobileMenu}
-          >
-            WORK
-          </Link>
-          <Link
-            href="#contact"
-            className="mobile-cta-button"
-            onClick={toggleMobileMenu}
-          >
-            <span className="dot-indicator"></span>
-            LET'S TALK
-          </Link>
-        </nav>
-      </div>
+      {/* Full Screen Navigation Menu Overlay */}
+      <NavigationMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   );
 }

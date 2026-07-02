@@ -1,0 +1,299 @@
+.contactContainer {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   Hero Typography Section
+   ========================================= */
+.heroSection {
+  padding: 60px 40px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.heroText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(80px, 18vw, 300px);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.heroChar {
+  display: inline-block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+/* =========================================
+   Split Layout Section
+   ========================================= */
+.contentSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 80px 40px 140px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .contentSection {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+}
+
+/* --- Left Column: Details --- */
+.detailsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.detailBlock {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.detailTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.detailText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #aaaaaa;
+}
+
+/* --- Right Column: Form --- */
+.formCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.formHeader {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.formTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.formDesc {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.4;
+  color: #cccccc;
+  font-weight: 400;
+  max-width: 500px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.formInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333333;
+  color: #ffffff;
+  padding: 15px 0;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus {
+  border-bottom-color: #ffffff;
+}
+
+.formInput::placeholder {
+  color: #555555;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #555555;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkboxInput:checked {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.checkboxLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 12px;
+  color: #aaaaaa;
+  user-select: none;
+}
+
+.submitBtn {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #333333;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submitBtn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* =========================================
+   "OUR SERVICE" Section
+   ========================================= */
+.serviceBannerSection {
+  padding: 0 40px 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.serviceBanner {
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  border: 1px solid #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.serviceBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.serviceBanner:hover::before {
+  transform: scaleY(1);
+}
+
+.serviceBannerText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.serviceBanner:hover .serviceBannerText {
+  transform: scale(1.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 40px 20px 20px;
+  }
+  .contentSection {
+    padding: 60px 20px 80px;
+  }
+  .serviceBannerSection {
+    padding: 0 20px 80px;
+  }
+  .serviceBanner {
+    height: 400px;
+  }
+  .formFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+}
