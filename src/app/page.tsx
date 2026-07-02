@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 // Register ScrollTrigger plugin
@@ -856,9 +857,10 @@ export default function Home() {
               {/* Pioneer Card (Full Width) */}
               <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`}>
                 <div className={styles.workCardImageWrapper}>
-                  <img
+                  <Image
                     src="/works/pioneer.jpg"
                     alt="Pioneer Case Study"
+                    fill
                     className={styles.workImage}
                   />
                   <div className={styles.viewBadge}>
@@ -886,9 +888,10 @@ export default function Home() {
                 {/* LG Card */}
                 <div className={`${styles.workCard} work-card`}>
                   <div className={styles.workCardImageWrapper}>
-                    <img
+                    <Image
                       src="/works/lg.jpg"
                       alt="LG Case Study"
+                      fill
                       className={styles.workImage}
                     />
                     <div className={styles.viewBadge}>
@@ -914,9 +917,10 @@ export default function Home() {
                 {/* Benz Card */}
                 <div className={`${styles.workCard} work-card`}>
                   <div className={styles.workCardImageWrapper}>
-                    <img
+                    <Image
                       src="/works/benz.jpg"
                       alt="Mercedes-Benz Case Study"
+                      fill
                       className={styles.workImage}
                     />
                     <div className={styles.viewBadge}>
@@ -949,14 +953,14 @@ export default function Home() {
               <div className={styles.brandsList}>
                 {BRAND_ROW_1.map((brand, i) => (
                   <div key={`brand-1-${i}`} className={styles.brandLogoWrapper}>
-                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                   </div>
                 ))}
               </div>
               <div className={styles.brandsList} aria-hidden="true">
                 {BRAND_ROW_1.map((brand, i) => (
                   <div key={`brand-1-dup-${i}`} className={styles.brandLogoWrapper}>
-                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                   </div>
                 ))}
               </div>
@@ -968,14 +972,14 @@ export default function Home() {
               <div className={styles.brandsList}>
                 {BRAND_ROW_2.map((brand, i) => (
                   <div key={`brand-2-${i}`} className={styles.brandLogoWrapper}>
-                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                   </div>
                 ))}
               </div>
               <div className={styles.brandsList} aria-hidden="true">
                 {BRAND_ROW_2.map((brand, i) => (
                   <div key={`brand-2-dup-${i}`} className={styles.brandLogoWrapper}>
-                    <img src={brand.src} alt={brand.alt} className={styles.brandLogo} />
+                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                   </div>
                 ))}
               </div>
@@ -1029,9 +1033,10 @@ export default function Home() {
                       className={`${styles.serviceCard} ${i === activeServiceIndex ? styles.activeCard : ""}`}
                     >
                       <div className={styles.serviceCardImageWrapper}>
-                        <img
+                        <Image
                           src={service.img}
                           alt={`${service.titleFirst} ${service.titleSecond}`}
+                          fill
                           className={styles.serviceCardImage}
                         />
                       </div>
@@ -1079,9 +1084,10 @@ export default function Home() {
               {EXPERTISE_ITEMS.map((item, i) => (
                 <div key={`expertise-card-${i}`} className={styles.expertiseCard}>
                   <div className={styles.expertiseCardImageWrapper}>
-                    <img
+                    <Image
                       src={item.img}
                       alt={`${item.titleFirst} ${item.titleSecond}`}
+                      fill
                       className={styles.expertiseCardImage}
                     />
                   </div>
@@ -1105,9 +1111,10 @@ export default function Home() {
             {WHY_CHOOSE_US_ITEMS.map((item, i) => (
               <div key={`why-choose-us-${i}`} className={`${styles.whyChooseUsCard} why-choose-us-card`}>
                 <div className={styles.whyChooseUsImageWrapper}>
-                  <img
+                  <Image
                     src={item.img}
                     alt={item.titleBold}
+                    fill
                     className={styles.whyChooseUsImage}
                   />
                 </div>

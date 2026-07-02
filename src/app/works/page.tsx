@@ -128,9 +128,10 @@ export default function WorksPage() {
             <div className={styles.projectImageWrapper}>
               {/* Using a standard img tag with width 100% since we want natural height 
                   based on the full viewport width */}
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                fill
                 className={styles.projectImage}
               />
             </div>
@@ -150,9 +151,10 @@ export default function WorksPage() {
         {/* Voss Image */}
         <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
-            <img
+            <Image
               src="/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.jpg"
               alt="VOSS"
+              fill
               className={styles.projectImage}
             />
           </div>
@@ -161,9 +163,10 @@ export default function WorksPage() {
         {/* Worker Image */}
         <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
-            <img
+            <Image
               src="/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.jpg"
               alt="Worker Banner"
+              fill
               className={styles.projectImage}
             />
           </div>
@@ -172,9 +175,10 @@ export default function WorksPage() {
         {/* LG Section */}
         <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
-            <img
+            <Image
               src="/works-page/c4fc1a26bafd80625cdba46d24a0836d8b7e6c98.jpg"
               alt="LG"
+              fill
               className={styles.projectImage}
             />
           </div>

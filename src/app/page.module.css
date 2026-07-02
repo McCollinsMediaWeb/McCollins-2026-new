@@ -854,6 +854,7 @@
 }
 
 .brandLogoWrapper {
+  position: relative;
   width: 250px;
   height: 100px;
   display: flex;
@@ -883,6 +884,7 @@
     padding-right: 40px;
   }
   .brandLogoWrapper {
+    position: relative;
     width: 150px;
     height: 60px;
   }
@@ -1017,6 +1019,7 @@
 }
 
 .serviceCardImageWrapper {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -1192,6 +1195,7 @@
 }
 
 .expertiseCardImageWrapper {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -1306,6 +1310,7 @@
 }
 
 .whyChooseUsImageWrapper {
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;

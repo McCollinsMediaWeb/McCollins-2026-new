@@ -58,9 +58,10 @@
 
 .projectImageWrapper {
   width: 100%;
+  height: calc(100vh - 100px);
   position: relative;
   overflow: hidden;
-  line-height: 0; /* removes bottom gap for images */
+  line-height: 0;
 }
 
 .projectImage {
