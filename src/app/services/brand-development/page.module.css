@@ -1,0 +1,440 @@
+.container {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+  font-family: var(--font-playfair-display), serif;
+}
+
+/* Typography Globals for this page */
+.delightText {
+  font-family: var(--font-delight), sans-serif;
+}
+.playfairText {
+  font-family: var(--font-playfair-display), serif;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.heroSection {
+  padding: 80px 5% 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.heroHeader {
+  margin-bottom: 60px;
+}
+
+.heroTitle {
+  font-size: clamp(40px, 8.5vw, 150px);
+  line-height: 0.9;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.heroTitle span {
+  font-style: italic;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.heroTitleStrong {
+  font-weight: 700;
+  font-family: var(--font-delight), sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.heroSubtitleContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 18%;
+  margin-top: 10px;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.heroImageWrapper {
+  flex: 1.6;
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroRightContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+  padding-right: 5%;
+}
+
+.contactHeader {
+  margin-bottom: 80px;
+}
+
+.contactTitle {
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-family: var(--font-delight), sans-serif;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.letsTalkBtn {
+  background: #222;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.blueDot {
+  width: 6px;
+  height: 6px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.includesTitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: var(--font-delight), sans-serif;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #e5e5e5;
+  color: #333;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   CARDS SECTION
+   ========================================= */
+.cardsSection {
+  padding: 0 0 80px 0;
+  margin-top: 60px;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.cardsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.95rem;
+  color: #111;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 30px;
+  padding: 0 5%;
+  /* Shift left to match design showing cut off cards */
+  transform: translateX(-15%);
+  width: max-content;
+}
+
+.card {
+  width: 380px;
+  height: 480px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-delight), sans-serif;
+}
+
+.cardBlack {
+  background: #000;
+  color: #fff;
+}
+
+.cardGradient {
+  background: linear-gradient(180deg, #000000 0%, #000000 40%, #769eb8 100%);
+  color: #fff;
+}
+
+.cardWhite {
+  background: #f8f8f8;
+  color: #000;
+  border: 1px solid #eaeaea;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  line-height: 1.05;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.titleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.cardText {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 300;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* =========================================
+   GIF SECTION
+   ========================================= */
+.gifSection {
+  padding: 60px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.gifBox {
+  width: 100%;
+  height: 600px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  margin: 80px 0;
+}
+
+/* =========================================
+   ARAB MARKETS SECTION
+   ========================================= */
+.arabMarketsSection {
+  padding: 60px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.arabTitle {
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 80px;
+}
+
+.arabTitle strong {
+  font-weight: 800;
+}
+
+.arabTitle span {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.arabGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.arabTextBlock {
+  margin-bottom: 40px;
+}
+
+.arabBlockHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.blueDot {
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+}
+
+.arabBlockTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: var(--font-delight), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.arabBlockText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+.arabImageWrapper {
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
+  overflow: hidden;
+}
+
+.arabImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================
+   MASONRY SECTION
+   ========================================= */
+.masonrySection {
+  width: 100%;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fullWidthImage {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.logoEvolution {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 0; /* image has its own padding/bg */
+}
+
+.logoEvolution img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.masonryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 4px;
+}
+
+.masonryGrid img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 5rem;
+  }
+  .heroContent {
+    flex-direction: column;
+  }
+  .heroImageWrapper {
+    height: 400px;
+  }
+  .cardsWrapper {
+    transform: translateX(0);
+    padding: 0 5%;
+    overflow-x: auto;
+  }
+  .arabGrid {
+    grid-template-columns: 1fr;
+  }
+  .arabImageWrapper {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+  .masonryGrid {
+    grid-template-columns: 1fr;
+  }
+}

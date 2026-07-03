@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -20,6 +21,7 @@ const SERVICES = [
     ],
     desc: "Crafting cohesive brand identities that resonate with your target audience and stand the test of time.",
     includes: ["Brand Strategy", "Visual Identity", "Brand Guidelines"],
+    href: "/services/brand-development",
   },
   {
     image: "/home-page-services/web_development.png",
@@ -213,43 +215,53 @@ export default function ServicesPage() {
       <section className={styles.servicesSection}>
         <div className={styles.verticalLine}></div>
         
-        {SERVICES.map((service, index) => (
-          <div key={index} className={styles.serviceRow}>
-            
-            <div className={styles.imageCol}>
-              <Image
-                src={service.image}
-                alt={service.words.map(w => w.text).join(' ')}
-                fill
-                className={styles.serviceImage}
-              />
+        {SERVICES.map((service, index) => {
+          const ServiceContent = (
+            <>
+              <div className={styles.imageCol}>
+                <Image
+                  src={service.image}
+                  alt={service.words.map(w => w.text).join(' ')}
+                  fill
+                  className={styles.serviceImage}
+                />
+              </div>
+              
+              <div className={styles.contentCol}>
+                <h2 className={styles.serviceTitle}>
+                  {service.words.map((word, wIdx) => (
+                    <span 
+                      key={wIdx} 
+                      className={word.italic ? styles.titleWordItalic : styles.titleWordBold}
+                    >
+                      {word.text}
+                    </span>
+                  ))}
+                </h2>
+                <p className={styles.serviceDesc}>{service.desc}</p>
+              </div>
+              
+              <div className={styles.includesCol}>
+                <span className={styles.includesLabel}>Includes:</span>
+                <ul className={styles.includesList}>
+                  {service.includes.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          );
+
+          return service.href ? (
+            <Link href={service.href} key={index} className={styles.serviceRow} style={{ textDecoration: 'none', color: 'inherit' }}>
+              {ServiceContent}
+            </Link>
+          ) : (
+            <div key={index} className={styles.serviceRow}>
+              {ServiceContent}
             </div>
-            
-            <div className={styles.contentCol}>
-              <h2 className={styles.serviceTitle}>
-                {service.words.map((word, wIdx) => (
-                  <span 
-                    key={wIdx} 
-                    className={word.italic ? styles.titleWordItalic : styles.titleWordBold}
-                  >
-                    {word.text}
-                  </span>
-                ))}
-              </h2>
-              <p className={styles.serviceDesc}>{service.desc}</p>
-            </div>
-            
-            <div className={styles.includesCol}>
-              <span className={styles.includesLabel}>Includes:</span>
-              <ul className={styles.includesList}>
-                {service.includes.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       {/* Ascension Model Section */}
