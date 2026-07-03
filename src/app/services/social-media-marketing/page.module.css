@@ -951,3 +951,123 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   PARTNERS SECTION
+   ========================================= */
+.partnersSection {
+  background-color: #1a1a1a;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.partnersHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+.partnersTitle {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 0 0 15px 0;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.partnersTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.partnersTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.partnersSubtitle {
+  font-size: 1rem;
+  color: #a0a0a0;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 300;
+  margin: 0;
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #1a1a1a, transparent);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #1a1a1a, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee 20s linear infinite;
+  align-items: center;
+}
+
+.marqueeTrackReverse {
+  animation: scrollMarqueeReverse 25s linear infinite;
+}
+
+.marqueeTrack:hover,
+.marqueeTrackReverse:hover {
+  animation-play-state: paused;
+}
+
+.partnerLogoWrapper {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partnerLogo {
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partnerLogo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollMarqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
