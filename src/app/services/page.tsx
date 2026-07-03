@@ -41,6 +41,7 @@ const SERVICES = [
     ],
     desc: "Building authentic digital communities through culturally relevant content that sparks global engagement.",
     includes: ["Content Strategy", "Community Mgmt", "Influencer Mktg"],
+    href: "/services/social-media-marketing",
   },
   {
     image: "/service-page/image2.jpg",
@@ -50,6 +51,7 @@ const SERVICES = [
     ],
     desc: "Accelerating your ROI through data-driven search marketing campaigns engineered for maximum conversions.",
     includes: ["Search Marketing", "Display Ads", "Social Media Ads"],
+    href: "/services/performance-marketing",
   },
   {
     image: "/service-page/image3.jpg",
@@ -59,6 +61,7 @@ const SERVICES = [
     ],
     desc: "Driving sustainable growth through data-driven search marketing campaigns on a global scale at optimal cost.",
     includes: ["Email Marketing", "Lead Nurturing", "CRM Integration"],
+    href: "/services/marketing-automation",
   },
   {
     image: "/service-page/image4.jpg",
@@ -68,6 +71,7 @@ const SERVICES = [
     ],
     desc: "Driving sustainable growth through data-driven search marketing campaigns on a global scale at optimal cost.",
     includes: ["Video Production", "Photography", "Copywriting"],
+    href: "/services/content-production",
   },
   {
     image: "/service-page/image5.jpg",
@@ -77,6 +81,7 @@ const SERVICES = [
     ],
     desc: "Accelerating ROI through performance-based paid search campaigns carefully targeted for conversions.",
     includes: ["Search Campaigns", "Display Campaigns", "Video Campaigns"],
+    href: "/services/google-ads",
   },
   {
     image: "/service-page/image6.jpg",
@@ -86,6 +91,7 @@ const SERVICES = [
     ],
     desc: "Driving sustainable growth through data-driven search engine optimization on a global scale at optimal cost.",
     includes: ["Keyword Strategy", "On-Page SEO", "Technical SEO"],
+    href: "/services/seo",
   },
 ];
 

@@ -10,7 +10,7 @@ export default function MasonrySection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.utils.toArray(".masonry-reveal").forEach((img: unknown) => {
+    gsap.utils.toArray(".masonry-reveal").forEach((img: any) => {
       gsap.from(img, {
         scrollTrigger: {
           trigger: img,

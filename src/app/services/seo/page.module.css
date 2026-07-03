@@ -1,0 +1,555 @@
+.container {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+  font-family: var(--font-playfair-display), serif;
+}
+
+/* Typography Globals for this page */
+.delightText {
+  font-family: var(--font-delight), sans-serif;
+}
+.playfairText {
+  font-family: var(--font-playfair-display), serif;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.heroSection {
+  padding: 120px 5% 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.heroHeader {
+  margin-bottom: 60px;
+}
+
+.heroTitle {
+  font-size: clamp(40px, 8.5vw, 150px);
+  line-height: 0.9;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.heroTitle span {
+  font-style: italic;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.heroTitleStrong {
+  font-weight: 700;
+  font-family: var(--font-delight), sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.heroSubtitleContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 18%;
+  margin-top: 15px;
+}
+
+.heroSubtitle {
+  font-size: 0.95rem;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  max-width: 380px;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.heroImageWrapper {
+  flex: 1.6;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroRightContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 0;
+  padding-left: 5%;
+}
+
+.contactHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.contactTitle {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin: 0;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+}
+
+.letsTalkBtn {
+  background: #222;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 500;
+}
+
+.blueDot {
+  width: 6px;
+  height: 6px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.includesTitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: var(--font-delight), sans-serif;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #e5e5e5;
+  color: #333;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   TRUSTED BRANDS SECTION
+   ========================================= */
+.trustedBrandsSection {
+  padding: 0 0 80px 0;
+  margin-top: 60px;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.trustedTitle {
+  font-size: clamp(30px, 4vw, 50px);
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 60px 5%;
+}
+
+.trustedTitle span {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.cardsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.95rem;
+  color: #111;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.trustedGallery {
+  display: flex;
+  gap: 30px;
+  padding: 0 5%;
+  transform: translateX(-15%);
+  width: max-content;
+}
+
+.trustedCard {
+  width: 380px;
+  height: 480px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-delight), sans-serif;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.cardBlack {
+  background: #000;
+  color: #fff;
+}
+
+.cardWhite {
+  background: #f4f4f4;
+  color: #000;
+}
+
+.cardImageBg {
+  color: #fff;
+}
+.cardImageBg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  line-height: 1.1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.titleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.cardText {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 300;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* =========================================
+   GIF SECTION
+   ========================================= */
+.gifSection {
+  padding: 40px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.gifBox {
+  width: 100%;
+  height: 600px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+/* =========================================
+   WEBSITES WORK SIMPLY SECTION
+   ========================================= */
+.workSimplySection {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 1600px;
+  margin: 80px auto;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.workSimplyHeader {
+  flex: 0 0 380px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px 60px 20px;
+  border-right: 1px solid rgba(0,0,0,0.15);
+}
+
+.workHeaderContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.workSimplyTitle {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: var(--font-playfair-display), serif;
+  margin: 0 0 100px 0;
+}
+
+.workSimplyTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.workNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.pageIndicator {
+  font-size: 0.9rem;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.navArrows {
+  display: flex;
+  gap: 15px;
+}
+
+.navArrow {
+  background: none;
+  border: 1px solid #333;
+  width: 45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navArrow:hover {
+  background: #f0f0f0;
+}
+
+.workSimplyGallery {
+  display: flex;
+  gap: 30px;
+  padding: 60px 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.workSimplyGallery::-webkit-scrollbar {
+  display: none;
+}
+
+.workCard {
+  min-width: 450px;
+  height: 300px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-delight), sans-serif;
+}
+
+.workCardBlack {
+  background: #111;
+  color: #fff;
+}
+
+.workCardGrey {
+  background: #4b4f58;
+  color: #fff;
+}
+
+.workCardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.workCardTextContainer {
+  align-self: flex-end;
+  width: 65%;
+}
+
+.workCardText {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 300;
+  opacity: 0.8;
+  margin: 0;
+  text-align: left;
+}
+
+/* =========================================
+   TECHNOLOGIES SECTION
+   ========================================= */
+.techSection {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.techTitle {
+  font-size: 1.5rem;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 60px;
+}
+
+.techTitle span {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.techLogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.techLogo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.techLogo:hover {
+  opacity: 1;
+}
+
+/* =========================================
+   PORTFOLIO GALLERY SECTION
+   ========================================= */
+.portfolioSection {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 80px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolioImageWrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolioImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 5rem;
+  }
+  .heroContent {
+    flex-direction: column;
+  }
+  .heroImageWrapper {
+    height: 400px;
+  }
+  .workCard {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+  .heroSubtitleContainer {
+    justify-content: center;
+    padding-right: 0;
+  }
+  .heroSubtitle {
+    text-align: center;
+  }
+  .trustedTitle, .techTitle {
+    font-size: 1.2rem;
+  }
+  .workSimplyHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .workSimplyTitle {
+    font-size: 2.5rem;
+  }
+  .techLogos {
+    gap: 30px;
+  }
+  .techLogo {
+    height: 40px;
+  }
+  .portfolioImageWrapper {
+    padding: 20px;
+  }
+}
