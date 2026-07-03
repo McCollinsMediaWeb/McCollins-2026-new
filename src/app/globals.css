@@ -91,13 +91,12 @@ a {
 .logo-link {
   display: flex;
   align-items: center;
-  color: #212121;
+  color: #ffffff;
   transition: color 0.3s ease, opacity 0.2s ease;
 }
 
 .logo-link:hover {
-  color: #ffffff;
-  opacity: 0.95;
+  opacity: 0.8;
 }
 
 .header-logo {
@@ -116,7 +115,7 @@ a {
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.15em;
-  color: #212121;
+  color: #ffffff;
   transition: color 0.3s ease;
   position: relative;
   padding: 6px 0;

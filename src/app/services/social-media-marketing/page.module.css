@@ -553,3 +553,372 @@
     padding: 20px;
   }
 }
+
+/* =========================================
+   WHAT WE OFFER SECTION
+   ========================================= */
+.whatWeOfferSection {
+  padding: 100px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.whatWeOfferHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.whatWeOfferTitle {
+  font-size: clamp(3rem, 5vw, 5rem);
+  color: #111;
+  margin: 0 0 40px 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.whatWeOfferTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.whatWeOfferTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.whatWeOfferSubheader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #111;
+}
+
+.whatWeOfferEmail {
+  text-decoration: none;
+  color: #111;
+  text-transform: lowercase;
+}
+
+.offerCardsContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+
+.offerCardsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.offerCard {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 300px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+.offerCardCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+.offerCardBlack {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+.offerCardBlue {
+  background-color: #0011ff;
+  color: #fff;
+}
+
+.offerCardLightGrey {
+  background-color: #f7f7f7;
+}
+
+.offerCardMidGrey {
+  background-color: #b3b3b3;
+}
+
+.offerCardPattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.offerCardTitle {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.offerCardTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.offerCardTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* =========================================
+   SOCIAL MEDIA ROUTE SECTION
+   ========================================= */
+.routeSection {
+  padding: 100px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.routeLeft {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.routeTitle {
+  font-size: clamp(3rem, 4vw, 4.5rem);
+  line-height: 1.1;
+  color: #111;
+  margin: 0;
+}
+
+.routeTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.routeTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.routeArrow {
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+
+.arrowLine {
+  height: 1px;
+  background-color: #111;
+  flex: 1;
+}
+
+.arrowHead {
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #111;
+  border-right: 1px solid #111;
+  transform: rotate(45deg);
+  margin-left: -4px;
+}
+
+.routeRight {
+  flex: 0 0 50%;
+}
+
+.routeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.routeListItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.routeListItem:last-child {
+  border-bottom: none;
+}
+
+.bullet {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #111;
+}
+
+.routeText {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #111;
+}
+
+.routeTextItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.routeTextStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.routeTextRegular {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
+}
+
+/* =========================================
+   SOCIAL METRICS MAP SECTION
+   ========================================= */
+.metricsSection {
+  background-color: #050505;
+  color: #fff;
+  padding: 100px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricsTitle {
+  font-size: clamp(2rem, 3vw, 3rem);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.metricsTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.metricsTitleStrong {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.metricsTable {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.metricsRow {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metricsHeaderRow {
+  border-bottom: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  align-items: center;
+}
+
+.colJourneyHeader {
+  flex: 0 0 20%;
+  padding: 20px 20px 20px 0;
+}
+
+.metricsHeaderGroup {
+  flex: 0 0 60%;
+  display: flex;
+  background-color: #808080;
+  padding: 15px 0;
+}
+
+.colMiddleHeader {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.colImpactHeader {
+  flex: 0 0 20%;
+  padding: 20px 0 20px 20px;
+}
+
+.metricsDataRow {
+  padding: 30px 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+.metricsDataRow:last-child {
+  border-bottom: none;
+}
+
+.colJourneyData {
+  flex: 0 0 20%;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.journeyLabel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.journeyIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #072a71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.colMiddleData {
+  flex: 0 0 15%;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+.colImpactData {
+  flex: 0 0 20%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}

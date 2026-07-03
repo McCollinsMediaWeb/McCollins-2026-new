@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import HeroSection from "./components/HeroSection";
-import TrustedBrandsSection from "./components/TrustedBrandsSection";
+import WhatWeOfferSection from "./components/WhatWeOfferSection";
 import GifSection from "./components/GifSection";
-import WebsitesWorkSimplySection from "./components/WebsitesWorkSimplySection";
-import TechnologiesSection from "./components/TechnologiesSection";
+import SocialMediaRouteSection from "./components/SocialMediaRouteSection";
+import SocialMetricsMapSection from "./components/SocialMetricsMapSection";
 import PortfolioGallerySection from "./components/PortfolioGallerySection";
 
 export const metadata = {
@@ -18,10 +18,10 @@ export default function SocialMediaMarketingPage() {
   return (
     <main className={styles.container}>
       <HeroSection />
-      <TrustedBrandsSection />
+      <WhatWeOfferSection />
       <GifSection />
-      <WebsitesWorkSimplySection />
-      <TechnologiesSection />
+      <SocialMediaRouteSection />
+      <SocialMetricsMapSection />
       <PortfolioGallerySection />
     </main>
   );

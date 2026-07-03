@@ -71,7 +71,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image 
-            src="/web-development-page/mainhero.jpg" 
+            src="/social-media-marketing/Group-1000002160.jpg" 
             alt="Hand holding modern smartphone with app design"
             fill
             className={styles.heroImage}

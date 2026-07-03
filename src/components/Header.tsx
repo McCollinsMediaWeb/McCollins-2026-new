@@ -9,7 +9,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isLightMode = pathname === "/about" || pathname === "/services" || pathname === "/works" || pathname === "/services/brand-development" || pathname === "/services/web-development";
+  const isLightMode = pathname === "/about" || pathname === "/services" || pathname === "/works" || pathname.startsWith("/services/");
 
   useEffect(() => {
     const handleScroll = () => {
