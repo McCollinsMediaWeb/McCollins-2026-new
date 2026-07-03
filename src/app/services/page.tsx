@@ -31,6 +31,7 @@ const SERVICES = [
     ],
     desc: "Creating high-performance, responsive platforms engineered for convert goals and maximum user engagement.",
     includes: ["UX/UI Design", "Web Development", "Mobile App Dev"],
+    href: "/services/web-development",
   },
   {
     image: "/service-page/image7.jpg",

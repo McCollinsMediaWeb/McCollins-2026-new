@@ -16,17 +16,13 @@ export const metadata = {
 
 export default function WebDevelopmentPage() {
   return (
-    <>
-      <Header />
-      <main className={styles.container}>
-        <HeroSection />
-        <TrustedBrandsSection />
-        <GifSection />
-        <WebsitesWorkSimplySection />
-        <TechnologiesSection />
-        <PortfolioGallerySection />
-      </main>
-      <Footer />
-    </>
+    <main className={styles.container}>
+      <HeroSection />
+      <TrustedBrandsSection />
+      <GifSection />
+      <WebsitesWorkSimplySection />
+      <TechnologiesSection />
+      <PortfolioGallerySection />
+    </main>
   );
 }
