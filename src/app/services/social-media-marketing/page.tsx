@@ -4,10 +4,9 @@ import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import HeroSection from "./components/HeroSection";
 import WhatWeOfferSection from "./components/WhatWeOfferSection";
-import GifSection from "./components/GifSection";
 import SocialMediaRouteSection from "./components/SocialMediaRouteSection";
 import SocialMetricsMapSection from "./components/SocialMetricsMapSection";
-import PortfolioGallerySection from "./components/PortfolioGallerySection";
+import TwoColumnGallerySection from "./components/TwoColumnGallerySection";
 
 export const metadata = {
   title: "Social Media Marketing - McCollins Media",
@@ -19,10 +18,9 @@ export default function SocialMediaMarketingPage() {
     <main className={styles.container}>
       <HeroSection />
       <WhatWeOfferSection />
-      <GifSection />
       <SocialMediaRouteSection />
       <SocialMetricsMapSection />
-      <PortfolioGallerySection />
+      <TwoColumnGallerySection />
     </main>
   );
 }

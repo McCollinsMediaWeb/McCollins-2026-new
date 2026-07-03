@@ -922,3 +922,32 @@
   display: flex;
   align-items: center;
 }
+
+/* =========================================
+   TWO COLUMN GALLERY SECTION
+   ========================================= */
+.twoColGallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 2px; 
+  padding: 2px 0;
+  background-color: #fff;
+}
+
+.galleryItem {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.galleryImage {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .twoColGallery {
+    grid-template-columns: 1fr;
+  }
+}
