@@ -1,28 +1,23 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import styles from "./page.module.css";
+
 import HeroSection from "./components/HeroSection";
-import TrustedBrandsSection from "./components/TrustedBrandsSection";
-import GifSection from "./components/GifSection";
-import WebsitesWorkSimplySection from "./components/WebsitesWorkSimplySection";
-import TechnologiesSection from "./components/TechnologiesSection";
-import PortfolioGallerySection from "./components/PortfolioGallerySection";
+import CardsSection from "./components/CardsSection";
+import TimelineSection from "./components/TimelineSection";
+import WhatSetsUsApartSection from "./components/WhatSetsUsApartSection";
 
 export const metadata = {
-  title: "Content Production - McCollins Media",
-  description: "Scalable, secure, and user-centric website and app design and development services.",
+  title: "Content Production | McCollins Media",
+  description: "Video, social, and explainer campaigns engineered for maximum conversion and global scale.",
 };
 
 export default function ContentProductionPage() {
   return (
     <main className={styles.container}>
       <HeroSection />
-      <TrustedBrandsSection />
-      <GifSection />
-      <WebsitesWorkSimplySection />
-      <TechnologiesSection />
-      <PortfolioGallerySection />
+      <CardsSection />
+      <TimelineSection />
+      <WhatSetsUsApartSection />
     </main>
   );
 }
