@@ -1,0 +1,273 @@
+.container {
+  width: 100%;
+  /* background-color: #000000; */
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* =========================================
+   Hero Section (Composite Image Star & Silhouette)
+   ========================================= */
+.heroSection {
+  position: relative;
+  width: 100%;
+  /* background-color: #000000; */
+  background: url("/mercedez-benz/f4aadf4003bed89bfde699b3a237355e570ae20a.png") center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* overflow: hidden; */
+  height: 100vh;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1672px;
+  height: auto;
+  max-height: 95vh;
+  aspect-ratio: 1672 / 941;
+  margin: 0 auto;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.heroTextContainer {
+  position: absolute;
+  bottom: 12%;
+  right: 8%;
+  text-align: left;
+}
+
+.heroTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(20px, 3.2vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.italicExperience {
+  font-family: var(--font-playfair-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* =========================================
+   Metadata & Intro Text Section (CLIENT / SCOPE)
+   ========================================= */
+.infoSection {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.infoSectionInner {
+  padding: 80px 8% 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.metaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */
+}
+
+.metaItem {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(15px, 1.1vw, 19px);
+  font-weight: 300;
+  color: #111111;
+  line-height: 1.6;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.descriptionParagraph {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(15px, 1.1vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: #111111;
+}
+
+/* =========================================
+   IMG/VIDEO Section (VOSS VIDEO)
+   ========================================= */
+.videoSection {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.videoSectionInner {
+  padding: 40px 8% 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.videoBlock {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoText {
+  color: #ffffff;
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(18px, 3vw, 36px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   SLS AMG Gallery Grid Section
+   ========================================= */
+.gallerySection {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.gallerySectionInner {
+  padding: 40px 8% 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.galleryCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.galleryCard:hover .galleryImage {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   Fujifilm Transition Banner Section
+   ========================================= */
+.nextSection {
+  /* background-color: #e8f7f8; */
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nextHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 8% 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+.nextTitleLink {
+  transition: color 0.3s ease;
+}
+
+.nextTitleLink:hover {
+  color: var(--accent-blue);
+}
+
+.nextImageWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nextImage {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nextSection:hover .nextImage {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+@media (max-width: 991px) {
+  .infoSectionInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 100px 5% 60px;
+  }
+
+  .gallerySectionInner {
+    padding: 20px 5% 100px;
+    gap: 24px;
+  }
+
+  .videoSectionInner {
+    padding: 20px 5% 40px;
+  }
+
+  .nextHeader {
+    padding: 30px 5% 15px;
+  }
+
+  .nextImageWrapper {
+    padding: 40px 0 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallerySectionInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .heroTextContainer {
+    bottom: 8%;
+    right: 5%;
+  }
+}

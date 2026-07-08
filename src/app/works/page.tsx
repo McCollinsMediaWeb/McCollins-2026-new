@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -16,33 +17,40 @@ const PROJECTS = [
     image: "/works-page/d3fc37894018a631c1400f7ae570d140d0ec2f5e.jpg",
     title: "MERCEDES BENZ",
     overlayClass: styles.overlayMercedes,
+    url: "/case-study/mercedes-benz"
   },
   {
     image: "/works-page/cb931c85f24c34cc3def0c3fa02a900ea0ecb736.jpg",
     title: "PIONEER",
     overlayClass: styles.overlayPioneer,
+    url: "/case-study/pioneer"
   },
   {
     image: "/works-page/bd87becf55144a3bce6a18b824230d7343b57bdc.jpg",
     title: "OAKBERRY",
     overlayClass: styles.overlayOakberry,
+    url: "/case-study/oakberry"
   },
   {
     image: "/works-page/2cf8dfd3ab0890e5a30b9eeb6c2730d1d3edb2f5.jpg",
     title: "CLEANING SUPERSTORE",
     overlayClass: styles.overlayCleaning,
+    url: "/case-study/cleaning-superstore"
   },
   {
     image: "/works-page/3331c29f24403f6859d094be0242dd357d818563.jpg",
     title: "FUJIFILM",
     overlayClass: styles.overlayFujifilm,
     textClass: styles.textBlack,
+    url: "/case-study/fujifilm"
   },
 ];
 
 export default function WorksPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -65,7 +73,7 @@ export default function WorksPage() {
 
     // Project Blocks Animation
     const projectBlocks = containerRef.current.querySelectorAll("." + styles.projectBlock);
-    
+
     projectBlocks.forEach((block) => {
       const image = block.querySelector("." + styles.projectImage);
       const overlayText = block.querySelector("." + styles.projectOverlayText);
@@ -108,7 +116,7 @@ export default function WorksPage() {
 
   return (
     <div className={styles.worksContainer} ref={containerRef}>
-      
+
       {/* Intro Section */}
       <section className={styles.introSection}>
         <h1 className={styles.introText}>
@@ -122,9 +130,9 @@ export default function WorksPage() {
 
       {/* Full-Bleed Gallery */}
       <section className={styles.gallerySection}>
-        
+
         {PROJECTS.map((project, idx) => (
-          <div key={idx} className={styles.projectBlock}>
+          <div key={idx} className={styles.projectBlock} onClick={() => router.push(project.url)}>
             <div className={styles.projectImageWrapper}>
               {/* Using a standard img tag with width 100% since we want natural height 
                   based on the full viewport width */}
@@ -183,7 +191,7 @@ export default function WorksPage() {
             />
           </div>
           <div className={`${styles.projectOverlayText} ${styles.overlayLG} ${styles.textBlack}`}>
-            ELEVATING THE<br/>LG UAE Experience
+            ELEVATING THE<br />LG UAE Experience
           </div>
         </div>
 
