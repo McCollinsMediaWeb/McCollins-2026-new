@@ -10,6 +10,7 @@
 .delightText {
   font-family: var(--font-delight), sans-serif;
 }
+
 .playfairText {
   font-family: var(--font-playfair-display), serif;
 }
@@ -170,8 +171,8 @@
   margin-top: 60px;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .trustedTitle {
@@ -238,6 +239,7 @@
 .cardImageBg {
   color: #fff;
 }
+
 .cardImageBg img {
   position: absolute;
   top: 0;
@@ -314,8 +316,8 @@
   align-items: stretch;
   max-width: 1600px;
   margin: 80px auto;
-  border-top: 1px solid rgba(0,0,0,0.15);
-  border-bottom: 1px solid rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workSimplyHeader {
@@ -323,7 +325,7 @@
   display: flex;
   flex-direction: column;
   padding: 60px 40px 60px 20px;
-  border-right: 1px solid rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workHeaderContent {
@@ -388,6 +390,7 @@
   overflow-x: auto;
   scrollbar-width: none;
 }
+
 .workSimplyGallery::-webkit-scrollbar {
   display: none;
 }
@@ -473,6 +476,7 @@
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
+
 .techLogo:hover {
   opacity: 1;
 }
@@ -510,12 +514,15 @@
   .heroTitle {
     font-size: 5rem;
   }
+
   .heroContent {
     flex-direction: column;
   }
+
   .heroImageWrapper {
     height: 400px;
   }
+
   .workCard {
     min-width: 350px;
   }
@@ -525,31 +532,182 @@
   .heroTitle {
     font-size: 3.5rem;
   }
+
   .heroSubtitleContainer {
     justify-content: center;
     padding-right: 0;
   }
+
   .heroSubtitle {
     text-align: center;
   }
-  .trustedTitle, .techTitle {
+
+  .trustedTitle,
+  .techTitle {
     font-size: 1.2rem;
   }
+
   .workSimplyHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
+
   .workSimplyTitle {
     font-size: 2.5rem;
   }
+
   .techLogos {
     gap: 30px;
   }
+
   .techLogo {
     height: 40px;
   }
+
   .portfolioImageWrapper {
     padding: 20px;
   }
+}
+
+
+
+.heroRightContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 0;
+  gap: 60px;
+}
+
+@media (min-width: 992px) {
+  .heroRightContent {
+    padding-left: 40px;
+    border-left: none;
+  }
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactRow {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.contactBtnRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.projectsTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-delight), sans-serif;
+  color: #666666;
+  margin: 0;
+}
+
+.tagsList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.projectTag {
+  background-color: #e5e5e7;
+  color: #4b4b4d;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: monospace;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.projectTag:hover {
+  background-color: #d1d1d6;
+}
+
+
+.cardsWrapper {
+  display: flex;
+  gap: 30px;
+  padding: 0 5%;
+  /* Shift left to match design showing cut off cards */
+  transform: translateX(-15%);
+  width: max-content;
+}
+
+.card {
+  width: 380px;
+  height: 480px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-delight), sans-serif;
+}
+
+.cardBlack {
+  background: #000;
+  color: #fff;
+}
+
+.cardGradient {
+  background: linear-gradient(180deg, #000000 0%, #000000 40%, #769eb8 100%);
+  color: #fff;
+}
+
+.cardWhite {
+  background: #f8f8f8;
+  color: #000;
+  border: 1px solid #eaeaea;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  line-height: 1.05;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.titleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.cardText {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-weight: 300;
+  opacity: 0.85;
+  margin: 0;
 }

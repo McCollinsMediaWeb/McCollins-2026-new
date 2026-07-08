@@ -86,8 +86,8 @@ const SERVICES = [
   {
     image: "/service-page/image6.jpg",
     words: [
-      { text: "SE", italic: false },
-      { text: "O", italic: true }
+      { text: "SEO", italic: false },
+      // { text: "O", italic: true }
     ],
     desc: "Driving sustainable growth through data-driven search engine optimization on a global scale at optimal cost.",
     includes: ["Keyword Strategy", "On-Page SEO", "Technical SEO"],
@@ -135,7 +135,7 @@ export default function ServicesPage() {
     serviceRows.forEach((row) => {
       const image = row.querySelector("." + styles.imageCol);
       const content = row.querySelectorAll("." + styles.serviceTitle + ", ." + styles.serviceDesc + ", ." + styles.includesCol);
-      
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: row,
@@ -202,7 +202,7 @@ export default function ServicesPage() {
 
   return (
     <div className={styles.servicesContainer} ref={containerRef}>
-      
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <h1 className={styles.heroTitle}>
@@ -213,7 +213,7 @@ export default function ServicesPage() {
           ))}
         </h1>
         <p className={styles.heroDesc}>
-          Precision Solutions. Proven Results. <br/>
+          Precision Solutions. Proven Results. <br />
           Where data-driven precision meets creative excellence to deliver high-impact outcomes for the world's most discerning brands.
         </p>
       </section>
@@ -221,7 +221,7 @@ export default function ServicesPage() {
       {/* Services List Section */}
       <section className={styles.servicesSection}>
         <div className={styles.verticalLine}></div>
-        
+
         {SERVICES.map((service, index) => {
           const ServiceContent = (
             <>
@@ -233,12 +233,12 @@ export default function ServicesPage() {
                   className={styles.serviceImage}
                 />
               </div>
-              
+
               <div className={styles.contentCol}>
                 <h2 className={styles.serviceTitle}>
                   {service.words.map((word, wIdx) => (
-                    <span 
-                      key={wIdx} 
+                    <span
+                      key={wIdx}
                       className={word.italic ? styles.titleWordItalic : styles.titleWordBold}
                     >
                       {word.text}
@@ -247,7 +247,7 @@ export default function ServicesPage() {
                 </h2>
                 <p className={styles.serviceDesc}>{service.desc}</p>
               </div>
-              
+
               <div className={styles.includesCol}>
                 <span className={styles.includesLabel}>Includes:</span>
                 <ul className={styles.includesList}>
@@ -274,16 +274,16 @@ export default function ServicesPage() {
       {/* Ascension Model Section */}
       <section className={styles.ascensionSection}>
         <h2 className={styles.ascensionHeader}>The McCollins Ascension Model</h2>
-        
+
         <div className={styles.ascensionGrid}>
-          
+
           <div className={`${styles.ascensionCard} ${styles.cardBlack}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Decode</h3>
               <p className={styles.cardDesc}>Uncovering insights and data architecture.</p>
             </div>
           </div>
-          
+
           <div className={styles.ascensionCard}>
             <div className={styles.cardImageWrapper}>
               <Image src="/service-page/image9.jpg" alt="Design" fill className={styles.cardImage} />
@@ -293,14 +293,14 @@ export default function ServicesPage() {
               <p className={styles.cardDesc}>Crafting high-impact creative solutions.</p>
             </div>
           </div>
-          
+
           <div className={`${styles.ascensionCard} ${styles.cardWhite}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Drive</h3>
               <p className={styles.cardDesc}>Activating multi-channel performance.</p>
             </div>
           </div>
-          
+
           <div className={styles.ascensionCard}>
             <div className={styles.cardImageWrapper}>
               <Image src="/service-page/image8.jpg" alt="Dominate" fill className={styles.cardImage} />
@@ -310,10 +310,10 @@ export default function ServicesPage() {
               <p className={styles.cardDesc}>Scaling outcomes and market leadership.</p>
             </div>
           </div>
-          
+
         </div>
       </section>
-      
+
     </div>
   );
 }

@@ -394,16 +394,17 @@
    WHAT SETS US APART SECTION
    ========================================= */
 .setsSection {
-  /* background-color: #1c1c1e; */
+  background-color: #1f1f1f;
   color: #ffffff;
   padding: 120px 5% 80px;
+  border-top: 1px solid #0000001a;
 }
 
 .setsInner {
   max-width: 1600px;
   margin: 0 auto;
-  background-color: #1f1f1f;
-  padding: 140px 5% 80px;
+  /* background-color: #1f1f1f; */
+  padding: 40px 5% 80px;
 }
 
 .setsTitle {
@@ -501,8 +502,8 @@
   margin-top: 60px;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .cardsSectionHeader {
@@ -574,4 +575,23 @@
   font-weight: 300;
   opacity: 0.85;
   margin: 0;
+}
+
+
+.trustedTitle {
+  font-size: clamp(30px, 4vw, 50px);
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 60px 5%;
+}
+
+.trustedTitle span {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
 }

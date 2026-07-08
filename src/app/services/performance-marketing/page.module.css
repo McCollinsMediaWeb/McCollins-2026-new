@@ -10,6 +10,7 @@
 .delightText {
   font-family: var(--font-delight), sans-serif;
 }
+
 .playfairText {
   font-family: var(--font-playfair-display), serif;
 }
@@ -170,8 +171,8 @@
   margin-top: 60px;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .trustedTitle {
@@ -202,17 +203,19 @@
   color: #111;
   font-weight: 500;
   letter-spacing: -0.01em;
+  margin-top: 50px;
 }
 
-.trustedGallery {
+.cardsWrapper {
   display: flex;
   gap: 30px;
   padding: 0 5%;
+  /* Shift left to match design showing cut off cards */
   transform: translateX(-15%);
   width: max-content;
 }
 
-.trustedCard {
+.card {
   width: 380px;
   height: 480px;
   padding: 40px;
@@ -220,9 +223,6 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: var(--font-delight), sans-serif;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
 }
 
 .cardBlack {
@@ -230,36 +230,20 @@
   color: #fff;
 }
 
-.cardWhite {
-  background: #f4f4f4;
-  color: #000;
-}
-
-.cardImageBg {
+.cardGradient {
+  background: linear-gradient(180deg, #000000 0%, #000000 40%, #769eb8 100%);
   color: #fff;
 }
-.cardImageBg img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
 
-.cardContent {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+.cardWhite {
+  background: #f8f8f8;
+  color: #000;
+  border: 1px solid #eaeaea;
 }
 
 .cardTitle {
-  font-size: 1.6rem;
-  line-height: 1.1;
+  font-size: 1.8rem;
+  line-height: 1.05;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -275,7 +259,7 @@
 
 .cardText {
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.45;
   font-weight: 300;
   opacity: 0.85;
   margin: 0;
@@ -314,8 +298,8 @@
   align-items: stretch;
   max-width: 1600px;
   margin: 80px auto;
-  border-top: 1px solid rgba(0,0,0,0.15);
-  border-bottom: 1px solid rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workSimplyHeader {
@@ -323,7 +307,7 @@
   display: flex;
   flex-direction: column;
   padding: 60px 40px 60px 20px;
-  border-right: 1px solid rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workHeaderContent {
@@ -388,6 +372,7 @@
   overflow-x: auto;
   scrollbar-width: none;
 }
+
 .workSimplyGallery::-webkit-scrollbar {
   display: none;
 }
@@ -473,6 +458,7 @@
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
+
 .techLogo:hover {
   opacity: 1;
 }
@@ -510,12 +496,15 @@
   .heroTitle {
     font-size: 5rem;
   }
+
   .heroContent {
     flex-direction: column;
   }
+
   .heroImageWrapper {
     height: 400px;
   }
+
   .workCard {
     min-width: 350px;
   }
@@ -525,31 +514,228 @@
   .heroTitle {
     font-size: 3.5rem;
   }
+
   .heroSubtitleContainer {
     justify-content: center;
     padding-right: 0;
   }
+
   .heroSubtitle {
     text-align: center;
   }
-  .trustedTitle, .techTitle {
+
+  .trustedTitle,
+  .techTitle {
     font-size: 1.2rem;
   }
+
   .workSimplyHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
+
   .workSimplyTitle {
     font-size: 2.5rem;
   }
+
   .techLogos {
     gap: 30px;
   }
+
   .techLogo {
     height: 40px;
   }
+
   .portfolioImageWrapper {
     padding: 20px;
   }
 }
+
+/* =========================================
+   SOLUTIONS SECTION
+   ========================================= */
+.solutionsSection {
+  padding: 80px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.solutionsContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.solutionsLeft {
+  flex: 1.2;
+}
+
+.solutionsRight {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.solutionsTitle {
+  font-size: clamp(32px, 3.5vw, 55px);
+  line-height: 1.05;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.solutionsTitleBold {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 800;
+  color: #000;
+}
+
+.solutionsTitleItalic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.solutionsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px;
+}
+
+.solutionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.solutionsIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8eff5; /* Soft blue-grey background */
+  border-radius: 4px;
+  color: #334155; /* Dark grey stroke/fill */
+  flex-shrink: 0;
+}
+
+.solutionText {
+  font-size: 0.85rem;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.solutionsImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.48; /* 550x370 ratio */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.solutionsImage {
+  object-fit: cover;
+}
+
+.dividerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+}
+
+/* Brands section styles */
+.solutionsBrandsSection {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.brandsRowStatic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  width: 100%;
+}
+
+.brandLogoWrapperStatic {
+  flex: 0 0 120px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandLogoInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.brandLogoInverted {
+  object-fit: contain;
+  filter: invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.brandLogoNormal {
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.brandLogoInverted:hover,
+.brandLogoNormal:hover {
+  opacity: 1;
+}
+
+/* Responsive adjustment for solutions */
+@media (max-width: 1024px) {
+  .solutionsContent {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .solutionsLeft, .solutionsRight {
+    width: 100%;
+    flex: none;
+  }
+
+  .solutionsImageWrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .solutionsList {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .solutionsTitle {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .brandLogoWrapperStatic {
+    flex: 0 0 80px;
+    height: 35px;
+  }
+
+  .brandsRowStatic {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}

@@ -15,7 +15,7 @@ export default function CardsSection() {
 
   useGSAP(() => {
     const cards = gsap.utils.toArray(".brand-card");
-    
+
     gsap.from(cards, {
       scrollTrigger: {
         trigger: containerRef.current,
@@ -31,6 +31,10 @@ export default function CardsSection() {
 
   return (
     <section className={styles.cardsSection} ref={containerRef}>
+      <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
+        Video Storytelling<br />
+        FOR Tech <span>Marketing</span>
+      </h2>
       <div className={styles.cardsSectionHeader}>
         <div className={styles.cardsSectionTitle}>Content Production</div>
         <div className={styles.cardsSectionEmail}>info@mccollinsmedia.com</div>
@@ -44,10 +48,10 @@ export default function CardsSection() {
             High-impact animated and live-action explainer videos that simplify complex ideas and drive viewer conversions.
           </p>
         </div>
-        
+
         <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
           <h3 className={styles.cardTitle}>
-            SOCIAL MEDIA<br/>
+            SOCIAL MEDIA<br />
             <span className={styles.titleItalic}>&amp; Campaigns</span>
           </h3>
           <p className={styles.cardText}>
@@ -66,7 +70,7 @@ export default function CardsSection() {
 
         <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
           <h3 className={styles.cardTitle}>
-            COMPANY ID<br/>
+            COMPANY ID<br />
             <span className={styles.titleItalic}>&amp; Culture</span>
           </h3>
           <p className={styles.cardText}>

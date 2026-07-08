@@ -42,76 +42,65 @@ export default function TrustedBrandsSection() {
   return (
     <section className={styles.trustedBrandsSection} ref={containerRef}>
       <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
-        TRUSTED BY LARGEST BRANDS<br/>
-        FOR WEBSITE <span>Development</span>
+        Google Ads Management:<br />
+        Drive More <span>Conversion</span>
       </h2>
-      
+
       <div className={styles.cardsSectionHeader}>
-        <div>Website/App Design</div>
+        <div>Our Services</div>
         <div>info@mccollinsmedia.com</div>
       </div>
-      
-      <div className={styles.trustedGallery}>
-        {/* Card 1 (Cut off on left) */}
-        <div className={`${styles.trustedCard} ${styles.cardBlack} trusted-card-anim`}>
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              <span className={styles.titleItalic}>Custom</span><br/>WEB DEV
-            </h3>
-            <p className={styles.cardText}>
-              Tailored and developed solutions that will ensure that you stand out and build your brand.
-            </p>
-          </div>
+
+
+
+      <div className={styles.cardsWrapper}>
+        <div className={`${styles.card} ${styles.cardBlack} brand-card`}>
+          <h3 className={styles.cardTitle}>
+            <span className={styles.titleItalic}>Campaign</span> Planning
+          </h3>
+          <p className={styles.cardText}>
+            Defining the campaign goals, target audience, and budget.
+          </p>
         </div>
 
-        {/* Card 2: TECHNOLOGY First */}
-        <div className={`${styles.trustedCard} ${styles.cardImageBg} trusted-card-anim`}>
-          <Image src="/web-development-page/a7154514d69f6021c641cb61019bf95e8a0eb79e.png" alt="Technology First" fill />
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              TECHNOLOGY <span className={styles.titleItalic}>First</span>
-            </h3>
-            <p className={styles.cardText}>
-              Choose from a wide range of customizable website features that will make your site unique.
-            </p>
-          </div>
+        <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
+          <h3 className={styles.cardTitle}>
+            <span className={styles.titleItalic}>Keyword</span> RESEARCH
+          </h3>
+          <p className={styles.cardText}>
+            Identifying the keywords that people use to
+            search for the products or services being
+            advertised.
+          </p>
         </div>
 
-        {/* Card 3: Annual MAINTENANCE */}
-        <div className={`${styles.trustedCard} ${styles.cardWhite} trusted-card-anim`}>
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              <span className={styles.titleItalic}>Annual</span> MAINTENANCE
-            </h3>
-            <p className={styles.cardText}>
-              Enjoy hassle-free website maintenance that will keep your site running smoothly.
-            </p>
-          </div>
+        <div className={`${styles.card} ${styles.cardWhite} brand-card`}>
+          <h3 className={styles.cardTitle}>
+            Campaign <span className={styles.titleItalic}>Setup</span>
+          </h3>
+          <p className={styles.cardText}>
+            Setting up the campaign structure, ad groups
+            and targeting options.
+          </p>
         </div>
 
-        {/* Card 4: SEO Friendly */}
-        <div className={`${styles.trustedCard} ${styles.cardImageBg} trusted-card-anim`}>
-          <Image src="/web-development-page/6d606ea59bad1d35476e75ce4157348c50f19eaa.png" alt="SEO Friendly" fill />
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              SEO <span className={styles.titleItalic}>Friendly</span>
-            </h3>
-            <p className={styles.cardText}>
-              Optimize your website for better search engine ranking with our cutting-edge SEO techniques.
-            </p>
-          </div>
+        <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
+          <h3 className={styles.cardTitle}>
+            <span className={styles.titleItalic}>Ad</span> Creation
+          </h3>
+          <p className={styles.cardText}>
+            Creating compelling and relevant ads that resonate with the target audience.
+          </p>
         </div>
 
-        {/* Card 5: Safe AND SECURE */}
-        <div className={`${styles.trustedCard} ${styles.cardBlack} trusted-card-anim`}>
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              <span className={styles.titleItalic}>Safe</span> AND SECURE
-            </h3>
-            <p className={styles.cardText}>
-              We deliver a complete brand platform with tools, and templates, enabling you to implement the new brand identity safely and professionally across every channel.
-            </p>
-          </div>
+        <div className={`${styles.card} ${styles.cardBlack} brand-card`}>
+          <h3 className={styles.cardTitle}>
+            BID <span className={styles.titleItalic}>Management</span>
+          </h3>
+          <p className={styles.cardText}>
+            Setting the right bid amounts for each ad and keyword to optimize ad
+            performance.
+          </p>
         </div>
       </div>
     </section>

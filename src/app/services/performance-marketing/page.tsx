@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import HeroSection from "./components/HeroSection";
+import SolutionsSection from "./components/SolutionsSection";
 import TrustedBrandsSection from "./components/TrustedBrandsSection";
 import GifSection from "./components/GifSection";
 import WebsitesWorkSimplySection from "./components/WebsitesWorkSimplySection";
@@ -18,11 +19,9 @@ export default function PerformanceMarketingPage() {
   return (
     <main className={styles.container}>
       <HeroSection />
+      <SolutionsSection />
       <TrustedBrandsSection />
-      <GifSection />
-      <WebsitesWorkSimplySection />
-      <TechnologiesSection />
-      <PortfolioGallerySection />
     </main>
   );
 }
+
