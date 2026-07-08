@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -112,6 +113,8 @@ export default function Home() {
   const [activeExpertiseIndex, setActiveExpertiseIndex] = useState(0);
   const expertiseTrackRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -262,11 +265,11 @@ export default function Home() {
         stagger: 0.05,
         ease: "power3.out",
       })
-      .to(svg, {
-        scale: 1,
-        duration: 2,
-        ease: "power3.out",
-      }, "<");
+        .to(svg, {
+          scale: 1,
+          duration: 2,
+          ease: "power3.out",
+        }, "<");
 
       // Tagline/Subtitle bar fade in & slide up
       if (subtitleBar) {
@@ -392,7 +395,7 @@ export default function Home() {
               const rect = card.getBoundingClientRect();
               const x = e.clientX - rect.left;
               const y = e.clientY - rect.top;
-              
+
               // Position box instantly to current cursor position
               gsap.set(hoverBox, { x, y });
               gsap.to(hoverBox, {
@@ -401,7 +404,7 @@ export default function Home() {
                 duration: 0.45,
                 ease: "power3.out"
               });
-              video.play().catch(() => {});
+              video.play().catch(() => { });
             };
 
             const onMouseMove = (e: MouseEvent) => {
@@ -696,170 +699,201 @@ export default function Home() {
       </div>
 
       {/* ================== VIDEO PARALLAX SECTION ================== */}
-        <section className={`${styles.videoSection} video-section`}>
-          <video
-            src="/herobannervideo.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={`${styles.videoElement} parallax-video`}
-          />
-          <div className={styles.videoOverlay}></div>
-        </section>
+      <section className={`${styles.videoSection} video-section`}>
+        <video
+          src="/herobannervideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={`${styles.videoElement} parallax-video`}
+        />
+        <div className={styles.videoOverlay}></div>
+      </section>
 
-        {/* ================== SERVICES DIRECTORY SECTION ================== */}
-        <section className={`${styles.servicesSection} services-section`}>
-          <div className={`${styles.servicesContainer} services-container`}>
-            <h2 className={`${styles.servicesIntroText} services-text`}>
-              {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance")}
-              {" "}
+      {/* ================== SERVICES DIRECTORY SECTION ================== */}
+      <section className={`${styles.servicesSection} services-section`}>
+        <div className={`${styles.servicesContainer} services-container`}>
+          <h2 className={`${styles.servicesIntroText} services-text`}>
+            {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance")}
+            {" "}
+            <span
+              className="word"
+              style={{
+                position: "relative",
+                display: "inline-block",
+                overflow: "hidden",
+                verticalAlign: "bottom",
+              }}
+            >
               <span
-                className="word"
+                className="word-child"
                 style={{
                   position: "relative",
                   display: "inline-block",
-                  overflow: "hidden",
-                  verticalAlign: "bottom",
                 }}
               >
-                <span
-                  className="word-child"
-                  style={{
-                    position: "relative",
-                    display: "inline-block",
-                  }}
-                >
-                  <a href="#services" className={styles.italicUnderline}>
-                    our services.
-                  </a>
-                </span>
-              </span>
-            </h2>
-
-            <div className={`${styles.servicesDivider} services-divider`}></div>
-
-            <div className={`${styles.servicesFooter} services-footer`}>
-              <div className={styles.footerTitle}>WHAT WE DO BEST</div>
-              <div className={styles.footerRight}>
-                <div className={styles.servicesGrid}>
-                  <div className={styles.servicesCol}>
-                    <a href="#brand" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Brand Development</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Brand Development</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                    <a href="#web" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Web</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Web</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                    <a href="#performance" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Performance Marketing</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Performance Marketing</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                  </div>
-                  <div className={styles.servicesCol}>
-                    <a href="#automation" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Marketing Automation</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Marketing Automation</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                    <a href="#content" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Content Production</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Content Production</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                    <a href="#social" className={styles.serviceListItem}>
-                      <span className="roll-text">
-                        <span className="roll-text-inner-dual">
-                          <span className="roll-text-primary">
-                            <span className="service-icon" />
-                            <span>Social Media</span>
-                          </span>
-                          <span className="roll-text-hover">
-                            <span className="service-icon" />
-                            <span>Social Media</span>
-                          </span>
-                        </span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <a href="#all-services" className={styles.allServicesButton}>
-                  <span className="dot-indicator"></span>
-                  <span className="roll-text">
-                    <span className="roll-text-inner" data-text="ALL SERVICES">ALL SERVICES</span>
-                  </span>
+                <a href="#services" className={styles.italicUnderline}>
+                  our services.
                 </a>
-              </div>
-            </div>
-          </div>
-        </section>
+              </span>
+            </span>
+          </h2>
 
-        {/* ================== WORK SECTION ================== */}
-        <section className={`${styles.workSection} work-section`}>
-          <div className={`${styles.workContainer} work-container`}>
-            <div className={styles.workHeader}>
-              <div className={styles.workHeaderTitle}>OUR WORK</div>
-              <a href="#work" className="roll-text">
-                <span className="roll-text-inner" data-text="SEE THE WORK">SEE THE WORK</span>
+          <div className={`${styles.servicesDivider} services-divider`}></div>
+
+          <div className={`${styles.servicesFooter} services-footer`}>
+            <div className={styles.footerTitle}>WHAT WE DO BEST</div>
+            <div className={styles.footerRight}>
+              <div className={styles.servicesGrid}>
+                <div className={styles.servicesCol}>
+                  <a href="#brand" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Brand Development</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Brand Development</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#web" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Web</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Web</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#performance" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Performance Marketing</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Performance Marketing</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                </div>
+                <div className={styles.servicesCol}>
+                  <a href="#automation" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Marketing Automation</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Marketing Automation</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#content" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Content Production</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Content Production</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#social" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Social Media</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Social Media</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <a href="#all-services" className={styles.allServicesButton}>
+                <span className="dot-indicator"></span>
+                <span className="roll-text">
+                  <span className="roll-text-inner" data-text="ALL SERVICES">ALL SERVICES</span>
+                </span>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className={styles.workGrid}>
-              {/* Pioneer Card (Full Width) */}
-              <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`}>
+      {/* ================== WORK SECTION ================== */}
+      <section className={`${styles.workSection} work-section`}>
+        <div className={`${styles.workContainer} work-container`}>
+          <div className={styles.workHeader}>
+            <div className={styles.workHeaderTitle}>OUR WORK</div>
+            <a href="#work" className="roll-text">
+              <span className="roll-text-inner" data-text="SEE THE WORK">SEE THE WORK</span>
+            </a>
+          </div>
+
+          <div className={styles.workGrid}>
+            {/* Pioneer Card (Full Width) */}
+            <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`} onClick={() => router.push("/case-study/pioneer")}>
+              <div className={styles.workCardImageWrapper}>
+                <Image
+                  src="/works/pioneer.jpg"
+                  alt="Pioneer Case Study"
+                  fill
+                  className={styles.workImage}
+                />
+                <div className={styles.viewBadge}>
+                  <span>VIEW</span>
+                </div>
+              </div>
+              <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                <div className={styles.hoverVideoInner}>
+                  <span className={styles.hoverVideoTitle}>Case Study Pioneer</span>
+                  <div className={styles.hoverVideoContainer}>
+                    <video
+                      src="/herobannervideo.mp4"
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Columns (LG and Benz) */}
+            <div className={styles.workColumns}>
+              {/* LG Card */}
+              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/lg")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/pioneer.jpg"
-                    alt="Pioneer Case Study"
+                    src="/works/lg.jpg"
+                    alt="LG Case Study"
                     fill
                     className={styles.workImage}
                   />
@@ -869,7 +903,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.hoverVideoBox} hover-video-box`}>
                   <div className={styles.hoverVideoInner}>
-                    <span className={styles.hoverVideoTitle}>Case Study Pioneer</span>
+                    <span className={styles.hoverVideoTitle}>Case Study LG</span>
                     <div className={styles.hoverVideoContainer}>
                       <video
                         src="/herobannervideo.mp4"
@@ -883,261 +917,230 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Bottom Columns (LG and Benz) */}
-              <div className={styles.workColumns}>
-                {/* LG Card */}
-                <div className={`${styles.workCard} work-card`}>
-                  <div className={styles.workCardImageWrapper}>
-                    <Image
-                      src="/works/lg.jpg"
-                      alt="LG Case Study"
-                      fill
-                      className={styles.workImage}
-                    />
-                    <div className={styles.viewBadge}>
-                      <span>VIEW</span>
-                    </div>
-                  </div>
-                  <div className={`${styles.hoverVideoBox} hover-video-box`}>
-                    <div className={styles.hoverVideoInner}>
-                      <span className={styles.hoverVideoTitle}>Case Study LG</span>
-                      <div className={styles.hoverVideoContainer}>
-                        <video
-                          src="/herobannervideo.mp4"
-                          loop
-                          muted
-                          playsInline
-                          preload="auto"
-                        />
-                      </div>
-                    </div>
+              {/* Benz Card */}
+              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/mercedes-benz")}>
+                <div className={styles.workCardImageWrapper}>
+                  <Image
+                    src="/works/benz.jpg"
+                    alt="Mercedes-Benz Case Study"
+                    fill
+                    className={styles.workImage}
+                  />
+                  <div className={styles.viewBadge}>
+                    <span>VIEW</span>
                   </div>
                 </div>
-
-                {/* Benz Card */}
-                <div className={`${styles.workCard} work-card`}>
-                  <div className={styles.workCardImageWrapper}>
-                    <Image
-                      src="/works/benz.jpg"
-                      alt="Mercedes-Benz Case Study"
-                      fill
-                      className={styles.workImage}
-                    />
-                    <div className={styles.viewBadge}>
-                      <span>VIEW</span>
-                    </div>
-                  </div>
-                  <div className={`${styles.hoverVideoBox} hover-video-box`}>
-                    <div className={styles.hoverVideoInner}>
-                      <span className={styles.hoverVideoTitle}>Case Study Benz</span>
-                      <div className={styles.hoverVideoContainer}>
-                        <video
-                          src="/herobannervideo.mp4"
-                          loop
-                          muted
-                          playsInline
-                          preload="auto"
-                        />
-                      </div>
+                <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                  <div className={styles.hoverVideoInner}>
+                    <span className={styles.hoverVideoTitle}>Case Study Benz</span>
+                    <div className={styles.hoverVideoContainer}>
+                      <video
+                        src="/herobannervideo.mp4"
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        {/* ================== BRANDS SECTION ================== */}
-        <section className={`${styles.brandsSection} brands-section`}>
-          <div className={styles.brandsRow}>
-            <div className={`${styles.brandsTrack} track-left`}>
-              <div className={styles.brandsList}>
-                {BRAND_ROW_1.map((brand, i) => (
-                  <div key={`brand-1-${i}`} className={styles.brandLogoWrapper}>
-                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
-                  </div>
-                ))}
-              </div>
-              <div className={styles.brandsList} aria-hidden="true">
-                {BRAND_ROW_1.map((brand, i) => (
-                  <div key={`brand-1-dup-${i}`} className={styles.brandLogoWrapper}>
-                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.brandsRow}>
-            <div className={`${styles.brandsTrack} track-right`}>
-              <div className={styles.brandsList}>
-                {BRAND_ROW_2.map((brand, i) => (
-                  <div key={`brand-2-${i}`} className={styles.brandLogoWrapper}>
-                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
-                  </div>
-                ))}
-              </div>
-              <div className={styles.brandsList} aria-hidden="true">
-                {BRAND_ROW_2.map((brand, i) => (
-                  <div key={`brand-2-dup-${i}`} className={styles.brandLogoWrapper}>
-                    <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================== SERVICES SLIDER SECTION ================== */}
-        <section className={`${styles.servicesSliderSection} services-slider-section`}>
-          <div className={styles.servicesSliderContainer}>
-            {/* Left Controls Column */}
-            <div className={styles.servicesControlsCol}>
-              <div className={styles.servicesControlsHeader}>
-                <h2 className={styles.servicesSliderTitle}>
-                  <span className={styles.italicSerif}>Our</span>{" "}
-                  <span className={styles.boldDelight}>CORE Services</span>
-                </h2>
-              </div>
-              <div className={styles.servicesControlsFooter}>
-                <div className={styles.servicesSliderIndex}>
-                  {String(activeServiceIndex + 1).padStart(2, "0")} / {String(CORE_SERVICES.length).padStart(2, "0")}
+        </div>
+      </section>
+      {/* ================== BRANDS SECTION ================== */}
+      <section className={`${styles.brandsSection} brands-section`}>
+        <div className={styles.brandsRow}>
+          <div className={`${styles.brandsTrack} track-left`}>
+            <div className={styles.brandsList}>
+              {BRAND_ROW_1.map((brand, i) => (
+                <div key={`brand-1-${i}`} className={styles.brandLogoWrapper}>
+                  <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                 </div>
-                <div className={styles.servicesSliderNavButtons}>
-                  <button
-                    onClick={handlePrevService}
-                    disabled={mounted ? (activeServiceIndex === 0) : undefined}
-                    className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === 0) ? styles.disabled : ""}`}
-                    aria-label="Previous Service"
-                  >
-                    ←
-                  </button>
-                  <button
-                    onClick={handleNextService}
-                    disabled={mounted ? (activeServiceIndex === CORE_SERVICES.length - 1) : undefined}
-                    className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
-                    aria-label="Next Service"
-                  >
-                    →
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* Right Cards Column */}
-            <div className={styles.servicesCardsCol}>
-              <div className={styles.servicesSliderViewport}>
-                <div className={styles.servicesSliderTrack} ref={servicesTrackRef}>
-                  {CORE_SERVICES.map((service, i) => (
-                    <div
-                      key={`service-card-${i}`}
-                      className={`${styles.serviceCard} ${i === activeServiceIndex ? styles.activeCard : ""}`}
-                    >
-                      <div className={styles.serviceCardImageWrapper}>
-                        <Image
-                          src={service.img}
-                          alt={`${service.titleFirst} ${service.titleSecond}`}
-                          fill
-                          className={styles.serviceCardImage}
-                        />
-                      </div>
-                      <div className={styles.serviceCardContent}>
-                        <h3 className={styles.serviceCardTitle}>
-                          <span className={styles.italicSerif}>{service.titleFirst}</span>{" "}
-                          <span className={styles.boldDelight}>{service.titleSecond}</span>
-                        </h3>
-                        <p className={styles.serviceCardDesc}>{service.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================== EXPERTISE SECTION ================== */}
-        <section className={`${styles.expertiseSection} expertise-section`}>
-          <div className={styles.expertiseHeader}>
-            <h2 className={styles.expertiseTitle}>EXPERTISE</h2>
-            <div className={styles.expertiseNav}>
-              <button
-                onClick={handlePrevExpertise}
-                disabled={mounted ? (activeExpertiseIndex === 0) : undefined}
-                className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex === 0) ? styles.disabled : ""}`}
-                aria-label="Previous Expertise"
-              >
-                ←
-              </button>
-              <button
-                onClick={handleNextExpertise}
-                disabled={mounted ? (activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) : undefined}
-                className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) ? styles.disabled : ""}`}
-                aria-label="Next Expertise"
-              >
-                →
-              </button>
-            </div>
-          </div>
-          
-          <div className={styles.expertiseSliderViewport}>
-            <div className={styles.expertiseSliderTrack} ref={expertiseTrackRef}>
-              {EXPERTISE_ITEMS.map((item, i) => (
-                <div key={`expertise-card-${i}`} className={styles.expertiseCard}>
-                  <div className={styles.expertiseCardImageWrapper}>
-                    <Image
-                      src={item.img}
-                      alt={`${item.titleFirst} ${item.titleSecond}`}
-                      fill
-                      className={styles.expertiseCardImage}
-                    />
-                  </div>
-                  <h3 className={styles.expertiseCardTitle}>
-                    <span className={styles.boldTitle}>{item.titleFirst}</span>{" "}
-                    {item.titleSecond && <span className={styles.italicTitle}>{item.titleSecond}</span>}
-                  </h3>
+            <div className={styles.brandsList} aria-hidden="true">
+              {BRAND_ROW_1.map((brand, i) => (
+                <div key={`brand-1-dup-${i}`} className={styles.brandLogoWrapper}>
+                  <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* ================== WHY CHOOSE US SECTION ================== */}
-        <section className={`${styles.whyChooseUsSection} why-choose-us-section`}>
-          <h2 className={styles.whyChooseUsTitle}>
-            <span className={styles.italicTitle}>Why</span>{" "}
-            <span className={styles.boldTitle}>CHOOSE US</span>
-          </h2>
-          <div className={styles.whyChooseUsGrid}>
-            {WHY_CHOOSE_US_ITEMS.map((item, i) => (
-              <div key={`why-choose-us-${i}`} className={`${styles.whyChooseUsCard} why-choose-us-card`}>
-                <div className={styles.whyChooseUsImageWrapper}>
+        <div className={styles.brandsRow}>
+          <div className={`${styles.brandsTrack} track-right`}>
+            <div className={styles.brandsList}>
+              {BRAND_ROW_2.map((brand, i) => (
+                <div key={`brand-2-${i}`} className={styles.brandLogoWrapper}>
+                  <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
+                </div>
+              ))}
+            </div>
+            <div className={styles.brandsList} aria-hidden="true">
+              {BRAND_ROW_2.map((brand, i) => (
+                <div key={`brand-2-dup-${i}`} className={styles.brandLogoWrapper}>
+                  <Image src={brand.src} alt={brand.alt} fill className={styles.brandLogo} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================== SERVICES SLIDER SECTION ================== */}
+      <section className={`${styles.servicesSliderSection} services-slider-section`}>
+        <div className={styles.servicesSliderContainer}>
+          {/* Left Controls Column */}
+          <div className={styles.servicesControlsCol}>
+            <div className={styles.servicesControlsHeader}>
+              <h2 className={styles.servicesSliderTitle}>
+                <span className={styles.italicSerif}>Our</span>{" "}
+                <span className={styles.boldDelight}>CORE Services</span>
+              </h2>
+            </div>
+            <div className={styles.servicesControlsFooter}>
+              <div className={styles.servicesSliderIndex}>
+                {String(activeServiceIndex + 1).padStart(2, "0")} / {String(CORE_SERVICES.length).padStart(2, "0")}
+              </div>
+              <div className={styles.servicesSliderNavButtons}>
+                <button
+                  onClick={handlePrevService}
+                  disabled={mounted ? (activeServiceIndex === 0) : undefined}
+                  className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === 0) ? styles.disabled : ""}`}
+                  aria-label="Previous Service"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={handleNextService}
+                  disabled={mounted ? (activeServiceIndex === CORE_SERVICES.length - 1) : undefined}
+                  className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
+                  aria-label="Next Service"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Cards Column */}
+          <div className={styles.servicesCardsCol}>
+            <div className={styles.servicesSliderViewport}>
+              <div className={styles.servicesSliderTrack} ref={servicesTrackRef}>
+                {CORE_SERVICES.map((service, i) => (
+                  <div
+                    key={`service-card-${i}`}
+                    className={`${styles.serviceCard} ${i === activeServiceIndex ? styles.activeCard : ""}`}
+                  >
+                    <div className={styles.serviceCardImageWrapper}>
+                      <Image
+                        src={service.img}
+                        alt={`${service.titleFirst} ${service.titleSecond}`}
+                        fill
+                        className={styles.serviceCardImage}
+                      />
+                    </div>
+                    <div className={styles.serviceCardContent}>
+                      <h3 className={styles.serviceCardTitle}>
+                        <span className={styles.italicSerif}>{service.titleFirst}</span>{" "}
+                        <span className={styles.boldDelight}>{service.titleSecond}</span>
+                      </h3>
+                      <p className={styles.serviceCardDesc}>{service.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================== EXPERTISE SECTION ================== */}
+      <section className={`${styles.expertiseSection} expertise-section`}>
+        <div className={styles.expertiseHeader}>
+          <h2 className={styles.expertiseTitle}>EXPERTISE</h2>
+          <div className={styles.expertiseNav}>
+            <button
+              onClick={handlePrevExpertise}
+              disabled={mounted ? (activeExpertiseIndex === 0) : undefined}
+              className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex === 0) ? styles.disabled : ""}`}
+              aria-label="Previous Expertise"
+            >
+              ←
+            </button>
+            <button
+              onClick={handleNextExpertise}
+              disabled={mounted ? (activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) : undefined}
+              className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) ? styles.disabled : ""}`}
+              aria-label="Next Expertise"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.expertiseSliderViewport}>
+          <div className={styles.expertiseSliderTrack} ref={expertiseTrackRef}>
+            {EXPERTISE_ITEMS.map((item, i) => (
+              <div key={`expertise-card-${i}`} className={styles.expertiseCard}>
+                <div className={styles.expertiseCardImageWrapper}>
                   <Image
                     src={item.img}
-                    alt={item.titleBold}
+                    alt={`${item.titleFirst} ${item.titleSecond}`}
                     fill
-                    className={styles.whyChooseUsImage}
+                    className={styles.expertiseCardImage}
                   />
                 </div>
-                <div className={styles.whyChooseUsCardContent}>
-                  <h3 className={styles.whyChooseUsCardTitle}>
-                    {item.titleOrder === "bold-first" ? (
-                      <>
-                        <span className={styles.boldTitle}>{item.titleBold}</span>{" "}
-                        <span className={styles.italicTitle}>{item.titleItalic}</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className={styles.italicTitle}>{item.titleItalic}</span>{" "}
-                        <span className={styles.boldTitle}>{item.titleBold}</span>
-                      </>
-                    )}
-                  </h3>
-                  <p className={styles.whyChooseUsCardDesc}>{item.desc}</p>
-                </div>
+                <h3 className={styles.expertiseCardTitle}>
+                  <span className={styles.boldTitle}>{item.titleFirst}</span>{" "}
+                  {item.titleSecond && <span className={styles.italicTitle}>{item.titleSecond}</span>}
+                </h3>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
+
+      {/* ================== WHY CHOOSE US SECTION ================== */}
+      <section className={`${styles.whyChooseUsSection} why-choose-us-section`}>
+        <h2 className={styles.whyChooseUsTitle}>
+          <span className={styles.italicTitle}>Why</span>{" "}
+          <span className={styles.boldTitle}>CHOOSE US</span>
+        </h2>
+        <div className={styles.whyChooseUsGrid}>
+          {WHY_CHOOSE_US_ITEMS.map((item, i) => (
+            <div key={`why-choose-us-${i}`} className={`${styles.whyChooseUsCard} why-choose-us-card`}>
+              <div className={styles.whyChooseUsImageWrapper}>
+                <Image
+                  src={item.img}
+                  alt={item.titleBold}
+                  fill
+                  className={styles.whyChooseUsImage}
+                />
+              </div>
+              <div className={styles.whyChooseUsCardContent}>
+                <h3 className={styles.whyChooseUsCardTitle}>
+                  {item.titleOrder === "bold-first" ? (
+                    <>
+                      <span className={styles.boldTitle}>{item.titleBold}</span>{" "}
+                      <span className={styles.italicTitle}>{item.titleItalic}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className={styles.italicTitle}>{item.titleItalic}</span>{" "}
+                      <span className={styles.boldTitle}>{item.titleBold}</span>
+                    </>
+                  )}
+                </h3>
+                <p className={styles.whyChooseUsCardDesc}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
