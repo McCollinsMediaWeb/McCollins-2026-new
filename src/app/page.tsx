@@ -1034,7 +1034,7 @@ export default function Home() {
                   className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === 0) ? styles.disabled : ""}`}
                   aria-label="Previous Service"
                 >
-                  ←
+                  ⟵
                 </button>
                 <button
                   onClick={handleNextService}
@@ -1042,7 +1042,7 @@ export default function Home() {
                   className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
                   aria-label="Next Service"
                 >
-                  →
+                  ⟶
                 </button>
               </div>
             </div>

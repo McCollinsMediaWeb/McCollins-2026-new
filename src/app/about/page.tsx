@@ -121,10 +121,10 @@ export default function AboutPage() {
         </div>
 
         <div className={styles.heroDetails}>
-          <div className={styles.heroDate}>EST. 2008</div>
+          <div className={styles.heroDate}>THE McCOLLINS<br />ASCENSION MODEL</div>
           <div className={styles.heroDesc}>
-            We are a digital-first creative agency driven by innovation and data. 
-            Our mission is to transform brands into global powerhouses through strategic storytelling and cutting-edge technology.
+            <div className={styles.heroDate}>1) DECODE<br />2) DEFINE<br />3) DESIGN<br />4) DEPLOY<br />5) DOMINATE</div>
+            <p className={styles.heroDate} style={{ fontWeight: '400', color: '#3C3A3E', marginTop: '30px' }}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
           </div>
         </div>
       </section>
@@ -172,7 +172,7 @@ export default function AboutPage() {
         <div className={`${styles.darkTopRow} about-reveal`}>
           <h2 className={styles.darkTitle}>Designed to transform.</h2>
           <div className={styles.darkDesc}>
-            Our process is built on transparency, creative excellence, and measurable impact. 
+            Our process is built on transparency, creative excellence, and measurable impact.
             We partner with ambitious brands to navigate the digital landscape and create lasting legacies.
           </div>
         </div>
