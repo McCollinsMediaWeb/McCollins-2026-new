@@ -34,9 +34,9 @@ const BRAND_ROW_2 = [
 ];
 
 const EXPERTISE_ITEMS = [
-  { img: "/home-page-expertise/image1.jpg", titleFirst: "REAL", titleSecond: "Estate" },
-  { img: "/home-page-expertise/image2.jpg", titleFirst: "LUXURY", titleSecond: "" },
-  { img: "/home-page-expertise/image3.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
+  { img: "/home-page-expertise/image2.jpg", titleFirst: "REAL", titleSecond: "Estate" },
+  { img: "/home-page-expertise/image3.jpg", titleFirst: "LUXURY", titleSecond: "" },
+  { img: "/home-page-expertise/image1.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
   { img: "/home-page-expertise/image4.jpg", titleFirst: "TECHNOLOGY", titleSecond: "" },
 ];
 
@@ -71,37 +71,43 @@ const CORE_SERVICES = [
     titleFirst: "Brand",
     titleSecond: "DEVELOPMENT",
     desc: "Crafting cohesive brand identities that resonate across cultures and command a global presence.",
-    img: "/home-page-services/brand_development.png"
+    img: "/home-page-services/brand_development.png",
+    url: "/services/brand-development"
   },
   {
     titleFirst: "Web",
     titleSecond: "DEVELOPMENT",
     desc: "Developing high-performance, responsive websites engineered to convert global audiences into loyal customers.",
-    img: "/home-page-services/web_development.png"
+    img: "/home-page-services/web_development.png",
+    url: "/services/web-development"
   },
   {
     titleFirst: "Social",
     titleSecond: "MEDIA",
     desc: "Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.",
-    img: "/home-page-services/social_media.png"
+    img: "/home-page-services/social_media.png",
+    url: "/services/social-media-marketing"
   },
   {
     titleFirst: "Performance",
     titleSecond: "MARKETING",
     desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
-    img: "/home-page-services/performance_marketing.png"
+    img: "/home-page-services/performance_marketing.png",
+    url: "/services/performance-marketing"
   },
   {
     titleFirst: "Marketing",
     titleSecond: "AUTOMATION",
     desc: "Driving sustainable growth through data-driven automation engineered for global consistency and local relevance.",
-    img: "/home-page-services/marketing_automation.png"
+    img: "/home-page-services/marketing_automation.png",
+    url: "/services/marketing-automation"
   },
   {
     titleFirst: "Content",
     titleSecond: "PRODUCTION",
     desc: "Blending cinematic storytelling with strategic intent to produce content that resonates locally and scales globally.",
-    img: "/home-page-services/content_production.png"
+    img: "/home-page-services/content_production.png",
+    url: "/services/content-production"
   }
 ];
 
@@ -1050,6 +1056,7 @@ export default function Home() {
                   <div
                     key={`service-card-${i}`}
                     className={`${styles.serviceCard} ${i === activeServiceIndex ? styles.activeCard : ""}`}
+                    onClick={() => router.push(service.url)}
                   >
                     <div className={styles.serviceCardImageWrapper}>
                       <Image
