@@ -43,6 +43,7 @@
   display: inline-block;
   overflow: hidden;
   padding-bottom: 0.1em;
+  white-space: nowrap;
 }
 
 .titleChar {
@@ -298,6 +299,12 @@
   .heroSection, .teamSection, .darkSection {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  
+  .heroTitle {
+    font-size: clamp(36px, 10vw, 54px);
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .teamGrid {

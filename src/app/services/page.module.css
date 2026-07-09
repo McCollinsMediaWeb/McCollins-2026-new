@@ -291,6 +291,11 @@
    Responsive
    ========================================= */
 @media (max-width: 1024px) {
+  .heroTitle {
+    font-size: clamp(64px, 10vw, 100px);
+    white-space: nowrap;
+  }
+  
   .serviceRow {
     grid-template-columns: 40% 1fr;
     gap: 40px;
@@ -321,6 +326,11 @@
 }
 
 @media (max-width: 768px) {
+  .heroTitle {
+    font-size: clamp(36px, 10vw, 60px);
+    white-space: nowrap;
+  }
+  
   .servicesContainer {
     padding-top: 100px;
   }

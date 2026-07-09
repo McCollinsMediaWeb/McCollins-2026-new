@@ -52,6 +52,11 @@
 }
 
 @media (max-width: 992px) {
+  .heroText {
+    font-size: clamp(64px, 12vw, 120px);
+    justify-content: center;
+  }
+  
   .contentSection {
     grid-template-columns: 1fr;
     gap: 80px;
@@ -279,6 +284,10 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+  .heroText {
+    font-size: clamp(36px, 12vw, 64px);
+    justify-content: center;
+  }
   .heroSection {
     padding: 40px 20px 20px;
   }

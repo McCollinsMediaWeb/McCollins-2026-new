@@ -494,7 +494,8 @@
    ========================================= */
 @media (max-width: 1024px) {
   .heroTitle {
-    font-size: 5rem;
+    font-size: clamp(40px, 7vw, 64px);
+    flex-wrap: wrap;
   }
 
   .heroContent {
@@ -512,7 +513,8 @@
 
 @media (max-width: 768px) {
   .heroTitle {
-    font-size: 3.5rem;
+    font-size: clamp(28px, 9vw, 40px);
+    flex-wrap: wrap;
   }
 
   .heroSubtitleContainer {

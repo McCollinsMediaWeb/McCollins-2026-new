@@ -684,13 +684,19 @@ export default function Home() {
             </svg>
           </div>
           <div className={`${styles.heroSubtitleBar} hero-subtitle-bar`}>
-            <div className={`${styles.heroSubtitleCol} ${styles.left}`}>
-              <div>STRATEGY, PERFOMANCE</div>
-              <div>GROWTH</div>
+            <div className={`${styles.heroSubtitleCol} ${styles.left}`} style={{ display: 'flex', gap: '20px' }}>
+              <div>
+                <div>STRATEGY, PERFOMANCE</div>
+                <div>GROWTH</div>
+              </div>
+              <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
+                <div>DIGITAL STRATEGY.</div>
+                <div>GLOBAL SCALE.</div>
+              </div>
             </div>
             <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
-              <div>DIGITAL STRATEGY.</div>
-              <div>GLOBAL SCALE.</div>
+              {/* <div>DIGITAL STRATEGY.</div>
+              <div>GLOBAL SCALE.</div> */}
             </div>
             <div className={`${styles.heroSubtitleCol} ${styles.right}`}>
               <div>GET A FREE</div>
@@ -714,11 +720,15 @@ export default function Home() {
       </section>
 
       {/* ================== SERVICES DIRECTORY SECTION ================== */}
-      <section className={`${styles.servicesSection} services-section`}>
-        <div className={`${styles.servicesContainer} services-container`}>
+      <section className={`${styles.textSection} services-section`}>
+        <div className={`${styles.textContainer} services-container`}>
           <h2 className={`${styles.servicesIntroText} services-text`}>
-            {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance")}
-            {" "}
+            {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable ")}
+
+            <span style={{ fontWeight: 400 }}>
+              {splitText("market dominance.")}
+            </span>{" "}
+
             <span
               className="word"
               style={{
@@ -735,21 +745,25 @@ export default function Home() {
                   display: "inline-block",
                 }}
               >
-                <a href="#services" className={styles.italicUnderline}>
+                <a href="/services" className={styles.italicUnderline}>
                   our services.
                 </a>
               </span>
             </span>
           </h2>
+        </div>
+      </section>
 
-          <div className={`${styles.servicesDivider} services-divider`}></div>
 
+
+      <section className={`${styles.servicesSection} services-section`}>
+        <div className={`${styles.servicesContainer} services-container`}>
           <div className={`${styles.servicesFooter} services-footer`}>
             <div className={styles.footerTitle}>WHAT WE DO BEST</div>
             <div className={styles.footerRight}>
               <div className={styles.servicesGrid}>
                 <div className={styles.servicesCol}>
-                  <a href="#brand" className={styles.serviceListItem}>
+                  <a href="/services/brand-development" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -763,7 +777,7 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
-                  <a href="#web" className={styles.serviceListItem}>
+                  <a href="/services/web-development" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -777,7 +791,7 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
-                  <a href="#performance" className={styles.serviceListItem}>
+                  <a href="/services/performance-marketing" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -793,7 +807,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className={styles.servicesCol}>
-                  <a href="#automation" className={styles.serviceListItem}>
+                  <a href="/services/marketing-automation" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -807,7 +821,7 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
-                  <a href="#content" className={styles.serviceListItem}>
+                  <a href="/services/content-production" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -821,7 +835,7 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
-                  <a href="#social" className={styles.serviceListItem}>
+                  <a href="/services/social-media-management" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -837,7 +851,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <a href="#all-services" className={styles.allServicesButton}>
+              <a href="/services" className={styles.allServicesButton}>
                 <span className="dot-indicator"></span>
                 <span className="roll-text">
                   <span className="roll-text-inner" data-text="ALL SERVICES">ALL SERVICES</span>
@@ -853,7 +867,7 @@ export default function Home() {
         <div className={`${styles.workContainer} work-container`}>
           <div className={styles.workHeader}>
             <div className={styles.workHeaderTitle}>OUR WORK</div>
-            <a href="#work" className="roll-text">
+            <a href="/works" className="roll-text">
               <span className="roll-text-inner" data-text="SEE THE WORK">SEE THE WORK</span>
             </a>
           </div>
