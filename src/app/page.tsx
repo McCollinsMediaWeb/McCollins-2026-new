@@ -38,6 +38,8 @@ const EXPERTISE_ITEMS = [
   { img: "/home-page-expertise/image3.jpg", titleFirst: "LUXURY", titleSecond: "" },
   { img: "/home-page-expertise/image1.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
   { img: "/home-page-expertise/image4.jpg", titleFirst: "TECHNOLOGY", titleSecond: "" },
+  { img: "/home-page-expertise/image5.jpg", titleFirst: "STARTUPS", titleSecond: "" },
+  { img: "/home-page-expertise/image6.png", titleFirst: "B2B", titleSecond: "" },
 ];
 
 const WHY_CHOOSE_US_ITEMS = [
@@ -1092,7 +1094,7 @@ export default function Home() {
               className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex === 0) ? styles.disabled : ""}`}
               aria-label="Previous Expertise"
             >
-              ←
+              ⟵
             </button>
             <button
               onClick={handleNextExpertise}
@@ -1100,7 +1102,7 @@ export default function Home() {
               className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) ? styles.disabled : ""}`}
               aria-label="Next Expertise"
             >
-              →
+              ⟶
             </button>
           </div>
         </div>

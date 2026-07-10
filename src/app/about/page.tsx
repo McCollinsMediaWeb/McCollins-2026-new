@@ -160,6 +160,25 @@ export default function AboutPage() {
       }
     }
 
+    // Designed to Transform Section Pinning Animation
+    const darkTopRow = containerRef.current.querySelector("." + styles.darkTopRow);
+    const darkTitle = containerRef.current.querySelector<HTMLElement>("." + styles.darkTitle);
+    const darkDesc = containerRef.current.querySelector("." + styles.darkDesc);
+
+    if (darkTopRow && darkTitle && darkDesc) {
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1025px)", () => {
+        ScrollTrigger.create({
+          trigger: darkTopRow,
+          start: "top 160px",
+          end: () => `bottom ${darkTitle.offsetHeight + 180}px`,
+          pin: darkTitle,
+          pinSpacing: false,
+          anticipatePin: 1,
+        });
+      });
+    }
+
   }, { scope: containerRef, dependencies: [mounted] });
 
   if (!mounted) return null;
@@ -254,8 +273,10 @@ export default function AboutPage() {
 
       {/* Dark "Designed to Transform" Section */}
       <section className={styles.darkSection}>
-        <div className={`${styles.darkTopRow} about-reveal`}>
-          <h2 className={styles.darkTitle}>Designed to transform</h2>
+        <div className={styles.darkTopRow}>
+          <div className={styles.darkTitleCol}>
+            <h2 className={styles.darkTitle}>Designed to transform</h2>
+          </div>
           <div className={styles.darkDesc}>
             <p>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
             <p style={{ marginTop: '100px' }}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>

@@ -258,6 +258,11 @@
   gap: 40px;
 }
 
+.darkTitleCol {
+  flex: 1;
+  max-width: 500px;
+}
+
 .darkTitle {
   /* font-family: var(--font-playfair-display), serif; */
   font-family: var(--font-delight), sans-serif;
@@ -275,6 +280,7 @@
   font-size: 15px;
   line-height: 1.6;
   color: #3C3A3E;
+  margin-top: 150px;
 }
 
 .darkGallery {
@@ -337,6 +343,11 @@
   .darkTopRow {
     flex-direction: column;
     gap: 40px;
+  }
+
+  .darkTitleCol,
+  .darkTitle {
+    max-width: 100%;
   }
 }
 
