@@ -122,13 +122,33 @@ export default function Home() {
   const servicesTrackRef = useRef<HTMLDivElement>(null);
   const [activeExpertiseIndex, setActiveExpertiseIndex] = useState(0);
   const expertiseTrackRef = useRef<HTMLDivElement>(null);
+  const [visibleCards, setVisibleCards] = useState(3);
   const [mounted, setMounted] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setVisibleCards(1);
+      } else if (window.innerWidth <= 1024) {
+        setVisibleCards(2);
+      } else {
+        setVisibleCards(3);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    const maxIndex = Math.max(0, EXPERTISE_ITEMS.length - visibleCards);
+    if (activeExpertiseIndex > maxIndex) {
+      setActiveExpertiseIndex(maxIndex);
+    }
+  }, [visibleCards, activeExpertiseIndex]);
 
   const handlePrevService = () => {
     setActiveServiceIndex((prev) => Math.max(0, prev - 1));
@@ -143,7 +163,7 @@ export default function Home() {
   };
 
   const handleNextExpertise = () => {
-    setActiveExpertiseIndex((prev) => Math.min(Math.max(0, EXPERTISE_ITEMS.length - 3), prev + 1));
+    setActiveExpertiseIndex((prev) => Math.min(Math.max(0, EXPERTISE_ITEMS.length - visibleCards), prev + 1));
   };
 
   const logoPaths = [
@@ -1098,8 +1118,8 @@ export default function Home() {
             </button>
             <button
               onClick={handleNextExpertise}
-              disabled={mounted ? (activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) : undefined}
-              className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - 3) ? styles.disabled : ""}`}
+              disabled={mounted ? (activeExpertiseIndex >= EXPERTISE_ITEMS.length - visibleCards) : undefined}
+              className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - visibleCards) ? styles.disabled : ""}`}
               aria-label="Next Expertise"
             >
               ⟶
