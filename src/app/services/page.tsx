@@ -130,39 +130,42 @@ export default function ServicesPage() {
       });
     }
 
-    // Scroll Reveals for Services
-    const serviceRows = containerRef.current.querySelectorAll("." + styles.serviceRow);
-    serviceRows.forEach((row) => {
-      const image = row.querySelector("." + styles.imageCol);
-      const content = row.querySelectorAll("." + styles.serviceTitle + ", ." + styles.serviceDesc + ", ." + styles.includesCol);
+    // Scroll Reveals for Services - Desktop only
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 769px)", () => {
+      const serviceRows = containerRef.current.querySelectorAll("." + styles.serviceRow);
+      serviceRows.forEach((row) => {
+        const image = row.querySelector("." + styles.imageCol);
+        const content = row.querySelectorAll("." + styles.serviceTitle + ", ." + styles.serviceDesc + ", ." + styles.includesCol);
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: row,
-          start: "top 85%",
-          toggleActions: "play none none none",
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          }
+        });
+
+        if (image) {
+          tl.from(image, {
+            y: 60,
+            opacity: 0,
+            scale: 0.95,
+            duration: 1.2,
+            ease: "power3.out",
+          });
+        }
+
+        if (content.length > 0) {
+          tl.from(content, {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.out",
+          }, "-=0.8");
         }
       });
-
-      if (image) {
-        tl.from(image, {
-          y: 60,
-          opacity: 0,
-          scale: 0.95,
-          duration: 1.2,
-          ease: "power3.out",
-        });
-      }
-
-      if (content.length > 0) {
-        tl.from(content, {
-          y: 30,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power3.out",
-        }, "-=0.8");
-      }
     });
 
     // Ascension Model Reveal
