@@ -77,8 +77,11 @@ export default function Footer() {
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             <ul className={styles.linksList}>
-              <li><a href="#">Instagram ↗</a></li>
-              <li><a href="#">LinkedIn ↗</a></li>
+              <li><a href="https://www.instagram.com/mccollinsmedia/?hl=en">Instagram ↗</a></li>
+              <li><a href="https://www.linkedin.com/company/mccollins-media/">LinkedIn ↗</a></li>
+              <li><a href="https://www.facebook.com/mccollinsmedia/">Facebook ↗</a></li>
+              <li><a href="https://www.tiktok.com/mccollinsmedia">Tiktok ↗</a></li>
+              <li><a href="https://www.x.com/@mccollinsmedia">X ↗</a></li>
             </ul>
           </div>
         </div>

@@ -346,12 +346,37 @@
   
   .serviceRow {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 60px 0;
+    gap: 20px;
+    padding: 45px 0 !important;
+    margin: 0 !important;
+  }
+  
+  .imageCol {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
   }
   
   .contentCol {
-    padding-left: 0;
+    padding-left: 0 !important;
+    transform: none !important;
+  }
+
+  .serviceTitle {
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .serviceDesc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+
+  .includesCol {
+    margin-top: 8px !important;
+    gap: 12px !important;
   }
   
   .ascensionGrid {
