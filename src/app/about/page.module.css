@@ -108,18 +108,28 @@
 }
 
 .teamTopRow {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr 2.5fr;
+  gap: 80px;
   align-items: flex-start;
-  margin-bottom: 100px;
-  gap: 40px;
+  margin-bottom: 120px;
+}
+
+.teamSectionTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #000;
+  text-transform: uppercase;
+  padding-top: 6px;
 }
 
 .leaderImageWrapper {
-  width: 55%;
+  width: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 .leaderImage {
@@ -134,31 +144,51 @@
   transform: scale(1);
 }
 
-.leaderQuote {
-  width: 40%;
-  font-family: var(--font-playfair-display), serif;
-  font-style: italic;
-  font-size: clamp(24px, 3vw, 40px);
-  line-height: 1.4;
-  color: #000;
-  padding-top: 40px;
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 6px;
+}
+
+.leaderDescription {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.45;
+  color: #111111;
+  margin-bottom: 48px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.leaderNameTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .leaderName {
   display: block;
   font-family: var(--font-delight), sans-serif;
   font-style: normal;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 30px;
+  font-size: 15px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  color: #000;
+}
+
+.leaderTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  color: #8c8c8c;
+  font-weight: 400;
 }
 
 .teamGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px 40px;
+  grid-template-columns: 0.5fr 2.5fr 2.5fr;
+  gap: 80px;
 }
 
 .teamMember {
@@ -168,11 +198,15 @@
   cursor: pointer;
 }
 
+.teamMember:nth-child(2n+1) {
+  grid-column: 2;
+}
+
 .memberImageWrapper {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   position: relative;
 }
 
@@ -196,7 +230,7 @@
 
 .memberName {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -225,18 +259,22 @@
 }
 
 .darkTitle {
-  font-family: var(--font-playfair-display), serif;
-  font-style: italic;
+  /* font-family: var(--font-playfair-display), serif; */
+  font-family: var(--font-delight), sans-serif;
+  /* font-style: italic; */
+  font-weight: 300;
   font-size: clamp(40px, 5vw, 70px);
   line-height: 1.1;
   max-width: 500px;
 }
 
 .darkDesc {
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 400;
   max-width: 400px;
   font-size: 15px;
   line-height: 1.6;
-  color: #a1a1aa;
+  color: #3C3A3E;
 }
 
 .darkGallery {
@@ -251,11 +289,13 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   position: relative;
 }
 
 .galleryImage {
+  /* height: 600px; */
+  /* object-fit: contain; */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -277,16 +317,21 @@
   }
 
   .teamTopRow {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .leaderImageWrapper {
-    width: 100%;
-  }
-
-  .leaderQuote {
-    width: 100%;
+  .leaderInfo {
     padding-top: 0;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .teamMember:nth-child(2n+1) {
+    grid-column: auto;
   }
 
   .darkTopRow {
