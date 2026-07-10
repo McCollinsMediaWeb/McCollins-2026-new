@@ -16,6 +16,13 @@
   margin-bottom: 100px;
 }
 
+.pointSection {
+  padding: 0 40px;
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
 .heroTitle {
   display: flex;
   justify-content: center;
@@ -44,6 +51,8 @@
   overflow: hidden;
   padding-bottom: 0.1em;
   white-space: nowrap;
+  font-weight: 700;
+  font-style: bold;
 }
 
 .titleChar {
@@ -105,6 +114,7 @@
   max-width: 1500px;
   margin: 0 auto;
   margin-bottom: 120px;
+  padding-top: 100px;
 }
 
 .teamTopRow {
@@ -268,19 +278,51 @@
   font-family: var(--font-delight), sans-serif;
   /* font-style: italic; */
   font-weight: 300;
-  font-size: clamp(40px, 5vw, 70px);
+  font-size: clamp(20px, 2vw, 70px);
   line-height: 1.1;
   max-width: 500px;
 }
 
-.darkDesc {
+.differentList {
+  flex: 1.2;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.differentItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.differentHeader {
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+}
+
+.differentHeaderSans {
   font-family: var(--font-delight), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.differentHeaderSerif {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
   font-weight: 400;
-  max-width: 400px;
+}
+
+.differentDesc {
+  font-family: var(--font-delight), sans-serif;
   font-size: 15px;
   line-height: 1.6;
-  color: #3C3A3E;
-  margin-top: 150px;
+  color: #b0b0b0;
+  margin: 0;
+  max-width: 680px;
 }
 
 .darkGallery {
@@ -311,6 +353,34 @@
 
 .galleryImageWrapper:hover .galleryImage {
   transform: scale(1);
+}
+
+/* =========================================
+   Philosophy Section
+   ========================================= */
+.philosophySection {
+  /* padding: 0 40px; */
+  /* max-width: 1500px; */
+  margin: 80px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  width: 70%
+}
+
+.philosophyParagraph {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3C3A3E;
+  max-width: 1200px;
+  margin: 0;
+}
+
+.philosophyParagraph strong {
+  font-weight: 700;
+  color: #000000;
 }
 
 /* =========================================
@@ -349,6 +419,10 @@
   .darkTitle {
     max-width: 100%;
   }
+
+  .differentList {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -377,5 +451,28 @@
   .darkGallery {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .philosophySection {
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  .philosophyParagraph {
+    font-size: 14px;
+  }
+
+  .differentList {
+    gap: 40px;
+  }
+
+  .differentHeader {
+    font-size: 20px;
+  }
+
+  .differentDesc {
+    font-size: 14px;
   }
 }

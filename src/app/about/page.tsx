@@ -190,14 +190,19 @@ export default function AboutPage() {
         <h1 className={styles.heroTitle} ref={titleRef}>
           <span className={styles.titleWord}>
             {"ABOUT".split("").map((char, i) => (
-              <span key={i} className={styles.titleChar} style={{ fontFamily: "var(--font-delight)" }}>
+              <span key={i} className={styles.titleChar}
+                style={{
+                  fontFamily: char === "O" ? "var(--font-playfair-display)" : "var(--font-delight)",
+                  fontStyle: char === "O" ? "italic" : "bold",
+                  fontWeight: char === "O" ? "500" : "700"
+                }}>
                 {char}
               </span>
             ))}
           </span>
           <span className={styles.titleWord}>
             {"US".split("").map((char, i) => (
-              <span key={i} className={styles.titleChar} style={{ fontFamily: "var(--font-playfair-display)", fontStyle: "italic" }}>
+              <span key={i} className={styles.titleChar} style={{ fontFamily: "var(--font-playfair-display)", fontStyle: "italic", fontWeight: '500' }}>
                 {char}
               </span>
             ))}
@@ -221,7 +226,105 @@ export default function AboutPage() {
             <p className={styles.heroDate} style={{ fontWeight: '400', color: '#3C3A3E', marginTop: '30px' }}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
           </div>
         </div>
+
+        <div className={styles.philosophySection}>
+          <p className={styles.philosophyParagraph}>
+            <strong>For 17 years, McCollins Media has helped brands earn something far more valuable than attention—trust.</strong><br />
+            Founded with a simple belief that credibility outperforms noise, we have grown into an award-winning integrated communications agency known for creating conversations that matter. In a world overflowing with paid impressions and fleeting trends, we focus on what leaves a lasting impact: earned media, meaningful storytelling, and strategic brand building.
+          </p>
+
+          <p className={styles.philosophyParagraph}>
+            <strong>We don't just represent brands. We take ownership of them.</strong><br />
+            That philosophy shapes every brief we receive and every campaign we create. We immerse ourselves in our clients' businesses, understand their ambitions, challenge assumptions, and build communication strategies that deliver measurable outcomes. Your goals become our goals. Your reputation becomes our responsibility.
+          </p>
+
+          <p className={styles.philosophyParagraph}>
+            <strong>Performance isn't an afterthought at McCollins Media—it's the starting point.</strong><br />
+            Every headline, every media interaction, every influencer collaboration, every digital activation, and every strategic recommendation is designed with one question in mind: Will this move the brand forward? Creativity is important. Results are essential. That's why our work consistently balances bold ideas with business impact.
+          </p>
+
+          <p className={styles.philosophyParagraph}>
+            <strong>Our DNA is built on courage.</strong><br />
+            We believe safe campaigns are easily forgotten. The brands that lead industries are the ones willing to challenge conventions, spark conversations, and create cultural relevance. Our team embraces curiosity, experiments fearlessly, and isn't afraid to test fresh ideas if they help our clients stay ahead of the curve. We don't chase trends—we help create them.
+          </p>
+
+          <p className={styles.philosophyParagraph}>
+            <strong>Being bold doesn't mean being loud. It means being intentional.</strong><br />
+            From emerging startups to established enterprises, we've partnered with brands across industries to shape narratives, manage reputations, launch products, navigate crises, and build lasting public perception.<br /> Every campaign is tailored, every strategy is informed by insight, and every success is measured by meaningful business outcomes—not vanity metrics.
+          </p>
+        </div>
       </section>
+
+
+      <section className={styles.darkSection}>
+        <div className={styles.darkTopRow}>
+          <div className={styles.darkTitleCol}>
+            <h2 className={styles.darkTitle}>WHAT MAKES<br /> McCOLLINS MEDIA DIFFERENT?</h2>
+          </div>
+          <div className={styles.differentList}>
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>1) BRAND </span>
+                <span className={styles.differentHeaderSerif}>Ownership</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                We think like stakeholders, not vendors. Every recommendation is made with long-term brand value in mind.
+              </p>
+            </div>
+
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>2) EARNED MEDIA </span>
+                <span className={styles.differentHeaderSerif}>Specialists</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                We know credibility cannot be bought—it must be earned. Our strength lies in building authentic media relationships and creating stories journalists actually want to tell.
+              </p>
+            </div>
+
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>3) PERFORMANCE-FIRST </span>
+                <span className={styles.differentHeaderSerif}>Thinking</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                Creative excellence meets measurable impact. Every strategy is backed by purpose, data, and business objectives.
+              </p>
+            </div>
+
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>4) BOLD </span>
+                <span className={styles.differentHeaderSerif}>Campaigns</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                Our work is designed to stand out, spark engagement, and create conversations that people remember.
+              </p>
+            </div>
+
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>5) INTEGRATED </span>
+                <span className={styles.differentHeaderSerif}>Expertise</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                Public relations, digital communications, influencer marketing, reputation management, content strategy, corporate communications, and brand storytelling—working seamlessly as one.
+              </p>
+            </div>
+
+            <div className={styles.differentItem}>
+              <h3 className={styles.differentHeader}>
+                <span className={styles.differentHeaderSans}>6) A TEAM THAT NEVER STOPS </span>
+                <span className={styles.differentHeaderSerif}>Learning</span>
+              </h3>
+              <p className={styles.differentDesc}>
+                The communications landscape changes daily. So do we. Our people stay curious, agile, and relentlessly committed to finding smarter ways to solve complex brand challenges.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Team Section */}
       <section className={styles.teamSection}>
