@@ -114,91 +114,36 @@
   max-width: 1500px;
   margin: 0 auto;
   margin-bottom: 120px;
-  padding-top: 100px;
+  padding-top: 50px;
+  border-top: .2px solid #000;
 }
 
-.teamTopRow {
-  display: grid;
-  grid-template-columns: 0.5fr 2.5fr 2.5fr;
-  gap: 80px;
-  align-items: flex-start;
-  margin-bottom: 120px;
-}
-
-.teamSectionTitle {
-  font-family: var(--font-delight), sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #000;
+.teamTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(32px, 5vw, 64px);
+  margin-bottom: 60px;
   text-transform: uppercase;
-  padding-top: 6px;
 }
 
-.leaderImageWrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  /* border-radius: 4px; */
+.teamTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 500;
 }
 
-.leaderImage {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.05);
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.leaderImageWrapper:hover .leaderImage {
-  transform: scale(1);
-}
-
-.leaderInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 6px;
-}
-
-.leaderDescription {
+.teamTitleBold {
   font-family: var(--font-delight), sans-serif;
-  font-size: clamp(14px, 1.2vw, 17px);
-  line-height: 1.45;
-  color: #111111;
-  margin-bottom: 48px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-.leaderNameTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.leaderName {
-  display: block;
-  font-family: var(--font-delight), sans-serif;
-  font-style: normal;
-  font-size: 15px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #000;
-}
-
-.leaderTitle {
-  font-family: var(--font-delight), sans-serif;
-  font-size: 13px;
-  color: #8c8c8c;
-  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-left: -2px;
 }
 
 .teamGrid {
   display: grid;
-  grid-template-columns: 0.5fr 2.5fr 2.5fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 }
 
 .teamMember {
@@ -208,16 +153,12 @@
   cursor: pointer;
 }
 
-.teamMember:nth-child(2n+1) {
-  grid-column: 2;
-}
-
 .memberImageWrapper {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  /* border-radius: 4px; */
   position: relative;
+  background-color: #e8e8e8;
 }
 
 .memberImage {
@@ -234,20 +175,27 @@
 
 .memberInfo {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: 6px; */
 }
 
 .memberName {
-  font-size: 16px;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.05em;
+  color: #000000;
   text-transform: uppercase;
 }
 
-.memberTitle {
-  font-size: 14px;
-  color: #666;
+.memberRole {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #000000;
+  text-transform: uppercase;
 }
 
 /* =========================================
@@ -257,6 +205,12 @@
   background-color: #000000;
   color: #ffffff;
   padding: 120px 40px 60px;
+}
+
+.whiteSectionBottom {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0px 40px 60px 40px;
 }
 
 .darkTopRow {
@@ -325,10 +279,19 @@
   max-width: 680px;
 }
 
+.shortNote {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 .darkGallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 15px;
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -392,22 +355,9 @@
     gap: 20px;
   }
 
-  .teamTopRow {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .leaderInfo {
-    padding-top: 0;
-  }
-
   .teamGrid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-  }
-
-  .teamMember:nth-child(2n+1) {
-    grid-column: auto;
   }
 
   .darkTopRow {
@@ -437,6 +387,11 @@
     padding-right: 24px;
   }
 
+  .whiteSectionBottom {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   .heroTitle {
     font-size: clamp(36px, 10vw, 54px);
     flex-wrap: wrap;
@@ -450,7 +405,7 @@
 
   .darkGallery {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
 
   .philosophySection {

@@ -13,10 +13,18 @@ if (typeof window !== "undefined") {
 }
 
 const TEAM_MEMBERS = [
-  { img: "/about-us-page/image2.jpg", name: "Manjeet", title: "Business Operation" },
-  { img: "/about-us-page/image3.jpg", name: "Ashar", title: "Studio Lead" },
-  { img: "/about-us-page/image4.jpg", name: "George", title: "Account Manager" },
-  { img: "/about-us-page/image5.jpg", name: "Ijas", title: "Web Lead" },
+  { img: "/about-us-page/image1.jpg", name: "MEGHNA KOTHARI", title: "FOUNDER" },
+  { img: "/about-us-page/manjeet.png", name: "MANJEET", title: "BUSINESS OPERATIONS DIRECTOR" },
+  { img: "/about-us-page/reem.png", name: "REEM", title: "SENIOR ACCOUNT MANAGER" },
+
+  { img: "/about-us-page/azhar.png", name: "AZHAR", title: "CREATIVE LEAD" },
+  { img: "/about-us-page/image5.jpg", name: "IJAS", title: "WEB LEAD" },
+  { img: "/about-us-page/diptesh.png", name: "DIPTESH BASU", title: "PERFORMANCE LEAD" },
+
+  { img: "/about-us-page/casie.png", name: "CASIE", title: "ACCOUNT MANAGER" },
+  { img: "/about-us-page/shabeer.png", name: "SHABEER", title: "CONTENT LEAD" },
+  { img: "/about-us-page/phyo.png", name: "PHYO", title: "CONTENT CREATOR" },
+  { img: "/about-us-page/arjun.png", name: "ARJUN", title: "CONTENT CREATOR" },
 ];
 
 export default function AboutPage() {
@@ -91,81 +99,44 @@ export default function AboutPage() {
     // Custom aesthetic animation for the Team Section
     const teamSection = containerRef.current.querySelector("." + styles.teamSection);
     if (teamSection) {
-      const sectionTitle = teamSection.querySelector("." + styles.teamSectionTitle);
-      const leaderImg = teamSection.querySelector("." + styles.leaderImageWrapper);
-      const leaderDesc = teamSection.querySelector("." + styles.leaderDescription);
-      const leaderName = teamSection.querySelector("." + styles.leaderNameTitle);
+      const teamTitle = teamSection.querySelector("." + styles.teamTitle);
+      const gridMembers = teamSection.querySelectorAll("." + styles.teamMember);
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: teamSection,
-          start: "top 75%",
+          start: "top 80%",
           toggleActions: "play none none none",
         }
       });
 
-      if (sectionTitle) {
-        tl.from(sectionTitle, {
-          x: -30,
-          opacity: 0,
-          duration: 1.0,
-          ease: "power3.out"
-        }, 0);
-      }
-
-      if (leaderImg) {
-        tl.from(leaderImg, {
-          y: 50,
-          opacity: 0,
-          scale: 0.97,
-          duration: 1.4,
-          ease: "power3.out"
-        }, 0.15);
-      }
-
-      if (leaderDesc) {
-        tl.from(leaderDesc, {
-          y: 25,
+      if (teamTitle) {
+        tl.from(teamTitle, {
+          y: 30,
           opacity: 0,
           duration: 1.2,
           ease: "power3.out"
-        }, 0.3);
+        });
       }
 
-      if (leaderName) {
-        tl.from(leaderName, {
-          y: 20,
-          opacity: 0,
-          duration: 1.0,
-          ease: "power3.out"
-        }, 0.45);
-      }
-
-      // Staggered grid entrance
-      const gridMembers = teamSection.querySelectorAll("." + styles.teamMember);
       if (gridMembers.length > 0) {
-        gsap.from(gridMembers, {
-          scrollTrigger: {
-            trigger: teamSection.querySelector("." + styles.teamGrid),
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-          y: 60,
+        tl.from(gridMembers, {
+          y: 40,
           opacity: 0,
           stagger: 0.15,
           duration: 1.2,
           ease: "power3.out",
           clearProps: "all"
-        });
+        }, "-=0.8");
       }
     }
 
     // Designed to Transform Section Pinning Animation
     const darkTopRow = containerRef.current.querySelector("." + styles.darkTopRow);
     const darkTitle = containerRef.current.querySelector<HTMLElement>("." + styles.darkTitle);
-    const darkDesc = containerRef.current.querySelector("." + styles.darkDesc);
+    const differentList = containerRef.current.querySelector("." + styles.differentList);
 
-    if (darkTopRow && darkTitle && darkDesc) {
+    if (darkTopRow && darkTitle && differentList) {
       let mm = gsap.matchMedia();
       mm.add("(min-width: 1025px)", () => {
         ScrollTrigger.create({
@@ -325,32 +296,24 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section style={{ padding: '100px 0px 100px 0px', margin: '0 auto' }}>
+        <p className={styles.shortNote}>
+          After 17 years, one thing hasn't changed.<br />
+          We still believe the most powerful marketing isn't the loudest voice in the room—it's the one people choose to listen to.<br /><br />
+          At McCollins Media, we don't simply generate visibility. We build credibility. We don't chase headlines. We create stories worth telling. And we don't measure success by how much attention a brand receives, but by the influence, trust, and growth it earns.<br /><br />
+          Because brands deserve more than publicity.<br />
+          They deserve partners who think bigger, move faster, challenge harder, and care deeper.<br /><br />
+          That's McCollins Media.
+        </p>
+      </section>
+
 
       {/* Team Section */}
       <section className={styles.teamSection}>
-        <div className={styles.teamTopRow}>
-          <div className={styles.teamSectionTitle}>
-            OUR TEAM
-          </div>
-          <div className={styles.leaderImageWrapper}>
-            <Image
-              src="/about-us-page/image1.jpg"
-              alt="Meghna Kothari"
-              width={800}
-              height={1000}
-              className={styles.leaderImage}
-            />
-          </div>
-          <div className={styles.leaderInfo}>
-            <p className={styles.leaderDescription}>
-              McCollins Media was built for brands that value momentum. Direct access to global talent, clear strategic thinking, and work made to move the business forward.
-            </p>
-            <div className={styles.leaderNameTitle}>
-              <span className={styles.leaderName}>Meghna Kothari</span>
-              <span className={styles.leaderTitle}>Founder</span>
-            </div>
-          </div>
-        </div>
+        <h2 className={styles.teamTitle}>
+          <span className={styles.teamTitleItalic}>O</span>
+          <span className={styles.teamTitleBold}>UR TEAM</span>
+        </h2>
 
         <div className={styles.teamGrid}>
           {TEAM_MEMBERS.map((member, index) => (
@@ -365,27 +328,19 @@ export default function AboutPage() {
               </div>
               <div className={styles.memberInfo}>
                 <span className={styles.memberName}>{member.name}</span>
-                <span className={styles.memberTitle}>{member.title}</span>
+                <span className={styles.memberRole}>{member.title}</span>
               </div>
             </div>
           ))}
-
-
         </div>
       </section>
 
       {/* Dark "Designed to Transform" Section */}
-      <section className={styles.darkSection}>
-        <div className={styles.darkTopRow}>
-          <div className={styles.darkTitleCol}>
-            <h2 className={styles.darkTitle}>Designed to transform</h2>
-          </div>
-          <div className={styles.darkDesc}>
-            <p>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
-            <p style={{ marginTop: '100px' }}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
-          </div>
+      <section className={styles.whiteSectionBottom}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+          <p className={styles.memberName}>OUR SERVICES</p>
+          <p className={styles.memberName}>SEE THE WORK↗</p>
         </div>
-
         <div className={styles.darkGallery}>
           <div className={`${styles.galleryImageWrapper} about-reveal hover-target`} onClick={() => router.push("/case-study/cleaning-superstore")}>
             <Image
