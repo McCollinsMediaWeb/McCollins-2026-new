@@ -133,7 +133,9 @@ export default function ServicesPage() {
     // Scroll Reveals for Services - Desktop only
     let mm = gsap.matchMedia();
     mm.add("(min-width: 769px)", () => {
-      const serviceRows = containerRef.current.querySelectorAll("." + styles.serviceRow);
+      const container = containerRef.current;
+      if (!container) return;
+      const serviceRows = container.querySelectorAll("." + styles.serviceRow);
       serviceRows.forEach((row) => {
         const image = row.querySelector("." + styles.imageCol);
         const content = row.querySelectorAll("." + styles.serviceTitle + ", ." + styles.serviceDesc + ", ." + styles.includesCol);
