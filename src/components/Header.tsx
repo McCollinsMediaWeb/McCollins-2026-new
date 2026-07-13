@@ -94,7 +94,7 @@ export default function Header() {
           </Link>
           <Link href="/industry" className="nav-link">
             <span className="roll-text">
-              <span className="roll-text-inner" data-text="WORK">EXPERTISE</span>
+              <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
             </span>
           </Link>
         </nav>
