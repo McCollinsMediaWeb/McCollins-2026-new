@@ -1130,7 +1130,7 @@ export default function Home() {
         <div className={styles.expertiseSliderViewport}>
           <div className={styles.expertiseSliderTrack} ref={expertiseTrackRef}>
             {EXPERTISE_ITEMS.map((item, i) => (
-              <div key={`expertise-card-${i}`} className={styles.expertiseCard}>
+              <div key={`expertise-card-${i}`} className={styles.expertiseCard} onClick={() => router.push('/industry')}>
                 <div className={styles.expertiseCardImageWrapper}>
                   <Image
                     src={item.img}

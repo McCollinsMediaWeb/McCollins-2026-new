@@ -74,6 +74,7 @@ export default function Footer() {
               <li><Link href="/works">Work</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/services">Services</Link></li>
+              <li><Link href="/industry">Expertise</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             <ul className={styles.linksList}>

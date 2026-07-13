@@ -92,6 +92,11 @@ export default function Header() {
               <span className="roll-text-inner" data-text="WORK">WORK</span>
             </span>
           </Link>
+          <Link href="/industry" className="nav-link">
+            <span className="roll-text">
+              <span className="roll-text-inner" data-text="WORK">EXPERTISE</span>
+            </span>
+          </Link>
         </nav>
 
         {/* Right: CTA & Hamburger Menu */}
