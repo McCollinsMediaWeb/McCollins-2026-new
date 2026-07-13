@@ -62,31 +62,30 @@ export default function HeroSection() {
         </h1>
         <div className={styles.heroSubtitleContainer}>
           <p className={`${styles.heroSubtitle} hero-subtitle`}>
-            Developing high-performance, responsive websites<br/>
-            engineered to convert global audiences into loyal customers.
+            Cultivating vibrant digital communities through<br /> culturally resonant content that sparks global<br /> engagement.
           </p>
         </div>
       </div>
 
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
-          <Image 
-            src="/social-media-marketing/Group-1000002160.jpg" 
+          <Image
+            src="/social-media-marketing/Group-1000002160.jpg"
             alt="Hand holding modern smartphone with app design"
             fill
             className={styles.heroImage}
             priority
           />
         </div>
-        
+
         <div className={`${styles.heroRightContent} hero-right-item`}>
           <div className={styles.contactHeader}>
-            <h2 className={styles.contactTitle}>CONTACT US TO GET<br/>STARTED</h2>
+            <h2 className={styles.contactTitle}>CONTACT US TO GET<br />STARTED</h2>
             <button className={styles.letsTalkBtn}>
               <span className={styles.blueDot}></span> LET&apos;S TALK
             </button>
           </div>
-          
+
           <div className={styles.includesSection}>
             <h3 className={styles.includesTitle}>Includes:</h3>
             <div className={styles.tagsContainer}>

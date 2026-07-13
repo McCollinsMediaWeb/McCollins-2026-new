@@ -29,7 +29,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(40px, 8.5vw, 150px);
+  font-size: clamp(32px, 7vw, 110px);
   line-height: 0.9;
   font-weight: 700;
   margin: 0;
@@ -208,14 +208,20 @@
 .trustedGallery {
   display: flex;
   gap: 30px;
-  padding: 0 5%;
-  transform: translateX(-15%);
-  width: max-content;
+  padding: 0 10% 40px;
+  width: 100%;
+  overflow-x: auto;
+  align-items: flex-start;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.trustedGallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .trustedCard {
   width: 380px;
-  height: 480px;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -224,16 +230,19 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .cardBlack {
   background: #000;
   color: #fff;
+  height: 340px;
 }
 
 .cardWhite {
   background: #f4f4f4;
   color: #000;
+  height: 300px;
 }
 
 .cardImageBg {
@@ -527,6 +536,15 @@
   .workCard {
     min-width: 350px;
   }
+
+  .cardsWrapper {
+    padding: 0 5% 40px;
+  }
+
+  .card {
+    width: 300px;
+    padding: 30px 24px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -658,36 +676,45 @@
 .cardsWrapper {
   display: flex;
   gap: 30px;
-  padding: 0 5%;
-  /* Shift left to match design showing cut off cards */
-  transform: translateX(-15%);
-  width: max-content;
+  padding: 0 10% 40px;
+  width: 100%;
+  overflow-x: auto;
+  align-items: flex-start;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.cardsWrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .card {
   width: 380px;
-  height: 480px;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: var(--font-delight), sans-serif;
+  flex-shrink: 0;
 }
 
 .cardBlack {
   background: #000;
   color: #fff;
+  height: 340px;
 }
 
 .cardGradient {
   background: linear-gradient(180deg, #000000 0%, #000000 40%, #769eb8 100%);
   color: #fff;
+  height: 440px;
 }
 
 .cardWhite {
   background: #f8f8f8;
   color: #000;
   border: 1px solid #eaeaea;
+  height: 300px;
 }
 
 .cardTitle {

@@ -10,6 +10,7 @@
 .delightText {
   font-family: var(--font-delight), sans-serif;
 }
+
 .playfairText {
   font-family: var(--font-playfair-display), serif;
 }
@@ -28,7 +29,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(40px, 8.5vw, 150px);
+  font-size: clamp(32px, 7vw, 110px);
   line-height: 0.9;
   font-weight: 700;
   margin: 0;
@@ -170,8 +171,8 @@
   margin-top: 60px;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .trustedTitle {
@@ -207,14 +208,23 @@
 .trustedGallery {
   display: flex;
   gap: 30px;
-  padding: 0 5%;
-  transform: translateX(-15%);
-  width: max-content;
+  padding: 0 10% 40px;
+  width: 100%;
+  overflow-x: auto;
+  align-items: flex-start;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.trustedGallery::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 .trustedCard {
   width: 380px;
-  height: 480px;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -223,21 +233,26 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .cardBlack {
   background: #000;
   color: #fff;
+  height: 340px;
 }
 
 .cardWhite {
   background: #f4f4f4;
   color: #000;
+  height: 300px;
 }
 
 .cardImageBg {
   color: #fff;
+  height: 440px;
 }
+
 .cardImageBg img {
   position: absolute;
   top: 0;
@@ -314,8 +329,8 @@
   align-items: stretch;
   max-width: 1600px;
   margin: 80px auto;
-  border-top: 1px solid rgba(0,0,0,0.15);
-  border-bottom: 1px solid rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workSimplyHeader {
@@ -323,7 +338,7 @@
   display: flex;
   flex-direction: column;
   padding: 60px 40px 60px 20px;
-  border-right: 1px solid rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .workHeaderContent {
@@ -384,16 +399,18 @@
 .workSimplyGallery {
   display: flex;
   gap: 30px;
-  padding: 60px 40px;
+  padding: 60px calc(100% - 540px) 60px 40px;
   overflow-x: auto;
   scrollbar-width: none;
+  position: relative;
 }
+
 .workSimplyGallery::-webkit-scrollbar {
   display: none;
 }
 
 .workCard {
-  min-width: 450px;
+  min-width: 500px;
   height: 300px;
   padding: 40px;
   display: flex;
@@ -408,7 +425,17 @@
 }
 
 .workCardGrey {
-  background: #4b4f58;
+  background: #4D505D;
+  color: #fff;
+}
+
+.workCardBlue {
+  background: #0038B4;
+  color: #fff;
+}
+
+.workCardGreen {
+  background: #779C96;
   color: #fff;
 }
 
@@ -461,20 +488,47 @@
 .techLogos {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 60px;
+  align-items: flex-start;
+  gap: 80px;
   flex-wrap: wrap;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.techLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
 }
 
 .techLogo {
   height: 60px;
   width: auto;
   object-fit: contain;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }
-.techLogo:hover {
+
+.techItem:hover .techLogo {
+  filter: grayscale(0%);
   opacity: 1;
+}
+
+.techName {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  /* letter-spacing: 0.08em; */
+  letter-spacing: -0.2px;
+  color: #111;
+  text-transform: uppercase;
 }
 
 /* =========================================
@@ -511,14 +565,30 @@
     font-size: clamp(40px, 7vw, 64px);
     flex-wrap: wrap;
   }
+
   .heroContent {
     flex-direction: column;
   }
+
   .heroImageWrapper {
     height: 400px;
   }
+
   .workCard {
     min-width: 350px;
+  }
+
+  .workSimplyGallery {
+    padding: 60px calc(100% - 390px) 60px 40px;
+  }
+
+  .trustedGallery {
+    padding: 0 5% 40px;
+  }
+
+  .trustedCard {
+    width: 300px;
+    padding: 30px 24px;
   }
 }
 
@@ -527,30 +597,43 @@
     font-size: clamp(28px, 9vw, 40px);
     flex-wrap: wrap;
   }
+
   .heroSubtitleContainer {
     justify-content: center;
     padding-right: 0;
   }
+
   .heroSubtitle {
     text-align: center;
   }
-  .trustedTitle, .techTitle {
+
+  .trustedTitle,
+  .techTitle {
     font-size: 1.2rem;
   }
+
   .workSimplyHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
+
   .workSimplyTitle {
     font-size: 2.5rem;
   }
+
   .techLogos {
     gap: 30px;
   }
+
+  .techLogoWrapper {
+    height: 60px;
+  }
+
   .techLogo {
     height: 40px;
   }
+
   .portfolioImageWrapper {
     padding: 20px;
   }

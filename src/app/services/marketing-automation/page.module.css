@@ -37,10 +37,15 @@
     grid-template-columns: 2.2fr 1fr;
     gap: 60px;
   }
+  .heroSubtitle {
+    grid-column: 2;
+    justify-self: end;
+  }
 }
 
 .heroTitle {
-  font-size: clamp(32px, 7.5vw, 110px);
+  grid-column: 1 / -1;
+  font-size: clamp(32px, 7vw, 110px);
   line-height: 0.95;
   font-weight: 700;
   margin: 0;
@@ -48,7 +53,7 @@
   text-transform: uppercase;
   display: flex;
   align-items: baseline;
-  justify-content: flex-start;
+  justify-content: center;
   white-space: nowrap;
 }
 
@@ -69,6 +74,7 @@
 }
 
 .heroSubtitle {
+  grid-column: 1 / -1;
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   font-family: var(--font-delight), sans-serif;
   font-weight: 400;
@@ -76,7 +82,7 @@
   color: #212121;
   margin: 0;
   max-width: 440px;
-  justify-self: end;
+  justify-self: center;
 }
 
 .heroContent {

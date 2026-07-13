@@ -42,16 +42,14 @@ export default function TrustedBrandsSection() {
   return (
     <section className={styles.trustedBrandsSection} ref={containerRef}>
       <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
-        Google Ads Management:<br />
-        Drive More <span>Conversion</span>
+        GOOGLE ADS MANAGEMENT:<br />
+        DRIVE MORE <span>Conversions</span>
       </h2>
 
       <div className={styles.cardsSectionHeader}>
-        <div>Our Services</div>
+        <div>OUR SERVICES</div>
         <div>info@mccollinsmedia.com</div>
       </div>
-
-
 
       <div className={styles.cardsWrapper}>
         <div className={`${styles.card} ${styles.cardBlack} brand-card`}>
@@ -68,25 +66,22 @@ export default function TrustedBrandsSection() {
             <span className={styles.titleItalic}>Keyword</span> RESEARCH
           </h3>
           <p className={styles.cardText}>
-            Identifying the keywords that people use to
-            search for the products or services being
-            advertised.
+            Identifying the keywords that people use to search for the products or services being advertised.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardWhite} brand-card`}>
           <h3 className={styles.cardTitle}>
-            Campaign <span className={styles.titleItalic}>Setup</span>
+            CAMPAIGN <span className={styles.titleItalic}>Setup</span>
           </h3>
           <p className={styles.cardText}>
-            Setting up the campaign structure, ad groups
-            and targeting options.
+            Setting up the campaign structure, ad groups and targeting options.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
           <h3 className={styles.cardTitle}>
-            <span className={styles.titleItalic}>Ad</span> Creation
+            <span className={styles.titleItalic}>Ad</span> CREATION
           </h3>
           <p className={styles.cardText}>
             Creating compelling and relevant ads that resonate with the target audience.
@@ -98,8 +93,7 @@ export default function TrustedBrandsSection() {
             BID <span className={styles.titleItalic}>Management</span>
           </h3>
           <p className={styles.cardText}>
-            Setting the right bid amounts for each ad and keyword to optimize ad
-            performance.
+            Setting the right bid amounts for each ad and keyword to optimize campaign performance.
           </p>
         </div>
       </div>

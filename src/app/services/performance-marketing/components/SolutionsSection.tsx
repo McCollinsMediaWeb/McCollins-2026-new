@@ -195,7 +195,7 @@ export default function SolutionsSection() {
       </div>
 
       {/* Divider at the bottom */}
-      <div className={styles.dividerLine} />
+      {/* <div className={styles.dividerLine} /> */}
     </section>
   );
 }

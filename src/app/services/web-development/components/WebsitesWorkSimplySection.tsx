@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,6 +12,8 @@ if (typeof window !== "undefined") {
 
 export default function WebsitesWorkSimplySection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   useGSAP(() => {
     gsap.from(".work-title-anim", {
@@ -38,37 +40,100 @@ export default function WebsitesWorkSimplySection() {
     });
   }, { scope: containerRef });
 
+  const handleScroll = () => {
+    if (!galleryRef.current) return;
+    const scrollLeft = galleryRef.current.scrollLeft;
+    const cards = galleryRef.current.children;
+    if (cards.length === 0) return;
+
+    const style = window.getComputedStyle(galleryRef.current);
+    const paddingLeft = parseFloat(style.paddingLeft) || 0;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i] as HTMLElement;
+      const targetScroll = card.offsetLeft - paddingLeft;
+      const distance = Math.abs(targetScroll - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = i;
+      }
+    }
+
+    const newIndex = closestIndex + 1;
+    if (newIndex !== activeIndex) {
+      setActiveIndex(newIndex);
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!galleryRef.current) return;
+    const cards = galleryRef.current.children;
+    if (index >= 0 && index < cards.length) {
+      const card = cards[index] as HTMLElement;
+      const style = window.getComputedStyle(galleryRef.current);
+      const paddingLeft = parseFloat(style.paddingLeft) || 0;
+
+      galleryRef.current.scrollTo({
+        left: card.offsetLeft - paddingLeft,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    scrollToIndex(activeIndex - 2);
+  };
+
+  const handleNext = () => {
+    scrollToIndex(activeIndex);
+  };
+
   return (
     <section className={styles.workSimplySection} ref={containerRef}>
       <div className={styles.workSimplyHeader}>
         <div className={styles.workHeaderContent}>
           <h2 className={`${styles.workSimplyTitle} work-title-anim`}>
-            <span className={styles.titleItalic}>Websites</span><br/>
-            <span className={styles.workSimplyTitleStrong}>THAT WORK<br/>SIMPLY.</span>
+            <span className={styles.titleItalic}>Websites</span><br />
+            <span className={styles.workSimplyTitleStrong}>THAT WORK<br />SIMPLY.</span>
           </h2>
-          
+
           <div className={`${styles.workNavigation} work-title-anim`}>
-            <div className={styles.pageIndicator}>01 / 05</div>
+            <div className={styles.pageIndicator}>
+              {String(activeIndex).padStart(2, "0")} / 05
+            </div>
             <div className={styles.navArrows}>
-              <button className={styles.navArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 12H5M5 12L12 5M5 12L12 19" stroke="black" strokeWidth="1" strokeLinecap="square"/>
-                </svg>
+              <button 
+                className={styles.navArrow} 
+                onClick={handlePrev}
+                disabled={activeIndex === 1}
+                style={{ opacity: activeIndex === 1 ? 0.3 : 1, cursor: activeIndex === 1 ? "not-allowed" : "pointer" }}
+              >
+                ⟵
               </button>
-              <button className={styles.navArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="1" strokeLinecap="square"/>
-                </svg>
+              <button 
+                className={styles.navArrow} 
+                onClick={handleNext}
+                disabled={activeIndex === 5}
+                style={{ opacity: activeIndex === 5 ? 0.3 : 1, cursor: activeIndex === 5 ? "not-allowed" : "pointer" }}
+              >
+                ⟶
               </button>
             </div>
           </div>
         </div>
       </div>
-      
-      <div className={`${styles.workSimplyGallery} work-gallery-anim`}>
+
+      <div 
+        className={`${styles.workSimplyGallery} work-gallery-anim`}
+        ref={galleryRef}
+        onScroll={handleScroll}
+      >
         <div className={`${styles.workCard} ${styles.workCardBlack} work-card-anim`}>
           <h3 className={styles.workCardTitle}>
-            CORPORATE WEBSITE<br/>
+            CORPORATE WEBSITE<br />
             <span className={styles.titleItalic}>Development</span>
           </h3>
           <div className={styles.workCardTextContainer}>
@@ -77,10 +142,10 @@ export default function WebsitesWorkSimplySection() {
             </p>
           </div>
         </div>
-        
+
         <div className={`${styles.workCard} ${styles.workCardGrey} work-card-anim`}>
           <h3 className={styles.workCardTitle}>
-            E-COMMERCE<br/>
+            E-COMMERCE<br />
             <span className={styles.titleItalic}>Development</span>
           </h3>
           <div className={styles.workCardTextContainer}>
@@ -90,14 +155,40 @@ export default function WebsitesWorkSimplySection() {
           </div>
         </div>
 
-        <div className={`${styles.workCard} ${styles.workCardBlack} work-card-anim`}>
+        <div className={`${styles.workCard} ${styles.workCardBlue} work-card-anim`}>
           <h3 className={styles.workCardTitle}>
-            WEB PORTAL<br/>
+            LEAD GENERATION FUNNEL<br />
             <span className={styles.titleItalic}>Development</span>
           </h3>
           <div className={styles.workCardTextContainer}>
             <p className={styles.workCardText}>
-              Custom secure portals that streamline operations and enhance engagement for your partners, employees, and clients.
+              We make strategic lead funnels designed to
+              maximize acquisition efficiency and convert
+              high-value prospects into loyal customers.
+            </p>
+          </div>
+        </div>
+
+        <div className={`${styles.workCard} ${styles.workCardBlack} work-card-anim`}>
+          <h3 className={styles.workCardTitle}>
+            TAILORED WEBSITES FOR<br />
+            <span className={styles.titleItalic}>YOUR UNIQUE Needs</span>
+          </h3>
+          <div className={styles.workCardTextContainer}>
+            <p className={styles.workCardText}>
+              Tired of One-Size-Fits-All Websites? Generic website templates can’t effectively showcase what sets your business apart. Don’t settle for mediocrity when you can have a website that’s as unique as your brand.
+            </p>
+          </div>
+        </div>
+
+        <div className={`${styles.workCard} ${styles.workCardGreen} work-card-anim`}>
+          <h3 className={styles.workCardTitle}>
+            MOBILE FIRST WEBSITES<br />
+            <span className={styles.titleItalic}>Development</span>
+          </h3>
+          <div className={styles.workCardTextContainer}>
+            <p className={styles.workCardText}>
+              Our mobile-first website development services prioritize the mobile user experience. We ensure your website is designed and optimized for smartphones and tablets, with a focus on speed, functionality, and user-friendliness.
             </p>
           </div>
         </div>

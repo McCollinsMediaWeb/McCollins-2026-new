@@ -32,58 +32,61 @@ export default function CardsSection() {
   return (
     <section className={styles.cardsSection} ref={containerRef}>
       <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
-        Video Storytelling<br />
-        FOR Tech <span>Marketing</span>
+        VIDEO STORYTELLING<br />
+        FORTECH <span>Marketing</span>
       </h2>
       <div className={styles.cardsSectionHeader}>
-        <div className={styles.cardsSectionTitle}>Content Production</div>
+        <div className={styles.cardsSectionTitle}>OUR SERVICES</div>
         <div className={styles.cardsSectionEmail}>info@mccollinsmedia.com</div>
       </div>
       <div className={styles.cardsWrapper}>
         <div className={`${styles.card} ${styles.cardBlack} brand-card`}>
           <h3 className={styles.cardTitle}>
-            <span className={styles.titleItalic}>Explainer</span> VIDEO
+            CORPORATE<br />
+            <span className={styles.titleItalic}>Video</span>
           </h3>
           <p className={styles.cardText}>
-            High-impact animated and live-action explainer videos that simplify complex ideas and drive viewer conversions.
+            We produce high-end corporate cinematography designed to command attention and drive brand engagement.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
           <h3 className={styles.cardTitle}>
             SOCIAL MEDIA<br />
-            <span className={styles.titleItalic}>&amp; Campaigns</span>
+            <span className={styles.titleItalic}>Videos</span>
           </h3>
           <p className={styles.cardText}>
-            Engaging short-form video campaigns optimized for Instagram, TikTok, LinkedIn, and YouTube Shorts.
+            Dynamic social narratives that bridge the gap between creative storytelling and algorithmic performance to drive meaningful brand resonance.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardWhite} brand-card`}>
           <h3 className={styles.cardTitle}>
-            <span className={styles.titleItalic}>How-To</span> VIDEOS
+            HOW TO<br />
+            <span className={styles.titleItalic}>Video</span>
           </h3>
           <p className={styles.cardText}>
-            Educational tutorial and product walkthrough videos that build trust and guide customers through key features.
+            Instructional videos designed to simplify the user journey and foster deep-tier brand loyalty through educational excellence.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardGradient} brand-card`}>
           <h3 className={styles.cardTitle}>
-            COMPANY ID<br />
-            <span className={styles.titleItalic}>&amp; Culture</span>
+            CGI<br />
+            <span className={styles.titleItalic}>Video</span>
           </h3>
           <p className={styles.cardText}>
-            Brand culture and corporate identity video productions that showcase team values and attract partners.
+            Engineering immersive 3D environments and surrealist visual narratives that elevates your brand into the next dimension of digital engagement.
           </p>
         </div>
 
         <div className={`${styles.card} ${styles.cardBlack} brand-card`}>
           <h3 className={styles.cardTitle}>
-            <span className={styles.titleItalic}>High-Fidelity</span> PRODUCTION
+            EXPLAINER<br />
+            <span className={styles.titleItalic}>Video</span>
           </h3>
           <p className={styles.cardText}>
-            Turnkey film production, from professional sets and camera crews to world-class color grading and audio mastering.
+            Motion graphics designed to simplify your value propositions into streamable visual communication.
           </p>
         </div>
       </div>
