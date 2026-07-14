@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              DESIGNING MOBILE-FIRST<br />
+              LUXURY <span className={styles.italicExperience}>Commerce</span>
             </h1>
           </div>
         </div>
@@ -203,15 +203,16 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
+            <li className={styles.metaItem}>Luxury E-Commerce Design</li>
+            <li className={styles.metaItem}>Shopify Development</li>
+            <li className={styles.metaItem}>Mobile-First UX</li>
             <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>GEO Readiness</li>
+            <li className={styles.metaItem}>Schema Implementation</li>
+            <li className={styles.metaItem}>Performance Optimization</li>
+            <li className={styles.metaItem}>Content Architecture</li>
+            <li className={styles.metaItem}>Analytics Setup</li>
+            <li className={styles.metaItem}>Website Maintenance</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
