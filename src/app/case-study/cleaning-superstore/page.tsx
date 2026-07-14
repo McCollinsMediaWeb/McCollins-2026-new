@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              ELEVATING THE <br />
+              EVENT <span className={styles.italicExperience}>Experience</span>
             </h1>
           </div>
         </div>
@@ -203,25 +203,55 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
-            <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>Ecom</li>
+            <li className={styles.metaItem}>META</li>
+            <li className={styles.metaItem}>Google</li>
+            <li className={styles.metaItem}>TikTok</li>
+            <li className={styles.metaItem}>Snapchat</li>
+            <li className={styles.metaItem}>Email</li>
+            <li className={styles.metaItem}>Automation</li>
+            <li className={styles.metaItem}>WhatsApp</li>
+            <li className={styles.metaItem}>CRO</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
             <p className={styles.descriptionParagraph}>
-              Engineering organic discoverability — a regional digital infrastructure built for the long compound.
+              Designing a premium live brand experience that translated Mercedes-Benz’s legacy of performance, precision, and luxury into a powerful event moment.
             </p>
             <p className={styles.descriptionParagraph}>
-              McCollins Media partnered with Pioneer Audio to create a refined digital experience for the Middle East market. The website was designed to strengthen brand presence, improve product discovery, and deliver a cleaner, more credible online journey for customers across the region
+              McCollins Media supported Mercedes-Benz with creative direction, event branding, visual storytelling, and content execution, crafting every touchpoint to feel refined, engaging, and unmistakably premium.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.gifSection} ref={containerRef}>
+        <div className={`${styles.gifBox} gif-box-anim`}>
+          IMG/VIDEO
+        </div>
+      </section>
+
+      <section className={styles.gallerySection}>
+        <div className={styles.gallerySectionInner}>
+          {/* Left Card: Lasers SLS */}
+          <div className={styles.galleryCard}>
+            <Image
+              src="/css/1.jpg"
+              alt="Mercedes-Benz AMG presentation with green lasers"
+              fill
+              className={styles.galleryImage}
+            />
+          </div>
+
+          {/* Right Card: Red SLS */}
+          <div className={styles.galleryCard}>
+            <Image
+              src="/css/2.png"
+              alt="Mercedes-Benz SLS AMG red presentation"
+              fill
+              className={styles.galleryImage}
+            />
           </div>
         </div>
       </section>
@@ -236,8 +266,8 @@ export default function MercedesBenzCaseStudy() {
               <div className={styles.statNumber}>01</div>
 
               <div>
-                <h3 className={styles.delightText}>+212%</h3>
-                <p>ORGANIC SESSIONS YOY</p>
+                <h3 className={styles.delightText}>1500+</h3>
+                <p>MONTHLY ONLINE ORDERS</p>
               </div>
             </div>
 
@@ -245,8 +275,8 @@ export default function MercedesBenzCaseStudy() {
               <div className={styles.statNumber}>02</div>
 
               <div>
-                <h3 className={styles.delightText}>Top 3</h3>
-                <p>SERP CATEGORY TERMS</p>
+                <h3 className={styles.delightText}>#1</h3>
+                <p>UAE CATEGORY LEADER</p>
               </div>
             </div>
           </div>
@@ -268,8 +298,8 @@ export default function MercedesBenzCaseStudy() {
               <div className={styles.statNumber}>03</div>
 
               <div>
-                <h3 className={styles.delightText}>99.9%</h3>
-                <p>PRODUCTION UPTIME</p>
+                <h3 className={styles.delightText}>4+</h3>
+                <p>PAID CHANNELS</p>
               </div>
             </div>
 
@@ -277,8 +307,8 @@ export default function MercedesBenzCaseStudy() {
               <div className={styles.statNumber}>04</div>
 
               <div>
-                <h3 className={styles.delightText}>94</h3>
-                <p>LIGHTHOUSE</p>
+                <h3 className={styles.delightText}>7x</h3>
+                <p>BLENDED ROADS</p>
               </div>
             </div>
           </div>
@@ -286,21 +316,6 @@ export default function MercedesBenzCaseStudy() {
         </div>
       </section>
 
-      {/* 3. VOSS VIDEO Section */}
-      <section className={styles.videoSection}>
-        <div className={styles.videoSectionInner}>
-          {/* <div className={styles.videoBlock}>
-            <h2 className={styles.videoText}>VOSS VIDEO</h2>
-          </div> */}
-          <Image
-            src="/pioneer/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg"
-            alt="Fujifilm Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
-          />
-        </div>
-      </section>
 
       <section className={styles.strategySection}>
         <div className={styles.strategyOverlay}>
@@ -308,7 +323,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Top Header */}
           <div className={styles.strategyTop}>
             <span>THE STRATEGIC APPROACH</span>
-            <span>PIONEER MEA</span>
+            <span>CLEANING<br />SUPERSTORE</span>
           </div>
 
           {/* Three Columns */}
@@ -325,10 +340,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Globally trusted audio brand with a regional website operating as a
-                static brochure. Organic traffic leaking to .com properties.
-                Architecture not engineered to surface in new generation of AI answer
-                engines.
+                Brand built from inception during COVID. No identity, no audience, no behavioural precedent for selling chemicals/machinery online at scale. Effectively a new e-commerce vertical from zero.
               </div>
 
             </div>
@@ -345,9 +357,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Regional flagship rebuilt. Technical SEO across schema, internal
-                linking logic, Core Web Vitals, GEO programme, entity-rich answer
-                content, AI optimisation, maintenance and analytics.
+                Brand & storefront. Quad-channel paid stack across META, Google, TikTok, Snapchat. Email & marketing automation as structural revenue. WhatsApp deployed as conversational commerce surface. Lifecycle calibrated to consumables.
               </div>
 
             </div>
@@ -363,8 +373,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Organic traffic increased, AI citations improved, Core Web Vitals
-                passed, Lighthouse score improved and production uptime maintained.
+                1,500+ monthly online orders. Largest UAE cleaning superstore. ROAS held as operation scaled. Email and WhatsApp engineered as material structural revenue lines. CPO compressed materially.
               </div>
 
             </div>
@@ -372,8 +381,7 @@ export default function MercedesBenzCaseStudy() {
           </div>
 
           <div className={styles.strategyFooter}>
-            CAPABILITIES — WEB DEV · TECHNICAL SEO · GEO ·<br /> SCHEMA · CORE WEB VITALS ·
-            CONTENT ·<br /> MAINTENANCE · ANALYTICS
+            CAPABILITIES — Brand · E-com · META ·<br /> Google · TikTok · Snapchat · Email ·<br /> Automation · WhatsApp · CRO
           </div>
 
         </div>
@@ -387,7 +395,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.png"
+            src="/css/lg.png"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}
