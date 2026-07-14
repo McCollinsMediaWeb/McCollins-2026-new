@@ -150,21 +150,23 @@ export default function ServicesPage() {
 
         if (image) {
           tl.from(image, {
-            y: 60,
+            y: 0,
             opacity: 0,
             scale: 0.95,
             duration: 1.2,
             ease: "power3.out",
+            clearProps: "transform",
           });
         }
 
         if (content.length > 0) {
           tl.from(content, {
-            y: 30,
+            y: 0,
             opacity: 0,
             duration: 1,
             stagger: 0.1,
             ease: "power3.out",
+            clearProps: "transform",
           }, "-=0.8");
         }
       });
