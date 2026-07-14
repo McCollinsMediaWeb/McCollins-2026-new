@@ -150,6 +150,31 @@ export default function Home() {
     }
   }, [visibleCards, activeExpertiseIndex]);
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const autoScroll = window.setInterval(() => {
+      setActiveServiceIndex((current) =>
+        current >= CORE_SERVICES.length - 1 ? 0 : current + 1
+      );
+    }, 4500);
+
+    return () => window.clearInterval(autoScroll);
+  }, []);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const autoScroll = window.setInterval(() => {
+      setActiveExpertiseIndex((current) => {
+        const maxIndex = Math.max(0, EXPERTISE_ITEMS.length - visibleCards);
+        return current >= maxIndex ? 0 : current + 1;
+      });
+    }, 4500);
+
+    return () => window.clearInterval(autoScroll);
+  }, [visibleCards]);
+
   const handlePrevService = () => {
     setActiveServiceIndex((prev) => Math.max(0, prev - 1));
   };
@@ -659,7 +684,8 @@ export default function Home() {
       gsap.to(track, {
         x: -(cardWidth + gap) * activeServiceIndex,
         duration: 0.85,
-        ease: "power3.out"
+        ease: "power3.out",
+        overwrite: "auto"
       });
     },
     { dependencies: [activeServiceIndex], scope: containerRef }
@@ -680,7 +706,8 @@ export default function Home() {
       gsap.to(track, {
         x: -(cardWidth + gap) * activeExpertiseIndex,
         duration: 0.85,
-        ease: "power3.out"
+        ease: "power3.out",
+        overwrite: "auto"
       });
     },
     { dependencies: [activeExpertiseIndex], scope: containerRef }

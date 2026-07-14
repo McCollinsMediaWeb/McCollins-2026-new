@@ -11,7 +11,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-export default function MercedesBenzCaseStudy() {
+export default function ZilliCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              DESIGNING MOBILE-FIRST<br />
+              LUXURY <span className={styles.italicExperience}>Commerce</span>
             </h1>
           </div>
         </div>
@@ -203,26 +203,33 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
+            <li className={styles.metaItem}>Luxury E-Commerce Design</li>
+            <li className={styles.metaItem}>Shopify Development</li>
+            <li className={styles.metaItem}>Mobile-First UX</li>
             <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>GEO Readiness</li>
+            <li className={styles.metaItem}>Schema Implementation</li>
+            <li className={styles.metaItem}>Performance Optimization</li>
+            <li className={styles.metaItem}>Content Architecture</li>
+            <li className={styles.metaItem}>Analytics Setup</li>
+            <li className={styles.metaItem}>Website Maintenance</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
             <p className={styles.descriptionParagraph}>
-              Engineering organic discoverability — a regional digital infrastructure built for the long compound.
+              A mobile-first Shopify experience for a French luxury brand, designed to make product discovery faster, cleaner, and more refined.
             </p>
             <p className={styles.descriptionParagraph}>
-              McCollins Media partnered with Pioneer Audio to create a refined digital experience for the Middle East market. The website was designed to strengthen brand presence, improve product discovery, and deliver a cleaner, more credible online journey for customers across the region
+              McCollins Media created a premium commerce experience focused on elegance, usability, and seamless shopping across mobile devices.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.gifSection} ref={containerRef}>
+        <div className={`${styles.gifBox} gif-box-anim`}>
+          GIF
         </div>
       </section>
 
@@ -286,22 +293,6 @@ export default function MercedesBenzCaseStudy() {
         </div>
       </section>
 
-      {/* 3. VOSS VIDEO Section */}
-      <section className={styles.videoSection}>
-        <div className={styles.videoSectionInner}>
-          {/* <div className={styles.videoBlock}>
-            <h2 className={styles.videoText}>VOSS VIDEO</h2>
-          </div> */}
-          <Image
-            src="/pioneer/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg"
-            alt="Fujifilm Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
-          />
-        </div>
-      </section>
-
       <section className={styles.strategySection}>
         <div className={styles.strategyOverlay}>
 
@@ -325,10 +316,8 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Globally trusted audio brand with a regional website operating as a
-                static brochure. Organic traffic leaking to .com properties.
-                Architecture not engineered to surface in new generation of AI answer
-                engines.
+                French maison entering Dubai digital market with a mobile-led, moment-shopping customer. Existing presence desktop-anchored. Product photography deserved larger stage. Checkout was friction layer, not gesture.
+
               </div>
 
             </div>
@@ -345,9 +334,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Regional flagship rebuilt. Technical SEO across schema, internal
-                linking logic, Core Web Vitals, GEO programme, entity-rich answer
-                content, AI optimisation, maintenance and analytics.
+                Mobile-first UX engineered for portrait orientation and thumb-reach. Apple Pay, Google Pay, Shop Pay for single-tap conversion. Editorial product pages treating photography as primary sales asset. Performance engineering for sub-1.6s TTI.
               </div>
 
             </div>
@@ -363,8 +350,8 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Organic traffic increased, AI citations improved, Core Web Vitals
-                passed, Lighthouse score improved and production uptime maintained.
+                Mobile conversion lifted materially. Checkout abandonment collapsed via express rails. Session depth up. A storefront engineered for the screen the customer actually shops on.
+
               </div>
 
             </div>
@@ -372,8 +359,7 @@ export default function MercedesBenzCaseStudy() {
           </div>
 
           <div className={styles.strategyFooter}>
-            CAPABILITIES — WEB DEV · TECHNICAL SEO · GEO ·<br /> SCHEMA · CORE WEB VITALS ·
-            CONTENT ·<br /> MAINTENANCE · ANALYTICS
+            CAPABILITIES — Shopify · Mobile-First ·<br /> Luxury UX · Apple Pay · Google Pay ·<br /> Shop Pay · Editorial PDPs · CRO
           </div>
 
         </div>
@@ -387,7 +373,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.png"
+            src="/zilli/fujifilm.png"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}
