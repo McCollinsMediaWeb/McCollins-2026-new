@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              DESIGNING MOBILE-FIRST<br />
+              LUXURY <span className={styles.italicExperience}>Commerce</span>
             </h1>
           </div>
         </div>
@@ -203,24 +203,23 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
-            <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>Shopify Dev</li>
+            <li className={styles.metaItem}>Luxury UX</li>
+            <li className={styles.metaItem}>Apple Pay</li>
+            <li className={styles.metaItem}>Google Pay</li>
+            <li className={styles.metaItem}>Crypto</li>
+            <li className={styles.metaItem}>Headless</li>
+            <li className={styles.metaItem}>CRO</li>
+            <li className={styles.metaItem}>Site Maintenance</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
             <p className={styles.descriptionParagraph}>
-              Engineering organic discoverability — a regional digital infrastructure built for the long compound.
+              A mobile-first Shopify experience for a French luxury brand, designed to make product discovery faster, cleaner, and more refined.
             </p>
             <p className={styles.descriptionParagraph}>
-              McCollins Media partnered with Pioneer Audio to create a refined digital experience for the Middle East market. The website was designed to strengthen brand presence, improve product discovery, and deliver a cleaner, more credible online journey for customers across the region
+              McCollins Media created a premium commerce experience focused on elegance, usability, and seamless shopping across mobile devices.
             </p>
           </div>
         </div>

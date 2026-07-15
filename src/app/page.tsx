@@ -1142,7 +1142,9 @@ export default function Home() {
                   className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === 0) ? styles.disabled : ""}`}
                   aria-label="Previous Service"
                 >
-                  ⟵
+                  <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </button>
                 <button
                   onClick={handleNextService}
@@ -1150,7 +1152,9 @@ export default function Home() {
                   className={`${styles.servicesSliderArrowBtn} ${(mounted && activeServiceIndex === CORE_SERVICES.length - 1) ? styles.disabled : ""}`}
                   aria-label="Next Service"
                 >
-                  ⟶
+                  <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -1200,7 +1204,9 @@ export default function Home() {
               className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex === 0) ? styles.disabled : ""}`}
               aria-label="Previous Expertise"
             >
-              ⟵
+              <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
             <button
               onClick={handleNextExpertise}
@@ -1208,7 +1214,9 @@ export default function Home() {
               className={`${styles.expertiseNavBtn} ${(mounted && activeExpertiseIndex >= EXPERTISE_ITEMS.length - visibleCards) ? styles.disabled : ""}`}
               aria-label="Next Expertise"
             >
-              ⟶
+              <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
           </div>
         </div>

@@ -16,7 +16,7 @@
   position: relative;
   width: 100%;
   /* background-color: #000000; */
-  background: url("/pioneer/main-banner.png") center center / cover no-repeat;
+  background: url("/voss/main-banner.png") center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

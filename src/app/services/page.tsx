@@ -34,7 +34,7 @@ const SERVICES = [
     href: "/services/web-development",
   },
   {
-    image: "/service-page/image7.jpg",
+    image: "/service-page/image10.jpeg",
     words: [
       { text: "Social Media", italic: false },
       { text: "Marketing", italic: true }
