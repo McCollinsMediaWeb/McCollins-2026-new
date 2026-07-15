@@ -621,13 +621,62 @@
   }
 
   .workSimplyHeader {
+    flex: none;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    padding: 60px 24px 32px;
+    border-right: none;
   }
 
   .workSimplyTitle {
     font-size: 2.5rem;
+    margin-bottom: 32px;
+  }
+
+  .workSimplySection {
+    flex-direction: column;
+    width: 100%;
+    margin: 60px 0;
+    overflow: hidden;
+  }
+
+  .workHeaderContent {
+    width: 100%;
+  }
+
+  .workNavigation {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .workSimplyGallery {
+    width: 100%;
+    gap: 16px;
+    padding: 0 24px 48px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 24px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+  }
+
+  .workCard {
+    flex: 0 0 calc((100vw - 48px) / 1.15);
+    min-width: 0;
+    height: 320px;
+    padding: 28px 24px;
+    scroll-snap-align: start;
+  }
+
+  .workCardTextContainer {
+    width: 100%;
   }
 
   .techLogos {
@@ -654,6 +703,6 @@
   .heroSubtitleContainer { padding-right: 0; justify-content: center; }
   .heroSubtitle { max-width: none; text-align: center; }
   .heroContent { gap: 28px; padding-top: 20px; }
-  .heroImageWrapper { height: auto; min-height: 0; }
+  .heroImageWrapper { width: 100%; height: auto; min-height: 0; aspect-ratio: 1087 / 823; flex: none; }
   .heroRightContent { gap: 36px; padding: 0; }
 }

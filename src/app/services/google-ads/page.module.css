@@ -600,7 +600,7 @@
   .heroSubtitleContainer { padding-right: 0; justify-content: center; }
   .heroSubtitle { max-width: none; text-align: center; }
   .heroContent { gap: 28px; padding-top: 20px; }
-  .heroImageWrapper { height: auto; min-height: 0; }
+  .heroImageWrapper { width: 100%; height: auto; min-height: 0; aspect-ratio: 1448 / 1086; flex: none; }
   .heroRightContent { gap: 36px; padding: 0; }
   .card { width: min(300px, calc(100vw - 48px)); padding: 24px; }
   .cardsWrapper { padding-inline: 24px; }

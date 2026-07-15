@@ -18,12 +18,12 @@ export default function PerformanceStatsSection() {
     {
       id: "03",
       value: "6.8x",
-      label: "BLENDED ROAS [CONFIRM]"
+      label: "BLENDED ROAS"
     },
     {
       id: "04",
       value: "-34%",
-      label: "CPA COMPRESSION [CONFIRM]"
+      label: "CPA COMPRESSION"
     }
   ];
 
