@@ -17,24 +17,36 @@ interface OptimizationItem {
 
 const OPTIMIZATION_ITEMS: OptimizationItem[] = [
   {
-    title: "ON-PAGE OPTIMIZATION",
-    desc: "Optimizing the content, meta tags, and other elements on the website to make it more relevant and accessible to search engines.",
-  },
-  {
-    title: "OFF-PAGE OPTIMIZATION",
-    desc: "Building high-quality backlinks from other websites to improve the website's authority and relevance.",
+    title: "SEO STRATEGY",
+    desc: "Building a search roadmap based on your business goals, target audience, competitors, website performance and growth opportunities.",
   },
   {
     title: "KEYWORD RESEARCH",
-    desc: "Identifying the most relevant and high-traffic keywords for the business and optimizing the website's content to target those keywords.",
+    desc: "Identifying high-value keywords, search terms and content opportunities that your customers use when looking for products, services or solutions.",
   },
   {
-    title: "CONTENT CREATION",
-    desc: "Creating high-quality, relevant, and engaging content that appeals to the target audience and helps drive traffic to the website.",
+    title: "ON-PAGE OPTIMIZATION",
+    desc: "Optimizing website pages, headings, meta titles, descriptions, internal links and content structure to improve relevance and search visibility.",
   },
   {
-    title: "ANALYTICS AND REPORTING",
-    desc: "Monitoring the website's performance, tracking the progress of the SEO campaign, and providing regular reports to the client.",
+    title: "TECHNICAL SEO",
+    desc: "Improving site speed, crawlability, indexing, mobile performance, structured data and technical health so search engines can understand your website better.",
+  },
+  {
+    title: "CONTENT OPTIMIZATION",
+    desc: "Creating and improving website content, blogs, landing pages and service pages to attract relevant traffic and support stronger organic rankings.",
+  },
+  {
+    title: "GEO OPTIMIZATION",
+    desc: "Optimizing your brand content for AI-powered search and generative discovery, helping your business appear in answers across platforms such as Google AI results, ChatGPT, Gemini and Perplexity.",
+  },
+  {
+    title: "AUTHORITY BUILDING",
+    desc: "Strengthening your brand's online credibility through content signals, backlinks, local listings, digital mentions and reputation-building activity.",
+  },
+  {
+    title: "ANALYTICS & REPORTING",
+    desc: "Tracking rankings, traffic, visibility, engagement, conversions and content performance with clear reports and monthly optimization recommendations.",
   },
 ];
 
@@ -81,6 +93,18 @@ export default function OptimizationSection() {
       delay: 0.2,
       ease: "power2.out",
     });
+
+    // Scroll pin animation for left-side title on desktop viewports
+    if (window.innerWidth > 991) {
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top 120px",
+        end: "bottom 320px",
+        pin: containerRef.current?.querySelector("." + styles.optTitle),
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+      });
+    }
   }, { scope: containerRef });
 
   return (

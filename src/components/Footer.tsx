@@ -81,11 +81,51 @@ export default function Footer() {
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             <ul className={styles.linksList}>
-              <li><a href="https://www.instagram.com/mccollinsmedia/?hl=en">Instagram ↗</a></li>
-              <li><a href="https://www.linkedin.com/company/mccollins-media/">LinkedIn ↗</a></li>
-              <li><a href="https://www.facebook.com/mccollinsmedia/">Facebook ↗</a></li>
-              <li><a href="https://www.tiktok.com/mccollinsmedia">Tiktok ↗</a></li>
-              <li><a href="https://www.x.com/@mccollinsmedia">X ↗</a></li>
+              <li>
+                <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
+                  Facebook
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                  Tiktok
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                  X
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -65,10 +65,16 @@
   font-weight: 400;
   opacity: 0.8;
   transition: opacity 0.3s;
+  display: inline-flex;
+  align-items: center;
 }
 
 .linksList a:hover {
   opacity: 1;
+}
+
+.linksList a:hover svg {
+  transform: translate(2px, -2px);
 }
 
 /* MIDDLE SECTION */
