@@ -157,10 +157,10 @@ export default function SolutionsSection() {
       </div>
 
       {/* Divider */}
-      <div className={styles.dividerLine} />
+      {/* <div className={styles.dividerLine} /> */}
 
       {/* Brand Logos section */}
-      <div className={`${styles.solutionsBrandsSection} solutions-brands-trigger`}>
+      {/* <div className={`${styles.solutionsBrandsSection} solutions-brands-trigger`}>
         <div className={styles.brandsRowStatic}>
           {BRAND_ROW_1.map((brand, i) => (
             <div key={`brand-1-${i}`} className={`${styles.brandLogoWrapperStatic} solutions-brand-anim`}>
@@ -192,7 +192,7 @@ export default function SolutionsSection() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Divider at the bottom */}
       {/* <div className={styles.dividerLine} /> */}

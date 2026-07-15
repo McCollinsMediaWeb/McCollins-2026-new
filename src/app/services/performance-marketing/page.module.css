@@ -56,17 +56,17 @@
 .heroSubtitleContainer {
   display: flex;
   justify-content: flex-end;
-  padding-right: 18%;
+  padding-right: 13%;
   margin-top: 15px;
 }
 
 .heroSubtitle {
-  font-size: 0.95rem;
+  font-size: 0.90rem;
   font-family: var(--font-delight), sans-serif;
   font-weight: 400;
   line-height: 1.4;
   text-align: left;
-  max-width: 380px;
+  max-width: 500px;
 }
 
 .heroContent {
@@ -763,5 +763,238 @@
   .brandsRowStatic {
     gap: 20px;
     flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   ABOUT PERFORMANCE SECTION
+   ========================================= */
+.aboutSection {
+  background-color: #ffffff;
+  padding: 100px 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.aboutText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.38rem);
+  line-height: 1.55;
+  font-weight: 500;
+  color: #111111;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px 60px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 20px;
+}
+
+.logoImg {
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.logoImg:hover {
+  opacity: 1;
+  filter: none;
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 60px 5%;
+    gap: 35px;
+  }
+
+  .aboutText {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .logoRow {
+    gap: 25px 35px;
+  }
+}
+
+/* =========================================
+   STRATEGY IMAGE SECTION
+   ========================================= */
+.strategySection {
+  background-color: #ffffff;
+  padding: 100px 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.strategyTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-align: center;
+}
+
+.strategyImgContainer {
+  position: relative;
+  width: 90%;
+  max-width: 1300px;
+  aspect-ratio: 1.6;
+  overflow: hidden;
+  /* border-radius: 8px; */
+}
+
+.strategyImg {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .strategySection {
+    padding: 60px 24px;
+    gap: 40px;
+  }
+
+  .strategyImgContainer {
+    width: 100%;
+    aspect-ratio: 1.4;
+  }
+}
+
+/* =========================================
+   STATS WITH 3D BACKGROUND SECTION
+   ========================================= */
+.statsSection {
+  width: 100%;
+  height: 680px;
+  background-image: url('/performance-marketing-page/bg.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.statsLeftColumn {
+  display: flex;
+  align-items: center;
+}
+
+.statsCardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.statCard {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.statCard:hover {
+  background-color: rgba(255, 255, 255, 0.88);
+  transform: translateY(-2px);
+}
+
+.statPill {
+  width: 32px;
+  height: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.statTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.statValue {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(2.2rem, 3.2vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #555555;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .statsSection {
+    height: auto;
+    padding: 80px 24px;
+    background-position: center center;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .statsLeftColumn {
+    justify-content: center;
+  }
+
+  .statsCardsWrapper {
+    max-width: 440px;
   }
 }

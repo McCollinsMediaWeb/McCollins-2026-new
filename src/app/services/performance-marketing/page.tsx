@@ -9,6 +9,9 @@ import GifSection from "./components/GifSection";
 import WebsitesWorkSimplySection from "./components/WebsitesWorkSimplySection";
 import TechnologiesSection from "./components/TechnologiesSection";
 import PortfolioGallerySection from "./components/PortfolioGallerySection";
+import AboutPerformanceSection from "./components/AboutPerformanceSection";
+import StrategySection from "./components/StrategySection";
+import PerformanceStatsSection from "./components/PerformanceStatsSection";
 
 export const metadata = {
   title: "Performance Marketing - McCollins Media",
@@ -20,7 +23,10 @@ export default function PerformanceMarketingPage() {
     <main className={styles.container}>
       <HeroSection />
       <SolutionsSection />
+      <AboutPerformanceSection />
       <TrustedBrandsSection />
+      <StrategySection />
+      <PerformanceStatsSection />
     </main>
   );
 }
