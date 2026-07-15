@@ -225,79 +225,95 @@ export default function MercedesBenzCaseStudy() {
         </div>
       </section>
 
-      {/* 2b. Stats Graphic Section */}
-      <section className={styles.statsSection}>
-        <div className={styles.statsWrapper}>
+      {/* 2b. Mockup Showcase Section */}
+      <section className={styles.mockupSection}>
+        <div className={styles.mockupContainer}>
+          <Image
+            src="/voss/34ddbb13bfc03b0d68fad8b4b610eafb82e2627b.jpg"
+            alt="VOSS Mobile Mockups"
+            width={1920}
+            height={1080}
+            className={styles.mockupImage}
+          />
+        </div>
+      </section>
+
+      {/* 3. Hourglass Stats Section */}
+      <section className={styles.hourglassSection}>
+        <div className={styles.hourglassInner}>
+          <div className={styles.hourglassTopRow}>
+            <span>THE HERO</span>
+            <span>VOSS WATER</span>
+          </div>
 
           {/* Left Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>01</div>
-
-              <div>
-                <h3 className={styles.delightText}>+212%</h3>
-                <p>ORGANIC SESSIONS YOY</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>02</div>
-
-              <div>
-                <h3 className={styles.delightText}>Top 3</h3>
-                <p>SERP CATEGORY TERMS</p>
-              </div>
+          <div className={`${styles.hourglassCard} ${styles.card01}`}>
+            <div className={styles.cardNum}>01</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>100%</span>
+              <span className={styles.cardLabel}>BESPOKE SHOPIFY BUILD</span>
             </div>
           </div>
 
-          {/* Center Image */}
-          <div className={styles.centerGraphic}>
+          <div className={`${styles.hourglassCard} ${styles.card02}`}>
+            <div className={styles.cardNum}>02</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>4+</span>
+              <span className={styles.cardLabel}>PAYMENT RAILS INTEGRATED</span>
+            </div>
+          </div>
+
+          {/* Mobile Hourglass Image (hidden on desktop) */}
+          <div className={styles.hourglassMobileImageWrapper}>
             <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
-              alt="Layers"
-              width={500}
-              height={600}
-              className={styles.layersImage}
+              src="/voss/229ab75419549db79d025cb5b234066de02b19de.png"
+              alt="Hourglass"
+              width={420}
+              height={520}
+              className={styles.hourglassImage}
             />
           </div>
 
           {/* Right Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>03</div>
-
-              <div>
-                <h3 className={styles.delightText}>99.9%</h3>
-                <p>PRODUCTION UPTIME</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>04</div>
-
-              <div>
-                <h3 className={styles.delightText}>94</h3>
-                <p>LIGHTHOUSE</p>
-              </div>
+          <div className={`${styles.hourglassCard} ${styles.card03}`}>
+            <div className={styles.cardNum}>03</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>&lt;1.4S</span>
+              <span className={styles.cardLabel}>TIME-TO-INTERACTIVE</span>
             </div>
           </div>
 
-        </div>
-      </section>
+          <div className={`${styles.hourglassCard} ${styles.card04}`}>
+            <div className={styles.cardNum}>04</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>96</span>
+              <span className={styles.cardLabel}>LIGHTHOUSE SCORE</span>
+            </div>
+          </div>
 
-      {/* 3. VOSS VIDEO Section */}
-      <section className={styles.videoSection}>
-        <div className={styles.videoSectionInner}>
-          {/* <div className={styles.videoBlock}>
-            <h2 className={styles.videoText}>VOSS VIDEO</h2>
-          </div> */}
-          <Image
-            src="/pioneer/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg"
-            alt="Fujifilm Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
-          />
+          {/* SVG Connector Lines (desktop only) */}
+          <svg className={styles.hourglassSvg} viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4">
+                <circle cx="5" cy="5" r="3" fill="#8c9eb2" />
+              </marker>
+            </defs>
+            {/* Curve to Card 01 */}
+            <path d="M 435 520 C 380 520, 380 195, 340 195" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 340 195 L 346 191 M 340 195 L 346 199" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 02 */}
+            <path d="M 435 520 C 380 520, 380 375, 340 375" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 340 375 L 346 371 M 340 375 L 346 379" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 03 */}
+            <path d="M 565 520 C 620 520, 620 195, 660 195" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 660 195 L 654 191 M 660 195 L 654 199" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 04 */}
+            <path d="M 565 520 C 620 520, 620 375, 660 375" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 660 375 L 654 371 M 660 375 L 654 379" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+          </svg>
         </div>
       </section>
 
@@ -307,7 +323,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Top Header */}
           <div className={styles.strategyTop}>
             <span>THE STRATEGIC APPROACH</span>
-            <span>PIONEER MEA</span>
+            <span>VOSS DUBAI</span>
           </div>
 
           {/* Three Columns */}
@@ -324,10 +340,8 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Globally trusted audio brand with a regional website operating as a
-                static brochure. Organic traffic leaking to .com properties.
-                Architecture not engineered to surface in new generation of AI answer
-                engines.
+                Heritage luxury water brand with a generic digital storefront.
+                Over-articulated interface, friction at checkout, no payment optionality beyond conventional card rails. Brand world deserved a quieter, more deliberate digital expression.
               </div>
 
             </div>
@@ -344,9 +358,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Regional flagship rebuilt. Technical SEO across schema, internal
-                linking logic, Core Web Vitals, GEO programme, entity-rich answer
-                content, AI optimisation, maintenance and analytics.
+                Editorial commerce design restraint as the system. Performance-first engineering for sub-1.5s mobile TTI. Multi-rail transaction layer: Apple Pay, Google Pay, card, crypto. Headless-ready foundation for the next horizon.
               </div>
 
             </div>
@@ -362,8 +374,7 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Organic traffic increased, AI citations improved, Core Web Vitals
-                passed, Lighthouse score improved and production uptime maintained.
+                Mobile conversion lifted materially. Checkout abandonment collapsed. Near-perfect Lighthouse. A storefront that disappears  leaving brand, bottle, transaction.
               </div>
 
             </div>
@@ -371,8 +382,7 @@ export default function MercedesBenzCaseStudy() {
           </div>
 
           <div className={styles.strategyFooter}>
-            CAPABILITIES — WEB DEV · TECHNICAL SEO · GEO ·<br /> SCHEMA · CORE WEB VITALS ·
-            CONTENT ·<br /> MAINTENANCE · ANALYTICS
+            CAPABILITIES — Shopify Dev · Luxury UX ·<br /> Apple Pay · Google Pay · Crypto · Headless ·<br /> CRO · Site Maintenance
           </div>
 
         </div>
@@ -386,7 +396,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.png"
+            src="/voss/mapei.png"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

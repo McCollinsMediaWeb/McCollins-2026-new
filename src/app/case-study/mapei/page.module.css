@@ -16,7 +16,7 @@
   position: relative;
   width: 100%;
   /* background-color: #000000; */
-  background: url("/pioneer/main-banner.png") center center / cover no-repeat;
+  background: url("/mapei/main-banner.png") center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -112,137 +112,6 @@
   color: #111111;
 }
 
-/* =========================================
-   Stats Graphic Section
-   ========================================= */
-.statsSection {
-  background: #000;
-  /* padding: 120px 8%; */
-  overflow: hidden;
-}
-
-.statsWrapper {
-  max-width: 1500px;
-  margin: auto;
-  padding: 0px 40px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 80px;
-}
-
-.statsColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.statCard {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  padding: 34px;
-
-  border-radius: 18px;
-
-  border: 1px solid rgba(255, 255, 255, .22);
-
-  background:
-    linear-gradient(90deg,
-      rgba(255, 255, 255, .18) 0%,
-      rgba(255, 255, 255, .34) 50%,
-      rgba(255, 255, 255, .12) 100%);
-
-  backdrop-filter: blur(18px);
-
-  min-height: 145px;
-}
-
-.statNumber {
-  width: 52px;
-  height: 52px;
-
-  border-radius: 14px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(255, 255, 255, .35);
-
-  color: #111;
-  font-weight: 700;
-  font-size: 26px;
-
-  flex-shrink: 0;
-}
-
-.statCard h3 {
-  margin: 0;
-
-  color: white;
-  font-size: clamp(42px, 4vw, 72px);
-  font-weight: 300;
-  line-height: 1;
-}
-
-.statCard p {
-  margin-top: 8px;
-
-  color: rgba(255, 255, 255, .75);
-
-  font-size: 15px;
-  letter-spacing: .08em;
-}
-
-.centerGraphic {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.layersImage {
-  width: 430px;
-  height: auto;
-  display: block;
-}
-
-/* =========================================
-   IMG/VIDEO Section (VOSS VIDEO)
-   ========================================= */
-.videoSection {
-  background-color: #ffffff;
-  width: 100%;
-}
-
-.videoSectionInner {
-  /* padding: 40px 8% 80px; */
-  padding: 80px 8% 80px;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-.videoBlock {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.videoText {
-  color: #ffffff;
-  font-family: var(--font-delight), sans-serif;
-  font-size: clamp(18px, 3vw, 36px);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
 
 /* =========================================
    SLS AMG Gallery Grid Section
@@ -253,7 +122,7 @@
 }
 
 .gallerySectionInner {
-  padding: 40px 8% 140px;
+  padding: 40px 8% 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -279,6 +148,234 @@
 .galleryCard:hover .galleryImage {
   transform: scale(1.03);
 }
+
+
+/* =========================================
+   Mockup Showcase Section
+   ========================================= */
+.mockupSection {
+  width: 100%;
+  background-color: #e9edf6;
+  /* Matches the image background color exactly */
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockupContainer {
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 48px;
+}
+
+.mockupImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+/* =========================================
+   Hourglass Stats Section
+   ========================================= */
+.hourglassSection {
+  width: 100%;
+  background-color: #ffffff; /* White section background as requested */
+  padding: 0; /* Full width edge-to-edge */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hourglassInner {
+  width: 100%;
+  max-width: 100%; /* Spans full width of the screen */
+  aspect-ratio: 16 / 10.5; /* Keeps mockup slides in perfect ratio */
+  position: relative;
+  border-radius: 0; /* Remove rounded corners for full-width layout */
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.hourglassInner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(240, 242, 245, 0.15), rgba(240, 242, 245, 0.15)), url("/voss/229ab75419549db79d025cb5b234066de02b19de.png") center center / cover no-repeat;
+  filter: grayscale(45%) brightness(102%) contrast(98%); /* desaturate and light-grey the image */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hourglassTopRow {
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  /* Aligns with the cards */
+  right: 8%;
+  /* Aligns with the cards */
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-playfair-display), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #000;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.hourglassCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 26px;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 15px 40px rgba(120, 130, 150, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  width: 26%;
+  z-index: 10;
+}
+
+.card01 {
+  left: 8%;
+  top: 25%;
+}
+
+.card02 {
+  left: 8%;
+  top: 55%;
+}
+
+.card03 {
+  right: 8%;
+  top: 25%;
+}
+
+.card04 {
+  right: 8%;
+  top: 55%;
+}
+
+.cardNum {
+  width: 44px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  flex-shrink: 0;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardVal {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(26px, 2.8vw, 44px);
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cardLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(8px, 0.62vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #000000;
+  opacity: 0.95;
+  line-height: 1.3;
+}
+
+.hourglassMobileImageWrapper {
+  display: none;
+}
+
+.hourglassSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+@media (max-width: 1024px) {
+  .hourglassInner {
+    aspect-ratio: auto;
+    background: #e9edf6; /* fallback color */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 40px;
+  }
+
+  .hourglassTopRow {
+    position: static;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  .hourglassCard {
+    position: static;
+    width: 100%;
+  }
+
+  .hourglassMobileImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .hourglassImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  .hourglassSvg {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hourglassSection {
+    padding: 60px 24px;
+  }
+  .hourglassInner {
+    padding: 40px 24px;
+  }
+}
+
+
 
 /* =========================================
    Fujifilm Transition Banner Section

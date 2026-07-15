@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              ELEVATING THE <br />
+              EVENT <span className={styles.italicExperience}>Experience</span>
             </h1>
           </div>
         </div>
@@ -203,101 +203,139 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
-            <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>Brand</li>
+            <li className={styles.metaItem}>Logo</li>
+            <li className={styles.metaItem}>Guidelines</li>
+            <li className={styles.metaItem}>Photography</li>
+            <li className={styles.metaItem}>Video</li>
+            <li className={styles.metaItem}>Social</li>
+            <li className={styles.metaItem}>Community</li>
+            <li className={styles.metaItem}>Web</li>
+            <li className={styles.metaItem}>Reservation</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
-            <p className={styles.descriptionParagraph}>
-              Engineering organic discoverability — a regional digital infrastructure built for the long compound.
-            </p>
-            <p className={styles.descriptionParagraph}>
-              McCollins Media partnered with Pioneer Audio to create a refined digital experience for the Middle East market. The website was designed to strengthen brand presence, improve product discovery, and deliver a cleaner, more credible online journey for customers across the region
+            <p className={styles.descriptionParagraph}>Engineering B2B authority on META & LinkedIn —
+              for a specifier audience.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2b. Stats Graphic Section */}
-      <section className={styles.statsSection}>
-        <div className={styles.statsWrapper}>
+      <section className={styles.gallerySection}>
+        <div className={styles.gallerySectionInner}>
+          {/* Left Card: Lasers SLS */}
+          <div className={styles.galleryCard}>
+            <Image
+              src="/mapei/1.jpg"
+              alt="Mercedes-Benz AMG presentation with green lasers"
+              fill
+              className={styles.galleryImage}
+            />
+          </div>
+
+          {/* Right Card: Red SLS */}
+          <div className={styles.galleryCard}>
+            <Image
+              src="/mapei/2.jpg"
+              alt="Mercedes-Benz SLS AMG red presentation"
+              fill
+              className={styles.galleryImage}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Hourglass Stats Section */}
+      <section className={styles.hourglassSection}>
+        <div className={styles.hourglassInner}>
+          <div className={styles.hourglassTopRow}>
+            <span>THE HERO</span>
+            <span>MAPEI MENA</span>
+          </div>
 
           {/* Left Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>01</div>
-
-              <div>
-                <h3 className={styles.delightText}>+212%</h3>
-                <p>ORGANIC SESSIONS YOY</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>02</div>
-
-              <div>
-                <h3 className={styles.delightText}>Top 3</h3>
-                <p>SERP CATEGORY TERMS</p>
-              </div>
+          <div className={`${styles.hourglassCard} ${styles.card01}`}>
+            <div className={styles.cardNum}>01</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>0 → Launch</span>
+              <span className={styles.cardLabel}>CHANNELS BUILT FROM ZERO</span>
             </div>
           </div>
 
-          {/* Center Image */}
-          <div className={styles.centerGraphic}>
+          <div className={`${styles.hourglassCard} ${styles.card02}`}>
+            <div className={styles.cardNum}>02</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>2</span>
+              <span className={styles.cardLabel}>PRIMARY PLATFORMS</span>
+            </div>
+          </div>
+
+          {/* Mobile Hourglass Image (hidden on desktop) */}
+          <div className={styles.hourglassMobileImageWrapper}>
             <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
-              alt="Layers"
-              width={500}
-              height={600}
-              className={styles.layersImage}
+              src="/voss/229ab75419549db79d025cb5b234066de02b19de.png"
+              alt="Hourglass"
+              width={420}
+              height={520}
+              className={styles.hourglassImage}
             />
           </div>
 
           {/* Right Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>03</div>
-
-              <div>
-                <h3 className={styles.delightText}>99.9%</h3>
-                <p>PRODUCTION UPTIME</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>04</div>
-
-              <div>
-                <h3 className={styles.delightText}>94</h3>
-                <p>LIGHTHOUSE</p>
-              </div>
+          <div className={`${styles.hourglassCard} ${styles.card03}`}>
+            <div className={styles.cardNum}>03</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>+680%</span>
+              <span className={styles.cardLabel}>TIME-TO-INTERACTIVE</span>
             </div>
           </div>
 
+          <div className={`${styles.hourglassCard} ${styles.card04}`}>
+            <div className={styles.cardNum}>04</div>
+            <div className={styles.cardText}>
+              <span className={styles.cardVal}>+185%</span>
+              <span className={styles.cardLabel}>SPECIFIER ENGAGEMENT</span>
+            </div>
+          </div>
+
+          {/* SVG Connector Lines (desktop only) */}
+          <svg className={styles.hourglassSvg} viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4">
+                <circle cx="5" cy="5" r="3" fill="#8c9eb2" />
+              </marker>
+            </defs>
+            {/* Curve to Card 01 */}
+            <path d="M 435 520 C 380 520, 380 195, 340 195" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 340 195 L 346 191 M 340 195 L 346 199" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 02 */}
+            <path d="M 435 520 C 380 520, 380 375, 340 375" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 340 375 L 346 371 M 340 375 L 346 379" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 03 */}
+            <path d="M 565 520 C 620 520, 620 195, 660 195" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 660 195 L 654 191 M 660 195 L 654 199" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+
+            {/* Curve to Card 04 */}
+            <path d="M 565 520 C 620 520, 620 375, 660 375" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" markerStart="url(#dot)" />
+            <path d="M 660 375 L 654 371 M 660 375 L 654 379" stroke="#8c9eb2" strokeWidth="1" strokeLinecap="round" />
+          </svg>
         </div>
       </section>
 
-      {/* 3. VOSS VIDEO Section */}
-      <section className={styles.videoSection}>
-        <div className={styles.videoSectionInner}>
-          {/* <div className={styles.videoBlock}>
-            <h2 className={styles.videoText}>VOSS VIDEO</h2>
-          </div> */}
+
+      {/* 2b. Mockup Showcase Section */}
+      <section className={styles.mockupSection}>
+        <div className={styles.mockupContainer}>
           <Image
-            src="/pioneer/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg"
-            alt="Fujifilm Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
+            src="/mapei/286c5d2d43cb1e22d55deb8b62d3a6d747172e4c.png"
+            alt="VOSS Mobile Mockups"
+            width={1920}
+            height={1080}
+            className={styles.mockupImage}
           />
         </div>
       </section>
@@ -308,7 +346,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Top Header */}
           <div className={styles.strategyTop}>
             <span>THE STRATEGIC APPROACH</span>
-            <span>PIONEER MEA</span>
+            <span>MAPEI MENA</span>
           </div>
 
           {/* Three Columns */}
@@ -325,10 +363,8 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Globally trusted audio brand with a regional website operating as a
-                static brochure. Organic traffic leaking to .com properties.
-                Architecture not engineered to surface in new generation of AI answer
-                engines.
+                Global B2B leader with unbuilt MENA social presence. Audience is specifier, architect, contractor — buyers who decide on technical evidence and peer signals, not lifestyle hooks. Need credibility-grade channel architecture.
+
               </div>
 
             </div>
@@ -345,9 +381,8 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Regional flagship rebuilt. Technical SEO across schema, internal
-                linking logic, Core Web Vitals, GEO programme, entity-rich answer
-                content, AI optimisation, maintenance and analytics.
+                META + LinkedIn channels architected from launch. B2B content programme: project case studies, technical explainers, executive thought leadership. SEO surface area engineered for technical search queries. Targeted distribution against specifier persona.
+
               </div>
 
             </div>
@@ -363,8 +398,9 @@ export default function MercedesBenzCaseStudy() {
               </div>
 
               <div className={styles.strategyCard}>
-                Organic traffic increased, AI citations improved, Core Web Vitals
-                passed, Lighthouse score improved and production uptime maintained.
+                Combined audience compounded from near-zero. Specifier engagement lifted measurably. Organic search visibility on technical queries materially up. Inbound project inquiries lifted as a function of the build.
+
+
               </div>
 
             </div>
@@ -372,8 +408,8 @@ export default function MercedesBenzCaseStudy() {
           </div>
 
           <div className={styles.strategyFooter}>
-            CAPABILITIES — WEB DEV · TECHNICAL SEO · GEO ·<br /> SCHEMA · CORE WEB VITALS ·
-            CONTENT ·<br /> MAINTENANCE · ANALYTICS
+            CAPABILITIES — Brand · Logo · Guidelines · Food<br /> Photography · Video · Social · Community · Web ·<br /> Reservation
+
           </div>
 
         </div>
