@@ -135,9 +135,11 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
             </svg>
           </div>
           <ul className={styles.socialsList}>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">Tiktok</a></li>
+            <li><a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">X</a></li>
           </ul>
         </div>
 

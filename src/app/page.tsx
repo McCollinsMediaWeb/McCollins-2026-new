@@ -919,6 +919,21 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
+
+                  <a href="/services/seo" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>SEO</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>SEO</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
                 </div>
                 <div className={styles.servicesCol}>
                   <a href="/services/marketing-automation" className={styles.serviceListItem}>
@@ -949,7 +964,7 @@ export default function Home() {
                       </span>
                     </span>
                   </a>
-                  <a href="/services/social-media-management" className={styles.serviceListItem}>
+                  <a href="/services/social-media-marketing" className={styles.serviceListItem}>
                     <span className="roll-text">
                       <span className="roll-text-inner-dual">
                         <span className="roll-text-primary">
@@ -959,6 +974,21 @@ export default function Home() {
                         <span className="roll-text-hover">
                           <span className="service-icon" />
                           <span>Social Media</span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+
+                  <a href="/services/google-ads" className={styles.serviceListItem}>
+                    <span className="roll-text">
+                      <span className="roll-text-inner-dual">
+                        <span className="roll-text-primary">
+                          <span className="service-icon" />
+                          <span>Google Ads</span>
+                        </span>
+                        <span className="roll-text-hover">
+                          <span className="service-icon" />
+                          <span>Google Ads</span>
                         </span>
                       </span>
                     </span>
@@ -1000,7 +1030,7 @@ export default function Home() {
                   <span>VIEW</span>
                 </div>
               </div>
-              <div className={`${styles.hoverVideoBox} hover-video-box`}>
+              {/* <div className={`${styles.hoverVideoBox} hover-video-box`}>
                 <div className={styles.hoverVideoInner}>
                   <span className={styles.hoverVideoTitle}>Case Study Pioneer</span>
                   <div className={styles.hoverVideoContainer}>
@@ -1013,7 +1043,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Bottom Columns (LG and Benz) */}
@@ -1031,7 +1061,7 @@ export default function Home() {
                     <span>VIEW</span>
                   </div>
                 </div>
-                <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                {/* <div className={`${styles.hoverVideoBox} hover-video-box`}>
                   <div className={styles.hoverVideoInner}>
                     <span className={styles.hoverVideoTitle}>Case Study VOSS</span>
                     <div className={styles.hoverVideoContainer}>
@@ -1044,7 +1074,7 @@ export default function Home() {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Benz Card */}
@@ -1060,7 +1090,7 @@ export default function Home() {
                     <span>VIEW</span>
                   </div>
                 </div>
-                <div className={`${styles.hoverVideoBox} hover-video-box`}>
+                {/* <div className={`${styles.hoverVideoBox} hover-video-box`}>
                   <div className={styles.hoverVideoInner}>
                     <span className={styles.hoverVideoTitle}>Case Study Mapei</span>
                     <div className={styles.hoverVideoContainer}>
@@ -1073,7 +1103,7 @@ export default function Home() {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

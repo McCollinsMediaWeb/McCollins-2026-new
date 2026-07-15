@@ -99,11 +99,11 @@ export default function Header() {
               <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
             </span>
           </Link>
-          <Link href="/blog" className="nav-link">
+          {/* <Link href="/blog" className="nav-link">
             <span className="roll-text">
               <span className="roll-text-inner" data-text="BLOGS">BLOGS</span>
             </span>
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Right: CTA & Hamburger Menu */}
