@@ -16,7 +16,7 @@
   position: relative;
   width: 100%;
   /* background-color: #000000; */
-  background: url("/lg/main-banner.png") center center / cover no-repeat;
+  background: url("/lg/main-banner.webp") center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -394,7 +394,7 @@
   width: 100%;
   min-height: 100vh;
 
-  background: url("/pioneer/7809743fee1fecf70fb5d36e895a7747105a54e4.png") center bottom / cover no-repeat;
+  background: url("/pioneer/7809743fee1fecf70fb5d36e895a7747105a54e4.webp") center bottom / cover no-repeat;
 
   overflow: hidden;
 }

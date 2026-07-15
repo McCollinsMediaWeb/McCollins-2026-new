@@ -72,7 +72,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image
-            src="/content-productions-page/main-banner2.png"
+            src="/content-productions-page/main-banner2.webp"
             alt="Camera operator filming outdoors at sunset"
             fill
             className={styles.heroImage}

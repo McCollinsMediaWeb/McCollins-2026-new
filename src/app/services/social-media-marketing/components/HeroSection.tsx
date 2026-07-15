@@ -70,7 +70,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image
-            src="/social-media-marketing/main-banner.jpeg"
+            src="/social-media-marketing/main-banner.webp"
             alt="Hand holding modern smartphone with app design"
             fill
             className={styles.heroImage}

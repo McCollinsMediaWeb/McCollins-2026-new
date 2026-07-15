@@ -14,7 +14,7 @@ export default function GooglePartnerSection() {
 
       <div className={styles.partnerLogoWrapper}>
         <Image
-          src="/google-ads-page/google.png"
+          src="/google-ads-page/google.webp"
           alt="Google Partner"
           width={250}
           height={250}

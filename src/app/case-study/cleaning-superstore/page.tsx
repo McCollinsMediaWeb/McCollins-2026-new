@@ -184,7 +184,7 @@ export default function MercedesBenzCaseStudy() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           {/* <img
-            src="/pioneer/main-banner.png"
+            src="/pioneer/main-banner.webp"
             alt="Mercedes-Benz Elevating the Event Experience"
             className={styles.heroImage}
           /> */}
@@ -237,7 +237,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Left Card: Lasers SLS */}
           <div className={styles.galleryCard}>
             <Image
-              src="/css/1.jpg"
+              src="/css/1.webp"
               alt="Mercedes-Benz AMG presentation with green lasers"
               fill
               className={styles.galleryImage}
@@ -247,7 +247,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Right Card: Red SLS */}
           <div className={styles.galleryCard}>
             <Image
-              src="/css/2.png"
+              src="/css/2.webp"
               alt="Mercedes-Benz SLS AMG red presentation"
               fill
               className={styles.galleryImage}
@@ -284,7 +284,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Center Image */}
           <div className={styles.centerGraphic}>
             <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
+              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.webp"
               alt="Layers"
               width={500}
               height={600}
@@ -395,7 +395,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/css/lg.png"
+            src="/css/lg.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

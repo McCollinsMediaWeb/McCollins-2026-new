@@ -27,7 +27,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  cursor: url('/arrow-icon.png'), auto;
+  cursor: url('/arrow-icon.webp'), auto;
 }
 
 a,
@@ -35,7 +35,7 @@ button,
 input,
 select,
 textarea {
-  cursor: url('/arrow-icon.png'), pointer;
+  cursor: url('/arrow-icon.webp'), pointer;
 }
 
 h1,
@@ -277,8 +277,8 @@ a:hover .roll-text-inner {
   display: inline-block;
   vertical-align: middle;
   background-color: currentColor;
-  mask: url('/arrow-icon.png') no-repeat center / contain;
-  -webkit-mask: url('/arrow-icon.png') no-repeat center / contain;
+  mask: url('/arrow-icon.webp') no-repeat center / contain;
+  -webkit-mask: url('/arrow-icon.webp') no-repeat center / contain;
 }
 
 a:hover .roll-text-inner-dual {

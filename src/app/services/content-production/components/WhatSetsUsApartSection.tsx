@@ -62,7 +62,7 @@ export default function WhatSetsUsApartSection() {
         <div className={`${styles.setsRow} sets-row-container`}>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/1.jpg"
+              src="/content-productions-page/1.webp"
               alt="Exceptional Creativity"
               fill
               className={styles.setsImage}
@@ -91,7 +91,7 @@ export default function WhatSetsUsApartSection() {
           </div>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/2.jpg"
+              src="/content-productions-page/2.webp"
               alt="Professionalism & Reliability"
               fill
               className={styles.setsImage}
@@ -103,7 +103,7 @@ export default function WhatSetsUsApartSection() {
         <div className={`${styles.setsRow} sets-row-container`}>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/3.jpg"
+              src="/content-productions-page/3.webp"
               alt="State-of-the-Art Equipment"
               fill
               className={styles.setsImage}
@@ -132,7 +132,7 @@ export default function WhatSetsUsApartSection() {
           </div>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/4.jpg"
+              src="/content-productions-page/4.webp"
               alt="Full-Service Solution"
               fill
               className={styles.setsImage}
@@ -144,7 +144,7 @@ export default function WhatSetsUsApartSection() {
         <div className={`${styles.setsRow} sets-row-container`}>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/5.jpg"
+              src="/content-productions-page/5.webp"
               alt="State-of-the-Art Equipment"
               fill
               className={styles.setsImage}
@@ -177,7 +177,7 @@ export default function WhatSetsUsApartSection() {
           </div>
           <div className={`${styles.setsImageWrapper} sets-img-anim`}>
             <Image
-              src="/content-productions-page/6.jpg"
+              src="/content-productions-page/6.webp"
               alt="Full-Service Solution"
               fill
               className={styles.setsImage}

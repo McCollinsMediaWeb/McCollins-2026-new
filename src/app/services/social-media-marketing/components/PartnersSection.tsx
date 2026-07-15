@@ -6,16 +6,16 @@ import styles from "../page.module.css";
 
 export default function PartnersSection() {
   const logos = [
-    "41bea16f4d84a34e45f96c17f750e2db39b4bab5.png",
-    "3c2a7264d14f6a2a91fbf9a7fc2c4ab705a1cf7e.png",
-    "7a67e920f6e3739048d9b01460972b81695c146c.png",
-    "77ee9e30134ec59085b9630b0579f1b50866b4ec.png",
-    "89ae8d978dd740c5333f4e5277ec547c54682926.png",
-    "702e161d584d700a1939c8e7a1780c7d86c294f5.png",
-    "890ffc860894d0de45b80ffc259841c60c890353.png",
-    "311297f49c2ef648a9b50500fec6b49e1d350184.png",
-    "dd7982cbe6dea600ae85133034ba16efdd766fdd.png",
-    "e613516e2fb4684ffeb22ff7431b127f98b95062.png"
+    "41bea16f4d84a34e45f96c17f750e2db39b4bab5.webp",
+    "3c2a7264d14f6a2a91fbf9a7fc2c4ab705a1cf7e.webp",
+    "7a67e920f6e3739048d9b01460972b81695c146c.webp",
+    "77ee9e30134ec59085b9630b0579f1b50866b4ec.webp",
+    "89ae8d978dd740c5333f4e5277ec547c54682926.webp",
+    "702e161d584d700a1939c8e7a1780c7d86c294f5.webp",
+    "890ffc860894d0de45b80ffc259841c60c890353.webp",
+    "311297f49c2ef648a9b50500fec6b49e1d350184.webp",
+    "dd7982cbe6dea600ae85133034ba16efdd766fdd.webp",
+    "e613516e2fb4684ffeb22ff7431b127f98b95062.webp"
   ];
 
   return (

@@ -23,21 +23,21 @@ const SERVICES_LIST = [
 ];
 
 const BRAND_ROW_1 = [
-  { src: "/performance-marketing-page/Toshiba_logo 1.png", alt: "Toshiba", invert: false },
-  { src: "/performance-marketing-page/Pioneer_logo 1.png", alt: "Pioneer", invert: false },
-  { src: "/performance-marketing-page/1726e9065728cdac15b352e2f12806ac7e8d8152.png", alt: "Costa Coffee", invert: true },
-  { src: "/performance-marketing-page/e5266d84baf6f6351e834f2df16d2e91f184472b.png", alt: "MMI", invert: true },
-  { src: "/performance-marketing-page/01da977058fbe7ae668e70fdba2d1606a7f04808.png", alt: "Oak Berry", invert: true },
-  { src: "/performance-marketing-page/d64d76068b1af6fc7bc1b261cc55458b42b14a9b.png", alt: "Dubai Airport Freezone", invert: true },
-  { src: "/performance-marketing-page/a61ab15224c5345cf2133348806665ebaa85d9f4.png", alt: "Fujifilm", invert: true },
+  { src: "/performance-marketing-page/Toshiba_logo 1.webp", alt: "Toshiba", invert: false },
+  { src: "/performance-marketing-page/Pioneer_logo 1.webp", alt: "Pioneer", invert: false },
+  { src: "/performance-marketing-page/1726e9065728cdac15b352e2f12806ac7e8d8152.webp", alt: "Costa Coffee", invert: true },
+  { src: "/performance-marketing-page/e5266d84baf6f6351e834f2df16d2e91f184472b.webp", alt: "MMI", invert: true },
+  { src: "/performance-marketing-page/01da977058fbe7ae668e70fdba2d1606a7f04808.webp", alt: "Oak Berry", invert: true },
+  { src: "/performance-marketing-page/d64d76068b1af6fc7bc1b261cc55458b42b14a9b.webp", alt: "Dubai Airport Freezone", invert: true },
+  { src: "/performance-marketing-page/a61ab15224c5345cf2133348806665ebaa85d9f4.webp", alt: "Fujifilm", invert: true },
 ];
 
 const BRAND_ROW_2 = [
-  { src: "/performance-marketing-page/ab2fb4ef7f195c0861ca0c73d1425ad805364866.png", alt: "Trader Vic's", invert: true },
-  { src: "/performance-marketing-page/a003524f707123fcfa5b46fe4892f55447ab3575.png", alt: "Wagamama", invert: true },
-  { src: "/performance-marketing-page/ee3784823b578a329d9b5666d1d528a22cad4adc.png", alt: "RTA", invert: true },
-  { src: "/performance-marketing-page/82aaeb05ae962192874265855710ff4beae7b941.png", alt: "Energizer", invert: true },
-  { src: "/performance-marketing-page/fb79051faf0e0e74e58f986b0209d37e040f223b.png", alt: "Damac", invert: true },
+  { src: "/performance-marketing-page/ab2fb4ef7f195c0861ca0c73d1425ad805364866.webp", alt: "Trader Vic's", invert: true },
+  { src: "/performance-marketing-page/a003524f707123fcfa5b46fe4892f55447ab3575.webp", alt: "Wagamama", invert: true },
+  { src: "/performance-marketing-page/ee3784823b578a329d9b5666d1d528a22cad4adc.webp", alt: "RTA", invert: true },
+  { src: "/performance-marketing-page/82aaeb05ae962192874265855710ff4beae7b941.webp", alt: "Energizer", invert: true },
+  { src: "/performance-marketing-page/fb79051faf0e0e74e58f986b0209d37e040f223b.webp", alt: "Damac", invert: true },
 ];
 
 export default function SolutionsSection() {
@@ -145,7 +145,7 @@ export default function SolutionsSection() {
         <div className={`${styles.solutionsRight} solutions-img-anim`}>
           <div className={styles.solutionsImageWrapper}>
             <Image
-              src="/performance-marketing-page/6f33462c8da5995adbf2682d35b3dc80db6dcc73.jpg"
+              src="/performance-marketing-page/6f33462c8da5995adbf2682d35b3dc80db6dcc73.webp"
               alt="Performance Marketing Workspace"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

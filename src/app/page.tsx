@@ -14,51 +14,51 @@ if (typeof window !== "undefined") {
 }
 
 const BRAND_ROW_1 = [
-  { src: "/home-page-brands/Toshiba_logo 1.png", alt: "Toshiba" },
-  { src: "/home-page-brands/Pioneer_logo 1.png", alt: "Pioneer" },
-  { src: "/home-page-brands/costa-coffee-white.png.png", alt: "Costa Coffee" },
-  { src: "/home-page-brands/mmi-white.png.png", alt: "MMI" },
-  { src: "/home-page-brands/oak-berry-white.png.png", alt: "Oak Berry" },
-  { src: "/home-page-brands/dxb-white.png.png", alt: "Dubai Airport Freezone" },
-  { src: "/home-page-brands/fujifilm-white.png.png", alt: "Fujifilm" },
+  { src: "/home-page-brands/Toshiba_logo 1.webp", alt: "Toshiba" },
+  { src: "/home-page-brands/Pioneer_logo 1.webp", alt: "Pioneer" },
+  { src: "/home-page-brands/costa-coffee-white.png.webp", alt: "Costa Coffee" },
+  { src: "/home-page-brands/mmi-white.png.webp", alt: "MMI" },
+  { src: "/home-page-brands/oak-berry-white.png.webp", alt: "Oak Berry" },
+  { src: "/home-page-brands/dxb-white.png.webp", alt: "Dubai Airport Freezone" },
+  { src: "/home-page-brands/fujifilm-white.png.webp", alt: "Fujifilm" },
 ];
 
 const BRAND_ROW_2 = [
-  { src: "/home-page-brands/trader-vics-white.png.png", alt: "Trader Vic's" },
-  { src: "/home-page-brands/wagamama-white.png.png", alt: "Wagamama" },
-  { src: "/home-page-brands/rta-white.png.png", alt: "RTA" },
-  { src: "/home-page-brands/energizer-white.png.png", alt: "Energizer" },
-  { src: "/home-page-brands/damac-white.png.png", alt: "Damac" },
-  { src: "/home-page-brands/trader-vics-white.png.png", alt: "Trader Vic's" },
-  { src: "/home-page-brands/wagamama-white.png.png", alt: "Wagamama" },
+  { src: "/home-page-brands/trader-vics-white.png.webp", alt: "Trader Vic's" },
+  { src: "/home-page-brands/wagamama-white.png.webp", alt: "Wagamama" },
+  { src: "/home-page-brands/rta-white.png.webp", alt: "RTA" },
+  { src: "/home-page-brands/energizer-white.png.webp", alt: "Energizer" },
+  { src: "/home-page-brands/damac-white.png.webp", alt: "Damac" },
+  { src: "/home-page-brands/trader-vics-white.png.webp", alt: "Trader Vic's" },
+  { src: "/home-page-brands/wagamama-white.png.webp", alt: "Wagamama" },
 ];
 
 const EXPERTISE_ITEMS = [
-  { img: "/home-page-expertise/image2.jpg", titleFirst: "REAL", titleSecond: "Estate" },
-  { img: "/home-page-expertise/image3.jpg", titleFirst: "LUXURY", titleSecond: "" },
-  { img: "/home-page-expertise/image1.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
-  { img: "/home-page-expertise/image4.jpg", titleFirst: "TECHNOLOGY", titleSecond: "" },
-  { img: "/home-page-expertise/image5.jpg", titleFirst: "STARTUPS", titleSecond: "" },
-  { img: "/home-page-expertise/image6.png", titleFirst: "B2B", titleSecond: "" },
+  { img: "/home-page-expertise/image2.webp", titleFirst: "REAL", titleSecond: "Estate" },
+  { img: "/home-page-expertise/image3.webp", titleFirst: "LUXURY", titleSecond: "" },
+  { img: "/home-page-expertise/image1.webp", titleFirst: "FOOD &", titleSecond: "Beverage" },
+  { img: "/home-page-expertise/image4.webp", titleFirst: "TECHNOLOGY", titleSecond: "" },
+  { img: "/home-page-expertise/image5.webp", titleFirst: "STARTUPS", titleSecond: "" },
+  { img: "/home-page-expertise/image6.webp", titleFirst: "B2B", titleSecond: "" },
 ];
 
 const WHY_CHOOSE_US_ITEMS = [
   {
-    img: "/home-why-choose-us/image1.jpg",
+    img: "/home-why-choose-us/image1.webp",
     titleBold: "DATA-DRIVEN",
     titleItalic: "Approach",
     titleOrder: "bold-first",
     desc: "Fueling your brand's evolution with precision analytics and real-time market insights."
   },
   {
-    img: "/home-why-choose-us/image2.jpg",
+    img: "/home-why-choose-us/image2.webp",
     titleItalic: "Creative &",
     titleBold: "INNOVATIVE",
     titleOrder: "italic-first",
     desc: "Transforming disruptive ideas into high-impact digital experiences across every continent."
   },
   {
-    img: "/home-why-choose-us/image3.jpg",
+    img: "/home-why-choose-us/image3.webp",
     titleBold: "TRANSPARENT",
     titleItalic: "Reporting",
     titleOrder: "bold-first",
@@ -73,42 +73,42 @@ const CORE_SERVICES = [
     titleFirst: "Brand",
     titleSecond: "DEVELOPMENT",
     desc: "Crafting cohesive brand identities that resonate across cultures and command a global presence.",
-    img: "/home-page-services/brand_development.png",
+    img: "/home-page-services/brand_development.webp",
     url: "/services/brand-development"
   },
   {
     titleFirst: "Web",
     titleSecond: "DEVELOPMENT",
     desc: "Developing high-performance, responsive websites engineered to convert global audiences into loyal customers.",
-    img: "/home-page-services/web_development.png",
+    img: "/home-page-services/web_development.webp",
     url: "/services/web-development"
   },
   {
     titleFirst: "Social",
     titleSecond: "MEDIA",
     desc: "Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.",
-    img: "/home-page-services/social_media.png",
+    img: "/home-page-services/social_media.webp",
     url: "/services/social-media-marketing"
   },
   {
     titleFirst: "Performance",
     titleSecond: "MARKETING",
     desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
-    img: "/home-page-services/performance_marketing.png",
+    img: "/home-page-services/performance_marketing.webp",
     url: "/services/performance-marketing"
   },
   {
     titleFirst: "Marketing",
     titleSecond: "AUTOMATION",
     desc: "Driving sustainable growth through data-driven automation engineered for global consistency and local relevance.",
-    img: "/home-page-services/marketing_automation.png",
+    img: "/home-page-services/marketing_automation.webp",
     url: "/services/marketing-automation"
   },
   {
     titleFirst: "Content",
     titleSecond: "PRODUCTION",
     desc: "Blending cinematic storytelling with strategic intent to produce content that resonates locally and scales globally.",
-    img: "/home-page-services/content_production.png",
+    img: "/home-page-services/content_production.webp",
     url: "/services/content-production"
   }
 ];
@@ -1021,7 +1021,7 @@ export default function Home() {
             <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`} onClick={() => router.push("/case-study/pioneer")}>
               <div className={styles.workCardImageWrapper}>
                 <Image
-                  src="/works/pioneer.jpg"
+                  src="/works/pioneer.webp"
                   alt="Pioneer Case Study"
                   fill
                   className={styles.workImage}
@@ -1052,7 +1052,7 @@ export default function Home() {
               <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/voss")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/voss.png"
+                    src="/works/voss.webp"
                     alt="VOSS Case Study"
                     fill
                     className={styles.workImage}
@@ -1081,7 +1081,7 @@ export default function Home() {
               <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/mapei")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/mapei.png"
+                    src="/works/mapei.webp"
                     alt="Mapei Case Study"
                     fill
                     className={styles.workImage}

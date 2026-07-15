@@ -68,7 +68,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image
-            src="/marketing-automations-page/color-graded (14) 1.png"
+            src="/marketing-automations-page/color-graded (14) 1.webp"
             alt="Marketing automation visual canvas"
             fill
             className={styles.heroImage}

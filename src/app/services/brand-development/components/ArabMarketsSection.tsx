@@ -80,7 +80,7 @@ export default function ArabMarketsSection() {
           {/* Row 1 - Right Column: Map Image */}
           <div className={`${styles.arabImageWrapper} ${styles.arabMapImageWrapper} arab-img-reveal`}>
             <Image
-              src="/brand-development/e86a321fecf44762b57483e73504022703c4c986.jpg"
+              src="/brand-development/e86a321fecf44762b57483e73504022703c4c986.webp"
               alt="Arab Region Map"
               width={800}
               height={500}
@@ -94,7 +94,7 @@ export default function ArabMarketsSection() {
           {/* Row 2 - Left Column: Supermarket Image */}
           <div className={`${styles.arabImageWrapper} ${styles.arabSupermarketImageWrapper} arab-img-reveal`}>
             <Image
-              src="/brand-development/2.jpeg"
+              src="/brand-development/2.webp"
               alt="Arab Man Supermarket"
               width={800}
               height={500}

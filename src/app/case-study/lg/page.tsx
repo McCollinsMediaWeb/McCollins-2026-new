@@ -184,7 +184,7 @@ export default function MercedesBenzCaseStudy() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           {/* <img
-            src="/pioneer/main-banner.png"
+            src="/pioneer/main-banner.webp"
             alt="Mercedes-Benz Elevating the Event Experience"
             className={styles.heroImage}
           /> */}
@@ -241,7 +241,7 @@ export default function MercedesBenzCaseStudy() {
             </p>
             <div className={styles.gridImageWrapper}>
               <Image
-                src="/lg/1.png"
+                src="/lg/1.webp"
                 alt="LG Event crowd view"
                 width={600}
                 height={450}
@@ -263,7 +263,7 @@ export default function MercedesBenzCaseStudy() {
             </p>
             <div className={styles.gridImageWrapper}>
               <Image
-                src="/lg/2.png"
+                src="/lg/2.webp"
                 alt="LG Event group pose"
                 width={600}
                 height={450}
@@ -287,7 +287,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/lg/pioneer.png"
+            src="/lg/pioneer.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

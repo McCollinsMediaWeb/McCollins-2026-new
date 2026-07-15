@@ -34,7 +34,7 @@ export default function PortfolioGallerySection() {
       {/* 1st Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
         <Image
-          src="/web-development-page/ec988d23f11459fc3435c729aaadd235a00259bd.png"
+          src="/web-development-page/ec988d23f11459fc3435c729aaadd235a00259bd.webp"
           alt="Portfolio image 1"
           width={1920}
           height={1080}
@@ -45,7 +45,7 @@ export default function PortfolioGallerySection() {
       {/* 2nd Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
         <Image
-          src="/web-development-page/4dbca06f3ff5d9458494dafab0db90ed2079e655.png"
+          src="/web-development-page/4dbca06f3ff5d9458494dafab0db90ed2079e655.webp"
           alt="Portfolio image 2"
           width={1920}
           height={1080}
@@ -56,7 +56,7 @@ export default function PortfolioGallerySection() {
       {/* 3rd Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
         <Image
-          src="/web-development-page/53e7fd625b0b794ee51a59918952d03afce9746d.png"
+          src="/web-development-page/53e7fd625b0b794ee51a59918952d03afce9746d.webp"
           alt="Portfolio image 3"
           width={1920}
           height={1080}
@@ -67,7 +67,7 @@ export default function PortfolioGallerySection() {
       {/* 4th Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
         <Image
-          src="/web-development-page/9d3fbd62efd2a1bc2e86fa935f7f9bb4ff8d4f0a.jpg"
+          src="/web-development-page/9d3fbd62efd2a1bc2e86fa935f7f9bb4ff8d4f0a.webp"
           alt="Portfolio image 4"
           width={1920}
           height={1080}
@@ -78,7 +78,7 @@ export default function PortfolioGallerySection() {
       {/* 5th Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
         <Image
-          src="/web-development-page/610f9f0abe14c7dd3b353f5d3b14e7ef15493f38.jpg"
+          src="/web-development-page/610f9f0abe14c7dd3b353f5d3b14e7ef15493f38.webp"
           alt="Portfolio image 5"
           width={1920}
           height={1080}

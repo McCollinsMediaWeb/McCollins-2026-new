@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 
 const SERVICES = [
   {
-    image: "/service-page/image1.jpg",
+    image: "/service-page/image1.webp",
     words: [
       { text: "Brand", italic: true },
       { text: "Development", italic: false }
@@ -24,7 +24,7 @@ const SERVICES = [
     href: "/services/brand-development",
   },
   {
-    image: "/home-page-services/web_development.png",
+    image: "/home-page-services/web_development.webp",
     words: [
       { text: "Website/App", italic: false },
       { text: "Design", italic: true }
@@ -34,7 +34,7 @@ const SERVICES = [
     href: "/services/web-development",
   },
   {
-    image: "/service-page/image10.jpeg",
+    image: "/service-page/image10.webp",
     words: [
       { text: "Social Media", italic: false },
       { text: "Marketing", italic: true }
@@ -44,7 +44,7 @@ const SERVICES = [
     href: "/services/social-media-marketing",
   },
   {
-    image: "/service-page/image2.jpg",
+    image: "/service-page/image2.webp",
     words: [
       { text: "Performance", italic: false },
       { text: "Marketing", italic: true }
@@ -54,7 +54,7 @@ const SERVICES = [
     href: "/services/performance-marketing",
   },
   {
-    image: "/service-page/image3.jpg",
+    image: "/service-page/image3.webp",
     words: [
       { text: "Marketing", italic: false },
       { text: "Automation", italic: true }
@@ -64,7 +64,7 @@ const SERVICES = [
     href: "/services/marketing-automation",
   },
   {
-    image: "/service-page/image4.jpg",
+    image: "/service-page/image4.webp",
     words: [
       { text: "Content", italic: false },
       { text: "Production", italic: true }
@@ -74,7 +74,7 @@ const SERVICES = [
     href: "/services/content-production",
   },
   {
-    image: "/service-page/image5.jpg",
+    image: "/service-page/image5.webp",
     words: [
       { text: "Google", italic: false },
       { text: "Ads", italic: true }
@@ -84,7 +84,7 @@ const SERVICES = [
     href: "/services/google-ads",
   },
   {
-    image: "/service-page/image6.jpg",
+    image: "/service-page/image6.webp",
     words: [
       { text: "SEO", italic: false },
       // { text: "O", italic: true }
@@ -293,7 +293,7 @@ export default function ServicesPage() {
 
           <div className={styles.ascensionCard}>
             <div className={styles.cardImageWrapper}>
-              <Image src="/service-page/image9.jpg" alt="Design" fill className={styles.cardImage} />
+              <Image src="/service-page/image9.webp" alt="Design" fill className={styles.cardImage} />
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Design</h3>
@@ -310,7 +310,7 @@ export default function ServicesPage() {
 
           <div className={styles.ascensionCard}>
             <div className={styles.cardImageWrapper}>
-              <Image src="/service-page/image8.jpg" alt="Dominate" fill className={styles.cardImage} />
+              <Image src="/service-page/image8.webp" alt="Dominate" fill className={styles.cardImage} />
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Dominate</h3>

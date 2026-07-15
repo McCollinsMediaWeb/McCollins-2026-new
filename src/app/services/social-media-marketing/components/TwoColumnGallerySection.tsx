@@ -15,14 +15,14 @@ export default function TwoColumnGallerySection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 8.png",
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 7.png",
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 6.png",
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 5.png",
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 4.png",
-    "/social-media-marketing/Picture → Social Media Marketing Showcase 3.png",
-    "/social-media-marketing/Link.png",
-    "/social-media-marketing/Link(1).png",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 8.webp",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 7.webp",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 6.webp",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 5.webp",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 4.webp",
+    "/social-media-marketing/Picture → Social Media Marketing Showcase 3.webp",
+    "/social-media-marketing/Link.webp",
+    "/social-media-marketing/Link(1).webp",
   ];
 
   useGSAP(() => {

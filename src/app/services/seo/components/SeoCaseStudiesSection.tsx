@@ -20,7 +20,7 @@ export default function SeoCaseStudiesSection() {
 
       <div className={styles.casePlaceholder}>
         <Image
-          src="/seo-page/pioneer.png"
+          src="/seo-page/pioneer.webp"
           alt="Pioneer Case Study Mobile Showcase"
           fill
           className={styles.caseImage}

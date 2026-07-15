@@ -184,7 +184,7 @@ export default function ZilliCaseStudy() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           {/* <img
-            src="/pioneer/main-banner.png"
+            src="/pioneer/main-banner.webp"
             alt="Mercedes-Benz Elevating the Event Experience"
             className={styles.heroImage}
           /> */}
@@ -261,7 +261,7 @@ export default function ZilliCaseStudy() {
           {/* Center Image */}
           <div className={styles.centerGraphic}>
             <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
+              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.webp"
               alt="Layers"
               width={500}
               height={600}
@@ -373,7 +373,7 @@ export default function ZilliCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/zilli/fujifilm.png"
+            src="/zilli/fujifilm.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

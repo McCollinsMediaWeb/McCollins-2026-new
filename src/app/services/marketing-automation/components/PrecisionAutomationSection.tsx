@@ -67,7 +67,7 @@ export default function PrecisionAutomationSection() {
 
         <div className={`${styles.bannerWrapper} precision-banner-anim`}>
           <Image
-            src="/marketing-automations-page/a4e4b7d69d42145b8c0e2909696938b3f0c8feb8.png"
+            src="/marketing-automations-page/a4e4b7d69d42145b8c0e2909696938b3f0c8feb8.webp"
             alt="Futuristic analytics workflow dashboard mockup"
             fill
             className={styles.bannerImage}

@@ -13,42 +13,42 @@ export default function AboutPerformanceSection() {
 
       <div className={styles.logoRow}>
         <Image
-          src="/performance-marketing-page/google-ads.png"
+          src="/performance-marketing-page/google-ads.webp"
           alt="Google Ads"
           width={45}
           height={45}
           className={styles.logoImg}
         />
         <Image
-          src="/performance-marketing-page/tiktok.png"
+          src="/performance-marketing-page/tiktok.webp"
           alt="TikTok"
           width={45}
           height={45}
           className={styles.logoImg}
         />
         <Image
-          src="/performance-marketing-page/snapchat.png"
+          src="/performance-marketing-page/snapchat.webp"
           alt="Snapchat"
           width={45}
           height={45}
           className={styles.logoImg}
         />
         <Image
-          src="/performance-marketing-page/baidu.png"
+          src="/performance-marketing-page/baidu.webp"
           alt="Baidu"
           width={130}
           height={45}
           className={styles.logoImg}
         />
         <Image
-          src="/performance-marketing-page/meta.png"
+          src="/performance-marketing-page/meta.webp"
           alt="Meta"
           width={110}
           height={65}
           className={styles.logoImg}
         />
         <Image
-          src="/performance-marketing-page/yandex.png"
+          src="/performance-marketing-page/yandex.webp"
           alt="Yandex"
           width={105}
           height={55}

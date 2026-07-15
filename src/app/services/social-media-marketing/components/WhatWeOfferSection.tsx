@@ -69,7 +69,7 @@ export default function WhatWeOfferSection() {
         {/* Card 1: Black Strategy with background image */}
         <div className={`${styles.offerCard} ${styles.cardBlack} ${styles.strategyCard}`}>
           <Image
-            src="/social-media-marketing/1.png"
+            src="/social-media-marketing/1.webp"
             alt="Strategy Planning"
             fill
             className={styles.cardImageBg}
@@ -145,7 +145,7 @@ export default function WhatWeOfferSection() {
         {/* Card 7: Black Performance Marketing with background image */}
         <div className={`${styles.offerCard} ${styles.cardBlack} ${styles.performanceCard}`}>
           <Image
-            src="/social-media-marketing/2.png"
+            src="/social-media-marketing/2.webp"
             alt="Performance Marketing"
             fill
             className={styles.cardImageBg}

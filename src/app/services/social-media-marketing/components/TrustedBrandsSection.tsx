@@ -66,7 +66,7 @@ export default function TrustedBrandsSection() {
 
         {/* Card 2: TECHNOLOGY First */}
         <div className={`${styles.trustedCard} ${styles.cardImageBg} trusted-card-anim`}>
-          <Image src="/web-development-page/a7154514d69f6021c641cb61019bf95e8a0eb79e.png" alt="Technology First" fill />
+          <Image src="/web-development-page/a7154514d69f6021c641cb61019bf95e8a0eb79e.webp" alt="Technology First" fill />
           <div className={styles.cardContent}>
             <h3 className={styles.cardTitle}>
               TECHNOLOGY <span className={styles.titleItalic}>First</span>
@@ -91,7 +91,7 @@ export default function TrustedBrandsSection() {
 
         {/* Card 4: SEO Friendly */}
         <div className={`${styles.trustedCard} ${styles.cardImageBg} trusted-card-anim`}>
-          <Image src="/web-development-page/6d606ea59bad1d35476e75ce4157348c50f19eaa.png" alt="SEO Friendly" fill />
+          <Image src="/web-development-page/6d606ea59bad1d35476e75ce4157348c50f19eaa.webp" alt="SEO Friendly" fill />
           <div className={styles.cardContent}>
             <h3 className={styles.cardTitle}>
               SEO <span className={styles.titleItalic}>Friendly</span>

@@ -184,7 +184,7 @@ export default function MercedesBenzCaseStudy() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           {/* <img
-            src="/pioneer/main-banner.png"
+            src="/pioneer/main-banner.webp"
             alt="Mercedes-Benz Elevating the Event Experience"
             className={styles.heroImage}
           /> */}
@@ -229,7 +229,7 @@ export default function MercedesBenzCaseStudy() {
                   <h2 className={styles.videoText}>VOSS VIDEO</h2>
                 </div> */}
           <Image
-            src="/oakberry/04916498fd628cb7a15e28e046b0463381bf644c.png"
+            src="/oakberry/04916498fd628cb7a15e28e046b0463381bf644c.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}
@@ -272,7 +272,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Center Image */}
           <div className={styles.centerGraphic}>
             <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
+              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.webp"
               alt="Layers"
               width={500}
               height={600}
@@ -384,7 +384,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/oakberry/zilli.png"
+            src="/oakberry/zilli.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

@@ -60,7 +60,7 @@ export default function PerformancePillarsSection() {
         <div className={`${styles.pillarRow} pillar-row-container`}>
           <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
             <Image
-              src="/marketing-automations-page/1.png"
+              src="/marketing-automations-page/1.webp"
               alt="Personalization and lead segmentation dashboard mockup"
               fill
               className={styles.pillarImage}
@@ -80,7 +80,7 @@ export default function PerformancePillarsSection() {
         <div className={`${styles.pillarRow} pillar-row-container`}>
           <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
             <Image
-              src="/marketing-automations-page/2.png"
+              src="/marketing-automations-page/2.webp"
               alt="Omni-channel synchronization diagram"
               fill
               className={styles.pillarImage}
@@ -100,7 +100,7 @@ export default function PerformancePillarsSection() {
         <div className={`${styles.pillarRow} pillar-row-container`}>
           <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
             <Image
-              src="/marketing-automations-page/3.png"
+              src="/marketing-automations-page/3.webp"
               alt="CRM and data integration visual representation"
               fill
               className={styles.pillarImage}
@@ -123,7 +123,7 @@ export default function PerformancePillarsSection() {
         <div className={`${styles.pillarRow} pillar-row-container`}>
           <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
             <Image
-              src="/marketing-automations-page/4.png"
+              src="/marketing-automations-page/4.webp"
               alt="Predictive audience segmentation analytics chart"
               fill
               className={styles.pillarImage}
@@ -143,7 +143,7 @@ export default function PerformancePillarsSection() {
         <div className={`${styles.pillarRow} pillar-row-container`}>
           <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
             <Image
-              src="/marketing-automations-page/5.png"
+              src="/marketing-automations-page/5.webp"
               alt="Automated lifecycle customer onboarding journey dashboard"
               fill
               className={styles.pillarImage}

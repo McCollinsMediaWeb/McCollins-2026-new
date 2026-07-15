@@ -13,18 +13,18 @@ if (typeof window !== "undefined") {
 }
 
 const TEAM_MEMBERS = [
-  { img: "/about-us-page/image1.jpg", name: "MEGHNA KOTHARI", title: "FOUNDER" },
-  { img: "/about-us-page/manjeet.png", name: "MANJEET", title: "BUSINESS OPERATIONS DIRECTOR" },
-  { img: "/about-us-page/reem.png", name: "REEM", title: "SENIOR ACCOUNT MANAGER" },
+  { img: "/about-us-page/image1.webp", name: "MEGHNA KOTHARI", title: "FOUNDER" },
+  { img: "/about-us-page/manjeet.webp", name: "MANJEET", title: "BUSINESS OPERATIONS DIRECTOR" },
+  { img: "/about-us-page/reem.webp", name: "REEM", title: "SENIOR ACCOUNT MANAGER" },
 
-  { img: "/about-us-page/azhar.png", name: "AZHAR", title: "CREATIVE LEAD" },
-  { img: "/about-us-page/image5.jpg", name: "IJAS", title: "WEB LEAD" },
-  { img: "/about-us-page/diptesh.png", name: "DIPTESH BASU", title: "PERFORMANCE LEAD" },
+  { img: "/about-us-page/azhar.webp", name: "AZHAR", title: "CREATIVE LEAD" },
+  { img: "/about-us-page/image5.webp", name: "IJAS", title: "WEB LEAD" },
+  { img: "/about-us-page/diptesh.webp", name: "DIPTESH BASU", title: "PERFORMANCE LEAD" },
 
-  { img: "/about-us-page/casie.png", name: "CASIE", title: "ACCOUNT MANAGER" },
-  { img: "/about-us-page/shabeer.png", name: "SHABEER", title: "CONTENT LEAD" },
-  { img: "/about-us-page/phyo.png", name: "PHYO", title: "CONTENT CREATOR" },
-  { img: "/about-us-page/arjun.png", name: "ARJUN", title: "CONTENT CREATOR" },
+  { img: "/about-us-page/casie.webp", name: "CASIE", title: "ACCOUNT MANAGER" },
+  { img: "/about-us-page/shabeer.webp", name: "SHABEER", title: "CONTENT LEAD" },
+  { img: "/about-us-page/phyo.webp", name: "PHYO", title: "CONTENT CREATOR" },
+  { img: "/about-us-page/arjun.webp", name: "ARJUN", title: "CONTENT CREATOR" },
 ];
 
 export default function AboutPage() {
@@ -182,7 +182,7 @@ export default function AboutPage() {
 
         <div className={styles.heroImageWrapper}>
           <Image
-            src="/about-us-page/image6.jpg"
+            src="/about-us-page/image6.webp"
             alt="About McCollins Media"
             fill
             className={styles.heroImage}
@@ -344,7 +344,7 @@ export default function AboutPage() {
         <div className={styles.darkGallery}>
           <div className={`${styles.galleryImageWrapper} about-reveal hover-target`} onClick={() => router.push("/case-study/cleaning-superstore")}>
             <Image
-              src="/works/css.png"
+              src="/works/css.webp"
               alt="Designed to transform 1"
               fill
               className={styles.galleryImage}
@@ -352,7 +352,7 @@ export default function AboutPage() {
           </div>
           <div className={`${styles.galleryImageWrapper} about-reveal hover-target`} onClick={() => router.push("/case-study/pioneer")}>
             <Image
-              src="/works/pioneer.jpg"
+              src="/works/pioneer.webp"
               alt="Designed to transform 2"
               fill
               className={styles.galleryImage}

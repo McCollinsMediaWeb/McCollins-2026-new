@@ -72,7 +72,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image
-            src="/brand-development/Mask-group.jpg"
+            src="/brand-development/Mask-group.webp"
             alt="Brand Strategy Chess"
             fill
             className={styles.heroImage}

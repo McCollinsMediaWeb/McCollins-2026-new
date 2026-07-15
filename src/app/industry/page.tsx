@@ -103,7 +103,7 @@ export default function IndustryPage() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           <Image
-            src="/industry-page/main-banner.png"
+            src="/industry-page/main-banner.webp"
             alt="Industries Hero"
             fill
             priority
@@ -127,7 +127,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/real-estate.jpg"
+                src="/industry-page/real-estate.webp"
                 alt="Real Estate"
                 fill
                 className={styles.rowImage}
@@ -165,7 +165,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/luxury.png"
+                src="/industry-page/luxury.webp"
                 alt="Luxury"
                 fill
                 className={styles.rowImage}
@@ -200,7 +200,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/food-and-beverages.jpg"
+                src="/industry-page/food-and-beverages.webp"
                 alt="Food & Beverage"
                 fill
                 className={styles.rowImage}
@@ -235,7 +235,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/technology.png"
+                src="/industry-page/technology.webp"
                 alt="Technology"
                 fill
                 className={styles.rowImage}
@@ -273,7 +273,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/startups.jpg"
+                src="/industry-page/startups.webp"
                 alt="Startups"
                 fill
                 className={styles.rowImage}
@@ -310,7 +310,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/b2b.png"
+                src="/industry-page/b2b.webp"
                 alt="B2B"
                 fill
                 className={styles.rowImage}

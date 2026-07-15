@@ -184,7 +184,7 @@ export default function MercedesBenzCaseStudy() {
       <section className={styles.heroSection}>
         <div className={styles.heroImageWrapper}>
           {/* <img
-            src="/pioneer/main-banner.png"
+            src="/pioneer/main-banner.webp"
             alt="Mercedes-Benz Elevating the Event Experience"
             className={styles.heroImage}
           /> */}
@@ -228,7 +228,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Left Card: Lasers SLS */}
           <div className={styles.galleryCard}>
             <Image
-              src="/mapei/1.jpg"
+              src="/mapei/1.webp"
               alt="Mercedes-Benz AMG presentation with green lasers"
               fill
               className={styles.galleryImage}
@@ -238,7 +238,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Right Card: Red SLS */}
           <div className={styles.galleryCard}>
             <Image
-              src="/mapei/2.jpg"
+              src="/mapei/2.webp"
               alt="Mercedes-Benz SLS AMG red presentation"
               fill
               className={styles.galleryImage}
@@ -275,7 +275,7 @@ export default function MercedesBenzCaseStudy() {
           {/* Mobile Hourglass Image (hidden on desktop) */}
           <div className={styles.hourglassMobileImageWrapper}>
             <Image
-              src="/voss/229ab75419549db79d025cb5b234066de02b19de.png"
+              src="/voss/229ab75419549db79d025cb5b234066de02b19de.webp"
               alt="Hourglass"
               width={420}
               height={520}
@@ -331,7 +331,7 @@ export default function MercedesBenzCaseStudy() {
       <section className={styles.mockupSection}>
         <div className={styles.mockupContainer}>
           <Image
-            src="/mapei/286c5d2d43cb1e22d55deb8b62d3a6d747172e4c.png"
+            src="/mapei/286c5d2d43cb1e22d55deb8b62d3a6d747172e4c.webp"
             alt="VOSS Mobile Mockups"
             width={1920}
             height={1080}
@@ -423,7 +423,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.png"
+            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.webp"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}
