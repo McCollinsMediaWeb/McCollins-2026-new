@@ -36,24 +36,37 @@ export default function Footer() {
           clearProps: "all",
         });
       }
-      // SVG Water drop reveal animation
+      // Masked footer wordmark reveal, matching the homepage/reference motion.
       const svgPaths = containerRef.current?.querySelectorAll("." + styles.footerLogoSvg + " path");
 
       if (svgPaths && svgPaths.length > 0) {
-        gsap.from(svgPaths, {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          gsap.set(svgPaths, {
+            attr: { transform: "translate(0 0)" },
+            visibility: "visible",
+          });
+          return;
+        }
+
+        gsap.set(svgPaths, {
+          attr: { transform: "translate(0 -280)" },
+          visibility: "hidden",
+        });
+
+        gsap.to(svgPaths, {
           scrollTrigger: {
             trigger: "." + styles.bottomSection,
-            start: "top 90%",
+            start: "top 95%",
             toggleActions: "play none none none",
           },
-          y: -80,
-          opacity: 0,
-          scale: 0.9,
-          duration: 1.5,
-          ease: "elastic.out(1, 0.4)",
-          stagger: 0.1,
-          transformOrigin: "center center",
-          clearProps: "all",
+          attr: { transform: "translate(0 0)" },
+          visibility: "visible",
+          duration: 1.25,
+          ease: "power4.out",
+          stagger: {
+            each: 0.06,
+            from: "end",
+          },
         });
       }
     },

@@ -161,12 +161,18 @@
 
 .svgWrapper {
   width: 100%;
+  overflow: hidden;
 }
 
 .footerLogoSvg {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.footerLogoSvg path {
+  visibility: hidden;
+  will-change: transform;
 }
 
 /* RESPONSIVE */
