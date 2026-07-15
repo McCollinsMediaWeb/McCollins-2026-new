@@ -288,6 +288,20 @@
   max-width: 800px;
 }
 
+.shortNote strong {
+  font-weight: 700;
+}
+
+.heroModelHeading {
+  margin: 0;
+  font: inherit;
+}
+
+.heroModelCopy,
+.heroModelSteps {
+  margin: 0;
+}
+
 .darkGallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -377,57 +391,220 @@
 
 @media (max-width: 768px) {
   .aboutContainer {
-    padding-top: 100px;
+    padding-top: 80px;
   }
 
-  .heroSection,
-  .teamSection,
-  .darkSection {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .whiteSectionBottom {
-    padding-left: 24px;
-    padding-right: 24px;
+  .heroSection {
+    padding: 0 20px;
+    margin-bottom: 0;
   }
 
   .heroTitle {
-    font-size: clamp(36px, 10vw, 54px);
-    flex-wrap: wrap;
+    font-size: clamp(54px, 16.4vw, 64px);
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 44px 0 28px;
+    letter-spacing: -0.045em;
+  }
+
+  .heroImageWrapper {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 350 / 234;
+    margin-bottom: 38px;
+  }
+
+  .heroImage {
+    transform: none;
+  }
+
+  .heroDetails {
+    display: block;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    margin: 0 -20px;
+    padding: 24px 20px 46px;
+  }
+
+  .heroModelTitle {
+    color: #252525;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 38px;
+  }
+
+  .heroDesc {
+    max-width: none;
+  }
+
+  .heroModelHeading {
+    color: #3c3a3e;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .heroModelCopy {
+    color: #3c3a3e;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 16px;
+    line-height: 1.48;
+    margin-bottom: 36px;
+  }
+
+  .heroModelSteps {
+    color: #202020;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  .philosophySection {
+    width: 100%;
+    padding: 60px 0 70px;
+    gap: 28px;
+    margin: 0;
+  }
+
+  .philosophyParagraph {
+    color: #3c3a3e;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .philosophyParagraph:nth-child(5) {
+    display: none;
+  }
+
+  .darkSection {
+    padding: 76px 20px 82px;
+  }
+
+  .darkTopRow {
+    margin-bottom: 0;
+    gap: 58px;
+  }
+
+  .darkTitle {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .differentList {
+    gap: 46px;
+  }
+
+  .differentItem {
+    gap: 12px;
+  }
+
+  .differentHeader {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .differentHeaderSans {
+    font-weight: 400;
+  }
+
+  .differentHeaderSerif {
+    font-family: var(--font-delight), sans-serif;
+    font-style: normal;
+  }
+
+  .differentDesc {
+    color: #9b9b9b;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .darkSection + section {
+    padding: 80px 20px !important;
+  }
+
+  .shortNote {
+    font-size: 20px;
+    line-height: 1.45;
+    text-align: justify;
+  }
+
+  .shortNoteExtended {
+    display: none;
+  }
+
+  .teamSection {
+    padding: 74px 20px 100px;
+    margin-bottom: 0;
+    border-top: 1px solid #222;
+  }
+
+  .teamTitle {
     justify-content: center;
+    font-size: 48px;
+    margin-bottom: 64px;
   }
 
   .teamGrid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 64px;
+  }
+
+  .teamMember {
+    gap: 16px;
+  }
+
+  .memberImageWrapper {
+    border-radius: 4px;
+  }
+
+  .memberImage {
+    transform: none;
+  }
+
+  .memberInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .memberName {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .memberRole {
+    color: #9d9d9d;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .teamMember:nth-child(1) { order: 1; }
+  .teamMember:nth-child(2) { order: 2; }
+  .teamMember:nth-child(4) { order: 3; }
+  .teamMember:nth-child(5) { order: 4; }
+  .teamMember:nth-child(7) { order: 5; }
+  .teamMember:nth-child(8) { order: 6; }
+  .teamMember:nth-child(10) { order: 7; }
+  .teamMember:nth-child(3) { order: 8; }
+  .teamMember:nth-child(6) { order: 9; }
+  .teamMember:nth-child(9) { order: 10; }
+
+  .whiteSectionBottom {
+    padding: 0 18px 70px;
   }
 
   .darkGallery {
     grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .philosophySection {
-    padding-left: 24px;
-    padding-right: 24px;
-    gap: 30px;
-    margin-bottom: 80px;
-  }
-
-  .philosophyParagraph {
-    font-size: 14px;
-  }
-
-  .differentList {
-    gap: 40px;
-  }
-
-  .differentHeader {
-    font-size: 20px;
-  }
-
-  .differentDesc {
-    font-size: 14px;
+    gap: 20px;
   }
 }

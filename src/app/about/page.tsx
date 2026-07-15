@@ -191,10 +191,11 @@ export default function AboutPage() {
         </div>
 
         <div className={styles.heroDetails}>
-          <div className={styles.heroDate}>THE McCOLLINS<br />ASCENSION MODEL</div>
+          <div className={`${styles.heroDate} ${styles.heroModelTitle}`}>THE McCOLLINS ASCENSION MODEL</div>
           <div className={styles.heroDesc}>
-            <div className={styles.heroDate}>1) DECODE<br />2) DEFINE<br />3) DESIGN<br />4) DEPLOY<br />5) DOMINATE</div>
-            <p className={styles.heroDate} style={{ fontWeight: '400', color: '#3C3A3E', marginTop: '30px' }}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
+            <h2 className={styles.heroModelHeading}>1–5) Decode to Dominate</h2>
+            <p className={styles.heroModelCopy}>We follow a proven five-step model to turn strategy into faster, measurable growth: Decode, Define, Design, Deploy, and Dominate. Every stage is built to create clarity, accelerate execution, and deliver results that move brands ahead.</p>
+            <div className={styles.heroModelSteps}>1) Decode 2) Define 3) Design<br />4) Deploy 5) Dominate</div>
           </div>
         </div>
 
@@ -298,9 +299,8 @@ export default function AboutPage() {
 
       <section style={{ padding: '100px 0px 100px 0px', margin: '0 auto' }}>
         <p className={styles.shortNote}>
-          After 17 years, one thing hasn't changed.<br />
-          We still believe the most powerful marketing isn't the loudest voice in the room—it's the one people choose to listen to.<br /><br />
-          At McCollins Media, we don't simply generate visibility. We build credibility. We don't chase headlines. We create stories worth telling. And we don't measure success by how much attention a brand receives, but by the influence, trust, and growth it earns.<br /><br />
+          <strong>After 17 years, one thing hasn't changed.</strong> We still believe the most powerful marketing isn't the loudest voice in the room—it's the one people choose to listen to. At McCollins Media, we don't simply generate visibility. We build credibility.
+          <span className={styles.shortNoteExtended}> We don't chase headlines. We create stories worth telling. And we don't measure success by how much attention a brand receives, but by the influence, trust, and growth it earns.</span><br /><br />
           Because brands deserve more than publicity.<br />
           They deserve partners who think bigger, move faster, challenge harder, and care deeper.<br /><br />
           That's McCollins Media.
