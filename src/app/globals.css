@@ -556,6 +556,30 @@ a:hover .roll-text-inner-dual {
   }
 }
 
+@media (max-width: 360px) {
+  .header-container {
+    padding-inline: 16px;
+  }
+
+  .header-logo {
+    width: 100px;
+  }
+
+  .site-header.about-theme .cta-button,
+  .site-header.services-theme .cta-button,
+  .site-header.industry-theme .cta-button {
+    padding: 8px 10px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+
+  .site-header.about-theme .header-actions,
+  .site-header.services-theme .header-actions,
+  .site-header.industry-theme .header-actions {
+    gap: 10px;
+  }
+}
+
 /* ==========================================================================
    Lenis Smooth Scrolling Core CSS
    ========================================================================== */
