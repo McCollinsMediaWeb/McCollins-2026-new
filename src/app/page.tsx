@@ -1278,7 +1278,7 @@ export default function Home() {
         <div className={styles.showreelVideoWrapper} onClick={toggleShowreel}>
           <video
             ref={showreelVideoRef}
-            src="/home-page-video.mp4"
+            src="/mccollinsmedia.mp4"
             autoPlay
             loop
             muted
