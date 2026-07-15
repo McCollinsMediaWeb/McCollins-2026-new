@@ -11,6 +11,26 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const BlueArrow = () => (
+  <span className={styles.blueArrow}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: "inline-block", verticalAlign: "middle" }}
+    >
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </span>
+);
+
 export default function IndustryPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -23,81 +43,55 @@ export default function IndustryPage() {
     if (!mounted || !containerRef.current) return;
 
     // Fade-in/scale-up hero image
-    const heroImage = containerRef.current.querySelector("." + styles.heroImageWrapper);
-    const pageTitle = containerRef.current.querySelector("." + styles.pageTitle);
-    const pageSubtitle = containerRef.current.querySelector("." + styles.pageSubtitle);
-
-    const tl = gsap.timeline();
-
+    const heroImage = containerRef.current.querySelector("." + styles.heroImage);
     if (heroImage) {
-      tl.from(heroImage, {
-        opacity: 0,
-        y: 40,
-        scale: 0.98,
-        duration: 1.4,
-        ease: "power3.out",
+      gsap.fromTo(
+        heroImage,
+        { scale: 1.15, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+      );
+    }
+
+    // Scroll trigger reveals for each industry row
+    const rows = containerRef.current.querySelectorAll("." + styles.industryRow);
+    rows.forEach((row) => {
+      const imgCol = row.querySelector("." + styles.imageCol);
+      const contentCol = row.querySelector("." + styles.contentCol);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: row,
+          start: "top 80%",
+        },
       });
-    }
 
-    if (pageTitle) {
-      tl.from(pageTitle, {
-        opacity: 0,
-        y: 30,
-        duration: 1.2,
-        ease: "power3.out",
-      }, "-=0.8");
-    }
-
-    if (pageSubtitle) {
-      tl.from(pageSubtitle, {
-        opacity: 0,
-        y: 20,
-        duration: 1.0,
-        ease: "power3.out",
-      }, "-=0.8");
-    }
-
-    // Scroll Reveals for Industry Rows - Desktop only
-    let mm = gsap.matchMedia();
-    mm.add("(min-width: 769px)", () => {
-      const container = containerRef.current;
-      if (!container) return;
-      const rows = container.querySelectorAll("." + styles.industryRow);
-      
-      rows.forEach((row) => {
-        const image = row.querySelector("." + styles.imageCol);
-        const contentElements = row.querySelectorAll(
-          "." + styles.rowTitle + ", ." + styles.rowSubtitle + ", ." + styles.rowDesc + ", ." + styles.pointsList
-        );
-        
-        const rowTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: row,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          }
-        });
-        
-        if (image) {
-          rowTl.from(image, {
-            y: 50,
+      if (imgCol) {
+        tl.from(
+          imgCol,
+          {
+            x: -50,
             opacity: 0,
-            scale: 0.96,
             duration: 1.2,
             ease: "power3.out",
-          });
-        }
-        
-        if (contentElements.length > 0) {
-          rowTl.from(contentElements, {
-            y: 30,
+          },
+          0
+        );
+      }
+
+      if (contentCol) {
+        const children = contentCol.children;
+        tl.from(
+          children,
+          {
+            y: 45,
             opacity: 0,
-            duration: 1.0,
+            duration: 1,
             stagger: 0.15,
             ease: "power3.out",
-          }, "-=0.8");
-        }
-      });
+          },
+          0.1
+        );
+      }
     });
   }, { scope: containerRef, dependencies: [mounted] });
 
@@ -110,27 +104,23 @@ export default function IndustryPage() {
         <div className={styles.heroImageWrapper}>
           <Image
             src="/industry-page/main-banner.png"
-            alt="Proven Success Across These Key Structures"
+            alt="Industries Hero"
             fill
-            className={styles.heroImage}
             priority
+            className={styles.heroImage}
           />
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Intro Content Section */}
       <section className={styles.contentSection}>
-        <h1 className={styles.pageTitle}>
-          PROVEN SUCCESS ACROSS<br />
-          THESE KEY STRUCTURES
-        </h1>
+        <h1 className={styles.pageTitle}>INDUSTRIES</h1>
         <p className={styles.pageSubtitle}>
-          Transforming industry-specific challenges into global<br />
-          success stories through specialized strategic mastery.
+          We don't believe in one-size-fits-all marketing. We partner with ambitious brands in high-impact sectors, tailoring our approach to dominate specific industry dynamics and achieve exponential growth.
         </p>
       </section>
 
-      {/* Industry Rows Section */}
+      {/* Rows Section */}
       <section className={styles.rowsSection}>
         {/* Real Estate Row */}
         <div className={styles.industryRow}>
@@ -155,16 +145,16 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> PRECISION LEAD ACQUISITION
+                <BlueArrow /> PRECISION LEAD ACQUISITION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> IMMERSIVE DIGITAL SHOWCASING
+                <BlueArrow /> IMMERSIVE DIGITAL SHOWCASING
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> GLOBAL MARKET PENETRATION
+                <BlueArrow /> GLOBAL MARKET PENETRATION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> DATA-DRIVEN SALES VELOCITY
+                <BlueArrow /> DATA-DRIVEN SALES VELOCITY
               </li>
             </ul>
           </div>
@@ -196,10 +186,10 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> BESPOKE BRAND STORYTELLING
+                <BlueArrow /> BESPOKE BRAND STORYTELLING
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> EXCLUSIVE AUDIENCE ARCHITECTURE
+                <BlueArrow /> EXCLUSIVE AUDIENCE ARCHITECTURE
               </li>
             </ul>
           </div>
@@ -228,13 +218,13 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> HIGH-IMPACT SENSORY STORYTELLING
+                <BlueArrow /> HIGH-IMPACT SENSORY STORYTELLING
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> STRATEGIC MARKET PENETRATION
+                <BlueArrow /> STRATEGIC MARKET PENETRATION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> OMNICHANNEL CONSUMER ENGAGEMENT
+                <BlueArrow /> OMNICHANNEL CONSUMER ENGAGEMENT
               </li>
             </ul>
           </div>
@@ -263,16 +253,16 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> HYPER-LOCALIZED TECH NARRATIVES
+                <BlueArrow /> HYPER-LOCALIZED TECH NARRATIVES
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> REGIONAL MARKET PENETRATION
+                <BlueArrow /> REGIONAL MARKET PENETRATION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> PRECISION PERFORMANCE ENGINEERING
+                <BlueArrow /> PRECISION PERFORMANCE ENGINEERING
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> STRATEGIC ECOSYSTEM INTEGRATION
+                <BlueArrow /> STRATEGIC ECOSYSTEM INTEGRATION
               </li>
             </ul>
           </div>
@@ -300,16 +290,16 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> AGILE MARKET ENTRY
+                <BlueArrow /> AGILE MARKET ENTRY
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> VENTURE-FOCUSED SCALABILITY
+                <BlueArrow /> VENTURE-FOCUSED SCALABILITY
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> HIGH-VELOCITY USER ACQUISITION
+                <BlueArrow /> HIGH-VELOCITY USER ACQUISITION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> STRATEGIC BRAND MATURATION
+                <BlueArrow /> STRATEGIC BRAND MATURATION
               </li>
             </ul>
           </div>
@@ -337,13 +327,13 @@ export default function IndustryPage() {
             </p>
             <ul className={styles.pointsList}>
               <li>
-                <span className={styles.blueArrow}>↗</span> ACCOUNT-BASED PRECISION
+                <BlueArrow /> ACCOUNT-BASED PRECISION
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> STRATEGIC LEAD NURTURING
+                <BlueArrow /> STRATEGIC LEAD NURTURING
               </li>
               <li>
-                <span className={styles.blueArrow}>↗</span> AUTHORITY-DRIVEN THOUGHT LEADERSHIP
+                <BlueArrow /> AUTHORITY-DRIVEN THOUGHT LEADERSHIP
               </li>
             </ul>
           </div>

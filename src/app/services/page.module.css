@@ -24,11 +24,12 @@
   font-family: var(--font-delight), sans-serif;
   font-size: clamp(80px, 12vw, 220px);
   font-weight: 700;
-  line-height: 0.85;
+  line-height: 1.0;
   letter-spacing: -0.04em;
   color: #212121;
   margin-bottom: 30px;
   overflow: hidden;
+  padding: 10px 0;
 }
 
 .titleChar {

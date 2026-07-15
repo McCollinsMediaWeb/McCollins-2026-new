@@ -4,9 +4,10 @@ import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import styles from "./page.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -169,7 +170,7 @@ export default function ContactPage() {
     if (formHeader) {
       formTl.to(formHeader, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
     }
-    
+
     if (inputs.length > 0) {
       formTl.to(inputs, {
         y: 0,
@@ -192,7 +193,6 @@ export default function ContactPage() {
           trigger: banner,
           start: "top 90%",
         },
-        scale: 1,
         opacity: 1,
         duration: 1.2,
         ease: "power3.out",
@@ -207,7 +207,7 @@ export default function ContactPage() {
 
   return (
     <div className={styles.contactContainer} ref={containerRef}>
-      
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <h1 className={styles.heroText}>
@@ -219,17 +219,17 @@ export default function ContactPage() {
 
       {/* Split Content Section */}
       <section className={styles.contentSection}>
-        
+
         {/* Left Column: Contact Details */}
         <div className={styles.detailsCol}>
           <div className={styles.detailBlock}>
             <div className={styles.detailTitle}>Contact</div>
             <div className={styles.detailText}>
-              Mobile: +971 4 375 5104<br />
+              Mobile: +971 55 956 4135<br />
               Email: info@mccollinsmedia.com
             </div>
           </div>
-          
+
           <div className={styles.detailBlock}>
             <div className={styles.detailTitle}>Our Address</div>
             <div className={styles.detailText}>
@@ -237,7 +237,7 @@ export default function ContactPage() {
               Dubai Media City, Dubai
             </div>
           </div>
-          
+
           <div className={styles.detailBlock}>
             <div className={styles.detailTitle}>Office Hours</div>
             <div className={styles.detailText}>
@@ -258,52 +258,52 @@ export default function ContactPage() {
 
           <form className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
-              <input 
-                type="text" 
-                className={styles.formInput} 
-                placeholder="Name" 
+              <input
+                type="text"
+                className={styles.formInput}
+                placeholder="Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                required 
+                required
               />
             </div>
 
             <div className={styles.inputGroup}>
-              <input 
-                type="text" 
-                className={styles.formInput} 
-                placeholder="Job Title" 
+              <input
+                type="text"
+                className={styles.formInput}
+                placeholder="Job Title"
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
               />
             </div>
-            
+
             <div className={styles.inputGroup}>
-              <input 
-                type="text" 
-                className={styles.formInput} 
-                placeholder="Company" 
+              <input
+                type="text"
+                className={styles.formInput}
+                placeholder="Company"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
               />
             </div>
-            
+
             <div className={styles.inputGroup}>
-              <input 
-                type="email" 
-                className={styles.formInput} 
-                placeholder="Email" 
+              <input
+                type="email"
+                className={styles.formInput}
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required 
+                required
               />
             </div>
 
             <div className={styles.inputGroup}>
-              <input 
-                type="text" 
-                className={styles.formInput} 
-                placeholder="Phone" 
+              <input
+                type="text"
+                className={styles.formInput}
+                placeholder="Phone"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
                 required
@@ -315,18 +315,14 @@ export default function ContactPage() {
               <span className={styles.servicesTitle}>Service Interested</span>
               <div className={styles.servicesGrid}>
                 {[
-                  "ADVERTISING",
-                  "FILM PRODUCTION",
-                  "SOCIAL MEDIA",
-                  "BRANDING",
-                  "MEDIA BUYING",
-                  "STRATEGY",
-                  "DESIGN SERVICES",
+                  "BRAND DEVELOPMENT",
                   "WEB DESIGN / DEVELOPMENT",
-                  "DIGITAL MARKETING",
-                  "SEARCH ENGINE OPTIMIZATION",
-                  "EVENT MARKETING",
-                  "SITECORE"
+                  "MARKETING AUTOMATION",
+                  "SOCIAL MEDIA",
+                  "PERFORMANCE MARKETING",
+                  "CONTENT PRODUCTION",
+                  "GOOGLE ADS",
+                  "SEO",
                 ].map((service) => (
                   <label key={service} className={styles.serviceCheckbox}>
                     <input
@@ -340,27 +336,27 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            
+
             <div className={styles.inputGroup}>
-              <textarea 
-                className={styles.formInput} 
-                placeholder="Message" 
-                rows={3} 
+              <textarea
+                className={styles.formInput}
+                placeholder="Message"
+                rows={3}
                 style={{ resize: "none" }}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                required 
+                required
               />
             </div>
 
             <div className={styles.formFooter}>
               <label className={styles.checkboxGroup}>
-                <input 
-                  type="checkbox" 
-                  className={styles.checkboxInput} 
+                <input
+                  type="checkbox"
+                  className={styles.checkboxInput}
                   checked={agree}
                   onChange={(e) => setAgree(e.target.checked)}
-                  required 
+                  required
                 />
                 <span className={styles.checkboxLabel}>I agree to the privacy policy</span>
               </label>
@@ -391,6 +387,13 @@ export default function ContactPage() {
       {/* OUR SERVICE Banner Section */}
       <section className={styles.serviceBannerSection}>
         <Link href="/services" className={styles.serviceBanner}>
+          <Image
+            src="/contact/animation.gif"
+            alt="McCollins Media services gif showcase"
+            fill
+            className={styles.bannerGif}
+            unoptimized
+          />
           <span className={styles.serviceBannerText}>OUR SERVICE</span>
         </Link>
       </section>

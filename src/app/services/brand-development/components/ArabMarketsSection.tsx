@@ -94,7 +94,7 @@ export default function ArabMarketsSection() {
           {/* Row 2 - Left Column: Supermarket Image */}
           <div className={`${styles.arabImageWrapper} ${styles.arabSupermarketImageWrapper} arab-img-reveal`}>
             <Image
-              src="/brand-development/7579d3a985c6cd942c1d1a299904f79e6337f9d5.jpg"
+              src="/brand-development/2.jpeg"
               alt="Arab Man Supermarket"
               width={800}
               height={500}

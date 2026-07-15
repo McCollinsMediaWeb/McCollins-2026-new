@@ -171,6 +171,16 @@
 .blueArrow {
   color: #0066FF;
   font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+}
+
+.blueArrow svg {
+  transition: transform 0.3s ease;
+}
+
+.pointsList li:hover .blueArrow svg {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================

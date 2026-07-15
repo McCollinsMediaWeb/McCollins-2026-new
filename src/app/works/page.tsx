@@ -13,17 +13,29 @@ if (typeof window !== "undefined") {
 }
 
 const PROJECTS = [
-  {
-    image: "/works-page/d3fc37894018a631c1400f7ae570d140d0ec2f5e.jpg",
-    title: "MERCEDES BENZ",
-    overlayClass: styles.overlayMercedes,
-    url: "/case-study/mercedes-benz"
-  },
+  // {
+  //   image: "/works-page/d3fc37894018a631c1400f7ae570d140d0ec2f5e.jpg",
+  //   title: "MERCEDES BENZ",
+  //   overlayClass: styles.overlayMercedes,
+  //   url: "/case-study/mercedes-benz"
+  // },
   {
     image: "/works-page/cb931c85f24c34cc3def0c3fa02a900ea0ecb736.jpg",
     title: "PIONEER",
     overlayClass: styles.overlayPioneer,
     url: "/case-study/pioneer"
+  },
+  {
+    image: "/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.jpg",
+    title: "VOSS",
+    overlayClass: styles.overlayMercedes,
+    url: "/case-study/voss"
+  },
+  {
+    image: "/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.jpg",
+    title: "MAPEI",
+    overlayClass: styles.overlayPioneer,
+    url: "/case-study/mapei"
   },
   // {
   //   image: "/works-page/bd87becf55144a3bce6a18b824230d7343b57bdc.jpg",
@@ -156,9 +168,9 @@ export default function WorksPage() {
         ))}
 
         {/* Strategy Divider */}
-        <div className={styles.strategyBanner}>
+        {/* <div className={styles.strategyBanner}>
           <h2 className={styles.strategyText}>STRATEGY / PERFORMANCE / DESIGN</h2>
-        </div>
+        </div> */}
 
         {/* Voss Image */}
         {/* <div className={styles.projectBlock}>
@@ -185,7 +197,7 @@ export default function WorksPage() {
         </div> */}
 
         {/* LG Section */}
-        <div className={styles.projectBlock}>
+        {/* <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
             <Image
               src="/works-page/c4fc1a26bafd80625cdba46d24a0836d8b7e6c98.jpg"
@@ -197,7 +209,7 @@ export default function WorksPage() {
           <div className={`${styles.projectOverlayText} ${styles.overlayLG} ${styles.textBlack}`}>
             ELEVATING THE<br />LG UAE Experience
           </div>
-        </div>
+        </div> */}
 
       </section>
 

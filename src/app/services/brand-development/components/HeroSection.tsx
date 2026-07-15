@@ -54,10 +54,10 @@ export default function HeroSection() {
     <section className={styles.heroSection} ref={containerRef}>
       <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
-          <div style={{ overflow: "hidden", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
+          <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
             <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>Brand</span>
           </div>
-          <div style={{ overflow: "hidden", display: "inline-block", flexShrink: 0 }}>
+          <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
             <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>DEVELOPMENT</span>
           </div>
         </h1>
