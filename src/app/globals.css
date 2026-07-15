@@ -535,6 +535,25 @@ a:hover .roll-text-inner-dual {
   .site-header.industry-theme .header-actions {
     gap: 16px;
   }
+
+  .site-header.industry-theme .logo-link {
+    color: #212121;
+  }
+
+  .site-header.industry-theme .hamburger-menu .line {
+    background-color: #000000;
+  }
+
+  .site-header.industry-theme .cta-button {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+  }
+
+  .site-header.industry-theme.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
 }
 
 /* ==========================================================================
