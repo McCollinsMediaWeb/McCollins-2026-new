@@ -61,13 +61,13 @@ export default function PrecisionAutomationSection() {
             HIGH-VELOCITY <span className={styles.precisionTitleItalic}>Brands</span>
           </h2>
           <p className={`${styles.precisionDesc} precision-desc-anim`}>
-            We build systems that automate the repetitive, allowing you to focus on the creative. From lead nurture campaigns to complex multi-channel integrations, we build systems that scale.
+            We architect sophisticated automation ecosystems that bridge the gap between audience engagement and commercial scale. By engineering intelligent workflows that nurture prospects with precision, we transform your digital presence into a high-velocity engine for sustainable growth.
           </p>
         </div>
-        
+
         <div className={`${styles.bannerWrapper} precision-banner-anim`}>
-          <Image 
-            src="/marketing-automations-page/8e7980904ac877c683f8599930f9eb6e7d52cacc.jpg" 
+          <Image
+            src="/marketing-automations-page/a4e4b7d69d42145b8c0e2909696938b3f0c8feb8.png"
             alt="Futuristic analytics workflow dashboard mockup"
             fill
             className={styles.bannerImage}

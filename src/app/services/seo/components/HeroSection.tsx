@@ -55,17 +55,17 @@ export default function HeroSection() {
       <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
           <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
-            <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>SE</span>
+            <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>SEO/</span>
           </div>
           <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
-            <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>O</span>
+            <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>GEO</span>
           </div>
         </h1>
       </div>
 
       <div className={styles.heroSubtitleContainer}>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
-          Mccollins Media manages high-performance Google Ads campaigns in Dubai, helping brands generate leads, boost conversions, and grow faster.
+          McCollins Media helps brands improve visibility across search engines and AI-powered discovery platforms. From Google rankings to generative search results, we optimize your website, content and digital authority so your brand is easier to find, trust and choose.
         </p>
       </div>
 
@@ -97,10 +97,15 @@ export default function HeroSection() {
           <div className={`${styles.projectsContainer} hero-right-anim`}>
             <h3 className={styles.projectsTitle}>Includes:</h3>
             <div className={styles.tagsList}>
-              <span className={styles.projectTag}>BRAND STRATEGY &amp; IDENTITY</span>
+              <span className={styles.projectTag}>SEO STRATEGY</span>
               <span className={styles.projectTag}>SOCIAL MEDIA</span>
-              <span className={styles.projectTag}>PERFORMANCE MARKETING</span>
-              <span className={styles.projectTag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.projectTag}>KEYWORD RESEARCH</span>
+              <span className={styles.projectTag}>ON-PAGE SEO</span>
+
+              <span className={styles.projectTag}>TECHNICAL SEO</span>
+              <span className={styles.projectTag}>CONTENT OPTIMIZATION</span>
+              <span className={styles.projectTag}>AI SEARCH VISIBILITY</span>
+              <span className={styles.projectTag}>REPORTING & INSIGHTS</span>
             </div>
           </div>
         </div>

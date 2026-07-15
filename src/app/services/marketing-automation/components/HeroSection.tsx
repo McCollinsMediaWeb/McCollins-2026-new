@@ -54,16 +54,16 @@ export default function HeroSection() {
     <section className={styles.heroSection} ref={containerRef}>
       <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
-          <div style={{ overflow: "hidden", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
+          <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
             <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>Marketing</span>
           </div>
-          <div style={{ overflow: "hidden", display: "inline-block", flexShrink: 0 }}>
+          <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
             <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>AUTOMATION</span>
           </div>
         </h1>
       </div>
 
-      <div className={styles.heroSubtitleContainer}><p className={`${styles.heroSubtitle} hero-subtitle`}>Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.</p></div>
+      <div className={styles.heroSubtitleContainer}><p className={`${styles.heroSubtitle} hero-subtitle`}>We design marketing automation journeys that connect your campaigns, leads, CRM and customer communication, helping your business respond faster, nurture smarter and convert more efficiently.</p></div>
 
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
@@ -93,10 +93,15 @@ export default function HeroSection() {
           <div className={`${styles.projectsContainer} hero-right-anim`}>
             <h3 className={styles.projectsTitle}>Includes:</h3>
             <div className={styles.tagsList}>
-              <span className={styles.projectTag}>BRAND STRATEGY &amp; IDENTITY</span>
-              <span className={styles.projectTag}>SOCIAL MEDIA</span>
-              <span className={styles.projectTag}>PERFORMANCE MARKETING</span>
-              <span className={styles.projectTag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.projectTag}>CRM AUTOMATION</span>
+              <span className={styles.projectTag}>LEAD NURTURING</span>
+              <span className={styles.projectTag}>WHATSAPP AUTOMATION</span>
+              <span className={styles.projectTag}>EMAIL MARKETING</span>
+
+              <span className={styles.projectTag}>SALES FUNNEL</span>
+              <span className={styles.projectTag}>WORKFLOW AUTOMATION</span>
+              <span className={styles.projectTag}>LEAD SCORING</span>
+              <span className={styles.projectTag}>REPORTING DASHBOARD</span>
             </div>
           </div>
         </div>

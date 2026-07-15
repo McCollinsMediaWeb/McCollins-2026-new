@@ -95,7 +95,7 @@ export default function OptimizationSection() {
         </span>
         <span className="opt-title-line" style={{ display: "block", overflow: "hidden" }}>
           <span style={{ display: "block" }}>
-            ARE <span className={styles.optTitlePlayfair}>Looking</span>
+            ARE <span className={styles.optTitlePlayfair}>Searching</span>
           </span>
         </span>
       </h2>
@@ -106,7 +106,7 @@ export default function OptimizationSection() {
           <div key={index} className={styles.optItem}>
             {/* Top border line for each item */}
             <div className={`${styles.optItemBorderTop} opt-item-border`} />
-            
+
             {/* Main content wrapper */}
             <div className="opt-item-content">
               <h3 className={styles.optItemHeader}>

@@ -65,7 +65,7 @@ export default function HeroSection() {
 
       <div className={styles.heroSubtitleContainer}>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
-          Mccollins Media manages high-performance Google Ads campaigns in Dubai, helping brands generate leads, boost conversions, and grow faster.
+          McCollins Media manages high-performance Google Ads campaigns in Dubai and across global markets, helping brands capture search intent, generate qualified leads, increase website traffic and drive measurable conversions.
         </p>
       </div>
 
@@ -97,10 +97,15 @@ export default function HeroSection() {
           <div className={`${styles.projectsContainer} hero-right-anim`}>
             <h3 className={styles.projectsTitle}>Includes:</h3>
             <div className={styles.tagsList}>
-              <span className={styles.projectTag}>BRAND STRATEGY &amp; IDENTITY</span>
-              <span className={styles.projectTag}>SOCIAL MEDIA</span>
-              <span className={styles.projectTag}>PERFORMANCE MARKETING</span>
-              <span className={styles.projectTag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.projectTag}>GOOGLE SEARCH ADS</span>
+              <span className={styles.projectTag}>PERFORMANCE MAX</span>
+              <span className={styles.projectTag}>YOUTUBE ADS</span>
+              <span className={styles.projectTag}>DEMAND GEN CAMPAIGNS</span>
+
+              <span className={styles.projectTag}>DISPLAY & REMARKETING</span>
+              <span className={styles.projectTag}>SHOPPING ADS</span>
+              <span className={styles.projectTag}>LEAD GENERATION</span>
+              <span className={styles.projectTag}>CONVERSION TRACKING</span>
             </div>
           </div>
         </div>

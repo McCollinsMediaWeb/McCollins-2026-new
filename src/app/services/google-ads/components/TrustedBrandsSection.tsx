@@ -41,10 +41,10 @@ export default function TrustedBrandsSection() {
 
   return (
     <section className={styles.trustedBrandsSection} ref={containerRef}>
-      <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
+      {/* <h2 className={`${styles.trustedTitle} trusted-title-anim`}>
         GOOGLE ADS MANAGEMENT:<br />
         DRIVE MORE <span>Conversions</span>
-      </h2>
+      </h2> */}
 
       <div className={styles.cardsSectionHeader}>
         <div>OUR SERVICES</div>

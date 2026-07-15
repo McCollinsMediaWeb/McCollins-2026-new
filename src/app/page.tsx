@@ -817,8 +817,8 @@ export default function Home() {
               <div>GLOBAL SCALE.</div> */}
             </div>
             <div className={`${styles.heroSubtitleCol} ${styles.right}`}>
-              <div>BOOK A FREE</div>
-              <div>GROWTH AUDIT</div>
+              <div>BOOK A </div>
+              <div>STRATEGY CALL</div>
             </div>
           </div>
         </div>
@@ -1143,7 +1143,7 @@ export default function Home() {
                   aria-label="Previous Service"
                 >
                   <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
                 <button
@@ -1153,7 +1153,7 @@ export default function Home() {
                   aria-label="Next Service"
                 >
                   <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
               </div>
@@ -1205,7 +1205,7 @@ export default function Home() {
               aria-label="Previous Expertise"
             >
               <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
@@ -1215,7 +1215,7 @@ export default function Home() {
               aria-label="Next Expertise"
             >
               <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>

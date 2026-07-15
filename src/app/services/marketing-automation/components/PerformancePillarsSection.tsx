@@ -17,7 +17,7 @@ export default function PerformancePillarsSection() {
   useGSAP(() => {
     // Fade in and slide up each pillar row contents when scrolled into view
     const rows = gsap.utils.toArray<HTMLElement>(".pillar-row-container");
-    
+
     rows.forEach((row) => {
       const img = row.querySelector(".pillar-img-anim");
       const text = row.querySelector(".pillar-text-anim");
@@ -55,12 +55,12 @@ export default function PerformancePillarsSection() {
     <section className={styles.pillarsSection} ref={containerRef}>
       <div className={styles.pillarsInner}>
         <h2 className={styles.pillarsTitle}>CORE PERFORMANCE PILLARS</h2>
-        
-        {/* Row 1: Wide Image (Left), Text (Right) */}
+
+        {/* Row 1: Image 1 (Left), Text (Right) */}
         <div className={`${styles.pillarRow} pillar-row-container`}>
-          <div className={`${styles.pillarImageWrapper} ${styles.wideRatio} pillar-img-anim`}>
-            <Image 
-              src="/marketing-automations-page/3daf20cee2d0f7d88375096deec38929914b0445.jpg" 
+          <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
+            <Image
+              src="/marketing-automations-page/1.png"
               alt="Personalization and lead segmentation dashboard mockup"
               fill
               className={styles.pillarImage}
@@ -71,77 +71,80 @@ export default function PerformancePillarsSection() {
               INTELLIGENT LEAD <span className={styles.pillarHeadingItalic}>Nurturing</span>
             </h3>
             <p className={styles.pillarText}>
-              Turn leads into customers with personalized, automated email sequences that trigger based on user behavior and actions.
+              We design multi-stage, behavior-triggered workflows that deliver personalized content at the exact moment of intent, accelerating the transition from lead to loyal customer.
             </p>
           </div>
         </div>
 
-        {/* Row 2: Text (Left), Narrow Image (Right) */}
-        <div className={`${styles.pillarRow} ${styles.reversed} pillar-row-container`}>
-          <div className={`${styles.pillarContent} pillar-text-anim`}>
-            <h3 className={styles.pillarHeading}>
-              <span className={styles.pillarHeadingItalic}>Omni-Channel</span> SYNCHRONIZATION
-            </h3>
-            <p className={styles.pillarText}>
-              Connect your email, SMS, and social media channels to deliver a consistent message across all customer touchpoints.
-            </p>
-          </div>
-          <div className={`${styles.pillarImageWrapper} ${styles.narrowRatio} pillar-img-anim`}>
-            <Image 
-              src="/marketing-automations-page/6a1429b34e99099b00547cf8035864ed49c31a7a.jpg" 
-              alt="Drag and drop email campaign template design interface"
-              fill
-              className={styles.pillarImage}
-            />
-          </div>
-        </div>
-
-        {/* Row 3: Wide Image (Left), Text (Right) */}
+        {/* Row 2: Image 2 (Left), Text (Right) */}
         <div className={`${styles.pillarRow} pillar-row-container`}>
-          <div className={`${styles.pillarImageWrapper} ${styles.wideRatio} pillar-img-anim`}>
-            <Image 
-              src="/marketing-automations-page/c5370e40fe6ce21b4e8703196922c83282c35b04.jpg" 
-              alt="Connected integrations network diagram showing Salesforce, HubSpot, Mailchimp, and Slack"
+          <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
+            <Image
+              src="/marketing-automations-page/2.png"
+              alt="Omni-channel synchronization diagram"
               fill
               className={styles.pillarImage}
             />
           </div>
           <div className={`${styles.pillarContent} pillar-text-anim`}>
             <h3 className={styles.pillarHeading}>
-              CRM & DATA INTEGRATION
+              <span className={styles.pillarHeadingItalic}>Omnichannel</span> SYNCHRONIZATION
             </h3>
             <p className={styles.pillarText}>
-              Sync your marketing automation platform with your CRM to ensure your sales team has the data they need to close deals.
+              Architecting a unified communication layer across email, SMS and web to ensure a seamless and consistent brand narrative throughout the entire user journey.
             </p>
           </div>
         </div>
 
-        {/* Row 4: Text (Left), Narrow Image (Right) */}
-        <div className={`${styles.pillarRow} ${styles.reversed} pillar-row-container`}>
+        {/* Row 3: Image 3 (Left), Text (Right) */}
+        <div className={`${styles.pillarRow} pillar-row-container`}>
+          <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
+            <Image
+              src="/marketing-automations-page/3.png"
+              alt="CRM and data integration visual representation"
+              fill
+              className={styles.pillarImage}
+            />
+          </div>
+          <div className={`${styles.pillarContent} pillar-text-anim`}>
+            <h3 className={styles.pillarHeading}>
+              CRM & DATA <span className={styles.pillarHeadingItalic}>Integration</span>
+            </h3>
+            <p className={styles.pillarText}>
+              Engineering seamless data pipelines between your
+              digital platforms and CRM, providing a 360-degree
+              view of consumer behavior and actionable business
+              intelligence.
+            </p>
+          </div>
+        </div>
+
+        {/* Row 4: Image 4 (Left), Text (Right) */}
+        <div className={`${styles.pillarRow} pillar-row-container`}>
+          <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
+            <Image
+              src="/marketing-automations-page/4.png"
+              alt="Predictive audience segmentation analytics chart"
+              fill
+              className={styles.pillarImage}
+            />
+          </div>
           <div className={`${styles.pillarContent} pillar-text-anim`}>
             <h3 className={styles.pillarHeading}>
               <span className={styles.pillarHeadingItalic}>Predictive</span> AUDIENCE SEGMENTATION
             </h3>
             <p className={styles.pillarText}>
-              Segment your audience based on behavior, demographics, and interests to deliver highly relevant messages.
+              Utilizing data driven triggers to automatically categorize users based on their engagement levels, ensuring high relevance messaging and maximum conversion efficiency.
             </p>
-          </div>
-          <div className={`${styles.pillarImageWrapper} ${styles.narrowRatio} pillar-img-anim`}>
-            <Image 
-              src="/marketing-automations-page/6b07da2e6c35e6bf5d48e5046709ca3bc56ddeed.jpg" 
-              alt="Customer Data Platform (CDP) lead scoring dashboard panel"
-              fill
-              className={styles.pillarImage}
-            />
           </div>
         </div>
 
-        {/* Row 5: Wide Image (Left), Text (Right) */}
+        {/* Row 5: Image 5 (Left), Text (Right) */}
         <div className={`${styles.pillarRow} pillar-row-container`}>
-          <div className={`${styles.pillarImageWrapper} ${styles.wideRatio} pillar-img-anim`}>
-            <Image 
-              src="/marketing-automations-page/2222b3097fe891a75513694864ca093849a19fb5.jpg" 
-              alt="Customer journey map funnel diagram displaying steps from Awareness to Advocacy"
+          <div className={`${styles.pillarImageWrapper} pillar-img-anim`}>
+            <Image
+              src="/marketing-automations-page/5.png"
+              alt="Automated lifecycle customer onboarding journey dashboard"
               fill
               className={styles.pillarImage}
             />
@@ -151,7 +154,7 @@ export default function PerformancePillarsSection() {
               AUTOMATED LIFECYCLE <span className={styles.pillarHeadingItalic}>Management</span>
             </h3>
             <p className={styles.pillarText}>
-              Nurture customer relationships throughout the entire lifecycle, from onboarding to retention and advocacy.
+              From onboarding to re-engagement, we build persistent automation frameworks that maximize customer lifetime value (CLV) and reduce operational overhead.
             </p>
           </div>
         </div>
