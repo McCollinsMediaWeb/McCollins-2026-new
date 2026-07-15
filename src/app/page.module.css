@@ -756,8 +756,8 @@
   }
 
   .workColumns {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .workColumns .workCard {
@@ -1156,6 +1156,7 @@
 @media (max-width: 768px) {
   .servicesSliderSection {
     padding: 60px 24px;
+    overflow: hidden;
   }
 
   .servicesSliderContainer {
@@ -1172,16 +1173,37 @@
   }
 
   .servicesControlsFooter {
-    margin-top: 24px;
-    justify-content: space-between;
+    display: none;
   }
 
   .servicesCardsCol {
     padding-left: 0;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .servicesSliderViewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .servicesSliderViewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .servicesSliderTrack {
+    width: max-content;
+    gap: 16px;
+    transform: none !important;
+    will-change: auto;
   }
 
   .serviceCard {
-    flex: 0 0 85vw;
+    flex: 0 0 calc((100vw - 48px) / 1.25);
+    scroll-snap-align: start;
   }
 }
 
@@ -1323,8 +1345,24 @@
     font-size: 36px;
   }
 
+  .expertiseNav {
+    display: none;
+  }
+
+  .expertiseSliderViewport {
+    overflow: visible;
+  }
+
+  .expertiseSliderTrack {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+    transform: none !important;
+    will-change: auto;
+  }
+
   .expertiseCard {
-    flex: 0 0 calc((100% - 32px) / 1.5);
+    min-width: 0;
   }
 }
 
