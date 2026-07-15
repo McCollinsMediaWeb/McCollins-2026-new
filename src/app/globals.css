@@ -525,6 +525,16 @@ a:hover .roll-text-inner-dual {
   .site-header.services-theme .header-actions {
     gap: 16px;
   }
+
+  .site-header.industry-theme .cta-button {
+    display: inline-flex;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .site-header.industry-theme .header-actions {
+    gap: 16px;
+  }
 }
 
 /* ==========================================================================
