@@ -640,7 +640,7 @@ export default function Home() {
       // 9.5. Showreel Scroll-Pin Expansion
       const showreelSection = containerRef.current?.querySelector(".showreel-section");
       const showreelWrapper = containerRef.current?.querySelector("." + styles.showreelVideoWrapper);
-      
+
       if (showreelSection && showreelWrapper) {
         const isMobile = window.innerWidth <= 768;
         const initialWidth = isMobile ? "90vw" : "75vw";
@@ -1019,11 +1019,11 @@ export default function Home() {
             {/* Bottom Columns (LG and Benz) */}
             <div className={styles.workColumns}>
               {/* LG Card */}
-              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/lg")}>
+              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/voss")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/lg.jpg"
-                    alt="LG Case Study"
+                    src="/works/voss.png"
+                    alt="VOSS Case Study"
                     fill
                     className={styles.workImage}
                   />
@@ -1033,7 +1033,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.hoverVideoBox} hover-video-box`}>
                   <div className={styles.hoverVideoInner}>
-                    <span className={styles.hoverVideoTitle}>Case Study LG</span>
+                    <span className={styles.hoverVideoTitle}>Case Study VOSS</span>
                     <div className={styles.hoverVideoContainer}>
                       <video
                         src="/herobannervideo.mp4"
@@ -1048,11 +1048,11 @@ export default function Home() {
               </div>
 
               {/* Benz Card */}
-              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/mercedes-benz")}>
+              <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/mapei")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/benz.jpg"
-                    alt="Mercedes-Benz Case Study"
+                    src="/works/mapei.png"
+                    alt="Mapei Case Study"
                     fill
                     className={styles.workImage}
                   />
@@ -1062,7 +1062,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.hoverVideoBox} hover-video-box`}>
                   <div className={styles.hoverVideoInner}>
-                    <span className={styles.hoverVideoTitle}>Case Study Benz</span>
+                    <span className={styles.hoverVideoTitle}>Case Study Mapei</span>
                     <div className={styles.hoverVideoContainer}>
                       <video
                         src="/herobannervideo.mp4"
