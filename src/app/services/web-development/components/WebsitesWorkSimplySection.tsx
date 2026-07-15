@@ -106,20 +106,22 @@ export default function WebsitesWorkSimplySection() {
             </div>
             <div className={styles.navArrows}>
               <button 
-                className={styles.navArrow} 
+                className={`${styles.navArrow} ${activeIndex === 1 ? styles.disabled : ""}`} 
                 onClick={handlePrev}
                 disabled={activeIndex === 1}
-                style={{ opacity: activeIndex === 1 ? 0.3 : 1, cursor: activeIndex === 1 ? "not-allowed" : "pointer" }}
               >
-                ⟵
+                <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
               <button 
-                className={styles.navArrow} 
+                className={`${styles.navArrow} ${activeIndex === 5 ? styles.disabled : ""}`} 
                 onClick={handleNext}
                 disabled={activeIndex === 5}
-                style={{ opacity: activeIndex === 5 ? 0.3 : 1, cursor: activeIndex === 5 ? "not-allowed" : "pointer" }}
               >
-                ⟶
+                <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
             </div>
           </div>

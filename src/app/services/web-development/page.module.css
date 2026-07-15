@@ -382,18 +382,26 @@
 
 .navArrow {
   background: none;
-  border: 1px solid #333;
-  width: 45px;
-  height: 30px;
+  border: 1px solid #000000;
+  width: 80px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  color: #000000;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.navArrow:hover {
-  background: #f0f0f0;
+.navArrow:hover:not(.disabled) {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.navArrow.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .workSimplyGallery {

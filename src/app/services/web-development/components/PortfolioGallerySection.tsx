@@ -33,56 +33,56 @@ export default function PortfolioGallerySection() {
     <section className={styles.portfolioSection} ref={containerRef}>
       {/* 1st Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
-        <Image 
-          src="/web-development-page/4326c49ea93d6dd871d0dae8aa2d1c89b37706d6.jpg" 
-          alt="Portfolio image 1" 
-          width={1920} 
-          height={1080} 
-          className={styles.portfolioImage} 
+        <Image
+          src="/web-development-page/ec988d23f11459fc3435c729aaadd235a00259bd.png"
+          alt="Portfolio image 1"
+          width={1920}
+          height={1080}
+          className={styles.portfolioImage}
         />
       </div>
 
       {/* 2nd Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
-        <Image 
-          src="/web-development-page/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg" 
-          alt="Portfolio image 2" 
-          width={1920} 
-          height={1080} 
-          className={styles.portfolioImage} 
+        <Image
+          src="/web-development-page/4dbca06f3ff5d9458494dafab0db90ed2079e655.png"
+          alt="Portfolio image 2"
+          width={1920}
+          height={1080}
+          className={styles.portfolioImage}
         />
       </div>
 
       {/* 3rd Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
-        <Image 
-          src="/web-development-page/9d3fbd62efd2a1bc2e86fa935f7f9bb4ff8d4f0a.jpg" 
-          alt="Portfolio image 3" 
-          width={1920} 
-          height={1080} 
-          className={styles.portfolioImage} 
+        <Image
+          src="/web-development-page/53e7fd625b0b794ee51a59918952d03afce9746d.png"
+          alt="Portfolio image 3"
+          width={1920}
+          height={1080}
+          className={styles.portfolioImage}
         />
       </div>
 
       {/* 4th Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
-        <Image 
-          src="/web-development-page/474bd812a5bee5c7dc8751f41f02a69b93a6d5cf.jpg" 
-          alt="Portfolio image 4" 
-          width={1920} 
-          height={1080} 
-          className={styles.portfolioImage} 
+        <Image
+          src="/web-development-page/9d3fbd62efd2a1bc2e86fa935f7f9bb4ff8d4f0a.jpg"
+          alt="Portfolio image 4"
+          width={1920}
+          height={1080}
+          className={styles.portfolioImage}
         />
       </div>
 
       {/* 5th Image */}
       <div className={`${styles.portfolioImageWrapper} portfolio-anim`}>
-        <Image 
-          src="/web-development-page/610f9f0abe14c7dd3b353f5d3b14e7ef15493f38.jpg" 
-          alt="Portfolio image 5" 
-          width={1920} 
-          height={1080} 
-          className={styles.portfolioImage} 
+        <Image
+          src="/web-development-page/610f9f0abe14c7dd3b353f5d3b14e7ef15493f38.jpg"
+          alt="Portfolio image 5"
+          width={1920}
+          height={1080}
+          className={styles.portfolioImage}
         />
       </div>
     </section>

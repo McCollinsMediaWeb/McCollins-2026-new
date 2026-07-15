@@ -62,7 +62,7 @@ export default function HeroSection() {
         </h1>
         <div className={styles.heroSubtitleContainer}>
           <p className={`${styles.heroSubtitle} hero-subtitle`}>
-            Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.
+            Data-led paid media campaigns designed to generate qualified leads, drive conversions and scale business growth across Meta, Google, TikTok, Snapchat, Baidu, Yandex and other high-intent digital platforms.
           </p>
         </div>
       </div>
@@ -89,10 +89,15 @@ export default function HeroSection() {
           <div className={styles.includesSection}>
             <h3 className={styles.includesTitle}>Includes:</h3>
             <div className={styles.tagsContainer}>
-              <span className={styles.tag}>BRAND STRATEGY &amp; IDENTITY</span>
+              <span className={styles.tag}>META ADS</span>
               <span className={styles.tag}>SOCIAL MEDIA</span>
-              <span className={styles.tag}>PERFORMANCE MARKETING</span>
-              <span className={styles.tag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.tag}>TIKTOK ADS</span>
+              <span className={styles.tag}>SNAPCHAT ADS</span>
+              <span className={styles.tag}>BAIDU ADS</span>
+              <span className={styles.tag}>LEAD GENERATION</span>
+              <span className={styles.tag}>CONVERSION CAMPAIGNS</span>
+              <span className={styles.tag}>YANDEX ADS</span>
+
             </div>
           </div>
         </div>

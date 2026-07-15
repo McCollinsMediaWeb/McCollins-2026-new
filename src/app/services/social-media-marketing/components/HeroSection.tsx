@@ -62,7 +62,7 @@ export default function HeroSection() {
         </h1>
         <div className={styles.heroSubtitleContainer}>
           <p className={`${styles.heroSubtitle} hero-subtitle`}>
-            Cultivating vibrant digital communities through<br /> culturally resonant content that sparks global<br /> engagement.
+            McCollins Media builds social media ecosystems that help brands grow visibility,<br /> engagement and trust across Instagram, TikTok, Facebook, LinkedIn and<br /> Snapchat through strategy, content, reels, community management and<br /> performance-led reporting.
           </p>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function HeroSection() {
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>
           <Image
-            src="/social-media-marketing/main-banner.png"
+            src="/social-media-marketing/main-banner.jpeg"
             alt="Hand holding modern smartphone with app design"
             fill
             className={styles.heroImage}
@@ -89,10 +89,13 @@ export default function HeroSection() {
           <div className={styles.includesSection}>
             <h3 className={styles.includesTitle}>Includes:</h3>
             <div className={styles.tagsContainer}>
-              <span className={styles.tag}>BRAND STRATEGY &amp; IDENTITY</span>
-              <span className={styles.tag}>SOCIAL MEDIA</span>
-              <span className={styles.tag}>PERFORMANCE MARKETING</span>
-              <span className={styles.tag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.tag}>SOCIAL MEDIA STRATEGY</span>
+              <span className={styles.tag}>INSTAGRAM MANAGEMENT</span>
+              <span className={styles.tag}>TIKTOK CONTENT</span>
+              <span className={styles.tag}>FACEBOOK MANAGEMENT</span>
+              <span className={styles.tag}>SNAPCHAT CONTENT</span>
+              <span className={styles.tag}>VIRAL REELS</span>
+              <span className={styles.tag}>COMMUNITY BUILDING</span>
             </div>
           </div>
         </div>
