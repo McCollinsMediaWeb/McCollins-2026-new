@@ -633,4 +633,56 @@
   .heroRightContent { gap: 36px; padding: 0; }
   .card { width: min(300px, calc(100vw - 48px)); padding: 24px; }
   .cardsWrapper { padding-inline: 24px; }
+
+  .setsSection {
+    padding: 80px 0 40px;
+  }
+
+  .setsInner {
+    padding: 0 24px;
+  }
+
+  .setsTitle {
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    line-height: 1;
+    margin: 0 0 48px;
+  }
+
+  .setsRow,
+  .setsRow.reversed {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 0 0 48px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .setsRow:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .setsRow.reversed .setsImageWrapper {
+    order: -1;
+  }
+
+  .setsImageWrapper {
+    aspect-ratio: 4 / 3;
+  }
+
+  .setsContent {
+    gap: 12px;
+  }
+
+  .setsHeading {
+    font-size: clamp(1.55rem, 7.5vw, 2rem);
+    line-height: 1.05;
+  }
+
+  .setsText {
+    max-width: none;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #c4c4c4;
+  }
 }
