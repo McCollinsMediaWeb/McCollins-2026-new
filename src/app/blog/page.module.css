@@ -1,0 +1,577 @@
+.blogContainer {
+  background: #000;
+  color: #fff;
+  font-family: var(--font-delight), sans-serif;
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding: 160px 40px 100px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
+
+/* Background vertical accent lines to match McCollins aesthetic */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.heroSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 66.6%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.heroContent {
+  flex: 1;
+  max-width: 650px;
+}
+
+.heroTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.heroHeading {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+
+.heroDesc {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.strategistBtn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+
+.strategistBtn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.featuredCard {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.featuredCardNumber {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: var(--font-playfair-display), serif;
+}
+
+.featuredCardTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.featuredCardTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.featuredCardDesc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.visibilityBadge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.visibilityBadge:hover {
+  background: #2563eb;
+}
+
+/* Off-white Explore Section */
+.exploreSection {
+  background: #f7f9fc;
+  color: #0b1a30;
+  padding: 80px 0;
+}
+
+.exploreContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.exploreTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0b1a30;
+  margin-bottom: 8px;
+}
+
+.exploreDesc {
+  font-size: 1rem;
+  color: #5c6f84;
+  margin-bottom: 35px;
+}
+
+.filterPillsRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #e1e7ec;
+  padding-bottom: 25px;
+}
+
+.filterPill {
+  padding: 10px 20px;
+  background: #fff;
+  border: 1px solid #d1d9e2;
+  border-radius: 4px;
+  color: #4a5d78;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterPill:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0b1a30;
+}
+
+.activePill {
+  background: #0b1a30;
+  border-color: #0b1a30;
+  color: #fff;
+}
+
+.activePill:hover {
+  background: #0b1a30;
+  color: #fff;
+}
+
+/* Featured Article Card (01) */
+.articleCard {
+  display: flex;
+  background: #fff;
+  border: 1px solid #e1e7ec;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.articleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(11, 26, 48, 0.06);
+}
+
+.cardGraphicBox {
+  background: #000;
+  color: #fff;
+  width: 42%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 320px;
+}
+
+.graphicLine {
+  width: 45px;
+  height: 4px;
+  background: #3b82f6;
+  margin-bottom: 20px;
+}
+
+.graphicTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.graphicSubtext {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 15px;
+}
+
+.cardContentBox {
+  width: 58%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cardBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #f0f4f8;
+  color: #4a5d78;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0b1a30;
+  margin-bottom: 15px;
+  transition: color 0.3s;
+}
+
+.cardTitle:hover {
+  color: #3b82f6;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5d78;
+  margin-bottom: 30px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cardMeta {
+  font-size: 0.8rem;
+  color: #8295a9;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.readBtn {
+  padding: 10px 20px;
+  background: #0b1a30;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.readBtn:hover {
+  background: #3b82f6;
+  transform: translateY(-1px);
+}
+
+/* Latest Thinking Section (Cards 02-07) */
+.sectionHeader {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  border-top: 1px solid #e1e7ec;
+  padding-top: 60px;
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0b1a30;
+  margin-bottom: 8px;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: #5c6f84;
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.gridCard {
+  background: #fff;
+  border: 1px solid #e1e7ec;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+  transition: all 0.3s ease;
+}
+
+.gridCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(11, 26, 48, 0.07);
+}
+
+.cardTopBlock {
+  height: 130px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.cardTopBlockDark {
+  background: #000;
+  color: #fff;
+}
+
+.cardTopBlockLight {
+  background: #f0f4f8;
+  color: #0b1a30;
+}
+
+.topBlockLine {
+  width: 35px;
+  height: 3px;
+  background: #3b82f6;
+}
+
+.topBlockNumber {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.cardBody {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 290px;
+}
+
+.cardBodyTag {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #f0f4f8;
+  color: #4a5d78;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 18px;
+}
+
+.cardBodyTitle {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0b1a30;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.gridCard:hover .cardBodyTitle {
+  color: #3b82f6;
+}
+
+.cardBodyDesc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5c6f84;
+  margin-bottom: 25px;
+}
+
+.cardBodyFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+
+.cardBodyMeta {
+  font-size: 0.78rem;
+  color: #8295a9;
+  font-weight: 600;
+}
+
+.cardBodyArrow {
+  font-size: 1.15rem;
+  color: #8295a9;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.gridCard:hover .cardBodyArrow {
+  color: #3b82f6;
+  transform: translate(2px, -2px);
+}
+
+.noData {
+  text-align: center;
+  padding: 60px;
+  color: #5c6f84;
+  font-size: 1.1rem;
+  grid-column: span 3;
+}
+
+@media (max-width: 992px) {
+  .heroSection {
+    flex-direction: column;
+    padding-top: 120px;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .featuredCard {
+    width: 100%;
+    max-width: none;
+  }
+  .articleCard {
+    flex-direction: column;
+  }
+  .cardGraphicBox {
+    width: 100%;
+    min-height: 220px;
+    padding: 40px;
+  }
+  .cardContentBox {
+    width: 100%;
+    padding: 40px;
+  }
+  .gridList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gridList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pagination controls styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.pageBtn {
+  padding: 10px 18px;
+  background: #fff;
+  border: 1px solid #d1d9e2;
+  border-radius: 4px;
+  color: #4a5d78;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0b1a30;
+}
+
+.activePageBtn {
+  background: #0b1a30;
+  border-color: #0b1a30;
+  color: #fff;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}

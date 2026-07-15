@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -15,9 +16,110 @@ export default function ContactPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
+  const router = useRouter();
+  const [firstName, setFirstName] = useState("");
+  const [company, setCompany] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [text, setText] = useState("");
+  const [checkedItems, setCheckedItems] = useState<string[]>([]);
+  const [agree, setAgree] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const checkedItemsString = checkedItems.join(", ");
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleCheckboxChange = (value: string) => {
+    if (checkedItems.includes(value)) {
+      setCheckedItems(checkedItems.filter((item) => item !== value));
+    } else {
+      setCheckedItems([...checkedItems, value]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!agree) {
+      setStatus("error");
+      setStatusMessage("You must agree to the privacy policy.");
+      return;
+    }
+
+    setStatus("loading");
+    setStatusMessage("");
+
+    try {
+      // 1. Submit to local MongoDB database API
+      const response = await fetch("/api/form-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: firstName, // fallback
+          firstName: firstName,
+          company: company,
+          jobTitle: jobTitle,
+          email: email,
+          contact: contact,
+          text: text,
+          services: checkedItemsString,
+          page: "contact",
+          date: new Date(),
+        }),
+      });
+
+      // 2. Submit to Google Sheets script
+      let formData = new FormData();
+      formData.append("Firstname", firstName);
+      formData.append("Email", email);
+      formData.append("Phone", contact);
+      formData.append("Company", company);
+      formData.append("Services", checkedItemsString);
+      formData.append("jobTitle", jobTitle);
+      formData.append("Message", text);
+      formData.append("page", "contact");
+
+      fetch(
+        "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Google sheets submit success:", data);
+        })
+        .catch((error) => console.error("Google sheets submit error:", error));
+
+      if (response.ok) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your message has been sent successfully.");
+        setFirstName("");
+        setCompany("");
+        setJobTitle("");
+        setContact("");
+        setEmail("");
+        setText("");
+        setCheckedItems([]);
+        setAgree(false);
+
+        // Redirect to Thank you page
+        router.push("/Thank-you-for-contacting-us");
+      } else {
+        const data = await response.json();
+        setStatus("error");
+        setStatusMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage("Failed to connect to the server. Please check your connection.");
+    }
+  };
 
   useGSAP(() => {
     if (!mounted || !containerRef.current) return;
@@ -154,17 +256,89 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form className={styles.contactForm} onSubmit={(e) => e.preventDefault()}>
+          <form className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
-              <input type="text" className={styles.formInput} placeholder="Name" required />
+              <input 
+                type="text" 
+                className={styles.formInput} 
+                placeholder="Name" 
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required 
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                className={styles.formInput} 
+                placeholder="Job Title" 
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
             </div>
             
             <div className={styles.inputGroup}>
-              <input type="text" className={styles.formInput} placeholder="Company" />
+              <input 
+                type="text" 
+                className={styles.formInput} 
+                placeholder="Company" 
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+              />
             </div>
             
             <div className={styles.inputGroup}>
-              <input type="email" className={styles.formInput} placeholder="Email" required />
+              <input 
+                type="email" 
+                className={styles.formInput} 
+                placeholder="Email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required 
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                className={styles.formInput} 
+                placeholder="Phone" 
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Services Interested Multiple Selector Grid */}
+            <div className={`${styles.inputGroup} ${styles.servicesGroup}`}>
+              <span className={styles.servicesTitle}>Service Interested</span>
+              <div className={styles.servicesGrid}>
+                {[
+                  "ADVERTISING",
+                  "FILM PRODUCTION",
+                  "SOCIAL MEDIA",
+                  "BRANDING",
+                  "MEDIA BUYING",
+                  "STRATEGY",
+                  "DESIGN SERVICES",
+                  "WEB DESIGN / DEVELOPMENT",
+                  "DIGITAL MARKETING",
+                  "SEARCH ENGINE OPTIMIZATION",
+                  "EVENT MARKETING",
+                  "SITECORE"
+                ].map((service) => (
+                  <label key={service} className={styles.serviceCheckbox}>
+                    <input
+                      type="checkbox"
+                      className={styles.checkboxInput}
+                      checked={checkedItems.includes(service)}
+                      onChange={() => handleCheckboxChange(service)}
+                    />
+                    <span className={styles.serviceCheckboxLabel}>{service}</span>
+                  </label>
+                ))}
+              </div>
             </div>
             
             <div className={styles.inputGroup}>
@@ -173,20 +347,43 @@ export default function ContactPage() {
                 placeholder="Message" 
                 rows={3} 
                 style={{ resize: "none" }}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
                 required 
               />
             </div>
 
             <div className={styles.formFooter}>
               <label className={styles.checkboxGroup}>
-                <input type="checkbox" className={styles.checkboxInput} required />
+                <input 
+                  type="checkbox" 
+                  className={styles.checkboxInput} 
+                  checked={agree}
+                  onChange={(e) => setAgree(e.target.checked)}
+                  required 
+                />
                 <span className={styles.checkboxLabel}>I agree to the privacy policy</span>
               </label>
 
-              <button type="submit" className={styles.submitBtn}>
-                + SUBMIT INQUIRY
+              <button type="submit" className={styles.submitBtn} disabled={status === "loading"}>
+                {status === "loading" ? "SUBMITTING..." : "+ SUBMIT INQUIRY"}
               </button>
             </div>
+
+            {statusMessage && (
+              <div style={{
+                marginTop: "1.5rem",
+                padding: "1rem",
+                borderRadius: "4px",
+                fontSize: "0.9rem",
+                lineHeight: "1.4",
+                backgroundColor: status === "success" ? "rgba(29, 187, 153, 0.15)" : "rgba(220, 53, 69, 0.15)",
+                color: status === "success" ? "#1dbb99" : "#ff4a4a",
+                border: status === "success" ? "1px solid #1dbb99" : "1px solid #ff4a4a"
+              }}>
+                {statusMessage}
+              </div>
+            )}
           </form>
         </div>
       </section>

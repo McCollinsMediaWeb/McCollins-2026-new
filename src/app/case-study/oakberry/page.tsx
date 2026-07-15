@@ -203,27 +203,38 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Luxury E-Commerce Design</li>
-            <li className={styles.metaItem}>Shopify Development</li>
-            <li className={styles.metaItem}>Mobile-First UX</li>
-            <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO Readiness</li>
-            <li className={styles.metaItem}>Schema Implementation</li>
-            <li className={styles.metaItem}>Performance Optimization</li>
-            <li className={styles.metaItem}>Content Architecture</li>
-            <li className={styles.metaItem}>Analytics Setup</li>
-            <li className={styles.metaItem}>Website Maintenance</li>
+            <li className={styles.metaItem}>Brand</li>
+            <li className={styles.metaItem}>Market Entry</li>
+            <li className={styles.metaItem}>Retail Launch</li>
+            <li className={styles.metaItem}>Social</li>
+            <li className={styles.metaItem}>Content</li>
+            <li className={styles.metaItem}>Performance</li>
+            <li className={styles.metaItem}>Web</li>
+            <li className={styles.metaItem}>Delivery Strategy</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
             <p className={styles.descriptionParagraph}>
-              A mobile-first Shopify experience for a French luxury brand, designed to make product discovery faster, cleaner, and more refined.
-            </p>
-            <p className={styles.descriptionParagraph}>
-              McCollins Media created a premium commerce experience focused on elegance, usability, and seamless shopping across mobile devices.
+              From one storefront in a pandemic to 20+ retail locations across the GCC.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* 3. VOSS VIDEO Section */}
+      <section className={styles.videoSection}>
+        <div className={styles.videoSectionInner}>
+          {/* <div className={styles.videoBlock}>
+                  <h2 className={styles.videoText}>VOSS VIDEO</h2>
+                </div> */}
+          <Image
+            src="/oakberry/04916498fd628cb7a15e28e046b0463381bf644c.png"
+            alt="Fujifilm Case Study Display"
+            width={1200}
+            height={714}
+            className={styles.nextImage}
+          />
         </div>
       </section>
 
@@ -373,7 +384,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/oakberry/fujifilm.png"
+            src="/oakberry/zilli.png"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}

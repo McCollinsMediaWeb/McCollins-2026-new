@@ -306,3 +306,60 @@
     gap: 30px;
   }
 }
+
+.servicesGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.servicesTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888888;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 20px;
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.serviceCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.serviceCheckboxLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.serviceCheckbox:hover .serviceCheckboxLabel {
+  color: #ffffff;
+}

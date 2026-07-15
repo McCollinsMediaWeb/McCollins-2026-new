@@ -19,6 +19,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (pathname.startsWith("/admin")) return null;
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
@@ -95,6 +97,11 @@ export default function Header() {
           <Link href="/industry" className="nav-link">
             <span className="roll-text">
               <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
+            </span>
+          </Link>
+          <Link href="/blog" className="nav-link">
+            <span className="roll-text">
+              <span className="roll-text-inner" data-text="BLOGS">BLOGS</span>
             </span>
           </Link>
         </nav>

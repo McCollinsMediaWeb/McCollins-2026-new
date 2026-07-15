@@ -60,6 +60,8 @@ export default function Footer() {
     { scope: containerRef, dependencies: [pathname] }
   );
 
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <footer className={styles.footer} ref={containerRef}>
       <div className={styles.footerInner}>
@@ -75,6 +77,7 @@ export default function Footer() {
               <li><Link href="/about">About</Link></li>
               <li><Link href="/services">Services</Link></li>
               <li><Link href="/industry">Expertise</Link></li>
+              <li><Link href="/blog">Blogs</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             <ul className={styles.linksList}>

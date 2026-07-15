@@ -1,0 +1,125 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+  color: #ffffff;
+  font-family: var(--font-delight), sans-serif;
+  padding: 20px;
+}
+
+.loginCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logoWrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logoText {
+  font-family: var(--font-playfair-display), serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffde11;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #ffde11;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(255, 222, 17, 0.2);
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  background: #ffde11;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #ffea54;
+  box-shadow: 0 0 20px rgba(255, 222, 17, 0.4);
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  background: #555;
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error {
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid #ff4a4a;
+  color: #ff4a4a;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
