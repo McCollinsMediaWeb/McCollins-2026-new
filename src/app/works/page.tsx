@@ -25,25 +25,25 @@ const PROJECTS = [
     overlayClass: styles.overlayPioneer,
     url: "/case-study/pioneer"
   },
-  {
-    image: "/works-page/bd87becf55144a3bce6a18b824230d7343b57bdc.jpg",
-    title: "OAKBERRY",
-    overlayClass: styles.overlayOakberry,
-    url: "/case-study/oakberry"
-  },
-  {
-    image: "/works-page/2cf8dfd3ab0890e5a30b9eeb6c2730d1d3edb2f5.jpg",
-    title: "CLEANING SUPERSTORE",
-    overlayClass: styles.overlayCleaning,
-    url: "/case-study/cleaning-superstore"
-  },
-  {
-    image: "/works-page/3331c29f24403f6859d094be0242dd357d818563.jpg",
-    title: "FUJIFILM",
-    overlayClass: styles.overlayFujifilm,
-    textClass: styles.textBlack,
-    url: "/case-study/fujifilm"
-  },
+  // {
+  //   image: "/works-page/bd87becf55144a3bce6a18b824230d7343b57bdc.jpg",
+  //   title: "OAKBERRY",
+  //   overlayClass: styles.overlayOakberry,
+  //   url: "/case-study/oakberry"
+  // },
+  // {
+  //   image: "/works-page/2cf8dfd3ab0890e5a30b9eeb6c2730d1d3edb2f5.jpg",
+  //   title: "CLEANING SUPERSTORE",
+  //   overlayClass: styles.overlayCleaning,
+  //   url: "/case-study/cleaning-superstore"
+  // },
+  // {
+  //   image: "/works-page/3331c29f24403f6859d094be0242dd357d818563.jpg",
+  //   title: "FUJIFILM",
+  //   overlayClass: styles.overlayFujifilm,
+  //   textClass: styles.textBlack,
+  //   url: "/case-study/fujifilm"
+  // },
 ];
 
 export default function WorksPage() {
@@ -144,7 +144,11 @@ export default function WorksPage() {
               />
             </div>
             {project.title && (
-              <div className={`${styles.projectOverlayText} ${project.overlayClass} ${project.textClass || ''}`}>
+              // <div className={`${styles.projectOverlayText} ${project.overlayClass} ${project.textClass ?? ''}`}>
+              //   {project.title}
+              // </div>
+
+              <div className={`${styles.projectOverlayText} ${project.overlayClass}`}>
                 {project.title}
               </div>
             )}
@@ -157,7 +161,7 @@ export default function WorksPage() {
         </div>
 
         {/* Voss Image */}
-        <div className={styles.projectBlock}>
+        {/* <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
             <Image
               src="/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.jpg"
@@ -166,10 +170,10 @@ export default function WorksPage() {
               className={styles.projectImage}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Worker Image */}
-        <div className={styles.projectBlock}>
+        {/* <div className={styles.projectBlock}>
           <div className={styles.projectImageWrapper}>
             <Image
               src="/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.jpg"
@@ -178,7 +182,7 @@ export default function WorksPage() {
               className={styles.projectImage}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* LG Section */}
         <div className={styles.projectBlock}>

@@ -124,6 +124,20 @@ export default function Home() {
   const expertiseTrackRef = useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = useState(3);
   const [mounted, setMounted] = useState(false);
+  const showreelVideoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleShowreel = () => {
+    if (showreelVideoRef.current) {
+      if (isPlaying) {
+        showreelVideoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        showreelVideoRef.current.play().catch(err => console.log("Video play interrupted:", err));
+        setIsPlaying(true);
+      }
+    }
+  };
 
   const router = useRouter();
 
@@ -623,6 +637,55 @@ export default function Home() {
         });
       }
 
+      // 9.5. Showreel Scroll-Pin Expansion
+      const showreelSection = containerRef.current?.querySelector(".showreel-section");
+      const showreelWrapper = containerRef.current?.querySelector("." + styles.showreelVideoWrapper);
+      
+      if (showreelSection && showreelWrapper) {
+        const isMobile = window.innerWidth <= 768;
+        const initialWidth = isMobile ? "90vw" : "75vw";
+        const initialHeight = isMobile ? "50.6vw" : "42.18vw";
+        const maxW = isMobile ? "100vw" : "1400px";
+        const maxH = isMobile ? "100vh" : "787px";
+
+        // Trigger 1: Smooth Expansion as it enters the viewport
+        gsap.fromTo(showreelWrapper,
+          {
+            width: initialWidth,
+            height: initialHeight,
+            borderRadius: "12px",
+            maxWidth: maxW,
+            maxHeight: maxH,
+          },
+          {
+            width: "100vw",
+            height: "100vh",
+            borderRadius: "0px",
+            maxWidth: "100vw",
+            maxHeight: "100vh",
+            ease: "none",
+            scrollTrigger: {
+              trigger: showreelSection,
+              start: "top bottom", // Starts when section enters bottom of screen
+              end: "top top",      // Ends when section reaches top of screen
+              scrub: true,
+            }
+          }
+        );
+
+        // Trigger 2: Pin the section once it is fully expanded at the top
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: showreelSection,
+            start: "top top",
+            end: "+=60%", // Pin scroll distance
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
+          }
+        });
+      }
+
       // 10. Why Choose Us Reveal
       const whyChooseUsTitle = containerRef.current?.querySelector("." + styles.whyChooseUsTitle);
       const whyChooseUsCards = containerRef.current?.querySelectorAll("." + styles.whyChooseUsCard);
@@ -741,8 +804,8 @@ export default function Home() {
           <div className={`${styles.heroSubtitleBar} hero-subtitle-bar`}>
             <div className={`${styles.heroSubtitleCol} ${styles.left}`} style={{ display: 'flex', gap: '20px' }}>
               <div>
-                <div>STRATEGY, PERFOMANCE</div>
-                <div>GROWTH</div>
+                <div>CREATIVE. PERFOMANCE.</div>
+                <div>GROWTH.</div>
               </div>
               <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
                 <div>DIGITAL STRATEGY.</div>
@@ -754,8 +817,8 @@ export default function Home() {
               <div>GLOBAL SCALE.</div> */}
             </div>
             <div className={`${styles.heroSubtitleCol} ${styles.right}`}>
-              <div>GET A FREE</div>
-              <div>STRATEGY CALL</div>
+              <div>BOOK A FREE</div>
+              <div>GROWTH AUDIT</div>
             </div>
           </div>
         </div>
@@ -778,11 +841,7 @@ export default function Home() {
       <section className={`${styles.textSection} services-section`}>
         <div className={`${styles.textContainer} services-container`}>
           <h2 className={`${styles.servicesIntroText} services-text`}>
-            {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable ")}
-
-            <span style={{ fontWeight: 400 }}>
-              {splitText("market dominance.")}
-            </span>{" "}
+            {splitText("Witness the transformative impact of strategies engineered for global resonance and measurable market dominance through")}
 
             <span
               className="word"
@@ -921,7 +980,7 @@ export default function Home() {
       <section className={`${styles.workSection} work-section`}>
         <div className={`${styles.workContainer} work-container`}>
           <div className={styles.workHeader}>
-            <div className={styles.workHeaderTitle}>OUR WORK</div>
+            <div className={styles.workHeaderTitle}>HIGHLIGHTS</div>
             <a href="/works" className="roll-text">
               <span className="roll-text-inner" data-text="SEE THE WORK">SEE THE WORK</span>
             </a>
@@ -1173,6 +1232,26 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================== SHOWREEL SECTION ================== */}
+      <section className={`${styles.showreelSection} showreel-section`}>
+        <div className={styles.showreelVideoWrapper} onClick={toggleShowreel}>
+          <video
+            ref={showreelVideoRef}
+            src="/home-page-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.showreelVideo}
+          />
+          {!isPlaying && (
+            <div className={styles.playIndicator}>
+              <span>PLAY</span>
+            </div>
+          )}
         </div>
       </section>
 

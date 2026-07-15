@@ -191,8 +191,8 @@ export default function MercedesBenzCaseStudy() {
           {/* Text Overlay for Event Experience Title */}
           <div className={styles.heroTextContainer}>
             <h1 className={styles.heroTitle}>
-              REIMAGINING THE <br />
-              WEBSITE <span className={styles.italicExperience}>Experience</span>
+              ELEVATING THE <br />
+              EVENT <span className={styles.italicExperience}>Experience</span>
             </h1>
           </div>
         </div>
@@ -203,179 +203,79 @@ export default function MercedesBenzCaseStudy() {
         <div className={styles.infoSectionInner}>
           {/* Left column: stacked list of event elements */}
           <ul className={styles.metaList}>
-            <li className={styles.metaItem}>Web Design & Development</li>
-            <li className={styles.metaItem}>Technical SEO</li>
-            <li className={styles.metaItem}>GEO</li>
-            <li className={styles.metaItem}>Schema</li>
-            <li className={styles.metaItem}>Core Web Vitals</li>
-            <li className={styles.metaItem}>Content</li>
-            <li className={styles.metaItem}>Maintenance</li>
-            <li className={styles.metaItem}>Analytics</li>
-            <li className={styles.metaItem}>Visualization</li>
+            <li className={styles.metaItem}>Event Strategy</li>
+            <li className={styles.metaItem}>On-Ground Branding</li>
+            <li className={styles.metaItem}>Visual Storytelling</li>
+            <li className={styles.metaItem}>Event Production</li>
           </ul>
 
           {/* Right column: two paragraphs of copy */}
           <div className={styles.descriptionWrapper}>
             <p className={styles.descriptionParagraph}>
-              Engineering organic discoverability — a regional digital infrastructure built for the long compound.
+              Designing a premium live brand experience that translated Mercedes-Benz’s legacy of performance, precision, and luxury into a powerful event moment.
             </p>
             <p className={styles.descriptionParagraph}>
-              McCollins Media partnered with Pioneer Audio to create a refined digital experience for the Middle East market. The website was designed to strengthen brand presence, improve product discovery, and deliver a cleaner, more credible online journey for customers across the region
+              McCollins Media supported Mercedes-Benz with creative direction, event branding, visual storytelling, and content execution, crafting every touchpoint to feel refined, engaging, and unmistakably premium.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* 2b. Stats Graphic Section */}
-      <section className={styles.statsSection}>
-        <div className={styles.statsWrapper}>
-
-          {/* Left Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>01</div>
-
-              <div>
-                <h3 className={styles.delightText}>+212%</h3>
-                <p>ORGANIC SESSIONS YOY</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>02</div>
-
-              <div>
-                <h3 className={styles.delightText}>Top 3</h3>
-                <p>SERP CATEGORY TERMS</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Center Image */}
-          <div className={styles.centerGraphic}>
-            <Image
-              src="/pioneer/7f99a1690f1ca452a8ff1a8e871b8143509ac5b5.png"
-              alt="Layers"
-              width={500}
-              height={600}
-              className={styles.layersImage}
-            />
-          </div>
-
-          {/* Right Cards */}
-          <div className={styles.statsColumn}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>03</div>
-
-              <div>
-                <h3 className={styles.delightText}>99.9%</h3>
-                <p>PRODUCTION UPTIME</p>
-              </div>
-            </div>
-
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>04</div>
-
-              <div>
-                <h3 className={styles.delightText}>94</h3>
-                <p>LIGHTHOUSE</p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
       {/* 3. VOSS VIDEO Section */}
       <section className={styles.videoSection}>
         <div className={styles.videoSectionInner}>
-          {/* <div className={styles.videoBlock}>
-            <h2 className={styles.videoText}>VOSS VIDEO</h2>
-          </div> */}
-          <Image
-            src="/pioneer/04b71f64138645a5bc9d7c84a4d13f243aae7034.jpg"
-            alt="Fujifilm Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
-          />
+          <div className={styles.videoBlock}>
+            <h2 className={styles.videoText}>IMG/VIDEO</h2>
+          </div>
         </div>
       </section>
 
-      <section className={styles.strategySection}>
-        <div className={styles.strategyOverlay}>
-
-          {/* Top Header */}
-          <div className={styles.strategyTop}>
-            <span>THE STRATEGIC APPROACH</span>
-            <span>PIONEER MEA</span>
+      {/* 3.b. LG Event Design Image Grid Section */}
+      <section className={styles.imageGridSection}>
+        <div className={styles.imageGridInner}>
+          {/* Left Column */}
+          <div className={styles.imageGridCol}>
+            <p className={styles.imageColTopText}>
+              McCollins Media shaped the event with purpose, people, and presence.
+              A moment of care, organised into a story of impact.
+            </p>
+            <div className={styles.gridImageWrapper}>
+              <Image
+                src="/lg/1.png"
+                alt="LG Event crowd view"
+                width={600}
+                height={450}
+                className={styles.gridImage}
+              />
+            </div>
+            <p className={styles.imageColBottomTextLeft}>
+              From planning to people<br />
+              management, every detail was built
+            </p>
           </div>
 
-          {/* Three Columns */}
-          <div className={styles.strategyGrid}>
-
-            {/* Challenge */}
-            <div className={styles.strategyItem}>
-
-              <div className={styles.strategyTitle}>
-                <h2>
-                  <span className={styles.serif}>The</span>{" "}
-                  <span className={styles.bold}>CHALLENGE</span>
-                </h2>
-              </div>
-
-              <div className={styles.strategyCard}>
-                Globally trusted audio brand with a regional website operating as a
-                static brochure. Organic traffic leaking to .com properties.
-                Architecture not engineered to surface in new generation of AI answer
-                engines.
-              </div>
-
+          {/* Right Column */}
+          <div className={styles.imageGridCol}>
+            <p className={styles.imageColTopText}>
+              Community impact begins with people coming together.
+              Designed with purpose and delivered with care,
+              the initiative transformed participation into meaningful action.
+            </p>
+            <div className={styles.gridImageWrapper}>
+              <Image
+                src="/lg/2.png"
+                alt="LG Event group pose"
+                width={600}
+                height={450}
+                className={styles.gridImage}
+              />
             </div>
-
-            {/* Strategic Approach */}
-            <div className={styles.strategyItem}>
-
-              <div className={styles.strategyTitle}>
-                <h2>
-                  <span className={styles.bold}>THE STRATEGIC</span>
-                  <br />
-                  <span className={styles.blueSerif}>Approach</span>
-                </h2>
-              </div>
-
-              <div className={styles.strategyCard}>
-                Regional flagship rebuilt. Technical SEO across schema, internal
-                linking logic, Core Web Vitals, GEO programme, entity-rich answer
-                content, AI optimisation, maintenance and analytics.
-              </div>
-
-            </div>
-
-            {/* Impact */}
-            <div className={styles.strategyItem}>
-
-              <div className={styles.strategyTitle}>
-                <h2>
-                  <span className={styles.serif}>The</span>{" "}
-                  <span className={styles.bold}>IMPACT</span>
-                </h2>
-              </div>
-
-              <div className={styles.strategyCard}>
-                Organic traffic increased, AI citations improved, Core Web Vitals
-                passed, Lighthouse score improved and production uptime maintained.
-              </div>
-
-            </div>
-
+            <p className={styles.imageColBottomTextRight}>
+              Thoughtfully organised and authentically experienced,
+              the gathering reflected the power of collective action,
+              turning a simple event into a meaningful memory.
+            </p>
           </div>
-
-          <div className={styles.strategyFooter}>
-            CAPABILITIES — WEB DEV · TECHNICAL SEO · GEO ·<br /> SCHEMA · CORE WEB VITALS ·
-            CONTENT ·<br /> MAINTENANCE · ANALYTICS
-          </div>
-
         </div>
       </section>
 
@@ -387,7 +287,7 @@ export default function MercedesBenzCaseStudy() {
         </div>
         <div className={styles.nextImageWrapper}>
           <Image
-            src="/pioneer/d3fc37894018a631c1400f7ae570d140d0ec2f5e.png"
+            src="/lg/pioneer.png"
             alt="Fujifilm Case Study Display"
             width={1200}
             height={714}
