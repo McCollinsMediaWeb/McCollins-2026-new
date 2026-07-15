@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -276,9 +276,7 @@ export default function Home() {
       const letters = svg.querySelectorAll(".homepage-hero__letter");
       const subtitleBar = content.querySelector(".hero-subtitle-bar");
 
-      // 1. Initial State Set
-      gsap.set(letters, { y: 280, opacity: 0 });
-      gsap.set(svg, { scale: 1.15 });
+      gsap.set(svg, { scale: 1 });
 
       // Create load timeline
       const tl = gsap.timeline({
@@ -326,20 +324,6 @@ export default function Home() {
         },
       });
 
-      // Intro Reveal
-      tl.to(letters, {
-        y: 0,
-        opacity: 1,
-        duration: 1.4,
-        stagger: 0.05,
-        ease: "power3.out",
-      })
-        .to(svg, {
-          scale: 1,
-          duration: 2,
-          ease: "power3.out",
-        }, "<");
-
       // Tagline/Subtitle bar fade in & slide up
       if (subtitleBar) {
         gsap.set(subtitleBar, { opacity: 0, y: 15 });
@@ -348,7 +332,7 @@ export default function Home() {
           y: 0,
           duration: 1,
           ease: "power3.out",
-        }, "-=0.6");
+        }, 1.35);
       }
 
       // 2. Video Parallax Scroll
@@ -797,6 +781,9 @@ export default function Home() {
                   d={d}
                   fill="currentColor"
                   fillRule="evenodd"
+                  style={{
+                    "--logo-reveal-delay": `${0.2 + (logoPaths.length - 1 - index) * 0.06}s`,
+                  } as CSSProperties}
                 />
               ))}
             </svg>
