@@ -20,7 +20,7 @@ const SERVICES = [
       { text: "Development", italic: false }
     ],
     desc: "Crafting cohesive brand identities that resonate with your target audience and stand the test of time.",
-    includes: ["Brand Strategy", "Visual Identity", "Brand Guidelines"],
+    includes: ["Discovery Workshop", "Visual Moodboard", "Colors & Typography", "Design Directions"],
     href: "/services/brand-development",
   },
   {
@@ -30,7 +30,7 @@ const SERVICES = [
       { text: "Design", italic: true }
     ],
     desc: "Creating high-performance, responsive platforms engineered for convert goals and maximum user engagement.",
-    includes: ["UX/UI Design", "Web Development", "Mobile App Dev"],
+    includes: ["UX/UI Design", "Responsive Dev", "CMS Integration", "E-Commerce"],
     href: "/services/web-development",
   },
   {
@@ -40,18 +40,8 @@ const SERVICES = [
       { text: "Marketing", italic: true }
     ],
     desc: "Building authentic digital communities through culturally relevant content that sparks global engagement.",
-    includes: ["Content Strategy", "Community Mgmt", "Influencer Mktg"],
+    includes: ["Strategy", "Content Creation", "Reels", "Community Mgmt"],
     href: "/services/social-media-marketing",
-  },
-  {
-    image: "/service-page/image2.webp",
-    words: [
-      { text: "Performance", italic: false },
-      { text: "Marketing", italic: true }
-    ],
-    desc: "Accelerating your ROI through data-driven search marketing campaigns engineered for maximum conversions.",
-    includes: ["Search Marketing", "Display Ads", "Social Media Ads"],
-    href: "/services/performance-marketing",
   },
   {
     image: "/service-page/image3.webp",
@@ -60,8 +50,18 @@ const SERVICES = [
       { text: "Automation", italic: true }
     ],
     desc: "Driving sustainable growth through data-driven search marketing campaigns on a global scale at optimal cost.",
-    includes: ["Email Marketing", "Lead Nurturing", "CRM Integration"],
+    includes: ["CRM Setup", "Email Flows", "Retention", "Sales Funnels"],
     href: "/services/marketing-automation",
+  },
+  {
+    image: "/service-page/image2.webp",
+    words: [
+      { text: "Performance", italic: false },
+      { text: "Marketing", italic: true }
+    ],
+    desc: "Accelerating your ROI through data-driven search marketing campaigns engineered for maximum conversions.",
+    includes: ["Paid Media", "Creative Testing", "CRO", "Analytics"],
+    href: "/services/performance-marketing",
   },
   {
     image: "/service-page/image4.webp",
@@ -70,7 +70,7 @@ const SERVICES = [
       { text: "Production", italic: true }
     ],
     desc: "Driving sustainable growth through data-driven search marketing campaigns on a global scale at optimal cost.",
-    includes: ["Video Production", "Photography", "Copywriting"],
+    includes: ["Video Production", "Photography", "Editing", "Post Production"],
     href: "/services/content-production",
   },
   {
@@ -80,7 +80,7 @@ const SERVICES = [
       { text: "Ads", italic: true }
     ],
     desc: "Accelerating ROI through performance-based paid search campaigns carefully targeted for conversions.",
-    includes: ["Search Campaigns", "Display Campaigns", "Video Campaigns"],
+    includes: ["Search", "Display", "Shopping", "YouTube"],
     href: "/services/google-ads",
   },
   {
@@ -90,7 +90,7 @@ const SERVICES = [
       // { text: "O", italic: true }
     ],
     desc: "Driving sustainable growth through data-driven search engine optimization on a global scale at optimal cost.",
-    includes: ["Keyword Strategy", "On-Page SEO", "Technical SEO"],
+    includes: ["Audits", "Keyword Research", "On-Page SEO", "Backlinking"],
     href: "/services/seo",
   },
 ];
@@ -220,8 +220,8 @@ export default function ServicesPage() {
           ))}
         </h1>
         <p className={styles.heroDesc}>
-          Precision Solutions. Proven Results. <br />
-          Where data-driven precision meets creative excellence to deliver high-impact outcomes for the world's most discerning brands.
+          <span className={styles.heroDescLead}>Precision Solutions.<br />Proven Results.</span>
+          <span className={styles.heroDescCopy}>Where data-driven precision meets creative excellence to deliver high-impact outcomes for the world's most discerning brands.</span>
         </p>
       </section>
 
@@ -280,14 +280,14 @@ export default function ServicesPage() {
 
       {/* Ascension Model Section */}
       <section className={styles.ascensionSection}>
-        <h2 className={styles.ascensionHeader}>The McCollins Ascension Model</h2>
+        <h2 className={styles.ascensionHeader}>The McCollins Ascension <span>Model</span></h2>
 
         <div className={styles.ascensionGrid}>
 
           <div className={`${styles.ascensionCard} ${styles.cardBlack}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Decode</h3>
-              <p className={styles.cardDesc}>Uncovering insights and data architecture.</p>
+              <p className={styles.cardDesc}>Brand Positioning &amp; Narrative</p>
             </div>
           </div>
 
@@ -297,24 +297,31 @@ export default function ServicesPage() {
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Design</h3>
-              <p className={styles.cardDesc}>Crafting high-impact creative solutions.</p>
+              <p className={styles.cardDesc}>Visual &amp; Content Systems</p>
             </div>
           </div>
 
-          <div className={`${styles.ascensionCard} ${styles.cardWhite}`}>
+          <div className={`${styles.ascensionCard} ${styles.cardGray}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Drive</h3>
-              <p className={styles.cardDesc}>Activating multi-channel performance.</p>
+              <h3 className={styles.cardTitle}>Define</h3>
+              <p className={styles.cardDesc}>Brand Positioning &amp; Narrative</p>
             </div>
           </div>
 
           <div className={styles.ascensionCard}>
             <div className={styles.cardImageWrapper}>
-              <Image src="/service-page/image8.webp" alt="Dominate" fill className={styles.cardImage} />
+              <Image src="/service-page/image8.webp" alt="Deploy" fill className={styles.cardImage} />
             </div>
             <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>Deploy</h3>
+              <p className={styles.cardDesc}>Paid, Organic, Automation</p>
+            </div>
+          </div>
+
+          <div className={`${styles.ascensionCard} ${styles.cardBlack}`}>
+            <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Dominate</h3>
-              <p className={styles.cardDesc}>Scaling outcomes and market leadership.</p>
+              <p className={styles.cardDesc}>Scale, Optimise, Expand</p>
             </div>
           </div>
 

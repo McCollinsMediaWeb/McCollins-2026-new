@@ -408,6 +408,12 @@
     letter-spacing: -0.045em;
   }
 
+  .titleWord:nth-child(2) .titleChar {
+    font-family: var(--font-delight), sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+  }
+
   .heroImageWrapper {
     height: auto;
     min-height: 0;

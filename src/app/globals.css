@@ -505,6 +505,26 @@ a:hover .roll-text-inner-dual {
   .site-header.scrolled .header-container {
     height: 64px;
   }
+
+  .site-header.about-theme .cta-button {
+    display: inline-flex;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .site-header.about-theme .header-actions {
+    gap: 16px;
+  }
+
+  .site-header.services-theme .cta-button {
+    display: inline-flex;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .site-header.services-theme .header-actions {
+    gap: 16px;
+  }
 }
 
 /* ==========================================================================

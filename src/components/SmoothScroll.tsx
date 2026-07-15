@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, type LenisRef } from "lenis/react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
@@ -10,8 +10,16 @@ interface SmoothScrollProps {
 }
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
-  const lenisRef = useRef<any>(null);
+  const lenisRef = useRef<LenisRef>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Next.js can preserve the previous route's position when the new page is
+    // already visible. Reset both Lenis and the native scroll position so they
+    // cannot restore different values during a client-side route change.
+    lenisRef.current?.lenis?.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
 
   useEffect(() => {
     // Sync Lenis scroll animations to the GSAP ticker

@@ -26,7 +26,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""}`}>
+    <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""} ${pathname === "/about" ? "about-theme" : ""} ${pathname === "/services" ? "services-theme" : ""}`}>
       <div className="header-container">
         {/* Left: SVG Logo */}
         <Link href="/" className="logo-link" aria-label="McCollins Home">
