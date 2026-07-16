@@ -248,7 +248,22 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
                       <span className={styles.cardBodyMeta}>
                         {article.readTime} &bull; {article.tags}
                       </span>
-                      <span className={styles.cardBodyArrow}>↗</span>
+                      <span className={styles.cardBodyArrow}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </span>
                     </div>
                   </div>
                 </div>

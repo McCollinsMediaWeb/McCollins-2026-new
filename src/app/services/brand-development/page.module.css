@@ -411,7 +411,16 @@
   color: #0055ff;
   margin-right: 10px;
   font-weight: 600;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+}
+
+.blueArrow svg {
+  transition: transform 0.3s ease;
+}
+
+.arabTextBlock:hover .blueArrow svg {
+  transform: translate(2px, -2px);
 }
 
 .arabBlockText {

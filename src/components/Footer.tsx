@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import gsap from "gsap";
@@ -16,6 +16,59 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const containerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    // Client-side regex check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid email address");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+
+      setStatus("success");
+      setEmail("");
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(err.message || "Something went wrong. Please try again.");
+    }
+  };
+
+  useEffect(() => {
+    if (status === "success") {
+      // Spring entrance animation for both success banners (desktop and mobile)
+      gsap.fromTo(
+        `.${styles.successMessage}`,
+        { opacity: 0, y: 15, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "back.out(1.7)", clearProps: "all" }
+      );
+    }
+  }, [status]);
 
   useGSAP(
     () => {
@@ -153,10 +206,27 @@ export default function Footer() {
               </div>
               <div className={styles.newsletter}>
                 <p>Sign up for our newsletter</p>
-                <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-                  <input type="email" placeholder="Email" className={styles.newsletterInput} />
-                  <button type="submit" className={styles.newsletterSubmit}>→</button>
-                </form>
+                {status === "success" ? (
+                  <div className={styles.successMessage}>
+                    <span>Thank you for subscribing!</span>
+                    <span className={styles.successCheck}>✓</span>
+                  </div>
+                ) : (
+                  <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
+                    <input
+                      type="email"
+                      placeholder={status === "loading" ? "Subscribing..." : "Email"}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className={styles.newsletterInput}
+                      disabled={status === "loading"}
+                    />
+                    <button type="submit" className={styles.newsletterSubmit} disabled={status === "loading"}>
+                      {status === "loading" ? <span className={styles.spinner}></span> : "→"}
+                    </button>
+                  </form>
+                )}
+                {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
               </div>
             </div>
             <div className={styles.middleRight}>
@@ -191,19 +261,39 @@ export default function Footer() {
               {/* Social Links */}
               <div className={styles.mobileSocials}>
                 <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
-                  Instagram ↗
+                  Instagram
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
                 </a>
                 <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
-                  LinkedIn ↗
+                  LinkedIn
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
                 </a>
                 <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
-                  Facebook ↗
+                  Facebook
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
                 </a>
                 <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                  Tiktok ↗
+                  Tiktok
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
                 </a>
                 <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                  X ↗
+                  X
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
                 </a>
               </div>
 
@@ -225,10 +315,27 @@ export default function Footer() {
           {/* Newsletter (Bottom of mobile container) */}
           <div className={styles.mobileNewsletter}>
             <span className={styles.mobileNewsletterLabel}>Sign up for our newsletter</span>
-            <form className={styles.mobileNewsletterForm} onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="Email" className={styles.mobileNewsletterInput} />
-              <button type="submit" className={styles.mobileNewsletterSubmit}>→</button>
-            </form>
+            {status === "success" ? (
+              <div className={styles.successMessage}>
+                <span>Thank you for subscribing!</span>
+                <span className={styles.successCheck}>✓</span>
+              </div>
+            ) : (
+              <form className={styles.mobileNewsletterForm} onSubmit={handleSubscribe}>
+                <input
+                  type="email"
+                  placeholder={status === "loading" ? "Subscribing..." : "Email"}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={styles.mobileNewsletterInput}
+                  disabled={status === "loading"}
+                />
+                <button type="submit" className={styles.mobileNewsletterSubmit} disabled={status === "loading"}>
+                  {status === "loading" ? <span className={styles.spinner}></span> : "→"}
+                </button>
+              </form>
+            )}
+            {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
           </div>
         </div>
 

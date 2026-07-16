@@ -182,6 +182,47 @@
   will-change: transform;
 }
 
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 10px 0;
+  will-change: transform, opacity;
+}
+
+.successCheck {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00ff66;
+}
+
+.errorMessage {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 12px;
+  color: #ff3333;
+  margin: 8px 0 0 0;
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.8s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .desktopFooter {
   display: block;
   width: 100%;
@@ -282,10 +323,21 @@
     font-size: 14px;
     font-weight: 400;
     opacity: 0.8;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.3s;
+  }
+  
+  .mobileSocials a svg {
+    transition: transform 0.2s ease;
   }
   
   .mobileSocials a:hover {
     opacity: 1;
+  }
+  
+  .mobileSocials a:hover svg {
+    transform: translate(2px, -2px);
   }
   
   .mobileNewBusiness {

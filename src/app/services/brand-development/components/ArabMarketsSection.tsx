@@ -6,6 +6,26 @@ import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const BlueArrow = () => (
+  <span className={styles.blueArrow}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: "inline-block", verticalAlign: "middle" }}
+    >
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </span>
+);
+
 export default function ArabMarketsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -28,19 +48,20 @@ export default function ArabMarketsSection() {
       },
       y: 30,
       opacity: 0,
-      duration: 0.8,
+      duration: 1.2,
       stagger: 0.15,
-      ease: "power2.out"
+      ease: "power3.out"
     });
 
     gsap.from(".arab-img-reveal", {
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 60%",
+        start: "top 75%",
       },
-      scale: 0.95,
+      scale: 1.05,
+      y: 40,
       opacity: 0,
-      duration: 1.2,
+      duration: 1.4,
       stagger: 0.2,
       ease: "power3.out"
     });
@@ -60,7 +81,7 @@ export default function ArabMarketsSection() {
           <div className={styles.arabRowColText}>
             <div className={`${styles.arabTextBlock} arab-block-reveal`}>
               <h3 className={styles.arabBlockTitle}>
-                <span className={styles.blueArrow}>↗</span> <span className={styles.titleItalic}>Cultural</span>{" "}INTELLIGENCE
+                <BlueArrow /> <span className={styles.titleItalic}>Cultural</span>{" "}INTELLIGENCE
               </h3>
               <p className={styles.arabBlockText}>
                 We understand the subtle cues - colors, symbols, language, and typography - that carry deep meaning within Arab societies. Our designs avoid generic global templates and instead draw from cultural codes that inspire trust and familiarity.
@@ -69,7 +90,7 @@ export default function ArabMarketsSection() {
 
             <div className={`${styles.arabTextBlock} arab-block-reveal`}>
               <h3 className={styles.arabBlockTitle}>
-                <span className={styles.blueArrow}>↗</span> GENERATIONAL{" "}<span className={styles.titleItalic}>Dynamics</span>
+                <BlueArrow /> GENERATIONAL{" "}<span className={styles.titleItalic}>Dynamics</span>
               </h3>
               <p className={styles.arabBlockText}>
                 The Arab consumer is both rooted in tradition and ambitious for the future. From heritage-conscious Baby Boomers to Gen Z digital natives, our strategies are calibrated to speak fluently across generations.
@@ -107,7 +128,7 @@ export default function ArabMarketsSection() {
           <div className={styles.arabRowColText}>
             <div className={`${styles.arabTextBlock} arab-block-reveal`}>
               <h3 className={styles.arabBlockTitle}>
-                <span className={styles.blueArrow}>↗</span> <span className={styles.titleItalic}>Market</span> ASPIRATIONS
+                <BlueArrow /> <span className={styles.titleItalic}>Market</span> ASPIRATIONS
               </h3>
               <p className={styles.arabBlockText}>
                 Across the GCC and wider Middle East, luxury, innovation, and lifestyle drive consumer decisions. We position brands to align with these aspirations - ensuring they are not just seen, but desired.
@@ -116,7 +137,7 @@ export default function ArabMarketsSection() {
 
             <div className={`${styles.arabTextBlock} arab-block-reveal`}>
               <h3 className={styles.arabBlockTitle}>
-                <span className={styles.blueArrow}>↗</span> <span className={styles.titleItalic}>Language</span> &amp; COMMUNICATION
+                <BlueArrow /> <span className={styles.titleItalic}>Language</span> &amp; COMMUNICATION
               </h3>
               <p className={styles.arabBlockText}>
                 Arabic is not just a language, but an identity marker. We craft bilingual and culturally adaptive messaging systems that preserve brand prestige while ensuring clarity and resonance.
@@ -125,7 +146,7 @@ export default function ArabMarketsSection() {
 
             <div className={`${styles.arabTextBlock} arab-block-reveal`}>
               <h3 className={styles.arabBlockTitle}>
-                <span className={styles.blueArrow}>↗</span> <span className={styles.titleItalic}>The</span> MCCOLLINS EDGE
+                <BlueArrow /> <span className={styles.titleItalic}>The</span> MCCOLLINS EDGE
               </h3>
               <p className={styles.arabBlockText}>
                 With over 15 years of regional expertise, we have helped global and local brands thrive by translating business objectives into culturally powerful brand narratives. We don&apos;t just enter the Arab market - we make brands belong to it.

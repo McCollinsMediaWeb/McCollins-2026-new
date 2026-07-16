@@ -486,6 +486,8 @@
   color: #8295a9;
   transition: all 0.3s ease;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .gridCard:hover .cardBodyArrow {

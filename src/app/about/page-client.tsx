@@ -26,10 +26,10 @@ const TEAM_MEMBERS = [
   { img: "/about-us-page/phyo.webp", name: "PHYO", title: "CONTENT CREATOR" },
   { img: "/about-us-page/arjun.webp", name: "ARJUN", title: "CONTENT CREATOR" },
 
-  { img: "/about-us-page/midhun.png", name: "MIDHUN", title: "ACCOUNTANT" },
-  { img: "/about-us-page/jaysa.jpg", name: "JAYSA", title: "TEAM MEMBER" },
-  { img: "/about-us-page/numa.jpg", name: "NUMA", title: "TEAM MEMBER" },
-  { img: "/about-us-page/zaid.jpg", name: "ZAID", title: "TEAM MEMBER" },
+  // { img: "/about-us-page/midhun.png", name: "MIDHUN", title: "ACCOUNTANT" },
+  // { img: "/about-us-page/jaysa.jpg", name: "JAYSA", title: "TEAM MEMBER" },
+  // { img: "/about-us-page/numa.jpg", name: "NUMA", title: "TEAM MEMBER" },
+  // { img: "/about-us-page/zaid.jpg", name: "ZAID", title: "TEAM MEMBER" },
 ];
 
 const AWARDS = [
@@ -415,7 +415,13 @@ export default function AboutPage() {
       <section className={styles.whiteSectionBottom}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
           <p className={styles.memberName}>OUR SERVICES</p>
-          <p className={styles.memberName}>SEE THE WORK↗</p>
+          <p className={styles.memberName} style={{ display: 'inline-flex', alignItems: 'center' }}>
+            SEE THE WORK
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px" }}>
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </p>
         </div>
         <div className={styles.darkGallery}>
           <div className={`${styles.galleryImageWrapper} about-reveal hover-target`} onClick={() => router.push("/case-study/cleaning-superstore")}>

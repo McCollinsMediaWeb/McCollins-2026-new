@@ -110,7 +110,7 @@ export default function ContactPage() {
         setAgree(false);
 
         // Redirect to Thank you page
-        router.push("/Thank-you-for-contacting-us");
+        router.push("/thank-you");
       } else {
         const data = await response.json();
         setStatus("error");
