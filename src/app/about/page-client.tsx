@@ -352,7 +352,7 @@ export default function AboutPage() {
           </div>
           <div className={`${styles.galleryImageWrapper} about-reveal hover-target`} onClick={() => router.push("/case-study/pioneer")}>
             <Image
-              src="/works/pioneer.webp"
+              src="/works/pioneer-new.png"
               alt="Designed to transform 2"
               fill
               className={styles.galleryImage}

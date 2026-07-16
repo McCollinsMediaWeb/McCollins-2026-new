@@ -40,7 +40,7 @@ export default function Footer() {
       const footerSvg = containerRef.current?.querySelector<SVGSVGElement>("." + styles.footerLogoSvg);
       const svgPaths = footerSvg
         ? Array.from(footerSvg.querySelectorAll<SVGPathElement>("path"))
-            .sort((a, b) => a.getBBox().x - b.getBBox().x)
+          .sort((a, b) => a.getBBox().x - b.getBBox().x)
         : [];
 
       if (footerSvg && svgPaths.length > 0) {
@@ -159,8 +159,8 @@ export default function Footer() {
           </div>
           <div className={styles.middleRight}>
             <div className={styles.address}>
-              <p>G04, Loft Office 2,</p>
-              <p>Entrance C, Dubai Media City</p>
+              <p> G04, Loft Office 2, Entrance C,</p>
+              <p>Dubai Media City, Dubai</p>
             </div>
             <div className={styles.legal}>
               <p><a href="#">Terms of use</a></p>

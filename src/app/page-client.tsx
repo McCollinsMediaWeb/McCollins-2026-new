@@ -1011,7 +1011,7 @@ export default function Home() {
             <div className={`${styles.workCard} ${styles.fullWidthCard} work-card`} onClick={() => router.push("/case-study/pioneer")}>
               <div className={styles.workCardImageWrapper}>
                 <Image
-                  src="/works/pioneer.webp"
+                  src="/works/pioneer-new.png"
                   alt="Pioneer Case Study"
                   fill
                   className={styles.workImage}

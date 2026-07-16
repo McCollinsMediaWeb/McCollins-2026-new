@@ -45,8 +45,8 @@
 }
 
 .linksGrid {
-  display: flex;
-  gap: 120px;
+  display: grid;
+  grid-template-columns: 240px 160px;
 }
 
 .linksList {
@@ -81,13 +81,19 @@
 .middleSection {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   padding-bottom: 40px;
 }
 
-.middleLeft, .middleRight {
+.middleLeft {
   display: flex;
-  gap: 120px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.middleRight {
+  display: grid;
+  grid-template-columns: 240px 160px;
 }
 
 .contactInfo, .newsletter, .address, .legal {
@@ -186,11 +192,19 @@
     align-items: flex-start;
     gap: 60px;
   }
-  .middleLeft, .middleRight {
+  .middleLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .middleRight {
+    display: flex;
     flex-direction: column;
     gap: 40px;
   }
   .linksGrid {
+    display: flex;
+    flex-direction: row;
     gap: 60px;
   }
 }
