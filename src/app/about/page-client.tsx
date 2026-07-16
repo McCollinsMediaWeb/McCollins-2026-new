@@ -15,16 +15,21 @@ if (typeof window !== "undefined") {
 const TEAM_MEMBERS = [
   { img: "/about-us-page/image1.webp", name: "MEGHNA KOTHARI", title: "FOUNDER" },
   { img: "/about-us-page/manjeet.webp", name: "MANJEET", title: "BUSINESS OPERATIONS DIRECTOR" },
-  { img: "/about-us-page/reem.webp", name: "REEM", title: "SENIOR ACCOUNT MANAGER" },
+  { img: "/about-us-page/reem.jpg", name: "REEM", title: "SENIOR ACCOUNT MANAGER" },
 
   { img: "/about-us-page/azhar.webp", name: "AZHAR", title: "CREATIVE LEAD" },
   { img: "/about-us-page/image5.webp", name: "IJAS", title: "WEB LEAD" },
   { img: "/about-us-page/diptesh.webp", name: "DIPTESH BASU", title: "PERFORMANCE LEAD" },
 
-  { img: "/about-us-page/casie.webp", name: "CASIE", title: "ACCOUNT MANAGER" },
+  { img: "/about-us-page/casie.jpg", name: "CASIE", title: "ACCOUNT MANAGER" },
   { img: "/about-us-page/shabeer.webp", name: "SHABEER", title: "CONTENT LEAD" },
   { img: "/about-us-page/phyo.webp", name: "PHYO", title: "CONTENT CREATOR" },
   { img: "/about-us-page/arjun.webp", name: "ARJUN", title: "CONTENT CREATOR" },
+
+  { img: "/about-us-page/midhun.png", name: "MIDHUN", title: "ACCOUNTANT" },
+  { img: "/about-us-page/jaysa.jpg", name: "JAYSA", title: "TEAM MEMBER" },
+  { img: "/about-us-page/numa.jpg", name: "NUMA", title: "TEAM MEMBER" },
+  { img: "/about-us-page/zaid.jpg", name: "ZAID", title: "TEAM MEMBER" },
 ];
 
 const AWARDS = [
@@ -264,7 +269,7 @@ export default function AboutPage() {
             </span>
           ))}
         </h2>
-        
+
         <div className={styles.awardsInfoRow}>
           <div className={styles.awardsInfoLeft}>
             RECOGNITION THAT<br />REFLECTS THE WORK
