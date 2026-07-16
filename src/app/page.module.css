@@ -60,7 +60,8 @@
   bottom: 2.25rem;
   left: var(--hero-pad);
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 40px;
   align-items: end;
 }
 
