@@ -42,29 +42,29 @@ export default function Footer() {
       if (svgPaths && svgPaths.length > 0) {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           gsap.set(svgPaths, {
-            attr: { transform: "translate(0 0)" },
+            yPercent: 0,
             visibility: "visible",
           });
           return;
         }
 
         gsap.set(svgPaths, {
-          attr: { transform: "translate(0 -280)" },
-          visibility: "hidden",
+          yPercent: -110,
+          transformOrigin: "50% 50%",
+          visibility: "visible",
         });
 
         gsap.to(svgPaths, {
           scrollTrigger: {
             trigger: "." + styles.bottomSection,
-            start: "top 95%",
+            start: "top bottom",
             toggleActions: "play none none none",
           },
-          attr: { transform: "translate(0 0)" },
-          visibility: "visible",
-          duration: 1.25,
-          ease: "power4.out",
+          yPercent: 0,
+          duration: 2,
+          ease: "expo.out",
           stagger: {
-            each: 0.06,
+            amount: 0.35,
             from: "end",
           },
         });

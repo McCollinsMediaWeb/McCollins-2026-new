@@ -606,27 +606,7 @@ html.lenis body {
 }
 
 .homepage-hero__letter {
-  opacity: 1;
-  visibility: visible;
   transform-box: fill-box;
   transform-origin: center;
   will-change: transform;
-  animation: homepage-logo-letter-reveal 1.25s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: var(--logo-reveal-delay);
-}
-
-@keyframes homepage-logo-letter-reveal {
-  from {
-    transform: translateY(-115%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .homepage-hero__letter {
-    animation: none;
-  }
 }

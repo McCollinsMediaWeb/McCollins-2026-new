@@ -6,66 +6,85 @@
 }
 
 .homeHeroLanding {
+  --hero-pad: clamp(1.25rem, 3.6vw, 4.35rem);
   width: 100%;
-  height: auto;
+  min-height: 100svh;
   background-color: #000000;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
+  align-items: flex-start;
+  position: relative;
   overflow: hidden;
   z-index: 10;
-  /* padding: 180px 80px 100px 80px; */
-  padding: 300px 80px 100px 80px;
+  padding: clamp(6rem, 10vh, 9.5rem) var(--hero-pad) 2.25rem;
+}
+
+.heroIntroWipe {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  background: #f3f3f0;
+  pointer-events: none;
+  will-change: transform;
 }
 
 .heroLandingContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 1500px;
+  min-height: calc(100svh - clamp(6rem, 10vh, 9.5rem) - 2.25rem);
   margin: 0 auto;
   will-change: transform, opacity;
 }
 
 .heroLogoTextWrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  aspect-ratio: 1782 / 258.684;
   overflow: hidden;
 }
 
 .homepageHeroSvg {
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  display: block;
+  visibility: hidden;
   color: #ffffff;
   transform-origin: center center;
 }
 
 .heroSubtitleBar {
-  width: 100%;
+  position: absolute;
+  right: var(--hero-pad);
+  bottom: 2.25rem;
+  left: var(--hero-pad);
   display: grid;
-  grid-template-columns: 24% 46% 30%;
-  align-items: flex-start;
-  margin-top: 15px;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
 }
 
 .heroSubtitleCol {
   color: rgba(255, 255, 255, 0.95);
-  font-size: 10px;
-  line-height: 1.6;
-  letter-spacing: 0.08em;
-  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
 .heroSubtitleCol.right {
   text-align: right;
+}
+
+.mobileHeroPrompt {
+  display: none;
+}
+
+.desktopHeroPrompt,
+.mobileHeroPrompt {
+  color: inherit;
+  text-decoration: none;
 }
 
 .left {
@@ -327,7 +346,14 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .homeHeroLanding {
-    padding: 120px 24px 80px 24px;
+    min-height: 60svh;
+    height: 60svh;
+    padding: clamp(8rem, 15svh, 10rem) var(--hero-pad) 1.5rem;
+  }
+
+  .heroLandingContent {
+    min-height: 0;
+    height: auto;
   }
 
   .section {
@@ -339,27 +365,35 @@
   }
 
   .heroSubtitleBar {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 24px;
+    top: 43%;
+    right: var(--hero-pad);
+    bottom: auto;
+    left: var(--hero-pad);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.4rem, 3.5svh, 2.5rem);
     text-align: center;
   }
 
   .heroSubtitleCol {
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-align: center !important;
+    font-size: clamp(0.82rem, 3.55vw, 1.05rem);
+    line-height: 1.45;
+    text-align: center;
   }
 
-  .heroSubtitleBar>div:nth-child(2) {
+  .heroSubtitleCol.right,
+  .left,
+  .center {
+    text-align: center;
+  }
+
+  .desktopHeroPrompt {
     display: none;
   }
 
-  .left {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 24px !important;
+  .mobileHeroPrompt {
+    display: block;
   }
 }
 

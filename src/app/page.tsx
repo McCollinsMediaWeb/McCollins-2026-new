@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 
@@ -217,29 +218,6 @@ export default function Home() {
     "M1607.17 246.097L1570.29 245.927L1541.59 245.756V193.397L1635.61 193.312C1641.96 193.312 1647.89 189.347 1651.43 184.443C1659.06 173.997 1655.35 159.842 1644.35 153.702C1640.56 151.57 1636.72 151.016 1632.33 150.931L1623.12 150.803L1616.64 150.504C1597.32 150.931 1579.07 143.981 1565.17 130.678C1557.5 123.344 1551.23 115.201 1547.14 105.223C1539.72 87.3157 1539.63 66.9351 1547.05 48.9421C1552.47 35.8951 1561.59 25.2358 1572.8 16.9215C1584.91 7.9677 1599.2 3.23494 1614.38 3.10703H1708.31V55.2524H1615.48C1609.09 55.8494 1604.01 58.2371 1599.79 63.0125C1594.38 69.1522 1593.01 78.1913 1596.6 85.9087C1599.84 92.9438 1607 98.1029 1615.31 98.2309L1634.93 98.4867C1658.59 98.7851 1679.18 109.572 1693.64 128.162C1703.23 140.484 1708.26 155.194 1708.39 170.842C1708.52 182.909 1706.39 194.335 1700.8 205.037C1696.15 213.991 1689.97 221.581 1682.38 228.232C1669.8 239.232 1654.37 245.585 1637.49 246.14H1607.17V246.097Z"
   ];
 
-  const handleLogoMouseEnter = () => {
-    const svg = svgRef.current;
-    if (!svg) return;
-    const letters = svg.querySelectorAll(".homepage-hero__letter");
-    if (!letters.length) return;
-
-    gsap.killTweensOf(letters);
-
-    gsap.timeline()
-      .to(letters, {
-        y: -30,
-        duration: 0.35,
-        stagger: 0.03,
-        ease: "power3.out",
-      })
-      .to(letters, {
-        y: 0,
-        duration: 0.6,
-        stagger: 0.03,
-        ease: "elastic.out(1.1, 0.6)",
-      }, "-=0.22");
-  };
-
   const splitText = (text: string) => {
     return text.split(" ").map((word, i) => (
       <span
@@ -273,10 +251,24 @@ export default function Home() {
       const svg = svgRef.current;
       if (!cover || !content || !svg) return;
 
-      const letters = svg.querySelectorAll(".homepage-hero__letter");
-      const subtitleBar = content.querySelector(".hero-subtitle-bar");
+      // Match the reference: sort exported paths into their visual left-to-right order.
+      const letters = Array.from(svg.querySelectorAll<SVGPathElement>(".homepage-hero__letter"))
+        .sort((a, b) => a.getBBox().x - b.getBBox().x);
+      const subtitleBar = cover.querySelector(".hero-subtitle-bar");
+      const introWipe = cover.querySelector(".hero-intro-wipe");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      gsap.set(svg, { scale: 1, autoAlpha: 1 });
 
-      gsap.set(svg, { scale: 1 });
+      if (!reduceMotion) {
+        gsap.set(letters, {
+          yPercent: -110,
+          transformOrigin: "50% 50%",
+        });
+        gsap.set(introWipe, { yPercent: 0 });
+      } else {
+        gsap.set(letters, { yPercent: 0 });
+        gsap.set(introWipe, { display: "none" });
+      }
 
       // Create load timeline
       const tl = gsap.timeline({
@@ -324,6 +316,26 @@ export default function Home() {
         },
       });
 
+      // Full hero wipe: the black section is uncovered from top to bottom.
+      if (!reduceMotion && introWipe) {
+        tl.to(introWipe, {
+          yPercent: 100,
+          duration: 1.6,
+          ease: "expo.out",
+        }, 1.4)
+          .set(introWipe, { display: "none" });
+      }
+
+      // Reference wordmark reveal: right-to-left letters rising through the clip.
+      if (!reduceMotion) {
+        tl.to(letters, {
+          yPercent: 0,
+          duration: 2.3,
+          stagger: { amount: 0.3, from: "end" },
+          ease: "expo.out",
+        }, 1.4);
+      }
+
       // Tagline/Subtitle bar fade in & slide up
       if (subtitleBar) {
         gsap.set(subtitleBar, { opacity: 0, y: 15 });
@@ -332,7 +344,7 @@ export default function Home() {
           y: 0,
           duration: 1,
           ease: "power3.out",
-        }, 1.35);
+        }, 1.55);
       }
 
       // 2. Video Parallax Scroll
@@ -763,7 +775,8 @@ export default function Home() {
   return (
     <div ref={containerRef} className={styles.container}>
       {/* ================== STICKY HERO LANDING COVER ================== */}
-      <div className={styles.homeHeroLanding} ref={coverRef}>
+      <section className={styles.homeHeroLanding} ref={coverRef}>
+        <div className={`${styles.heroIntroWipe} hero-intro-wipe`} aria-hidden="true" />
         <div className={styles.heroLandingContent} ref={contentRef}>
           <div className={styles.heroLogoTextWrapper}>
             <svg
@@ -772,7 +785,6 @@ export default function Home() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={styles.homepageHeroSvg}
-              onMouseEnter={handleLogoMouseEnter}
             >
               {logoPaths.map((d, index) => (
                 <path
@@ -781,35 +793,26 @@ export default function Home() {
                   d={d}
                   fill="currentColor"
                   fillRule="evenodd"
-                  style={{
-                    "--logo-reveal-delay": `${0.2 + (logoPaths.length - 1 - index) * 0.06}s`,
-                  } as CSSProperties}
                 />
               ))}
             </svg>
           </div>
-          <div className={`${styles.heroSubtitleBar} hero-subtitle-bar`}>
-            <div className={`${styles.heroSubtitleCol} ${styles.left}`} style={{ display: 'flex', gap: '20px' }}>
-              <div>
-                <div>CREATIVE. PERFOMANCE.</div>
-                <div>GROWTH.</div>
-              </div>
-              <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
-                <div>DIGITAL STRATEGY.</div>
-                <div>GLOBAL SCALE.</div>
-              </div>
-            </div>
-            <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
-              {/* <div>DIGITAL STRATEGY.</div>
-              <div>GLOBAL SCALE.</div> */}
-            </div>
-            <div className={`${styles.heroSubtitleCol} ${styles.right}`}>
-              <div>BOOK A </div>
-              <div>STRATEGY CALL</div>
-            </div>
+        </div>
+        <div className={`${styles.heroSubtitleBar} hero-subtitle-bar`}>
+          <div className={`${styles.heroSubtitleCol} ${styles.left}`}>
+            <div>CREATIVE. PERFORMANCE.</div>
+            <div>GROWTH.</div>
+          </div>
+          <div className={`${styles.heroSubtitleCol} ${styles.center}`}>
+            <div>DIGITAL STRATEGY.</div>
+            <div>GLOBAL SCALE.</div>
+          </div>
+          <div className={`${styles.heroSubtitleCol} ${styles.right}`}>
+            <Link href="/contact" className={styles.desktopHeroPrompt}>BOOK A<br />STRATEGY CALL</Link>
+            <Link href="/contact" className={styles.mobileHeroPrompt}>BOOK A<br />STRATEGY CALL</Link>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ================== VIDEO PARALLAX SECTION ================== */}
       <section className={`${styles.videoSection} video-section`}>
