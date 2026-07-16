@@ -168,10 +168,10 @@
   width: 100%;
   height: auto;
   display: block;
+  visibility: hidden;
 }
 
 .footerLogoSvg path {
-  visibility: hidden;
   will-change: transform;
 }
 

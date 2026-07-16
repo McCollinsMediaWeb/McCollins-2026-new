@@ -37,37 +37,37 @@ export default function Footer() {
         });
       }
       // Masked footer wordmark reveal, matching the homepage/reference motion.
-      const svgPaths = containerRef.current?.querySelectorAll("." + styles.footerLogoSvg + " path");
+      const footerSvg = containerRef.current?.querySelector<SVGSVGElement>("." + styles.footerLogoSvg);
+      const svgPaths = footerSvg
+        ? Array.from(footerSvg.querySelectorAll<SVGPathElement>("path"))
+            .sort((a, b) => a.getBBox().x - b.getBBox().x)
+        : [];
 
-      if (svgPaths && svgPaths.length > 0) {
+      if (footerSvg && svgPaths.length > 0) {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          gsap.set(svgPaths, {
-            yPercent: 0,
-            visibility: "visible",
-          });
+          gsap.set(footerSvg, { autoAlpha: 1 });
+          gsap.set(svgPaths, { yPercent: 0 });
           return;
         }
 
-        gsap.set(svgPaths, {
-          yPercent: -110,
-          transformOrigin: "50% 50%",
-          visibility: "visible",
-        });
+        gsap.set(footerSvg, { autoAlpha: 1 });
 
-        gsap.to(svgPaths, {
+        gsap.timeline({
           scrollTrigger: {
-            trigger: "." + styles.bottomSection,
-            start: "top bottom",
-            toggleActions: "play none none none",
+            trigger: containerRef.current,
+            start: "50% bottom",
           },
-          yPercent: 0,
-          duration: 2,
-          ease: "expo.out",
-          stagger: {
-            amount: 0.35,
-            from: "end",
+        }).fromTo(
+          svgPaths,
+          { yPercent: -110 },
+          {
+            yPercent: 0,
+            duration: 2,
+            ease: "expo.out",
+            stagger: { amount: 0.35, from: "end" },
           },
-        });
+          0.4,
+        );
       }
     },
     { scope: containerRef, dependencies: [pathname] }
