@@ -15,6 +15,13 @@ import AboutServicesSection from "./components/AboutServicesSection";
 export const metadata = {
   title: "Social Media Marketing - McCollins Media",
   description: "Scalable, secure, and user-centric website and app design and development services.",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/services/social-media-marketing",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function SocialMediaMarketingPage() {

@@ -7,8 +7,15 @@ import TimelineSection from "./components/TimelineSection";
 import WhatSetsUsApartSection from "./components/WhatSetsUsApartSection";
 
 export const metadata = {
-  title: "Content Production | McCollins Media",
+  title: "McCollins Media Production",
   description: "Video, social, and explainer campaigns engineered for maximum conversion and global scale.",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/services/content-production",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function ContentProductionPage() {

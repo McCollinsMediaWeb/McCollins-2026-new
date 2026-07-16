@@ -6,8 +6,15 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Insights & Thinking - McCollins Media",
-  description: "A premium blog hub for UAE and GCC brands navigating AI discovery, SEO, AEO, GEO, creator strategy, and digital growth.",
+  title: "Blog | McCollins Media",
+  description: "Latest digital marketing insights, strategies, SEO tips and social media trends from McCollins Media.",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/blog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function BlogPage() {

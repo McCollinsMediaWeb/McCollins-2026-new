@@ -8,8 +8,15 @@ import SeoCaseStudiesSection from "./components/SeoCaseStudiesSection";
 import SeoCallToActionSection from "./components/SeoCallToActionSection";
 
 export const metadata = {
-  title: "SEO - McCollins Media",
-  description: "Scalable, secure, and user-centric website and app design and development services.",
+  title: "SEO Company UAE-Dubai | SEO Agency Dubai | SEO Services",
+  description: "Mccollins offer the best range of SEO services in Dubai, Abu Dhabi and across the globe at affordable price. Our team works for your website traffic, ranking and visibility with the best strategies.Get the seo services in UAE by calling- +971 55 956 4135",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/services/seo",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function SEOPage() {

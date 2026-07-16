@@ -12,6 +12,13 @@ import PortfolioGallerySection from "./components/PortfolioGallerySection";
 export const metadata = {
   title: "Website/App Design - McCollins Media",
   description: "Scalable, secure, and user-centric website and app design and development services.",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/services/web-development",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function WebDevelopmentPage() {

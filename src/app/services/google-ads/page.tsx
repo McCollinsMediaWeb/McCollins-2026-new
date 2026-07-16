@@ -10,8 +10,15 @@ import GoogleCaseStudiesSection from "./components/GoogleCaseStudiesSection";
 import GoogleCallToActionSection from "./components/GoogleCallToActionSection";
 
 export const metadata = {
-  title: "Google Ads - McCollins Media",
-  description: "Scalable, secure, and user-centric website and app design and development services.",
+  title: "Digital Marketing Company in UAE | Performance Marketing Agency Dubai - Mccollins Media",
+  description: "Digital Marketing Company in UAE | Performance Marketing Agency Dubai - Mccollins Media",
+  alternates: {
+    canonical: "https://www.mccollinsmedia.com/services/google-ads",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function GoogleAdsPage() {
