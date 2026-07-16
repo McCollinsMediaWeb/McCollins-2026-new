@@ -83,6 +83,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 40px;
+  margin-top: 80px;
 }
 
 .middleLeft {
@@ -181,6 +182,16 @@
   will-change: transform;
 }
 
+.desktopFooter {
+  display: block;
+  width: 100%;
+}
+
+.mobileFooter {
+  display: none;
+  width: 100%;
+}
+
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .topSection {
@@ -191,6 +202,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 60px;
+    margin-top: 0;
   }
   .middleLeft {
     display: flex;
@@ -215,5 +227,129 @@
   }
   .footerTitle {
     font-size: 32px;
+  }
+
+  .desktopFooter {
+    display: none;
+  }
+
+  .mobileFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .mobileGrid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mobileNavLinks a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.1;
+  }
+  
+  .mobileDetailsCol {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .mobileSocials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .mobileSocials a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+  
+  .mobileSocials a:hover {
+    opacity: 1;
+  }
+  
+  .mobileNewBusiness {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+  
+  .mobileNewBusiness a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .mobileAddress {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-delight), sans-serif;
+    font-size: 12px;
+    opacity: 0.5;
+    line-height: 1.4;
+  }
+  
+  .mobileNewsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mobileNewsletterLabel {
+    font-family: var(--font-delight), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+  
+  .mobileNewsletterForm {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .mobileNewsletterInput {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+  }
+  
+  .mobileNewsletterSubmit {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 5px;
   }
 }

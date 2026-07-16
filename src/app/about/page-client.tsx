@@ -27,6 +27,27 @@ const TEAM_MEMBERS = [
   { img: "/about-us-page/arjun.webp", name: "ARJUN", title: "CONTENT CREATOR" },
 ];
 
+const AWARDS = [
+  {
+    year: "(2012)",
+    title: "BEST SOCIAL MEDIA Campaign - Government",
+    awardedBy: "Awarded by: Internet Awards Middle East",
+    description: "Won for the Madinati Campaign which created awareness about how you could be a good citizen by suggesting areas of improvement to the Public Transport system of Dubai."
+  },
+  {
+    year: "(2013)",
+    title: "SME Stars of Business Award",
+    awardedBy: "Awarded by: ADCB SME",
+    description: "Our Director, Meghna Kothari, was conferred SME Admirable Woman Entrepreneur of the Year Award for strategic innovation and business achievements."
+  },
+  {
+    year: "(2013)",
+    title: "BEST SOCIAL MEDIA Strategy - Government",
+    awardedBy: "Awarded by: The Marketing Awards",
+    description: "Won for remarkable efficiency in using social media networks to serve government communication and interaction, as well as to its interaction with its customers and keenness to real-time response."
+  }
+];
+
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -227,6 +248,56 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Awards Section */}
+      <section className={styles.awardsSection}>
+        <h2 className={styles.awardsTitle}>
+          {"Awards".split("").map((char, i) => (
+            <span
+              key={i}
+              style={
+                char === "d"
+                  ? { fontFamily: "var(--font-playfair-display)", fontStyle: "italic" }
+                  : undefined
+              }
+            >
+              {char}
+            </span>
+          ))}
+        </h2>
+        
+        <div className={styles.awardsInfoRow}>
+          <div className={styles.awardsInfoLeft}>
+            RECOGNITION THAT<br />REFLECTS THE WORK
+          </div>
+          <div className={styles.awardsInfoRight}>
+            1) BEST SOCIAL MEDIA CAMPAIGN - GOVERNMENT<br />
+            2) SME STARS OF BUSINESS AWARD<br />
+            3) BEST SOCIAL MEDIA STRATEGY - GOVERNMENT
+          </div>
+        </div>
+
+        <div className={styles.awardsGrid}>
+          {AWARDS.map((award, index) => (
+            <div key={index} className={`${styles.awardCard} about-reveal`}>
+              <div className={styles.awardImageWrapper}>
+                <Image
+                  src={`/about-us-page/award-${index + 1}.webp`}
+                  alt={award.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className={styles.awardImage}
+                />
+              </div>
+              <div className={styles.awardYear}>{award.year}</div>
+              <h3 className={styles.awardTitle}>{award.title}</h3>
+              <div className={styles.awardDetails}>
+                <div className={styles.awardAwardedBy}>{award.awardedBy}</div>
+                <p className={styles.awardDescription}>{award.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className={styles.darkSection}>
         <div className={styles.darkTopRow}>

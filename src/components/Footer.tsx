@@ -78,94 +78,157 @@ export default function Footer() {
   return (
     <footer className={styles.footer} ref={containerRef}>
       <div className={styles.footerInner}>
-        <div className={`${styles.topSection} footer-reveal`}>
-          <h2 className={styles.footerTitle}>
-            <span className={styles.sansText}>Precision from the</span>{" "}
-            <span className={styles.italicText}>first click.</span>
-          </h2>
-          <div className={styles.linksGrid}>
-            <ul className={styles.linksList}>
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/works">Work</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/services">Services</Link></li>
-              <li><Link href="/industry">Expertise</Link></li>
-              <li><Link href="/blog">Blogs</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-            </ul>
-            <ul className={styles.linksList}>
-              <li>
-                <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
-                  Instagram
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
-                  Facebook
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                  Tiktok
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                  X
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </a>
-              </li>
-            </ul>
+        {/* Desktop Footer (hidden on mobile) */}
+        <div className={styles.desktopFooter}>
+          <div className={`${styles.topSection} footer-reveal`}>
+            <h2 className={styles.footerTitle}>
+              <span className={styles.sansText}>Precision from the</span>{" "}
+              <span className={styles.italicText}>first click.</span>
+            </h2>
+            <div className={styles.linksGrid}>
+              <ul className={styles.linksList}>
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/works">Work</Link></li>
+                <li><Link href="/about">About</Link></li>
+                <li><Link href="/services">Services</Link></li>
+                <li><Link href="/industry">Expertise</Link></li>
+                <li><Link href="/blog">Blogs</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
+              </ul>
+              <ul className={styles.linksList}>
+                <li>
+                  <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
+                    Instagram
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
+                    Facebook
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                    Tiktok
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                    X
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className={`${styles.middleSection} footer-reveal`}>
+            <div className={styles.middleLeft}>
+              <div className={styles.contactInfo}>
+                <p>New Business:</p>
+                <p><a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a></p>
+              </div>
+              <div className={styles.newsletter}>
+                <p>Sign up for our newsletter</p>
+                <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
+                  <input type="email" placeholder="Email" className={styles.newsletterInput} />
+                  <button type="submit" className={styles.newsletterSubmit}>→</button>
+                </form>
+              </div>
+            </div>
+            <div className={styles.middleRight}>
+              <div className={styles.address}>
+                <p> G04, Loft Office 2, Entrance C,</p>
+                <p>Dubai Media City, Dubai</p>
+              </div>
+              <div className={styles.legal}>
+                <p><a href="#">Terms of use</a></p>
+                <p>©13–26</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className={`${styles.middleSection} footer-reveal`}>
-          <div className={styles.middleLeft}>
-            <div className={styles.contactInfo}>
-              <p>New Business:</p>
-              <p><a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a></p>
+        {/* Mobile Footer (shown only on mobile) */}
+        <div className={`${styles.mobileFooter} footer-reveal`}>
+          <div className={styles.mobileGrid}>
+            {/* Left Column: Navigation Links */}
+            <div className={styles.mobileNavLinks}>
+              <Link href="/">Home</Link>
+              <Link href="/works">Work</Link>
+              <Link href="/about">About</Link>
+              <Link href="/services">Services</Link>
+              <Link href="/industry">Expertise</Link>
+              <Link href="/blog">Blogs</Link>
+              <Link href="/contact">Contact</Link>
             </div>
-            <div className={styles.newsletter}>
-              <p>Sign up for our newsletter</p>
-              <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-                <input type="email" placeholder="Email" className={styles.newsletterInput} />
-                <button type="submit" className={styles.newsletterSubmit}>→</button>
-              </form>
+
+            {/* Right Column: Details & Socials */}
+            <div className={styles.mobileDetailsCol}>
+              {/* Social Links */}
+              <div className={styles.mobileSocials}>
+                <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
+                  Instagram ↗
+                </a>
+                <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn ↗
+                </a>
+                <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
+                  Facebook ↗
+                </a>
+                <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                  Tiktok ↗
+                </a>
+                <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
+                  X ↗
+                </a>
+              </div>
+
+              {/* New Business Contact */}
+              <div className={styles.mobileNewBusiness}>
+                <span>New Business:</span>
+                <a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a>
+              </div>
+
+              {/* Address & Copyright */}
+              <div className={styles.mobileAddress}>
+                <span>G04, Loft Office 2,</span>
+                <span>Entrance C, Dubai Media</span>
+                <span>City • ©13—26</span>
+              </div>
             </div>
           </div>
-          <div className={styles.middleRight}>
-            <div className={styles.address}>
-              <p> G04, Loft Office 2, Entrance C,</p>
-              <p>Dubai Media City, Dubai</p>
-            </div>
-            <div className={styles.legal}>
-              <p><a href="#">Terms of use</a></p>
-              <p>©13–26</p>
-            </div>
+
+          {/* Newsletter (Bottom of mobile container) */}
+          <div className={styles.mobileNewsletter}>
+            <span className={styles.mobileNewsletterLabel}>Sign up for our newsletter</span>
+            <form className={styles.mobileNewsletterForm} onSubmit={(e) => e.preventDefault()}>
+              <input type="email" placeholder="Email" className={styles.mobileNewsletterInput} />
+              <button type="submit" className={styles.mobileNewsletterSubmit}>→</button>
+            </form>
           </div>
         </div>
 
