@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import styles from "../page.module.css";
 
 export default function SeoCallToActionSection() {
@@ -15,12 +16,14 @@ export default function SeoCallToActionSection() {
       </p>
       
       <div className={styles.ctaBtnWrapper}>
-        <button className={`cta-button ${styles.ctaWhiteHover}`}>
-          <span className="dot-indicator"></span>
-          <span className="cta-text">
-            <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
-          </span>
-        </button>
+        <Link href="/contact" style={{ textDecoration: 'none' }}>
+          <button className={`cta-button ${styles.ctaWhiteHover}`}>
+            <span className="dot-indicator"></span>
+            <span className="cta-text">
+              <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
+            </span>
+          </button>
+        </Link>
       </div>
     </section>
   );

@@ -76,6 +76,7 @@ export const metadata: Metadata = {
 };
 
 import Footer from "@/components/Footer";
+import WhatsAppBubble from "@/components/WhatsAppBubble";
 
 export default function RootLayout({
   children,
@@ -109,6 +110,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </SmoothScroll>
+        <WhatsAppBubble />
       </body>
     </html>
   );

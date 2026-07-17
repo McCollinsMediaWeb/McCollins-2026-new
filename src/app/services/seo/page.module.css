@@ -37,6 +37,7 @@
     grid-template-columns: 2.2fr 1fr;
     gap: 60px;
   }
+
   .heroSubtitle {
     grid-column: 2;
     justify-self: end;
@@ -711,7 +712,7 @@
   padding: 80px 5%;
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.08); */
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
@@ -780,10 +781,12 @@
   .aboutSeoSection {
     padding: 60px 24px;
   }
+
   .aboutSeoText {
     font-size: 1.05rem;
     line-height: 1.5;
   }
+
   .tagsRow {
     gap: 10px 20px;
     font-size: 0.8rem;
@@ -791,16 +794,56 @@
 }
 
 @media (max-width: 768px) {
-  .heroSection { padding: 110px 24px 60px; }
-  .heroHeader { gap: 24px; margin-bottom: 40px; }
-  .heroTitle { white-space: normal; flex-direction: column; align-items: center; text-align: center; overflow-wrap: anywhere; }
-  .heroSubtitleContainer { padding-right: 0; justify-content: center; }
-  .heroSubtitle { max-width: none; text-align: center; }
-  .heroContent { gap: 28px; padding-top: 20px; }
-  .heroImageWrapper { height: auto; min-height: 0; }
-  .heroRightContent { gap: 36px; padding: 0; }
-  .card { width: min(300px, calc(100vw - 48px)); padding: 24px; }
-  .cardsWrapper { padding-inline: 24px; }
+  .heroSection {
+    padding: 110px 24px 60px;
+  }
+
+  .heroHeader {
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .heroTitle {
+    white-space: normal;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .heroSubtitleContainer {
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .heroSubtitle {
+    max-width: none;
+    text-align: center;
+  }
+
+  .heroContent {
+    gap: 28px;
+    padding-top: 20px;
+  }
+
+  .heroImageWrapper {
+    height: auto;
+    min-height: 0;
+  }
+
+  .heroRightContent {
+    gap: 36px;
+    padding: 0;
+  }
+
+  .card {
+    width: min(300px, calc(100vw - 48px));
+    padding: 24px;
+  }
+
+  .cardsWrapper {
+    padding-inline: 24px;
+  }
 }
 
 /* =========================================
@@ -908,28 +951,35 @@
   .seoServicesSection {
     padding-bottom: 50px;
   }
+
   .cardsSectionHeader {
     padding: 20px 24px;
     margin-top: 30px;
     font-size: 0.85rem;
   }
+
   .cardsWrapper {
     padding: 20px 24px;
     gap: 20px;
   }
+
   .card {
     width: 290px;
     padding: 25px;
   }
+
   .cardBlack {
     height: 280px;
   }
+
   .cardGradient {
     height: 360px;
   }
+
   .cardWhite {
     height: 250px;
   }
+
   .cardTitle {
     font-size: 1.4rem;
   }
@@ -1062,16 +1112,20 @@
   .caseSection {
     padding: 60px 24px 40px;
   }
+
   .caseDesc {
     margin-bottom: 40px;
   }
+
   .casePlaceholder {
     width: 100%;
     aspect-ratio: 1.4;
   }
+
   .ctaSection {
     padding: 60px 24px;
   }
+
   .ctaDesc {
     margin-bottom: 25px;
   }

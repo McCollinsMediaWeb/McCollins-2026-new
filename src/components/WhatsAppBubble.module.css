@@ -1,0 +1,77 @@
+.whatsappBubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  border: none;
+  outline: none;
+}
+
+.whatsappIcon {
+  width: 25px;
+  height: 25px;
+}
+
+/* Premium Hover & active feedback micro-interactions */
+.whatsappBubble:hover {
+  transform: scale(1.08) translateY(-3px);
+  background-color: #20ba5a;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
+
+.whatsappBubble:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* Subtle pulse wave */
+.whatsappBubble::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  opacity: 0;
+  animation: pulse 2.5s infinite;
+  pointer-events: none;
+  box-sizing: border-box;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 768px) {
+  .whatsappBubble {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .whatsappIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
