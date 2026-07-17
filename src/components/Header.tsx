@@ -101,7 +101,7 @@ export default function Header() {
           </Link>
           {/* <Link href="/blog" className="nav-link">
             <span className="roll-text">
-              <span className="roll-text-inner" data-text="BLOGS">BLOGS</span>
+              <span className="roll-text-inner" data-text="BLOG">BLOG</span>
             </span>
           </Link> */}
         </nav>

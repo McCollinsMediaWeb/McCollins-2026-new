@@ -145,7 +145,7 @@ export default function Footer() {
                 <li><Link href="/about">About</Link></li>
                 <li><Link href="/services">Services</Link></li>
                 <li><Link href="/industry">Expertise</Link></li>
-                <li><Link href="/blog">Blogs</Link></li>
+                <li><Link href="/blog">Blog</Link></li>
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
               <ul className={styles.linksList}>
@@ -252,7 +252,7 @@ export default function Footer() {
               <Link href="/about">About</Link>
               <Link href="/services">Services</Link>
               <Link href="/industry">Expertise</Link>
-              <Link href="/blog">Blogs</Link>
+              <Link href="/blog">Blog</Link>
               <Link href="/contact">Contact</Link>
             </div>
 
