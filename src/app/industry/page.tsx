@@ -127,7 +127,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/real-estate.webp"
+                src="/industry-page/dc0a32fa7957a063fa103f8f9087632e8d2d9e64.png"
                 alt="Real Estate"
                 fill
                 className={styles.rowImage}
@@ -200,7 +200,7 @@ export default function IndustryPage() {
           <div className={styles.imageCol}>
             <div className={`${styles.imageWrapper} hover-target`}>
               <Image
-                src="/industry-page/food-and-beverages.webp"
+                src="/industry-page/food-and-beverages-new.jpg"
                 alt="Food & Beverage"
                 fill
                 className={styles.rowImage}

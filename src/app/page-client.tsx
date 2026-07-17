@@ -37,7 +37,7 @@ const BRAND_ROW_2 = [
 const EXPERTISE_ITEMS = [
   { img: "/home-page-expertise/image2.webp", titleFirst: "REAL", titleSecond: "Estate" },
   { img: "/home-page-expertise/image3.webp", titleFirst: "LUXURY", titleSecond: "" },
-  { img: "/home-page-expertise/image1.webp", titleFirst: "FOOD &", titleSecond: "Beverage" },
+  { img: "/home-page-expertise/food-and-beverages-new.jpg", titleFirst: "FOOD &", titleSecond: "Beverage" },
   { img: "/home-page-expertise/image4.webp", titleFirst: "TECHNOLOGY", titleSecond: "" },
   { img: "/home-page-expertise/image5.webp", titleFirst: "STARTUPS", titleSecond: "" },
   { img: "/home-page-expertise/image6.webp", titleFirst: "B2B", titleSecond: "" },
@@ -81,28 +81,28 @@ const CORE_SERVICES = [
     titleFirst: "Web",
     titleSecond: "DEVELOPMENT",
     desc: "Developing high-performance, responsive websites engineered to convert global audiences into loyal customers.",
-    img: "/home-page-services/web_development.webp",
+    img: "/home-page-services/mainhero.webp",
     url: "/services/web-development"
   },
   {
     titleFirst: "Social",
     titleSecond: "MEDIA",
     desc: "Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.",
-    img: "/home-page-services/social_media.webp",
+    img: "/home-page-services/main-banner.jpeg",
     url: "/services/social-media-marketing"
   },
   {
     titleFirst: "Performance",
     titleSecond: "MARKETING",
     desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
-    img: "/home-page-services/performance_marketing.webp",
+    img: "/home-page-services/main-banner.png",
     url: "/services/performance-marketing"
   },
   {
     titleFirst: "Marketing",
     titleSecond: "AUTOMATION",
     desc: "Driving sustainable growth through data-driven automation engineered for global consistency and local relevance.",
-    img: "/home-page-services/marketing_automation.webp",
+    img: "/home-page-services/color-graded.webp",
     url: "/services/marketing-automation"
   },
   {

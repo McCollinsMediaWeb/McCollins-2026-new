@@ -217,7 +217,7 @@
 .ascensionSection {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 40px 100px;
+  padding: 80px 40px 100px;
 }
 
 .ascensionHeader {
@@ -227,31 +227,72 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   color: #212121;
 }
 
-.ascensionHeader span {
-  font-family: var(--font-playfair-display), serif;
-  font-style: italic;
+.ascensionSubHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.ascensionSubLeft, .ascensionSubRight {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
   font-weight: 500;
+  color: #111111;
+  text-decoration: none;
+}
+
+.ascensionSubRight:hover {
+  text-decoration: underline;
 }
 
 .ascensionGrid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1.5fr 1fr;
+  display: flex;
   gap: 20px;
-  height: 400px;
+  overflow-x: auto;
+  align-items: flex-start;
+  padding-bottom: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ascensionGrid::-webkit-scrollbar {
+  display: none;
 }
 
 .ascensionCard {
   position: relative;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
+  flex-shrink: 0;
+}
+
+/* Card Sizing overrides */
+.cardShort {
+  height: 250px;
+}
+
+.cardTall {
+  height: 320px;
+}
+
+.cardNarrow {
+  width: 220px;
+}
+
+.cardWide {
+  width: 320px;
 }
 
 .cardBlack {
@@ -299,6 +340,16 @@
   justify-content: space-between;
 }
 
+.cardContentBottom {
+  justify-content: flex-end !important;
+}
+
+.cardContentBottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .cardImageWrapper+.cardContent {
   color: #ffffff;
 }
@@ -306,13 +357,15 @@
 .cardTitle {
   font-family: var(--font-playfair-display), serif;
   font-style: italic;
-  font-size: 32px;
+  font-size: 26px;
+  margin: 0;
 }
 
 .cardDesc {
   font-size: 13px;
   opacity: 0.8;
   max-width: 200px;
+  margin: 0;
 }
 
 /* =========================================
@@ -345,12 +398,6 @@
 
   .verticalLine {
     left: calc(40px + 310px + 20px);
-  }
-
-  .ascensionGrid {
-    grid-template-columns: 1fr 1fr;
-    height: auto;
-    grid-auto-rows: 300px;
   }
 }
 
@@ -490,30 +537,33 @@
   }
 
   .ascensionGrid {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     height: auto;
-    grid-auto-rows: auto;
+    overflow-x: visible;
   }
 
   .ascensionCard {
-    min-height: 200px;
-    padding: 24px;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 240px;
+    padding: 30px;
     border-radius: 0;
   }
 
   .ascensionCard:nth-child(2),
   .ascensionCard:nth-child(4) {
-    min-height: 400px;
+    min-height: 340px;
   }
 
   .cardTitle {
     margin: 0;
-    font-size: 48px;
+    font-size: 26px;
   }
 
   .cardDesc {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
   }
 }

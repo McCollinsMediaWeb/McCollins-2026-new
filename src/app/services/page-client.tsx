@@ -24,7 +24,7 @@ const SERVICES = [
     href: "/services/brand-development",
   },
   {
-    image: "/home-page-services/web_development.webp",
+    image: "/home-page-services/mainhero.webp",
     words: [
       { text: "Website/App", italic: false },
       { text: "Design", italic: true }
@@ -54,7 +54,7 @@ const SERVICES = [
     href: "/services/marketing-automation",
   },
   {
-    image: "/service-page/image2.webp",
+    image: "/service-page/main-banner.png",
     words: [
       { text: "Performance", italic: false },
       { text: "Marketing", italic: true }
@@ -280,45 +280,54 @@ export default function ServicesPage() {
 
       {/* Ascension Model Section */}
       <section className={styles.ascensionSection}>
-        <h2 className={styles.ascensionHeader}>The McCollins Ascension <span>Model</span></h2>
+        <h2 className={styles.ascensionHeader}>THE MCCOLLINS ASCENSION MODEL</h2>
+
+        <div className={styles.ascensionSubHeader}>
+          <span className={styles.ascensionSubLeft}>How We Work</span>
+          <a href="mailto:info@mccollinsmedia.com" className={styles.ascensionSubRight}>info@mccollinsmedia.com</a>
+        </div>
 
         <div className={styles.ascensionGrid}>
 
-          <div className={`${styles.ascensionCard} ${styles.cardBlack}`}>
+          <div className={`${styles.ascensionCard} ${styles.cardBlack} ${styles.cardShort} ${styles.cardNarrow}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Decode</h3>
-              <p className={styles.cardDesc}>Brand Positioning &amp; Narrative</p>
+              <p className={styles.cardDesc}>Market, Audience, Gaps</p>
             </div>
           </div>
 
-          <div className={styles.ascensionCard}>
+          <div className={`${styles.ascensionCard} ${styles.cardTall} ${styles.cardWide}`}>
             <div className={styles.cardImageWrapper}>
-              <Image src="/service-page/image9.webp" alt="Design" fill className={styles.cardImage} />
+              <Image src="/service-page/image8.webp" alt="Design" fill className={styles.cardImage} />
             </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Design</h3>
-              <p className={styles.cardDesc}>Visual &amp; Content Systems</p>
+            <div className={`${styles.cardContent} ${styles.cardContentBottom}`}>
+              <div>
+                <h3 className={styles.cardTitle}>Design</h3>
+                <p className={styles.cardDesc}>Visual &amp; Content Systems</p>
+              </div>
             </div>
           </div>
 
-          <div className={`${styles.ascensionCard} ${styles.cardGray}`}>
+          <div className={`${styles.ascensionCard} ${styles.cardGray} ${styles.cardShort} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Define</h3>
               <p className={styles.cardDesc}>Brand Positioning &amp; Narrative</p>
             </div>
           </div>
 
-          <div className={styles.ascensionCard}>
+          <div className={`${styles.ascensionCard} ${styles.cardTall} ${styles.cardWide}`}>
             <div className={styles.cardImageWrapper}>
-              <Image src="/service-page/image8.webp" alt="Deploy" fill className={styles.cardImage} />
+              <Image src="/service-page/image9.webp" alt="Deploy" fill className={styles.cardImage} />
             </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Deploy</h3>
-              <p className={styles.cardDesc}>Paid, Organic, Automation</p>
+            <div className={`${styles.cardContent} ${styles.cardContentBottom}`}>
+              <div>
+                <h3 className={styles.cardTitle}>Deploy</h3>
+                <p className={styles.cardDesc}>Paid, Organic, Automation</p>
+              </div>
             </div>
           </div>
 
-          <div className={`${styles.ascensionCard} ${styles.cardBlack}`}>
+          <div className={`${styles.ascensionCard} ${styles.cardBlack} ${styles.cardShort} ${styles.cardNarrow}`}>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>Dominate</h3>
               <p className={styles.cardDesc}>Scale, Optimise, Expand</p>
