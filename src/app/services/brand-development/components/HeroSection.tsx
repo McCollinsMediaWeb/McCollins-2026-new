@@ -65,7 +65,7 @@ export default function HeroSection() {
 
       <div className={styles.heroSubtitleContainer}>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
-          Crafting cohesive brand identities that resonate across cultures and command a global presence.
+          McCollins Media develops brands with clear positioning, strong identity systems and visual languages designed to help businesses stand out, scale and stay memorable.
         </p>
       </div>
 
@@ -97,10 +97,13 @@ export default function HeroSection() {
           <div className={`${styles.projectsContainer} hero-right-anim`}>
             <h3 className={styles.projectsTitle}>Includes:</h3>
             <div className={styles.tagsList}>
-              <span className={styles.projectTag}>BRAND STRATEGY &amp; IDENTITY</span>
-              <span className={styles.projectTag}>SOCIAL MEDIA</span>
-              <span className={styles.projectTag}>PERFORMANCE MARKETING</span>
-              <span className={styles.projectTag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.projectTag}>BRAND STRATEGY</span>
+              <span className={styles.projectTag}>LOGO DESIGN</span>
+              <span className={styles.projectTag}>VISUAL IDENTITY</span>
+              <span className={styles.projectTag}>BRAND POSITIONING</span>
+              <span className={styles.projectTag}>BRAND GUIDELINES</span>
+              <span className={styles.projectTag}>TAGLINES & NAMING</span>
+              <span className={styles.projectTag}>LOOK & FEEL</span>
             </div>
           </div>
         </div>

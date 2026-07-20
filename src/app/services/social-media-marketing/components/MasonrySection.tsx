@@ -40,7 +40,7 @@ export default function MasonrySection() {
                 </div>
                 <div className="masonry-reveal">
                     <Image
-                        src="/social-media-marketing/0c5104ea6fafb339234dc730e7c65b9debabdda5.webp"
+                        src="/social-media-marketing/doors-dubai.png"
                         alt="Abstract Gold Pattern"
                         width={960}
                         height={960}
