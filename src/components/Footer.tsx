@@ -235,7 +235,9 @@ export default function Footer() {
                 <p>Dubai Media City, Dubai</p>
               </div>
               <div className={styles.legal}>
-                <p><a href="#">Terms of use</a></p>
+                <p><Link href="/privacy-policy">Privacy Policy</Link></p>
+                <p><Link href="/cookies-policy">Cookies Policy</Link></p>
+                <p><Link href="/terms-conditions">Terms of Use</Link></p>
                 <p>©13–26</p>
               </div>
             </div>

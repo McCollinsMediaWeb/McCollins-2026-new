@@ -58,39 +58,47 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
     const secondaryItems = overlay.querySelectorAll(".gsap-secondary");
 
     // Set initial states
-    gsap.set(overlay, { autoAlpha: 0, yPercent: -100 });
-    gsap.set(navLinks, { autoAlpha: 0, y: 40 });
-    gsap.set(secondaryItems, { autoAlpha: 0, y: 20 });
+    gsap.set(overlay, { autoAlpha: 0 });
+    gsap.set(".gsap-bg-panel", { scaleY: 0, transformOrigin: "top center" });
+    gsap.set(navLinks, { yPercent: 100 });
+    gsap.set(secondaryItems, { autoAlpha: 0, y: 30 });
 
     // Build timeline
     tl.current
       .to(overlay, {
         autoAlpha: 1,
-        yPercent: 0,
-        duration: 0.8,
-        ease: "power4.inOut",
+        duration: 0.1,
       })
+      .to(
+        ".gsap-bg-panel",
+        {
+          scaleY: 1,
+          duration: 0.85,
+          stagger: 0.08,
+          ease: "power4.inOut",
+        },
+        "0"
+      )
       .to(
         navLinks,
         {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          yPercent: 0,
+          duration: 0.85,
+          stagger: 0.08,
           ease: "power4.out",
         },
-        "-=0.3"
+        "-=0.4"
       )
       .to(
         secondaryItems,
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.6,
-          stagger: 0.1,
+          duration: 0.7,
+          stagger: 0.05,
           ease: "power3.out",
         },
-        "-=0.5"
+        "-=0.55"
       );
   }, { scope: overlayRef, dependencies: [] });
 
@@ -105,9 +113,17 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
 
   return (
     <div className={styles.menuOverlay} ref={overlayRef}>
+      {/* Staggered Background Panels */}
+      <div className={styles.bgPanels}>
+        <div className={`${styles.bgPanel} gsap-bg-panel`}></div>
+        <div className={`${styles.bgPanel} gsap-bg-panel`}></div>
+        <div className={`${styles.bgPanel} gsap-bg-panel`}></div>
+        <div className={`${styles.bgPanel} gsap-bg-panel`}></div>
+      </div>
+
       {/* Top Bar */}
       <div className={styles.topBar}>
-        <button className={styles.closeButton} onClick={onClose} aria-label="Close menu">
+        <button className={`${styles.closeButton} gsap-secondary`} onClick={onClose} aria-label="Close menu">
           <svg
             className={styles.closeIcon}
             viewBox="0 0 24 24"
@@ -147,8 +163,12 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
         <div className={styles.rightSide}>
           {NAV_LINKS.map((link, index) => (
             <div key={index} className={styles.navItemWrapper}>
-              <Link href={link.href} className={`${styles.navLink} gsap-nav-link`} onClick={onClose}>
-                {link.label}
+              <Link href={link.href} className={styles.navLink} onClick={onClose}>
+                <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
+                  <span className="gsap-nav-link" style={{ display: "inline-block" }}>
+                    {link.label}
+                  </span>
+                </span>
               </Link>
             </div>
           ))}
@@ -158,9 +178,9 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
       {/* Bottom Footer */}
       <div className={`${styles.footerArea} gsap-secondary`}>
         <div className={styles.footerLeft}>
-          <Link href="/privacy" className={styles.footerLink}>Privacy Policy</Link>
-          <Link href="/cookies" className={styles.footerLink}>Cookies Policy</Link>
-          <Link href="/terms" className={styles.footerLink}>Terms & Conditions</Link>
+          <Link href="/privacy-policy" className={styles.footerLink}>Privacy Policy</Link>
+          <Link href="/cookies-policy" className={styles.footerLink}>Cookies Policy</Link>
+          <Link href="/terms-conditions" className={styles.footerLink}>Terms & Conditions</Link>
         </div>
         <div className={styles.footerRight}>
           <a href="mailto:info@mccollinsmedia.com" style={{ color: 'inherit', textDecoration: 'none' }}>
