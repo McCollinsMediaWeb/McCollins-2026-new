@@ -293,7 +293,6 @@ export default function AboutPage() {
                   className={styles.awardImage}
                 />
               </div>
-              <div className={styles.awardYear}>{award.year}</div>
               <h3 className={styles.awardTitle}>{award.title}</h3>
               <div className={styles.awardDetails}>
                 <div className={styles.awardAwardedBy}>{award.awardedBy}</div>

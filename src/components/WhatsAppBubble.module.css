@@ -7,7 +7,7 @@
   background-color: #25d366;
   color: #ffffff;
   border-radius: 50%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
@@ -56,6 +56,7 @@
     transform: scale(1);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(1.4);
     opacity: 0;
@@ -65,13 +66,69 @@
 /* Mobile responsive scaling */
 @media (max-width: 768px) {
   .whatsappBubble {
+    display: flex;
     bottom: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
   }
+
   .whatsappIcon {
     width: 20px;
     height: 20px;
+  }
+}
+
+.whatsappTab {
+  position: fixed;
+  right: 12px;
+  top: 40%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  /* border-bottom-left-radius: 8px; */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 9998;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  border: none;
+  outline: none;
+}
+
+.whatsappTabIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.whatsappTabText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Hover & active transitions */
+.whatsappTab:hover {
+  background-color: #20ba5a;
+  right: 15px;
+  box-shadow: 0 -4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.whatsappTab:active {
+  right: 15px;
+}
+
+@media (max-width: 768px) {
+  .whatsappTab {
+    display: none;
   }
 }
