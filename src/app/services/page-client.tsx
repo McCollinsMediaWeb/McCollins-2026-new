@@ -220,7 +220,7 @@ export default function ServicesPage() {
           ))}
         </h1>
         <p className={styles.heroDesc}>
-          <span className={styles.heroDescLead}>Precision Solutions.<br />Proven Results.</span>
+          <span className={styles.heroDescLead}>Precision Solutions. Proven Results.</span>
           <span className={styles.heroDescCopy}>Where data-driven precision meets creative excellence to deliver high-impact outcomes for the world's most discerning brands.</span>
         </p>
       </section>

@@ -161,7 +161,7 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
               onClick={() => handleCardClick(latestArticle.blogUrl, latestArticle.id)}
               style={{ cursor: "pointer" }}
             >
-              <div className={styles.cardGraphicBox}>
+              <div className={styles.cardGraphicBox} style={latestArticle.photo ? { padding: 0 } : {}}>
                 {latestArticle.photo ? (
                   <div style={{ position: "relative", width: "100%", height: "100%" }}>
                     <Image
@@ -218,7 +218,7 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
                   style={{ cursor: "pointer" }}
                 >
                   {/* Card top graphic block */}
-                  <div className={`${styles.cardTopBlock} ${article.theme === "dark" ? styles.cardTopBlockDark : styles.cardTopBlockLight}`}>
+                  <div className={`${styles.cardTopBlock} ${article.theme === "dark" ? styles.cardTopBlockDark : styles.cardTopBlockLight}`} style={article.photo ? { padding: 0 } : {}}>
                     {article.photo ? (
                       <div style={{ position: "relative", width: "100%", height: "100%" }}>
                         <Image
