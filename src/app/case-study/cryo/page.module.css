@@ -631,7 +631,7 @@
 .contentProdLead {
   font-family: var(--font-delight), sans-serif;
   font-size: clamp(16px, 1.2vw, 21px);
-  font-weight: 400;
+  font-weight: 300;
   color: #ffffff;
   line-height: 1.6;
   margin: 0 0 35px 0;
@@ -733,6 +733,700 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Triple Videos Showcase Section */
+.tripleVideosSection {
+  background-color: #ffffff;
+  padding: 100px 8%;
+  width: 100%;
+}
+
+.tripleVideosGrid {
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tripleVideoWrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 32vw, 520px);
+  overflow: hidden;
+  background-color: #f7f7f7;
+  opacity: 0;
+  /* Animated by GSAP */
+}
+
+.tripleVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .tripleVideosGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tripleVideosSection {
+    padding: 0 24px 60px;
+  }
+
+  .tripleVideoWrapper {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* Performance Marketing Section */
+.perfSection {
+  background-color: #F7FAFB;
+  color: #111111;
+  padding: 120px 8%;
+  width: 100%;
+  position: relative;
+}
+
+.perfContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 50%;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .perfContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+}
+
+.perfLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.perfLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.perfHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(20px, 2.2vw, 36px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #111111;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.02em;
+}
+
+.perfObjectiveCard {
+  background-color: #052130;
+  color: #ffffff;
+  padding: 35px;
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.perfCardLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.perfCardHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(22px, 2.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.perfLeftText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.perfRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfSubheading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.perfList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.perfList li {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.perfList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #111111;
+}
+
+.perfRightText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(15px, 1.1vw, 19px);
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .perfSection {
+    padding: 60px 24px;
+  }
+}
+
+/* Sales Funnel Development Section */
+.funnelDevSection {
+  background-color: #E8F9FF;
+  color: #111111;
+  padding: 120px 8%;
+  width: 100%;
+  position: relative;
+}
+
+.funnelDevContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 46% 48%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .funnelDevContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+}
+
+.funnelDevLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.funnelDevLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.funnelDevHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(20px, 2.2vw, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #111111;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.02em;
+}
+
+.funnelDevLead {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+}
+
+.funnelDevList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.funnelDevList li {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.funnelDevList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #111111;
+}
+
+.funnelDevOutro {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.funnelDevRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.funnelDevImageWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.funnelDevImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .funnelDevSection {
+    padding: 60px 24px;
+  }
+}
+
+/* Influencer Marketing Section */
+.influencerSection {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 120px 8%;
+  width: 100%;
+  position: relative;
+}
+
+.influencerContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 50%;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .influencerContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+}
+
+.influencerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.influencerLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.influencerHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(20px, 2.2vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.02em;
+}
+
+.influencerLeftText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.influencerRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.influencerSubheading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.influencerList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.influencerList li {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.influencerList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+}
+
+.influencerRightText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+}
+
+.influencerRightOutro {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(15px, 1.1vw, 19px);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .influencerSection {
+    padding: 60px 24px;
+  }
+}
+
+/* Dubai Hills Launch Section */
+.launchSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 120px 8%;
+  width: 100%;
+  position: relative;
+}
+
+.launchContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 48% 46%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .launchContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+}
+
+.launchLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.launchVideoWrapper {
+  width: 100%;
+  background-color: #E2E2E2;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.launchVideo {
+  width: 50%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .launchVideoWrapper {
+    padding: 30px 20px;
+  }
+
+  .launchVideo {
+    width: 80%;
+  }
+}
+
+.launchRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.launchLabel {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.launchHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(24px, 2.5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #111111;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.02em;
+}
+
+.launchText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 1.05vw, 18px);
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 35px 0;
+}
+
+.launchBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.launchBadge {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(10px, 0.75vw, 12px);
+  font-weight: 600;
+  color: #1a4d66;
+  background-color: #E8F9FF;
+  padding: 12px 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .launchSection {
+    padding: 60px 24px;
+  }
+}
+
+/* Customer Acquisition Engine Section */
+.engineSection {
+  background-color: #F7FAFB;
+  color: #111111;
+  padding: 120px 8%;
+  width: 100%;
+  position: relative;
+}
+
+.engineHeader {
+  max-width: 1600px;
+  margin: 0 auto 60px auto;
+  display: grid;
+  grid-template-columns: 46% 48%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (max-width: 991px) {
+  .engineHeader {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+}
+
+.engineHeading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(24px, 2.5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #111111;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.engineLead {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(16px, 1.1vw, 18px);
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.engineSubheading {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #708a98;
+  letter-spacing: 0.05em;
+}
+
+.engineGrid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .engineGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.engineCard {
+  background-color: #F0F7FA;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 4px;
+}
+
+.engineCardNumber {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.engineCardText {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Video Mute Button Overlay */
+.muteButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+}
+
+.videoWrapper:hover .muteButton,
+.galleryWrapper:hover .muteButton,
+.tripleVideoWrapper:hover .muteButton,
+.launchVideoWrapper:hover .muteButton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.muteButton:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 768px) {
+  .engineSection {
+    padding: 60px 24px;
+  }
 }
 
 @media (max-width: 768px) {

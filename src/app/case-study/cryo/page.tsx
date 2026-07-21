@@ -11,6 +11,54 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+interface CaseStudyVideoProps {
+  src: string;
+  className?: string;
+  wrapperClassName?: string;
+}
+
+function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handleToggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  return (
+    <div className={wrapperClassName} style={{ position: "relative" }}>
+      <video
+        ref={videoRef}
+        className={className}
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <button className={styles.muteButton} onClick={handleToggleMute} aria-label="Toggle mute">
+        {isMuted ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+        )}
+      </button>
+    </div>
+  );
+}
+
 export default function CryoCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -281,6 +329,121 @@ export default function CryoCaseStudy() {
           }
         );
       }
+
+      const tripleVideoItems = containerRef.current.querySelectorAll("." + styles.tripleVideoWrapper);
+      if (tripleVideoItems.length > 0) {
+        gsap.fromTo(
+          tripleVideoItems,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: "." + styles.tripleVideosSection,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const perfSec = containerRef.current.querySelector("." + styles.perfSection);
+      if (perfSec) {
+        gsap.fromTo(
+          perfSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: perfSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const funnelDevSec = containerRef.current.querySelector("." + styles.funnelDevSection);
+      if (funnelDevSec) {
+        gsap.fromTo(
+          funnelDevSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: funnelDevSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const influencerSec = containerRef.current.querySelector("." + styles.influencerSection);
+      if (influencerSec) {
+        gsap.fromTo(
+          influencerSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: influencerSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const launchSec = containerRef.current.querySelector("." + styles.launchSection);
+      if (launchSec) {
+        gsap.fromTo(
+          launchSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: launchSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const engineSec = containerRef.current.querySelector("." + styles.engineSection);
+      if (engineSec) {
+        gsap.fromTo(
+          engineSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: engineSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
     },
     { scope: containerRef, dependencies: [mounted] }
   );
@@ -334,26 +497,16 @@ export default function CryoCaseStudy() {
       {/* 2b. Videos Showcase Section */}
       <section className={styles.videosSection}>
         <div className={styles.videosGrid}>
-          <div className={styles.videoWrapper}>
-            <video
-              className={styles.videoElement}
-              src="/cryo/Cryo Body - AUH.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
-          <div className={styles.videoWrapper}>
-            <video
-              className={styles.videoElement}
-              src="/cryo/CRYO _Stretching Post Size.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
+          <CaseStudyVideo
+            src="/cryo/Cryo Body - AUH.mp4"
+            className={styles.videoElement}
+            wrapperClassName={styles.videoWrapper}
+          />
+          <CaseStudyVideo
+            src="/cryo/CRYO _Stretching Post Size.mp4"
+            className={styles.videoElement}
+            wrapperClassName={styles.videoWrapper}
+          />
         </div>
       </section>
 
@@ -407,16 +560,11 @@ export default function CryoCaseStudy() {
               className={styles.galleryImage}
             />
           </div>
-          <div className={styles.galleryWrapper}>
-            <video
-              className={styles.galleryVideo}
-              src="/cryo/cryp stp 2.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
+          <CaseStudyVideo
+            src="/cryo/cryp stp 2.mp4"
+            className={styles.galleryVideo}
+            wrapperClassName={styles.galleryWrapper}
+          />
         </div>
       </section>
 
@@ -529,20 +677,241 @@ export default function CryoCaseStudy() {
         </div>
       </section>
 
-      {/* 4. Next Section */}
-      <section className={styles.nextSection}>
-        <div className={styles.nextHeader}>
-          <span className={styles.nextTitleLink}>OUR SERVICES</span>
-          <span className={styles.nextTitleLink}>SEE THE WORK</span>
-        </div>
-        <div className={styles.nextImageWrapper}>
-          <Image
-            src="/voss/mapei.webp"
-            alt="Next Case Study Display"
-            width={1200}
-            height={714}
-            className={styles.nextImage}
+      {/* 3h. Triple Videos Showcase Section */}
+      <section className={styles.tripleVideosSection}>
+        <div className={styles.tripleVideosGrid}>
+          <CaseStudyVideo
+            src="/cryo/CRYO Hydrafacial.mp4"
+            className={styles.tripleVideoElement}
+            wrapperClassName={styles.tripleVideoWrapper}
           />
+          <CaseStudyVideo
+            src="/cryo/Cryo Physio - AUH.mp4"
+            className={styles.tripleVideoElement}
+            wrapperClassName={styles.tripleVideoWrapper}
+          />
+          <CaseStudyVideo
+            src="/cryo/Cryo Body - AUH.mp4"
+            className={styles.tripleVideoElement}
+            wrapperClassName={styles.tripleVideoWrapper}
+          />
+        </div>
+      </section>
+
+      {/* 3i. Performance Marketing Section */}
+      <section className={styles.perfSection}>
+        <div className={styles.perfContent}>
+          <div className={styles.perfLeft}>
+            <span className={styles.perfLabel}>Performance Marketing</span>
+            <h2 className={styles.perfHeading}>
+              Our paid media strategy was built around one primary objective:
+            </h2>
+            <div className={styles.perfObjectiveCard}>
+              <span className={styles.perfCardLabel}>PRIMARY OBJECTIVE</span>
+              <h3 className={styles.perfCardHeading}>
+                Generate qualified appointment bookings.
+              </h3>
+            </div>
+            <p className={styles.perfLeftText}>
+              We developed highly targeted campaigns across Meta platforms that optimized for lead generation and appointment conversions rather than simple reach.
+            </p>
+          </div>
+
+          <div className={styles.perfRight}>
+            <span className={styles.perfSubheading}>The strategy included:</span>
+            <ul className={styles.perfList}>
+              <li>Audience segmentation</li>
+              <li>Retargeting campaigns</li>
+              <li>Lead generation campaigns</li>
+              <li>Conversion-focused creatives</li>
+              <li>Landing page optimization</li>
+              <li>Continuous creative testing</li>
+              <li>Budget optimization</li>
+              <li>Performance reporting</li>
+            </ul>
+            <p className={styles.perfRightText}>
+              Every campaign was measured against tangible business outcomes, ensuring marketing investment translated into measurable clinic growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3j. Sales Funnel Development Section */}
+      <section className={styles.funnelDevSection}>
+        <div className={styles.funnelDevContent}>
+          <div className={styles.funnelDevLeft}>
+            <span className={styles.funnelDevLabel}>Sales Funnel Development</span>
+            <h2 className={styles.funnelDevHeading}>
+              TO MAXIMISE CONVERSION RATES,<br />
+              WE DESIGNED A COMPLETE<br />
+              CUSTOMER ACQUISITION FUNNEL.
+            </h2>
+            <p className={styles.funnelDevLead}>
+              The funnel guided potential clients from awareness to booking by combining:
+            </p>
+            <ul className={styles.funnelDevList}>
+              <li>High-performing paid campaigns</li>
+              <li>Educational content</li>
+              <li>Social proof</li>
+              <li>Influencer validation</li>
+              <li>Lead capture</li>
+              <li>Follow-up strategies</li>
+              <li>Appointment-focused conversion journeys</li>
+            </ul>
+            <p className={styles.funnelDevOutro}>
+              This created a scalable system that consistently generated qualified enquiries and increased bookings across both Dubai and Abu Dhabi locations.
+            </p>
+          </div>
+
+          <div className={styles.funnelDevRight}>
+            <div className={styles.funnelDevImageWrapper}>
+              <Image
+                src="/cryo/Customer acquisition funnel visual.png"
+                alt="Customer Acquisition Funnel Visual"
+                width={800}
+                height={600}
+                className={styles.funnelDevImage}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3k. Influencer Marketing Section */}
+      <section className={styles.influencerSection}>
+        <div className={styles.influencerContent}>
+          <div className={styles.influencerLeft}>
+            <span className={styles.influencerLabel}>Influencer Marketing</span>
+            <h2 className={styles.influencerHeading}>
+              Influencer partnerships<br />
+              became a major driver of<br />
+              awareness, credibility, and<br />
+              appointment generation.
+            </h2>
+            <p className={styles.influencerLeftText}>
+              We identified, negotiated, managed, and executed collaborations with a diverse network of carefully selected creators, fitness personalities, athletes, wellness advocates, and lifestyle influencers whose audiences aligned with CRYO UAE's target market.
+            </p>
+          </div>
+
+          <div className={styles.influencerRight}>
+            <span className={styles.influencerSubheading}>Our responsibilities included:</span>
+            <ul className={styles.influencerList}>
+              <li>Influencer strategy</li>
+              <li>Talent sourcing</li>
+              <li>Campaign planning</li>
+              <li>Creative direction</li>
+              <li>Content approvals</li>
+              <li>On-site production</li>
+              <li>Performance tracking</li>
+              <li>Long-term relationship management</li>
+            </ul>
+            <p className={styles.influencerRightText}>
+              Rather than focusing solely on reach, every collaboration was designed to create authentic experiences that generated trust, user-generated content, and measurable booking enquiries.
+            </p>
+            <p className={styles.influencerRightOutro}>
+              These partnerships significantly expanded CRYO UAE's visibility across the UAE while positioning the brand as a preferred destination for recovery, wellness, and performance optimization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3l. Dubai Hills Launch Section */}
+      <section className={styles.launchSection}>
+        <div className={styles.launchContent}>
+          <div className={styles.launchLeft}>
+            <CaseStudyVideo
+              src="/cryo/Cryo_Aug_Benny Talks_3.mp4"
+              className={styles.launchVideo}
+              wrapperClassName={styles.launchVideoWrapper}
+            />
+          </div>
+
+          <div className={styles.launchRight}>
+            <span className={styles.launchLabel}>DUBAI HILLS LAUNCH</span>
+            <h2 className={styles.launchHeading}>
+              LAUNCHED FOR<br />
+              BOOKINGS,NOT BUZZ.
+            </h2>
+            <p className={styles.launchText}>
+              Location-led paid media, creator activations, content production and booking offers drove awareness and appointments from day one.
+            </p>
+            <div className={styles.launchBadges}>
+              <span className={styles.launchBadge}>PAID MEDIA</span>
+              <span className={styles.launchBadge}>CREATORS</span>
+              <span className={styles.launchBadge}>CONTENT</span>
+              <span className={styles.launchBadge}>BOOKINGS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3m. Customer Acquisition Engine Section */}
+      <section className={styles.engineSection}>
+        <div className={styles.engineHeader}>
+          <div className={styles.engineHeaderLeft}>
+            <h2 className={styles.engineHeading}>
+              A HIGH-PERFORMING<br />
+              CUSTOMER ACQUISITION<br />
+              ENGINE.
+            </h2>
+          </div>
+          <div className={styles.engineHeaderRight}>
+            <p className={styles.engineLead}>
+              Our integrated marketing strategy helped transform CRYO UAE's digital presence into a high-performing customer acquisition engine.
+            </p>
+            <span className={styles.engineSubheading}>Key outcomes included:</span>
+          </div>
+        </div>
+
+        <div className={styles.engineGrid}>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>01</span>
+            <p className={styles.engineCardText}>
+              Increased appointment bookings through performance-driven campaigns.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>02</span>
+            <p className={styles.engineCardText}>
+              Stronger brand positioning within the UAE wellness and recovery industry.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>03</span>
+            <p className={styles.engineCardText}>
+              Successful digital launch of the Dubai Hills branch.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>04</span>
+            <p className={styles.engineCardText}>
+              Consistent marketing support across Dubai and Abu Dhabi locations.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>05</span>
+            <p className={styles.engineCardText}>
+              High-performing influencer collaborations that expanded brand reach and generated qualified enquiries.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>06</span>
+            <p className={styles.engineCardText}>
+              A scalable sales funnel connecting awareness, engagement, and appointment bookings.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>07</span>
+            <p className={styles.engineCardText}>
+              Continuous production of premium content supporting both organic and paid marketing initiatives.
+            </p>
+          </div>
+          <div className={styles.engineCard}>
+            <span className={styles.engineCardNumber}>08</span>
+            <p className={styles.engineCardText}>
+              Improved customer acquisition through strategic performance marketing and conversion-focused creative.
+            </p>
+          </div>
         </div>
       </section>
     </div>
