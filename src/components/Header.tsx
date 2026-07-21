@@ -19,7 +19,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (pathname.startsWith("/admin")) return null;
+  if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);

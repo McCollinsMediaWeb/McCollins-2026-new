@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import styles from "./WhatsAppBubble.module.css";
 
 export default function WhatsAppBubble() {
+  const pathname = usePathname();
+  if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
   const phoneNumber = "971559564135";
   const message = "I would like to know more about McCollins Media";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

@@ -126,7 +126,7 @@ export default function Footer() {
     { scope: containerRef, dependencies: [pathname] }
   );
 
-  if (pathname.startsWith("/admin")) return null;
+  if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
 
   return (
     <footer className={styles.footer} ref={containerRef}>
