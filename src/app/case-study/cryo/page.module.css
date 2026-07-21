@@ -130,6 +130,16 @@
   display: block;
 }
 
+@media (max-width: 991px) {
+  .videosGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .videosSection {
+    padding: 0 24px 60px;
+  }
+}
+
 /* Challenge Section */
 .challengeSection {
   background-color: #000000;
@@ -287,7 +297,7 @@
   }
 
   .gallerySection {
-    padding: 0 24px 60px;
+    padding: 60px 24px;
   }
 }
 
@@ -774,7 +784,7 @@
   }
 
   .tripleVideosSection {
-    padding: 0 24px 60px;
+    padding: 60px 24px;
   }
 
   .tripleVideoWrapper {
