@@ -37,12 +37,12 @@ const PROJECTS = [
     overlayClass: styles.overlayPioneer,
     url: "/case-study/mapei"
   },
-  // {
-  //   image: "/works-page/bd87becf55144a3bce6a18b824230d7343b57bdc.webp",
-  //   title: "OAKBERRY",
-  //   overlayClass: styles.overlayOakberry,
-  //   url: "/case-study/oakberry"
-  // },
+  {
+    image: "/cryo/e10ae3452971f405189d915fb9572403e5e692cf.webp",
+    title: "CRYO",
+    overlayClass: styles.overlayOakberry,
+    url: "/case-study/cryo"
+  },
   // {
   //   image: "/works-page/2cf8dfd3ab0890e5a30b9eeb6c2730d1d3edb2f5.webp",
   //   title: "CLEANING SUPERSTORE",

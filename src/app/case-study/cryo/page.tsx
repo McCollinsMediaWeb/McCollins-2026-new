@@ -15,9 +15,10 @@ interface CaseStudyVideoProps {
   src: string;
   className?: string;
   wrapperClassName?: string;
+  style?: React.CSSProperties;
 }
 
-function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProps) {
+function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -31,7 +32,7 @@ function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProp
   };
 
   return (
-    <div className={wrapperClassName} style={{ position: "relative" }}>
+    <div className={wrapperClassName} style={{ position: "relative", ...style }}>
       <video
         ref={videoRef}
         className={className}
@@ -140,7 +141,9 @@ export default function CryoCaseStudy() {
         );
       }
 
-      const videoItems = containerRef.current.querySelectorAll("." + styles.videoWrapper);
+      const videoItems = containerRef.current.querySelectorAll(
+        `.${styles.videoFrameContainer}, .${styles.videoWrapper}`
+      );
       if (videoItems.length > 0) {
         gsap.fromTo(
           videoItems,
@@ -497,11 +500,22 @@ export default function CryoCaseStudy() {
       {/* 2b. Videos Showcase Section */}
       <section className={styles.videosSection}>
         <div className={styles.videosGrid}>
-          <CaseStudyVideo
-            src="/cryo/Cryo Body - AUH.mp4"
-            className={styles.videoElement}
-            wrapperClassName={styles.videoWrapper}
-          />
+          <div className={styles.videoFrameContainer}>
+            <Image
+              src="/cryo/new-frame.jpg"
+              alt="CRYO Frame Showcase"
+              width={832}
+              height={889}
+              className={styles.frameImage}
+              priority
+            />
+            <CaseStudyVideo
+              src="/cryo/Cryo Body - AUH.mp4"
+              className={styles.frameVideoElement}
+              wrapperClassName={styles.frameVideoWrapper}
+              style={{ position: "absolute" }}
+            />
+          </div>
           <CaseStudyVideo
             src="/cryo/CRYO _Stretching Post Size.mp4"
             className={styles.videoElement}

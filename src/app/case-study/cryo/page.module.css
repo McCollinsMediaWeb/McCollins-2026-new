@@ -130,11 +130,46 @@
   display: block;
 }
 
+.videoFrameContainer {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+}
+
+.frameImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.frameVideoWrapper {
+  position: absolute;
+  left: 18.2%;
+  top: 18.67%;
+  width: 62.99%;
+  height: 61.88%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.frameVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoFrameContainer:hover .muteButton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 991px) {
   .videosGrid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
   .videosSection {
     padding: 0 24px 60px;
   }
