@@ -19,7 +19,7 @@ const SERVICES = [
       { text: "Brand", italic: true },
       { text: "Development", italic: false }
     ],
-    desc: "Crafting cohesive brand identities that resonate with your target audience and stand the test of time.",
+    desc: "Crafting cohesive brand identities that resonate across cultures and command a global presence.",
     includes: ["Discovery Workshop", "Visual Moodboard", "Colors & Typography", "Design Directions"],
     href: "/services/brand-development",
   },
@@ -29,7 +29,7 @@ const SERVICES = [
       { text: "Website/App", italic: false },
       { text: "Design", italic: true }
     ],
-    desc: "Creating high-performance, responsive platforms engineered for convert goals and maximum user engagement.",
+    desc: "Developing high-performance, responsive websites engineered to convert global audiences into loyal customers.",
     includes: ["UX/UI Design", "Responsive Dev", "CMS Integration", "E-Commerce"],
     href: "/services/web-development",
   },
@@ -39,19 +39,9 @@ const SERVICES = [
       { text: "Social Media", italic: false },
       { text: "Marketing", italic: true }
     ],
-    desc: "Building authentic digital communities through culturally relevant content that sparks global engagement.",
+    desc: "Cultivating vibrant digital communities through culturally resonant content that sparks global engagement.",
     includes: ["Strategy", "Content Creation", "Reels", "Community Mgmt"],
     href: "/services/social-media-marketing",
-  },
-  {
-    image: "/service-page/image3.webp",
-    words: [
-      { text: "Marketing", italic: false },
-      { text: "Automation", italic: true }
-    ],
-    desc: "Driving sustainable growth through data-driven search marketing campaigns on a global scale at optimal cost.",
-    includes: ["CRM Setup", "Email Flows", "Retention", "Sales Funnels"],
-    href: "/services/marketing-automation",
   },
   {
     image: "/service-page/main-banner.png",
@@ -59,9 +49,19 @@ const SERVICES = [
       { text: "Performance", italic: false },
       { text: "Marketing", italic: true }
     ],
-    desc: "Accelerating your ROI through data-driven search marketing campaigns engineered for maximum conversions.",
+    desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
     includes: ["Paid Media", "Creative Testing", "CRO", "Analytics"],
     href: "/services/performance-marketing",
+  },
+  {
+    image: "/service-page/image3.webp",
+    words: [
+      { text: "Marketing", italic: false },
+      { text: "Automation", italic: true }
+    ],
+    desc: "Driving sustainable growth through data-driven automation engineered for global consistency and local relevance.",
+    includes: ["CRM Setup", "Email Flows", "Retention", "Sales Funnels"],
+    href: "/services/marketing-automation",
   },
   {
     image: "/service-page/image4.webp",
@@ -79,7 +79,7 @@ const SERVICES = [
       { text: "Google", italic: false },
       { text: "Ads", italic: true }
     ],
-    desc: "Accelerating ROI through performance-based paid search campaigns carefully targeted for conversions.",
+    desc: "Mccollins Media manages high-performance Google Ads campaigns in Dubai, helping brands generate leads, boost conversions, and grow faster.",
     includes: ["Search", "Display", "Shopping", "YouTube"],
     href: "/services/google-ads",
   },

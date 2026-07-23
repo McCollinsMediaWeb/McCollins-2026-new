@@ -239,29 +239,6 @@ export default function ContactPage() {
 
         {/* Left Column: Contact Details */}
         <div className={styles.detailsCol}>
-          <div className={styles.detailBlock}>
-            <div className={styles.detailTitle}>Contact</div>
-            <div className={styles.detailText}>
-              Mobile: +971 55 956 4135<br /><br />
-              Email: info@mccollinsmedia.com
-            </div>
-          </div>
-
-          <div className={styles.detailBlock}>
-            <div className={styles.detailTitle}>Our Address</div>
-            <div className={styles.detailText}>
-              G01, Loft Office 2, Entrance C,<br />
-              Dubai Media City, Dubai
-            </div>
-          </div>
-
-          <div className={styles.detailBlock}>
-            <div className={styles.detailTitle}>Office Hours</div>
-            <div className={styles.detailText}>
-              Monday - Friday (9:00 AM to 6:00 PM)<br />
-              Dubai Time: 3:00 PM
-            </div>
-          </div>
         </div>
 
         {/* Right Column: Form */}
@@ -406,6 +383,42 @@ export default function ContactPage() {
               </div>
             )}
           </form>
+        </div>
+      </section>
+
+
+
+      <section className={styles.contentSection} style={{ paddingTop: '10px' }}>
+
+        {/* Left Column: Contact Details */}
+        <div className={styles.detailsCol}>
+          <div className={styles.detailBlock}>
+            <div className={styles.detailTitle}>Contact</div>
+            <div className={styles.detailText}>
+              Mobile: +971 55 956 4135<br /><br />
+              Email: info@mccollinsmedia.com
+            </div>
+          </div>
+
+          <div className={styles.detailBlock}>
+            <div className={styles.detailTitle}>Our Address</div>
+            <div className={styles.detailText}>
+              G01, Loft Office 2, Entrance C,<br />
+              Dubai Media City, Dubai
+            </div>
+          </div>
+
+          <div className={styles.detailBlock}>
+            <div className={styles.detailTitle}>Office Hours</div>
+            <div className={styles.detailText}>
+              Monday - Friday (9:00 AM to 6:00 PM)<br />
+              Dubai Time: 3:00 PM
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Form */}
+        <div className={styles.formCol}>
         </div>
       </section>
 

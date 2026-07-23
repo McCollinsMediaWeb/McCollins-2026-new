@@ -40,7 +40,7 @@
 .heroCharO {
   font-family: var(--font-playfair-display), serif;
   font-style: italic;
-  margin-top: -10px;
+  margin-top: -0.6rem;
 }
 
 /* =========================================
@@ -101,6 +101,7 @@
 .formCol {
   display: flex;
   flex-direction: column;
+  padding-right: 130px;
 }
 
 .formHeader {
@@ -125,7 +126,7 @@
   line-height: 1.4;
   color: #A2A2A2;
   font-weight: 400;
-  max-width: 500px;
+  /* max-width: 500px; */
 }
 
 .contactForm {
@@ -376,7 +377,7 @@
   }
 
   .contentSection {
-    padding: 60px 20px 80px;
+    padding: 60px 20px 30px;
   }
 
   .serviceBannerSection {
@@ -391,6 +392,14 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
+  }
+
+  .heroCharO {
+    margin-top: -0.15rem;
+  }
+
+  .formCol {
+    padding-right: 0;
   }
 }
 
