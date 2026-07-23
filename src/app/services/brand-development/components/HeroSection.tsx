@@ -64,6 +64,7 @@ export default function HeroSection() {
       </div>
 
       <div className={styles.heroSubtitleContainer}>
+        <div></div>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
           McCollins Media develops brands with clear positioning, strong identity systems and visual languages designed to help businesses stand out, scale and stay memorable.
         </p>

@@ -97,10 +97,10 @@ export default function HeroSection() {
           <div className={`${styles.projectsContainer} hero-right-anim`}>
             <h3 className={styles.projectsTitle}>Includes:</h3>
             <div className={styles.tagsList}>
-              <span className={styles.projectTag}>BRAND STRATEGY &amp; IDENTITY</span>
-              <span className={styles.projectTag}>SOCIAL MEDIA</span>
-              <span className={styles.projectTag}>PERFORMANCE MARKETING</span>
-              <span className={styles.projectTag}>HOSPITALITY / RESTAURENT</span>
+              <span className={styles.projectTag}>VIDEO PRODUCTION</span>
+              <span className={styles.projectTag}>PHOTOGRAPHY</span>
+              <span className={styles.projectTag}>EDITING</span>
+              <span className={styles.projectTag}>POST PRODUCTION</span>
             </div>
           </div>
         </div>

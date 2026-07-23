@@ -52,7 +52,29 @@ export default function HeroSection() {
 
   return (
     <section className={styles.heroSection} ref={containerRef}>
-      <div className={styles.heroHeader}>
+
+      <div className={styles.myGrid}>
+        <div>
+          <div className={styles.heroHeader}>
+            <h1 className={styles.heroTitle}>
+              <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
+                <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>SEO/</span>
+              </div>
+              <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
+                <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>GEO</span>
+              </div>
+            </h1>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <p className={`${styles.heroSubtitle} hero-subtitle`}>
+            McCollins Media helps brands improve visibility across search engines and AI-powered discovery platforms. From Google rankings to generative search results, we optimize your website, content and digital authority so your brand is easier to find, trust and choose.
+          </p>
+        </div>
+      </div>
+
+      {/* <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
           <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
             <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>SEO/</span>
@@ -61,13 +83,13 @@ export default function HeroSection() {
             <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>GEO</span>
           </div>
         </h1>
-      </div>
+      </div> */}
 
-      <div className={styles.heroSubtitleContainer}>
+      {/* <div className={styles.heroSubtitleContainer}>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
           McCollins Media helps brands improve visibility across search engines and AI-powered discovery platforms. From Google rankings to generative search results, we optimize your website, content and digital authority so your brand is easier to find, trust and choose.
         </p>
-      </div>
+      </div> */}
 
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>

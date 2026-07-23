@@ -52,7 +52,27 @@ export default function HeroSection() {
 
   return (
     <section className={styles.heroSection} ref={containerRef}>
-      <div className={styles.heroHeader}>
+      <div className={styles.myGrid}>
+        <div>
+          <div className={styles.heroHeader}>
+            <h1 className={styles.heroTitle}>
+              <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
+                <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>Google</span>
+              </div>
+              <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
+                <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>ADS</span>
+              </div>
+            </h1>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <p className={`${styles.heroSubtitle} hero-subtitle`}>
+            McCollins Media manages high-performance Google Ads campaigns in Dubai and across global markets, helping brands capture search intent, generate qualified leads, increase website traffic and drive measurable conversions.
+          </p>
+        </div>
+      </div>
+      {/* <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
           <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
             <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>Google</span>
@@ -61,13 +81,13 @@ export default function HeroSection() {
             <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>ADS</span>
           </div>
         </h1>
-      </div>
-
+      </div> */}
+      {/* 
       <div className={styles.heroSubtitleContainer}>
         <p className={`${styles.heroSubtitle} hero-subtitle`}>
           McCollins Media manages high-performance Google Ads campaigns in Dubai and across global markets, helping brands capture search intent, generate qualified leads, increase website traffic and drive measurable conversions.
         </p>
-      </div>
+      </div> */}
 
       <div className={styles.heroContent}>
         <div className={`${styles.heroImageWrapper} hero-img-container`}>

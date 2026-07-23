@@ -50,7 +50,7 @@ const SERVICES = [
       { text: "Marketing", italic: true }
     ],
     desc: "Accelerating your ROI through data-driven, cross-border campaigns engineered for maximum conversion and global scale.",
-    includes: ["Paid Media", "Creative Testing", "CRO", "Analytics"],
+    includes: ["Meta Ads", "Social Media", "Tiktok Ads", "Snapchat Ads", "Baidu Ads", "Lead Generation", "Conversion Campaigns", "Yandex Ads"],
     href: "/services/performance-marketing",
   },
   {

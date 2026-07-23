@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,7 @@ export default function HeroSection() {
       y: 100,
       opacity: 0,
       duration: 1.2,
-      stagger: 0.1,
+      stagger: 0.15,
       ease: "power4.out",
       delay: 0.2
     });
@@ -38,13 +39,13 @@ export default function HeroSection() {
       ease: "power3.out"
     });
 
-    // Right content stagger
-    gsap.from(".hero-right-item", {
-      x: 30,
+    // Right content elements slide and fade in
+    gsap.from(".hero-right-anim", {
+      y: 30,
       opacity: 0,
       duration: 0.8,
       stagger: 0.15,
-      delay: 1,
+      delay: 0.9,
       ease: "power2.out"
     });
   }, { scope: containerRef });
@@ -53,18 +54,20 @@ export default function HeroSection() {
     <section className={styles.heroSection} ref={containerRef}>
       <div className={styles.heroHeader}>
         <h1 className={styles.heroTitle}>
-          <div style={{ overflow: "hidden", display: "inline-block", marginRight: "2vw", padding: "0.2em", flexShrink: 0 }}>
+          <div style={{ overflow: "", display: "inline-block", marginRight: "0.25em", flexShrink: 0 }}>
             <span className={`${styles.heroTitleStrong} hero-title-word`} style={{ display: "inline-block" }}>SOCIAL MEDIA</span>
           </div>
-          <div style={{ overflow: "hidden", display: "inline-block", padding: "0.2em", flexShrink: 0 }}>
-            <span className={`${styles.playfairText} hero-title-word`} style={{ display: "inline-block", fontStyle: "italic" }}>Marketing</span>
+          <div style={{ overflow: "", display: "inline-block", flexShrink: 0 }}>
+            <span className={`${styles.heroTitlePlayfair} hero-title-word`} style={{ display: "inline-block" }}>Marketing</span>
           </div>
         </h1>
-        <div className={styles.heroSubtitleContainer}>
-          <p className={`${styles.heroSubtitle} hero-subtitle`}>
-            McCollins Media builds social media ecosystems that help brands grow visibility,<br /> engagement and trust across Instagram, TikTok, Facebook, LinkedIn and<br /> Snapchat through strategy, content, reels, community management and<br /> performance-led reporting.
-          </p>
-        </div>
+      </div>
+
+      <div className={styles.heroSubtitleContainer}>
+        <div></div>
+        <p className={`${styles.heroSubtitle} hero-subtitle`}>
+          McCollins Media builds social media ecosystems that help brands grow visibility, engagement and trust across Instagram, TikTok, Facebook, LinkedIn and Snapchat through strategy, content, reels, community management and performance-led reporting.
+        </p>
       </div>
 
       <div className={styles.heroContent}>
@@ -78,24 +81,30 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className={`${styles.heroRightContent} hero-right-item`}>
-          <div className={styles.contactHeader}>
-            <h2 className={styles.contactTitle}>CONTACT US TO GET<br />STARTED</h2>
-            <button className={styles.letsTalkBtn}>
-              <span className={styles.blueDot}></span> LET&apos;S TALK
-            </button>
+        <div className={styles.heroRightContent}>
+          <div className={`${styles.contactContainer} hero-right-anim`}>
+            <div className={styles.contactRow}>CONTACT US TO GET</div>
+            <div className={styles.contactBtnRow}>
+              <span>STARTED</span>
+              <Link href="/contact" className="cta-button">
+                <span className="dot-indicator"></span>
+                <span className="cta-text">
+                  <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
+                </span>
+              </Link>
+            </div>
           </div>
 
-          <div className={styles.includesSection}>
-            <h3 className={styles.includesTitle}>Includes:</h3>
-            <div className={styles.tagsContainer}>
-              <span className={styles.tag}>SOCIAL MEDIA STRATEGY</span>
-              <span className={styles.tag}>INSTAGRAM MANAGEMENT</span>
-              <span className={styles.tag}>TIKTOK CONTENT</span>
-              <span className={styles.tag}>FACEBOOK MANAGEMENT</span>
-              <span className={styles.tag}>SNAPCHAT CONTENT</span>
-              <span className={styles.tag}>VIRAL REELS</span>
-              <span className={styles.tag}>COMMUNITY BUILDING</span>
+          <div className={`${styles.projectsContainer} hero-right-anim`}>
+            <h3 className={styles.projectsTitle}>Includes:</h3>
+            <div className={styles.tagsList}>
+              <span className={styles.projectTag}>SOCIAL MEDIA STRATEGY</span>
+              <span className={styles.projectTag}>INSTAGRAM MANAGEMENT</span>
+              <span className={styles.projectTag}>TIKTOK CONTENT</span>
+              <span className={styles.projectTag}>FACEBOOK MANAGEMENT</span>
+              <span className={styles.projectTag}>SNAPCHAT CONTENT</span>
+              <span className={styles.projectTag}>VIRAL REELS</span>
+              <span className={styles.projectTag}>COMMUNITY BUILDING</span>
             </div>
           </div>
         </div>
