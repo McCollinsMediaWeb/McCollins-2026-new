@@ -185,7 +185,7 @@ export default function ContactPage() {
       formTl.to(formFooter, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.4");
     }
 
-    // Service Banner Reveal
+    // Service Banner Reveal & Parallax
     const banner = containerRef.current.querySelector("." + styles.serviceBanner);
     if (banner) {
       gsap.to(banner, {
@@ -197,6 +197,23 @@ export default function ContactPage() {
         duration: 1.2,
         ease: "power3.out",
       });
+
+      const gifWrapper = banner.querySelector("." + styles.bannerGifWrapper);
+      if (gifWrapper) {
+        gsap.fromTo(gifWrapper,
+          { yPercent: -15 },
+          {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: banner,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            }
+          }
+        );
+      }
     }
 
   }, { scope: containerRef, dependencies: [mounted] });
@@ -212,7 +229,7 @@ export default function ContactPage() {
       <section className={styles.heroSection}>
         <h1 className={styles.heroText}>
           {titleWord.split("").map((char, i) => (
-            <span key={i} className={styles.heroChar}>{char}</span>
+            <span key={i} className={char === "O" ? `${styles.heroChar} ${styles.heroCharO}` : styles.heroChar}>{char}</span>
           ))}
         </h1>
       </section>
@@ -225,7 +242,7 @@ export default function ContactPage() {
           <div className={styles.detailBlock}>
             <div className={styles.detailTitle}>Contact</div>
             <div className={styles.detailText}>
-              Mobile: +971 55 956 4135<br />
+              Mobile: +971 55 956 4135<br /><br />
               Email: info@mccollinsmedia.com
             </div>
           </div>
@@ -315,14 +332,14 @@ export default function ContactPage() {
               <span className={styles.servicesTitle}>Service Interested</span>
               <div className={styles.servicesGrid}>
                 {[
-                  "BRAND DEVELOPMENT",
-                  "WEB DESIGN / DEVELOPMENT",
-                  "MARKETING AUTOMATION",
-                  "SOCIAL MEDIA",
-                  "PERFORMANCE MARKETING",
-                  "CONTENT PRODUCTION",
-                  "GOOGLE ADS",
-                  "SEO",
+                  "Brand Development",
+                  "Web Design / Development",
+                  "Marketing Automation",
+                  "Social Media",
+                  "Performance Marketing",
+                  "Content Production",
+                  "Google Ads",
+                  "SEO"
                 ].map((service) => (
                   <label key={service} className={styles.serviceCheckbox}>
                     <input
@@ -362,7 +379,15 @@ export default function ContactPage() {
               </label>
 
               <button type="submit" className={styles.submitBtn} disabled={status === "loading"}>
-                {status === "loading" ? "SUBMITTING..." : "+ SUBMIT INQUIRY"}
+                <span className={styles.submitBtnDot} />
+                <span className={styles.submitBtnText}>
+                  <span
+                    className={styles.submitBtnTextInner}
+                    data-text={status === "loading" ? "SUBMITTING..." : "SUBMIT FORM"}
+                  >
+                    {status === "loading" ? "SUBMITTING..." : "SUBMIT FORM"}
+                  </span>
+                </span>
               </button>
             </div>
 
@@ -387,13 +412,15 @@ export default function ContactPage() {
       {/* OUR SERVICE Banner Section */}
       <section className={styles.serviceBannerSection}>
         <Link href="/services" className={styles.serviceBanner}>
-          <Image
-            src="/contact/animation.gif"
-            alt="McCollins Media services gif showcase"
-            fill
-            className={styles.bannerGif}
-            unoptimized
-          />
+          <div className={styles.bannerGifWrapper}>
+            <Image
+              src="/contact/new-animation.gif"
+              alt="McCollins Media services gif showcase"
+              fill
+              className={styles.bannerGif}
+              unoptimized
+            />
+          </div>
           <span className={styles.serviceBannerText}>OUR SERVICE</span>
         </Link>
       </section>
