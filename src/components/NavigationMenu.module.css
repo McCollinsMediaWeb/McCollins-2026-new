@@ -85,8 +85,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 120px;
+  justify-self: center;
+  margin-left: 90px;
 }
 
 .logoWrapper {
@@ -141,8 +143,8 @@
   text-decoration: none;
   text-transform: capitalize;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .navLink:hover {
@@ -164,7 +166,7 @@
   box-shadow: 0 0 10px var(--accent-blue, #007cff);
   opacity: 0;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .navLink:hover::before {
@@ -216,11 +218,13 @@
     margin-top: 40px;
     align-items: flex-start;
   }
-  
+
   .leftSide {
     align-items: flex-start;
     gap: 40px;
-    order: 2; /* Put links above logo/socials on mobile */
+    order: 2;
+    /* Put links above logo/socials on mobile */
+    margin-left: 0;
   }
 
   .logoWrapper {
@@ -230,7 +234,7 @@
   .rightSide {
     order: 1;
   }
-  
+
   .footerArea {
     flex-direction: column;
     align-items: flex-start;
