@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -926,6 +927,30 @@ export default function CryoCaseStudy() {
               Improved customer acquisition through strategic performance marketing and conversion-focused creative.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* 16. Next Project Section */}
+      <section className={styles.nextProjectSection}>
+        <div className={styles.nextProjectInner}>
+          <div className={styles.nextProjectHeader}>
+            <Link href="/services" className={styles.nextProjectHeaderLink}>
+              OUR SERVICES
+            </Link>
+            <Link href="/works" className={styles.nextProjectHeaderLink}>
+              SEE THE WORK
+            </Link>
+          </div>
+          <Link href="/case-study/dxb-hotel" className={styles.nextProjectLink}>
+            <div className={styles.nextProjectImageContainer}>
+              <Image
+                src="/cryo/144c3fd5e33f3f0eebecf10c48732aa24231bead.jpg"
+                alt="Next Project - CRYO"
+                fill
+                className={styles.nextProjectImg}
+              />
+            </div>
+          </Link>
         </div>
       </section>
     </div>

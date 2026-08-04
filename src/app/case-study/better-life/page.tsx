@@ -91,6 +91,215 @@ export default function BetterLifeCaseStudy() {
                 );
             }
 
+            const gifSec = containerRef.current.querySelector("." + styles.gifSection);
+            if (gifSec) {
+                gsap.fromTo(
+                    gifSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: gifSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const challengeSec = containerRef.current.querySelector("." + styles.challengeSection);
+            if (challengeSec) {
+                gsap.fromTo(
+                    challengeSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: challengeSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const strategySec = containerRef.current.querySelector("." + styles.strategySection);
+            if (strategySec) {
+                gsap.fromTo(
+                    strategySec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: strategySec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const videosSec = containerRef.current.querySelector("." + styles.videosSection);
+            if (videosSec) {
+                gsap.fromTo(
+                    videosSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: videosSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const performanceSec = containerRef.current.querySelector("." + styles.performanceSection);
+            if (performanceSec) {
+                gsap.fromTo(
+                    performanceSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: performanceSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const galleryBannerSec = containerRef.current.querySelector("." + styles.galleryBannerSection);
+            if (galleryBannerSec) {
+                gsap.fromTo(
+                    galleryBannerSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: galleryBannerSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const automationSec = containerRef.current.querySelector("." + styles.automationSection);
+            if (automationSec) {
+                gsap.fromTo(
+                    automationSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: automationSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const seasonalSec = containerRef.current.querySelector("." + styles.seasonalSection);
+            if (seasonalSec) {
+                gsap.fromTo(
+                    seasonalSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: seasonalSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const reelsSec = containerRef.current.querySelector("." + styles.reelsSection);
+            if (reelsSec) {
+                gsap.fromTo(
+                    reelsSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: reelsSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const resultsSec = containerRef.current.querySelector("." + styles.resultsSection);
+            if (resultsSec) {
+                gsap.fromTo(
+                    resultsSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: resultsSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
+            const servicesSec = containerRef.current.querySelector("." + styles.servicesSection);
+            if (servicesSec) {
+                gsap.fromTo(
+                    servicesSec,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.4,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: servicesSec,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+
             const nextProjectSec = containerRef.current.querySelector("." + styles.nextProjectSection);
             if (nextProjectSec) {
                 gsap.fromTo(
@@ -121,7 +330,7 @@ export default function BetterLifeCaseStudy() {
             <section className={styles.heroSection}>
                 <div className={styles.heroImageWrapper}>
                     <Image
-                        src="/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp"
+                        src="/better-life/a319f6d7a7333d6a314c89c134e6b0ac3ed2bf75.jpg"
                         alt="DXB Hotel - Airport Hospitality"
                         fill
                         className={styles.heroImage}
@@ -130,9 +339,7 @@ export default function BetterLifeCaseStudy() {
                     {/* Overlay Text */}
                     <div className={styles.heroTextContainer}>
                         <h1 className={styles.heroTitle}>
-                            AIRPORT HOSPITALITY,<br />
-                            BUILT LIKE A DIGITAL<br />
-                            PRODUCT.
+                            Scaling premium appliance<br /> ecommerce across Dubai and the UAE.
                         </h1>
                     </div>
                 </div>
@@ -142,22 +349,467 @@ export default function BetterLifeCaseStudy() {
             <section className={styles.infoSection}>
                 <div className={styles.infoSectionInner}>
                     <ul className={styles.metaList}>
-                        <li className={styles.metaItem}>BRAND</li>
-                        <li className={styles.metaItem}>STRATEGY</li>
-                        <li className={styles.metaItem}>DIGITAL</li>
-                        <li className={styles.metaItem}>EXPERIENCE</li>
-                        <li className={styles.metaItem}>BOOKING</li>
-                        <li className={styles.metaItem}>PLATFORM</li>
-                        <li className={styles.metaItem}>LAUNCH</li>
+                        <li className={styles.metaItem}>PERFORMANCE</li>
+                        <li className={styles.metaItem}>MARKETING</li>
+                        <li className={styles.metaItem}>DUBAI /</li>
+                        <li className={styles.metaItem}>ECOMMERCE</li>
+                        <li className={styles.metaItem}>MARKETING</li>
+                        <li className={styles.metaItem}>UAE / GOOGLE</li>
+                        <li className={styles.metaItem}>ADS / META</li>
+                        <li className={styles.metaItem}>ADS /</li>
+                        <li className={styles.metaItem}>MARKETING</li>
+                        <li className={styles.metaItem}>AUTOMATION</li>
                     </ul>
 
                     <div className={styles.descriptionWrapper}>
                         <p className={styles.descriptionParagraph}>
-                            DXB Hotel needed to launch as more than a place to stay. It required a complete brand and digital ecosystem for transit guests, international travellers and travel partners within Dubai Airports.
+                            Better Life represents leading appliance brands including SMEG and Siemens. McCollins connected paid media, marketing automation and customer retention into one scalable ecommerce ecosystem across Dubai and the UAE.
                         </p>
-                        <p className={styles.descriptionParagraph}>
-                            We built the positioning, identity, website, booking experience, partner platform and launch presence from the ground up.
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. Gif Section */}
+            <section className={styles.gifSection}>
+                <div className={styles.gifImageWrapper}>
+                    <Image
+                        src="/better-life/cb8f29fbd33ac84535b129a4fb1bf854b5042d24.gif"
+                        alt="Better Life - Paid Media, Marketing Automation, and E-commerce Ecosystem Loop"
+                        fill
+                        className={styles.gifImg}
+                        unoptimized
+                    />
+                </div>
+            </section>
+
+            {/* 4. Challenge Section */}
+            <section className={styles.challengeSection}>
+                <div className={styles.challengeInner}>
+                    <span className={styles.challengeIndicator}>THE CHALLENGE</span>
+                    <div className={styles.challengeGrid}>
+                        <h2 className={styles.challengeTitle}>
+                            FROM PREMIUM<br /> RETAILER TO<br /> ECOMMERCE<br /> GROWTH ENGINE.
+                        </h2>
+                        <p className={styles.challengeDesc}>
+                            <span>·{" "}INCREASE ONLINE REVENUE</span>
+                            <span>·{" "}IMPROVE ROAS</span>
+                            <span>·{" "}SCALE CUSTOMER ACQUISITION</span>
+                            <span>·{" "}REDUCE CART ABANDONMENT</span>
+                            <span>·{" "}AUTOMATE COMMUNICATION</span>
+                            <span>·{" "}GROW RETENTION</span>
+                            <span>·{" "}MAXIMISE RAMADAN, EID, UAE NATIONAL DAY, WHITE FRIDAY +</span>
+                            <span style={{ whiteSpace: "pre" }}>{"  "}FESTIVE RETAIL MOMENTS</span>
                         </p>
+                    </div>
+                </div>
+                <div className={styles.challengeImageWrapper}>
+                    <Image
+                        src="/better-life/7a1803bf0bcb85f8fdd778ba75add82a69dea8a2.png"
+                        alt="Abu Dhabi Food Hub - Wavy Glass Architecture Render"
+                        fill
+                        className={styles.challengeImg}
+                    />
+                </div>
+            </section>
+
+            {/* 5. Strategy Section */}
+            <section className={styles.strategySection}>
+                <div className={styles.strategyInner}>
+                    <span className={styles.strategyIndicator}>OUR STRATEGY</span>
+                    <div className={styles.strategyGrid}>
+                        <h2 className={styles.strategyTitle}>
+                            ONE SYSTEM.<br />EVERY CUSTOMER<br />STAGE.
+                        </h2>
+                        <p className={styles.strategyDesc}>
+                            Paid media, automation and retention worked as one connected framework—from first impression to repeat purchase.
+                        </p>
+                    </div>
+
+                    <div className={styles.strategyDivider} />
+
+                    <div className={styles.strategyStepsGrid}>
+                        {/* Step 01 */}
+                        <div className={styles.strategyStep}>
+                            <span className={styles.stepNumber}>01</span>
+                            <h3 className={styles.stepTitle}>DISCOVER</h3>
+                            <p className={styles.stepDesc}>Paid media + seasonal<br /> demand</p>
+                        </div>
+                        {/* Step 02 */}
+                        <div className={styles.strategyStep}>
+                            <span className={styles.stepNumber}>02</span>
+                            <h3 className={styles.stepTitle}>CONSIDER</h3>
+                            <p className={styles.stepDesc}>Product education +<br /> remarketing</p>
+                        </div>
+                        {/* Step 03 */}
+                        <div className={styles.strategyStep}>
+                            <span className={styles.stepNumber}>03</span>
+                            <h3 className={styles.stepTitle}>CONVERT</h3>
+                            <p className={styles.stepDesc}>Shopping, offers + CRO</p>
+                        </div>
+                        {/* Step 04 */}
+                        <div className={styles.strategyStep}>
+                            <span className={styles.stepNumber}>04</span>
+                            <h3 className={styles.stepTitle}>RETAIN</h3>
+                            <p className={styles.stepDesc}>Email + WhatsApp<br /> automation</p>
+                        </div>
+                        {/* Step 05 */}
+                        <div className={styles.strategyStep}>
+                            <span className={styles.stepNumber}>05</span>
+                            <h3 className={styles.stepTitle}>GROW</h3>
+                            <p className={styles.stepDesc}>Repeat purchase +<br /> reactivation</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 6. Videos Section */}
+            <section className={styles.videosSection}>
+                <div className={styles.videosInner}>
+                    <div className={styles.videosGrid}>
+                        {/* Video 1 */}
+                        <div className={styles.videoContainer}>
+                            <video
+                                src="/better-life/Smeg Stopmotion w Text (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.videoElement}
+                            />
+                        </div>
+                        {/* Video 2 */}
+                        <div className={styles.videoContainer}>
+                            <video
+                                src="/better-life/Smeg w Text (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.videoElement}
+                            />
+                        </div>
+                        {/* Video 3 */}
+                        <div className={styles.videoContainer}>
+                            <video
+                                src="/better-life/Miele w Text (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.videoElement}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 7. Performance Marketing Section */}
+            <section className={styles.performanceSection}>
+                <div className={styles.performanceInner}>
+                    <span className={styles.performanceIndicator}>04 / PERFORMANCE MARKETING</span>
+                    <div className={styles.performanceGrid}>
+                        <h2 className={styles.performanceTitle}>
+                            MEDIA BUILT FOR<br />MEASURABLE<br />REVENUE.
+                        </h2>
+                        <p className={styles.performanceDesc}>
+                            Campaigns were optimised for ecommerce sales, profitable acquisition and stronger ROAS—not impressions or clicks.
+                        </p>
+                    </div>
+
+                    <div className={styles.performanceChannelsGrid}>
+                        {/* Column 1 */}
+                        <div className={styles.performanceColumn}>
+                            <h3 className={styles.columnHeader}>GOOGLE COMMERCE</h3>
+                            <ul className={styles.columnList}>
+                                <li className={styles.columnItem}>Google Ads</li>
+                                <li className={styles.columnItem}>Search Advertising</li>
+                                <li className={styles.columnItem}>Google Shopping Campaigns</li>
+                                <li className={styles.columnItem}>Performance Max Campaigns</li>
+                                <li className={styles.columnItem}>Display Advertising</li>
+                                <li className={styles.columnItem}>Video Campaigns</li>
+                            </ul>
+                        </div>
+                        {/* Column 2 */}
+                        <div className={styles.performanceColumn}>
+                            <h3 className={styles.columnHeader}>SOCIAL ACQUISITION</h3>
+                            <ul className={styles.columnList}>
+                                <li className={styles.columnItem}>Meta Ads</li>
+                                <li className={styles.columnItem}>Facebook Advertising</li>
+                                <li className={styles.columnItem}>Instagram Advertising</li>
+                                <li className={styles.columnItem}>TikTok Advertising</li>
+                                <li className={styles.columnItem}>Snapchat Advertising</li>
+                            </ul>
+                        </div>
+                        {/* Column 3 */}
+                        <div className={styles.performanceColumn}>
+                            <h3 className={styles.columnHeader}>OPTIMISATION LOOP</h3>
+                            <ul className={styles.columnList}>
+                                <li className={styles.columnItem}>Dynamic Remarketing</li>
+                                <li className={styles.columnItem}>Audience Segmentation</li>
+                                <li className={styles.columnItem}>Conversion Optimisation</li>
+                                <li className={styles.columnItem}>Creative Testing</li>
+                                <li className={styles.columnItem}>Bidding Optimisation</li>
+                                <li className={styles.columnItem}>Performance Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 8. Gallery Banner Section */}
+            <section className={styles.galleryBannerSection}>
+                <div className={styles.galleryBannerInner}>
+                    <div className={styles.galleryBannerImageWrapper}>
+                        <Image
+                            src="/better-life/bd4e7a8b4cddfddacd3113c8bbd2a783de7771b4-optimized.webp"
+                            alt="Better Life - Digital Screens and Brand Media Display Mockups"
+                            fill
+                            className={styles.galleryBannerImg}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* 9. Marketing Automation + Retention Section */}
+            <section className={styles.automationSection}>
+                <div className={styles.automationInner}>
+                    <span className={styles.automationIndicator}>05 / MARKETING AUTOMATION + RETENTION</span>
+                    <div className={styles.automationGrid}>
+                        <h2 className={styles.automationTitle}>
+                            CONVERT ONCE.<br />KEEP THE<br />RELATIONSHIP.
+                        </h2>
+                        <p className={styles.automationDesc}>
+                            Automated customer journeys recovered intent, increased repeat purchase and reduced manual marketing effort.
+                        </p>
+                    </div>
+
+                    <div className={styles.automationChannelsGrid}>
+                        {/* Column 1 */}
+                        <div className={styles.automationColumn}>
+                            <h3 className={styles.automationColumnHeader}>MARKETING AUTOMATION</h3>
+                            <ul className={styles.automationColumnList}>
+                                <li className={styles.automationColumnItem}>Welcome journeys</li>
+                                <li className={styles.automationColumnItem}>Cart abandonment sequences</li>
+                                <li className={styles.automationColumnItem}>Browse abandonment campaigns</li>
+                                <li className={styles.automationColumnItem}>Post-purchase communication</li>
+                                <li className={styles.automationColumnItem}>Product recommendations</li>
+                                <li className={styles.automationColumnItem}>Repeat purchase campaigns</li>
+                                <li className={styles.automationColumnItem}>Customer reactivation</li>
+                                <li className={styles.automationColumnItem}>Loyalty messaging</li>
+                            </ul>
+                        </div>
+                        {/* Column 2 */}
+                        <div className={styles.automationColumn}>
+                            <h3 className={styles.automationColumnHeader}>WHATSAPP MARKETING</h3>
+                            <ul className={styles.automationColumnList}>
+                                <li className={styles.automationColumnItem}>Promotional campaigns</li>
+                                <li className={styles.automationColumnItem}>Product launches</li>
+                                <li className={styles.automationColumnItem}>Flash-sale notifications</li>
+                                <li className={styles.automationColumnItem}>Appointment + delivery updates</li>
+                                <li className={styles.automationColumnItem}>Seasonal promotions</li>
+                                <li className={styles.automationColumnItem}>Customer support</li>
+                                <li className={styles.automationColumnItem}>Exclusive offers</li>
+                                <li className={styles.automationColumnItem}>Re-engagement campaigns</li>
+                            </ul>
+                        </div>
+                        {/* Column 3 */}
+                        <div className={styles.automationColumn}>
+                            <h3 className={styles.automationColumnHeader}>EMAIL MARKETING</h3>
+                            <ul className={styles.automationColumnList}>
+                                <li className={styles.automationColumnItem}>Product launches</li>
+                                <li className={styles.automationColumnItem}>Seasonal collections</li>
+                                <li className={styles.automationColumnItem}>Exclusive offers</li>
+                                <li className={styles.automationColumnItem}>Brand campaigns</li>
+                                <li className={styles.automationColumnItem}>Premium product education</li>
+                                <li className={styles.automationColumnItem}>Automated journeys</li>
+                                <li className={styles.automationColumnItem}>Personalised recommendations</li>
+                                <li className={styles.automationColumnItem}>Sales events</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 10. Seasonal Ecommerce + Data Section */}
+            <section className={styles.seasonalSection}>
+                <div className={styles.seasonalInner}>
+                    <span className={styles.seasonalIndicator}>06 / SEASONAL ECOMMERCE + DATA</span>
+                    <div className={styles.seasonalGrid}>
+                        <h2 className={styles.seasonalTitle}>
+                            RIGHT MOMENT.<br />RIGHT MESSAGE.<br />RIGHT INVESTMENT.
+                        </h2>
+                        <p className={styles.seasonalDesc}>
+                            Creative, offers and media budgets were planned around UAE demand—then refined using real-time performance signals.
+                        </p>
+                    </div>
+
+                    <div className={styles.seasonalChannelsGrid}>
+                        {/* Column 1 */}
+                        <div className={styles.seasonalColumn}>
+                            <h3 className={styles.seasonalColumnHeader}>UAE RETAIL CALENDAR</h3>
+                            <ul className={styles.seasonalColumnList}>
+                                <li className={styles.seasonalColumnItem}>
+                                    Ramadan · Eid · UAE National Day · White Friday · Festive + Holiday Campaigns
+                                </li>
+                                <li className={styles.seasonalColumnItem}>
+                                    Summer Promotions · Back-to-School Offers · Limited-Time Promotions
+                                </li>
+                                <li className={styles.seasonalColumnItem}>
+                                    Brand Launch Campaigns · Clearance + Stock Events
+                                </li>
+                            </ul>
+                        </div>
+                        {/* Column 2 */}
+                        <div className={styles.seasonalColumn}>
+                            <h3 className={styles.seasonalColumnHeader}>DATA-DRIVEN OPTIMISATION</h3>
+                            <ul className={styles.seasonalColumnList}>
+                                <li className={styles.seasonalColumnItem}>
+                                    Customer Acquisition Cost · ROAS · Conversion Rate · Average Order Value
+                                </li>
+                                <li className={styles.seasonalColumnItem}>
+                                    Customer Lifetime Value · Audience Quality · Creative Performance
+                                </li>
+                                <li className={styles.seasonalColumnItem}>
+                                    Landing Page Effectiveness
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 11. Reels Section */}
+            <section className={styles.reelsSection}>
+                <div className={styles.reelsInner}>
+                    <div className={styles.reelsGrid}>
+                        {/* Reel 1 */}
+                        <div className={styles.reelContainer}>
+                            <video
+                                src="/better-life/Betterlife_Dec_Reel_2 (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.reelElement}
+                            />
+                        </div>
+                        {/* Reel 2 */}
+                        <div className={styles.reelContainer}>
+                            <video
+                                src="/better-life/Reel 3 (Emirati Couple) Version 1_Revised First Cut_29.07.2024 (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.reelElement}
+                            />
+                        </div>
+                        {/* Reel 3 */}
+                        <div className={styles.reelContainer}>
+                            <video
+                                src="/better-life/Reel 1 (Siemens)_Fourth Cut_12.07.2024 (1).mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.reelElement}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 12. Results + Impact Section */}
+            <section className={styles.resultsSection}>
+                <div className={styles.resultsInner}>
+                    <span className={styles.resultsIndicator}>07 / RESULTS + IMPACT</span>
+                    <div className={styles.resultsGrid}>
+                        <h2 className={styles.resultsTitle}>
+                            A SCALABLE<br />REVENUE ENGINE.
+                        </h2>
+                        <p className={styles.resultsDesc}>
+                            Paid advertising, marketing automation, retention and data intelligence became one connected ecommerce strategy for sustained growth across Dubai and the UAE.
+                        </p>
+                    </div>
+
+                    <div className={styles.resultsItemsGrid}>
+                        {/* Row 1 */}
+                        <div className={styles.resultsItem}>
+                            <span>01 INCREASED ECOMMERCE SALES</span>
+                        </div>
+                        <div className={styles.resultsItem}>
+                            <span>05 OMNICHANNEL PAID-MEDIA GROWTH</span>
+                        </div>
+                        {/* Row 2 */}
+                        <div className={styles.resultsItem}>
+                            <span>02 IMPROVED ROAS</span>
+                        </div>
+                        <div className={styles.resultsItem}>
+                            <span>06 STRONGER WHATSAPP + EMAIL ENGAGEMENT</span>
+                        </div>
+                        {/* Row 3 */}
+                        <div className={styles.resultsItem}>
+                            <span>03 HIGHER-QUALITY CUSTOMER ACQUISITION</span>
+                        </div>
+                        <div className={styles.resultsItem}>
+                            <span>07 HIGH-PERFORMING SEASONAL CAMPAIGNS</span>
+                        </div>
+                        {/* Row 4 */}
+                        <div className={styles.resultsItem}>
+                            <span>04 STRONGER RETENTION + REPEAT PURCHASE</span>
+                        </div>
+                        <div className={styles.resultsItem}>
+                            <span>08 FUTURE-READY FULL-FUNNEL ECOSYSTEM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 13. Services Section */}
+            <section className={styles.servicesSection}>
+                <div className={styles.servicesInner}>
+                    <span className={styles.servicesIndicator}>08 / SERVICES DELIVERED</span>
+                    <h2 className={styles.servicesTitle}>
+                        FULL-FUNNEL<br />ECOMMERCE GROWTH.
+                    </h2>
+
+                    <div className={styles.servicesGrid}>
+                        {/* Column 1 */}
+                        <div className={styles.servicesColumn}>
+                            <ul className={styles.servicesList}>
+                                <li className={styles.servicesItem}>PERFORMANCE MARKETING</li>
+                                <li className={styles.servicesItem}>ECOMMERCE MARKETING</li>
+                                <li className={styles.servicesItem}>PERFORMANCE MARKETING DUBAI</li>
+                                <li className={styles.servicesItem}>PERFORMANCE MARKETING UAE</li>
+                                <li className={styles.servicesItem}>GOOGLE ADS MANAGEMENT</li>
+                                <li className={styles.servicesItem}>META ADS MANAGEMENT</li>
+                                <li className={styles.servicesItem}>FACEBOOK ADVERTISING</li>
+                            </ul>
+                        </div>
+                        {/* Column 2 */}
+                        <div className={styles.servicesColumn}>
+                            <ul className={styles.servicesList}>
+                                <li className={styles.servicesItem}>INSTAGRAM ADVERTISING</li>
+                                <li className={styles.servicesItem}>TIKTOK ADVERTISING</li>
+                                <li className={styles.servicesItem}>SNAPCHAT ADVERTISING</li>
+                                <li className={styles.servicesItem}>GOOGLE SHOPPING CAMPAIGNS</li>
+                                <li className={styles.servicesItem}>PERFORMANCE MAX CAMPAIGNS</li>
+                                <li className={styles.servicesItem}>MARKETING AUTOMATION</li>
+                                <li className={styles.servicesItem}>WHATSAPP MARKETING</li>
+                            </ul>
+                        </div>
+                        {/* Column 3 */}
+                        <div className={styles.servicesColumn}>
+                            <ul className={styles.servicesList}>
+                                <li className={styles.servicesItem}>EMAIL MARKETING</li>
+                                <li className={styles.servicesItem}>ECOMMERCE GROWTH STRATEGY</li>
+                                <li className={styles.servicesItem}>CONVERSION RATE OPTIMISATION (CRO)</li>
+                                <li className={styles.servicesItem}>CUSTOMER JOURNEY MAPPING</li>
+                                <li className={styles.servicesItem}>AUDIENCE SEGMENTATION</li>
+                                <li className={styles.servicesItem}>REMARKETING CAMPAIGNS</li>
+                                <li className={styles.servicesItem}>ANALYTICS & PERFORMANCE REPORTING</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
