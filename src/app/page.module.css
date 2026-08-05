@@ -710,7 +710,7 @@
 }
 
 .workColumns .workCard {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1920 / 2034;
 }
 
 .workCardImageWrapper {
@@ -796,7 +796,7 @@
   }
 
   .workColumns .workCard {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1920 / 2034;
   }
 
   .viewBadge {
