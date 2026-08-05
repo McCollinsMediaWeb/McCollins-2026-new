@@ -12,6 +12,93 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+interface CaseStudyVideoProps {
+  src: string;
+  className?: string;
+  wrapperClassName?: string;
+  style?: React.CSSProperties;
+}
+
+function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVideoProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleToggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  return (
+    <div className={wrapperClassName} style={{ position: "relative", backgroundColor: "#111111", ...style }}>
+      {!isLoaded && (
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "#161616",
+          zIndex: 2,
+          pointerEvents: "none"
+        }}>
+          <div style={{
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(90deg, #161616 25%, #222222 50%, #161616 75%)",
+            backgroundSize: "200% 100%",
+            animation: "caseStudyPulse 1.5s infinite"
+          }} />
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes caseStudyPulse {
+              0% { background-position: 200% 0; }
+              100% { background-position: -200% 0; }
+            }
+          ` }} />
+        </div>
+      )}
+      <video
+        ref={videoRef}
+        className={className}
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        onLoadedData={() => setIsLoaded(true)}
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: "opacity 0.6s ease"
+        }}
+      />
+      <button className={styles.muteButton} onClick={handleToggleMute} aria-label="Toggle mute">
+        {isMuted ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+        )}
+      </button>
+    </div>
+  );
+}
+
 export default function BetterLifeCaseStudy() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [mounted, setMounted] = useState(false);
@@ -467,38 +554,21 @@ export default function BetterLifeCaseStudy() {
                 <div className={styles.videosInner}>
                     <div className={styles.videosGrid}>
                         {/* Video 1 */}
-                        <div className={styles.videoContainer}>
-                            <video
-                                src="/better-life/Smeg Stopmotion w Text (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.videoElement}
-                            />
-                        </div>
-                        {/* Video 2 */}
-                        <div className={styles.videoContainer}>
-                            <video
-                                src="/better-life/Smeg w Text (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.videoElement}
-                            />
-                        </div>
-                        {/* Video 3 */}
-                        <div className={styles.videoContainer}>
-                            <video
-                                src="/better-life/Miele w Text (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.videoElement}
-                            />
-                        </div>
+                        <CaseStudyVideo
+                            src="/better-life/Smeg Stopmotion w Text (1).mp4"
+                            className={styles.videoElement}
+                            wrapperClassName={styles.videoContainer}
+                        />
+                        <CaseStudyVideo
+                            src="/better-life/Smeg w Text (1).mp4"
+                            className={styles.videoElement}
+                            wrapperClassName={styles.videoContainer}
+                        />
+                        <CaseStudyVideo
+                            src="/better-life/Miele w Text (1).mp4"
+                            className={styles.videoElement}
+                            wrapperClassName={styles.videoContainer}
+                        />
                     </div>
                 </div>
             </section>
@@ -683,38 +753,21 @@ export default function BetterLifeCaseStudy() {
                 <div className={styles.reelsInner}>
                     <div className={styles.reelsGrid}>
                         {/* Reel 1 */}
-                        <div className={styles.reelContainer}>
-                            <video
-                                src="/better-life/Betterlife_Dec_Reel_2 (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.reelElement}
-                            />
-                        </div>
-                        {/* Reel 2 */}
-                        <div className={styles.reelContainer}>
-                            <video
-                                src="/better-life/Reel 3 (Emirati Couple) Version 1_Revised First Cut_29.07.2024 (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.reelElement}
-                            />
-                        </div>
-                        {/* Reel 3 */}
-                        <div className={styles.reelContainer}>
-                            <video
-                                src="/better-life/Reel 1 (Siemens)_Fourth Cut_12.07.2024 (1).mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className={styles.reelElement}
-                            />
-                        </div>
+                        <CaseStudyVideo
+                            src="/better-life/Betterlife_Dec_Reel_2 (1).mp4"
+                            className={styles.reelElement}
+                            wrapperClassName={styles.reelContainer}
+                        />
+                        <CaseStudyVideo
+                            src="/better-life/Reel 3 (Emirati Couple) Version 1_Revised First Cut_29.07.2024 (1).mp4"
+                            className={styles.reelElement}
+                            wrapperClassName={styles.reelContainer}
+                        />
+                        <CaseStudyVideo
+                            src="/better-life/Reel 1 (Siemens)_Fourth Cut_12.07.2024 (1).mp4"
+                            className={styles.reelElement}
+                            wrapperClassName={styles.reelContainer}
+                        />
                     </div>
                 </div>
             </section>

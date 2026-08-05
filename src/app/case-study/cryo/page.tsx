@@ -22,6 +22,7 @@ interface CaseStudyVideoProps {
 function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleToggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -32,8 +33,40 @@ function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVi
     }
   };
 
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      setIsLoaded(true);
+    }
+  }, []);
+
   return (
-    <div className={wrapperClassName} style={{ position: "relative", ...style }}>
+    <div className={wrapperClassName} style={{ position: "relative", backgroundColor: "#111111", ...style }}>
+      {!isLoaded && (
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "#161616",
+          zIndex: 2,
+          pointerEvents: "none"
+        }}>
+          <div style={{
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(90deg, #161616 25%, #222222 50%, #161616 75%)",
+            backgroundSize: "200% 100%",
+            animation: "caseStudyPulse 1.5s infinite"
+          }} />
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes caseStudyPulse {
+              0% { background-position: 200% 0; }
+              100% { background-position: -200% 0; }
+            }
+          ` }} />
+        </div>
+      )}
       <video
         ref={videoRef}
         className={className}
@@ -42,6 +75,11 @@ function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVi
         loop
         muted
         playsInline
+        onLoadedData={() => setIsLoaded(true)}
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: "opacity 0.6s ease"
+        }}
       />
       <button className={styles.muteButton} onClick={handleToggleMute} aria-label="Toggle mute">
         {isMuted ? (
@@ -442,6 +480,25 @@ export default function CryoCaseStudy() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: engineSec,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      const nextProjectSec = containerRef.current.querySelector("." + styles.nextProjectSection);
+      if (nextProjectSec) {
+        gsap.fromTo(
+          nextProjectSec,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: nextProjectSec,
               start: "top 85%",
               toggleActions: "play none none none",
             },

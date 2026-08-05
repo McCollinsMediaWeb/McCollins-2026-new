@@ -16,11 +16,13 @@ interface CaseStudyVideoProps {
   src: string;
   className?: string;
   wrapperClassName?: string;
+  style?: React.CSSProperties;
 }
 
-function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProps) {
+function CaseStudyVideo({ src, className, wrapperClassName, style }: CaseStudyVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleToggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -31,8 +33,40 @@ function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProp
     }
   };
 
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      setIsLoaded(true);
+    }
+  }, []);
+
   return (
-    <div className={wrapperClassName} style={{ position: "relative" }}>
+    <div className={wrapperClassName} style={{ position: "relative", backgroundColor: "#111111", ...style }}>
+      {!isLoaded && (
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "#161616",
+          zIndex: 2,
+          pointerEvents: "none"
+        }}>
+          <div style={{
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(90deg, #161616 25%, #222222 50%, #161616 75%)",
+            backgroundSize: "200% 100%",
+            animation: "caseStudyPulse 1.5s infinite"
+          }} />
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes caseStudyPulse {
+              0% { background-position: 200% 0; }
+              100% { background-position: -200% 0; }
+            }
+          ` }} />
+        </div>
+      )}
       <video
         ref={videoRef}
         className={className}
@@ -41,6 +75,11 @@ function CaseStudyVideo({ src, className, wrapperClassName }: CaseStudyVideoProp
         loop
         muted
         playsInline
+        onLoadedData={() => setIsLoaded(true)}
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: "opacity 0.6s ease"
+        }}
       />
       <button className={styles.muteButton} onClick={handleToggleMute} aria-label="Toggle mute">
         {isMuted ? (
@@ -882,30 +921,20 @@ export default function DXBHotelCaseStudy() {
                 />
               </div>
             </div>
-            <div className={styles.galleryItem}>
-              <video
-                src="/dxb/DIH_March_Post_8 (1).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.galleryVideo}
-              />
-            </div>
+            <CaseStudyVideo
+              src="/dxb/DIH_March_Post_8 (1).mp4"
+              className={styles.galleryVideo}
+              wrapperClassName={styles.galleryItem}
+            />
           </div>
 
           {/* Row 2 */}
           <div className={`${styles.galleryRow} ${styles.galleryRowTwo}`}>
-            <div className={styles.galleryItem}>
-              <video
-                src="/dxb/DIH_June_Post8 (1).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.galleryVideo}
-              />
-            </div>
+            <CaseStudyVideo
+              src="/dxb/DIH_June_Post8 (1).mp4"
+              className={styles.galleryVideo}
+              wrapperClassName={styles.galleryItem}
+            />
             <div className={styles.galleryItem}>
               <Image
                 src="/dxb/3d05f4ad405ee3a8ef64fed052b666af3e967d3e-optimized.webp"
@@ -926,16 +955,11 @@ export default function DXBHotelCaseStudy() {
 
           {/* Row 3 */}
           <div className={`${styles.galleryRow} ${styles.galleryRowThree}`}>
-            <div className={`${styles.galleryItem} ${styles.galleryRowThreeVideoWrapper}`}>
-              <video
-                src="/dxb/DIH_June_Post2 (1) (2).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.galleryVideo}
-              />
-            </div>
+            <CaseStudyVideo
+              src="/dxb/DIH_June_Post2 (1) (2).mp4"
+              className={styles.galleryVideo}
+              wrapperClassName={`${styles.galleryItem} ${styles.galleryRowThreeVideoWrapper}`}
+            />
             <div className={styles.galleryItem}>
               <Image
                 src="/dxb/5bac3edf60ed5efedd6b8e532099a774b504865a-optimized.webp"
@@ -948,26 +972,16 @@ export default function DXBHotelCaseStudy() {
 
           {/* Row 4 */}
           <div className={`${styles.galleryRow} ${styles.galleryRowTwo}`}>
-            <div className={styles.galleryItem}>
-              <video
-                src="/dxb/DIH_March_Post_5 (3).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.galleryVideo}
-              />
-            </div>
-            <div className={styles.galleryItem}>
-              <video
-                src="/dxb/DIH_March_Post_3 (1).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.galleryVideo}
-              />
-            </div>
+            <CaseStudyVideo
+              src="/dxb/DIH_March_Post_5 (3).mp4"
+              className={styles.galleryVideo}
+              wrapperClassName={styles.galleryItem}
+            />
+            <CaseStudyVideo
+              src="/dxb/DIH_March_Post_3 (1).mp4"
+              className={styles.galleryVideo}
+              wrapperClassName={styles.galleryItem}
+            />
             <div className={styles.galleryItem}>
               <Image
                 src="/dxb/d4961aa4b19a89045edf9e02c5c7dd807834458e-optimized.webp"
@@ -984,26 +998,16 @@ export default function DXBHotelCaseStudy() {
       <section className={styles.splitShowcaseSection}>
         <div className={styles.splitShowcaseInner}>
           <div className={styles.splitShowcaseLeft}>
-            <div className={styles.splitShowcaseVideoWrapper}>
-              <video
-                src="/dxb/Day 3 Video 1 (16-9)_13.02.2023 (1).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.splitShowcaseVideo}
-              />
-            </div>
-            <div className={styles.splitShowcaseVideoWrapper}>
-              <video
-                src="/dxb/Day 1 Video 5 (Anniversary Video) First Cut_15.02.2023 (1).mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.splitShowcaseVideo}
-              />
-            </div>
+            <CaseStudyVideo
+              src="/dxb/Day 3 Video 1 (16-9)_13.02.2023 (1).mp4"
+              className={styles.splitShowcaseVideo}
+              wrapperClassName={styles.splitShowcaseVideoWrapper}
+            />
+            <CaseStudyVideo
+              src="/dxb/Day 1 Video 5 (Anniversary Video) First Cut_15.02.2023 (1).mp4"
+              className={styles.splitShowcaseVideo}
+              wrapperClassName={styles.splitShowcaseVideoWrapper}
+            />
           </div>
           <div className={styles.splitShowcaseRight}>
             <div className={styles.splitShowcaseImageWrapper}>
