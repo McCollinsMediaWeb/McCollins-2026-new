@@ -1042,7 +1042,7 @@ export default function Home() {
               <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/voss")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/voss.webp"
+                    src="/works/53e7fd625b0b794ee51a59918952d03afce9746d.jpg"
                     alt="VOSS Case Study"
                     fill
                     className={styles.workImage}
@@ -1071,7 +1071,7 @@ export default function Home() {
               <div className={`${styles.workCard} work-card`} onClick={() => router.push("/case-study/mapei")}>
                 <div className={styles.workCardImageWrapper}>
                   <Image
-                    src="/works/mapei.webp"
+                    src="/works/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp"
                     alt="Mapei Case Study"
                     fill
                     className={styles.workImage}
