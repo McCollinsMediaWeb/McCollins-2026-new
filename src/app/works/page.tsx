@@ -43,6 +43,25 @@ const PROJECTS = [
     overlayClass: styles.overlayOakberry,
     url: "/case-study/cryo"
   },
+  {
+    image: "/food-hub/d6a7b1f5da76949cd949f6db947a05b5de7ec513.jpg",
+    title: "ABUDHABI FOOD HUB",
+    overlayClass: styles.overlayFoodhub,
+    url: "/case-study/abudhabi-food-hub"
+  },
+  {
+    image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
+    title: "Dubai International Hotel",
+    overlayClass: styles.overlayDxb,
+    url: "/case-study/dxb-hotel"
+  },
+  {
+    image: "/better-life/a319f6d7a7333d6a314c89c134e6b0ac3ed2bf75.jpg",
+    title: "BETTER LIFE",
+    overlayClass: styles.overlayBetterlife,
+    url: "/case-study/better-life"
+  },
+
   // {
   //   image: "/works-page/2cf8dfd3ab0890e5a30b9eeb6c2730d1d3edb2f5.webp",
   //   title: "CLEANING SUPERSTORE",

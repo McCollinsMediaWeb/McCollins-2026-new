@@ -113,6 +113,18 @@
   top: 20%;
 }
 
+.overlayFoodhub {
+  bottom: 20%;
+}
+
+.overlayDxb {
+  bottom: 20%;
+}
+
+.overlayBetterlife {
+  bottom: 20%;
+}
+
 .overlayLG {
   bottom: 10%;
   font-size: clamp(16px, 2vw, 20px);
