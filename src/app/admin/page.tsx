@@ -36,6 +36,13 @@ export default async function AdminDashboardPage() {
     createdAt: blog.createdAt ? new Date(blog.createdAt).toISOString() : undefined,
   }));
 
+  // Sort blogs: latest first (checking both date and createdAt)
+  blogs.sort((a, b) => {
+    const dateA = new Date(a.date || a.createdAt || 0).getTime();
+    const dateB = new Date(b.date || b.createdAt || 0).getTime();
+    return dateB - dateA;
+  });
+
   // Fetch blogs categories data
   const categoriesData = await db.collection("blogs-category").find({}).toArray();
   const categories = categoriesData.map((cat) => ({

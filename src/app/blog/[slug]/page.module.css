@@ -264,3 +264,14 @@
   text-align: center;
   margin: 10px 0 0 0;
 }
+
+.contentBody img,
+.htmlContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 30px auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+

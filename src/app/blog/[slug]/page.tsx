@@ -32,14 +32,15 @@ function renderBlogContent(content: string) {
 
 export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
   const client = await clientPromise;
   const db = client.db("MccollinsMedia");
 
   // Query blog by blogUrl (slug) first, then try ObjectId
-  let blog = await db.collection("blogs").findOne({ blogUrl: slug });
+  let blog = await db.collection("blogs").findOne({ blogUrl: decodedSlug });
   if (!blog) {
     try {
-      blog = await db.collection("blogs").findOne({ _id: new ObjectId(slug) });
+      blog = await db.collection("blogs").findOne({ _id: new ObjectId(decodedSlug) });
     } catch (err) {
       // Ignore conversion errors
     }

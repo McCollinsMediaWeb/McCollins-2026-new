@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./admin.module.css";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface Submission {
   _id: string;
@@ -179,7 +180,15 @@ export default function DashboardClient({
 
   const handleBlogFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setBlogForm(prev => ({ ...prev, [name]: value }));
+    if (name === "blogUrl") {
+      const slugified = value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "") // remove non-alphanumeric except space and hyphen
+        .replace(/\s+/g, "-");        // replace spaces with hyphens
+      setBlogForm(prev => ({ ...prev, [name]: slugified }));
+    } else {
+      setBlogForm(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   // Submission Delete
@@ -365,7 +374,7 @@ export default function DashboardClient({
       });
       const data = await res.json();
       if (res.ok) {
-        setBlogsList(prev => [...prev, { ...blogForm, _id: data.id, createdAt: new Date().toISOString() }]);
+        setBlogsList(prev => [{ ...blogForm, _id: data.id, createdAt: new Date().toISOString() }, ...prev]);
         setShowAddBlogModal(false);
         setBlogForm(initialBlogForm);
       } else {
@@ -1051,9 +1060,10 @@ export default function DashboardClient({
               <button type="button" className={styles.closeBtn} onClick={() => setShowAddBlogModal(false)}>×</button>
             </div>
             <div className={styles.modalBody}>
-              <div className={styles.formRow}>
+              {/* Row 1: Title, SEO Title, Date */}
+              <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Blog Title *</label>
+                  <label className={styles.formLabel}>Title *</label>
                   <input
                     type="text"
                     name="title"
@@ -1064,21 +1074,17 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>SEO Title *</label>
+                  <label className={styles.formLabel}>SEO Title</label>
                   <input
                     type="text"
                     name="SEOtitle"
                     className={styles.formInput}
                     value={blogForm.SEOtitle}
                     onChange={handleBlogFormChange}
-                    required
                   />
                 </div>
-              </div>
-
-              <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Publication Date *</label>
+                  <label className={styles.formLabel}>Date *</label>
                   <input
                     type="date"
                     name="date"
@@ -1088,8 +1094,12 @@ export default function DashboardClient({
                     required
                   />
                 </div>
+              </div>
+
+              {/* Row 2: Blog URL, Category */}
+              <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Slug / Blog URL *</label>
+                  <label className={styles.formLabel}>Blog URL *</label>
                   <input
                     type="text"
                     name="blogUrl"
@@ -1117,6 +1127,7 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 3: Author, Photo, Video */}
               <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Author</label>
@@ -1129,19 +1140,40 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Photo Image URL *</label>
+                  <label className={styles.formLabel}>Photo</label>
                   <input
-                    type="text"
-                    name="photo"
+                    type="file"
+                    accept="image/*"
                     className={styles.formInput}
-                    value={blogForm.photo}
-                    onChange={handleBlogFormChange}
-                    placeholder="https://example.com/image.jpg"
-                    required
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const formData = new FormData();
+                      formData.append("file", file);
+                      try {
+                        const res = await fetch("/api/upload", {
+                          method: "POST",
+                          body: formData,
+                        });
+                        const data = await res.json();
+                        if (res.ok) {
+                          setBlogForm(prev => ({ ...prev, photo: data.url }));
+                        } else {
+                          alert(data.error || "Failed to upload photo");
+                        }
+                      } catch (err) {
+                        alert("Upload request failed");
+                      }
+                    }}
                   />
+                  {blogForm.photo && (
+                    <div style={{ fontSize: "0.8rem", color: "#ffde11", marginTop: "4px", wordBreak: "break-all" }}>
+                      Current: {blogForm.photo}
+                    </div>
+                  )}
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Video Embed Link</label>
+                  <label className={styles.formLabel}>Video</label>
                   <input
                     type="text"
                     name="video"
@@ -1153,9 +1185,10 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 4: Tags, Meta keywords */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Tags (comma-separated) *</label>
+                  <label className={styles.formLabel}>Tags</label>
                   <input
                     type="text"
                     name="tags"
@@ -1163,11 +1196,10 @@ export default function DashboardClient({
                     value={blogForm.tags}
                     onChange={handleBlogFormChange}
                     placeholder="e.g. AI Search, SEO, Growth"
-                    required
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Meta Keywords</label>
+                  <label className={styles.formLabel}>Meta keywords</label>
                   <input
                     type="text"
                     name="keywords"
@@ -1179,41 +1211,43 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 5: Meta Description */}
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Meta Description</label>
-                <input
-                  type="text"
+                <textarea
                   name="description"
-                  className={styles.formInput}
+                  className={styles.formTextarea}
+                  style={{ minHeight: "60px" }}
                   value={blogForm.description}
                   onChange={handleBlogFormChange}
                   placeholder="Summarize the article content for Search Engines"
                 />
               </div>
 
+              {/* Row 6: Short Content */}
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Short Introduction / Excerpt</label>
+                <label className={styles.formLabel}>Short Content</label>
                 <textarea
                   name="shortContent"
                   className={styles.formTextarea}
+                  style={{ minHeight: "80px" }}
                   value={blogForm.shortContent}
                   onChange={handleBlogFormChange}
                   placeholder="Write a brief teaser introduction..."
                 />
               </div>
 
+              {/* Row 7: Content */}
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Full Content Detail</label>
-                <textarea
-                  name="content"
-                  className={styles.formTextarea}
-                  style={{ minHeight: "150px" }}
+                <label className={styles.formLabel}>Content</label>
+                <RichTextEditor
                   value={blogForm.content}
-                  onChange={handleBlogFormChange}
-                  placeholder="Write the full body content here (HTML / Markdown supported)..."
+                  onChange={(val) => setBlogForm(prev => ({ ...prev, content: val }))}
+                  placeholder="Write the full body content here..."
                 />
               </div>
 
+              {/* Row 8: Arabic Title, Arabic Description */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Arabic Title</label>
@@ -1255,9 +1289,10 @@ export default function DashboardClient({
               <button type="button" className={styles.closeBtn} onClick={() => setShowEditBlogModal(false)}>×</button>
             </div>
             <div className={styles.modalBody}>
-              <div className={styles.formRow}>
+              {/* Row 1: Title, SEO Title, Date */}
+              <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Blog Title *</label>
+                  <label className={styles.formLabel}>Title *</label>
                   <input
                     type="text"
                     name="title"
@@ -1268,21 +1303,17 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>SEO Title *</label>
+                  <label className={styles.formLabel}>SEO Title</label>
                   <input
                     type="text"
                     name="SEOtitle"
                     className={styles.formInput}
                     value={blogForm.SEOtitle}
                     onChange={handleBlogFormChange}
-                    required
                   />
                 </div>
-              </div>
-
-              <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Publication Date *</label>
+                  <label className={styles.formLabel}>Date *</label>
                   <input
                     type="date"
                     name="date"
@@ -1292,8 +1323,12 @@ export default function DashboardClient({
                     required
                   />
                 </div>
+              </div>
+
+              {/* Row 2: Blog URL, Category */}
+              <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Slug / Blog URL *</label>
+                  <label className={styles.formLabel}>Blog URL *</label>
                   <input
                     type="text"
                     name="blogUrl"
@@ -1320,6 +1355,7 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 3: Author, Photo, Video */}
               <div className={styles.formRowThree}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Author</label>
@@ -1332,18 +1368,40 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Photo Image URL *</label>
+                  <label className={styles.formLabel}>Photo</label>
                   <input
-                    type="text"
-                    name="photo"
+                    type="file"
+                    accept="image/*"
                     className={styles.formInput}
-                    value={blogForm.photo}
-                    onChange={handleBlogFormChange}
-                    required
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const formData = new FormData();
+                      formData.append("file", file);
+                      try {
+                        const res = await fetch("/api/upload", {
+                          method: "POST",
+                          body: formData,
+                        });
+                        const data = await res.json();
+                        if (res.ok) {
+                          setBlogForm(prev => ({ ...prev, photo: data.url }));
+                        } else {
+                          alert(data.error || "Failed to upload photo");
+                        }
+                      } catch (err) {
+                        alert("Upload request failed");
+                      }
+                    }}
                   />
+                  {blogForm.photo && (
+                    <div style={{ fontSize: "0.8rem", color: "#ffde11", marginTop: "4px", wordBreak: "break-all" }}>
+                      Current: {blogForm.photo}
+                    </div>
+                  )}
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Video Embed Link</label>
+                  <label className={styles.formLabel}>Video</label>
                   <input
                     type="text"
                     name="video"
@@ -1354,9 +1412,10 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 4: Tags, Meta keywords */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Tags (comma-separated) *</label>
+                  <label className={styles.formLabel}>Tags</label>
                   <input
                     type="text"
                     name="tags"
@@ -1367,7 +1426,7 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Meta Keywords</label>
+                  <label className={styles.formLabel}>Meta keywords</label>
                   <input
                     type="text"
                     name="keywords"
@@ -1378,38 +1437,40 @@ export default function DashboardClient({
                 </div>
               </div>
 
+              {/* Row 5: Meta Description */}
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Meta Description</label>
-                <input
-                  type="text"
+                <textarea
                   name="description"
-                  className={styles.formInput}
+                  className={styles.formTextarea}
+                  style={{ minHeight: "60px" }}
                   value={blogForm.description}
                   onChange={handleBlogFormChange}
                 />
               </div>
 
+              {/* Row 6: Short Content */}
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Short Introduction / Excerpt</label>
+                <label className={styles.formLabel}>Short Content</label>
                 <textarea
                   name="shortContent"
                   className={styles.formTextarea}
+                  style={{ minHeight: "80px" }}
                   value={blogForm.shortContent}
                   onChange={handleBlogFormChange}
                 />
               </div>
 
+              {/* Row 7: Content */}
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Full Content Detail</label>
-                <textarea
-                  name="content"
-                  className={styles.formTextarea}
-                  style={{ minHeight: "150px" }}
+                <label className={styles.formLabel}>Content</label>
+                <RichTextEditor
                   value={blogForm.content}
-                  onChange={handleBlogFormChange}
+                  onChange={(val) => setBlogForm(prev => ({ ...prev, content: val }))}
                 />
               </div>
 
+              {/* Row 8: Arabic Title, Arabic Description */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Arabic Title</label>
