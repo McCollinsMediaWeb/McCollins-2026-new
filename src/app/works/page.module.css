@@ -62,6 +62,7 @@
   position: relative;
   overflow: hidden;
   line-height: 0;
+  z-index: 1;
 }
 
 .projectImage {
@@ -69,7 +70,7 @@
   max-height: calc(100vh - 100px);
   object-fit: cover;
   display: block;
-  transform: scale(1.1);
+  transform: scale(1.25);
   transform-origin: center;
 }
 
@@ -81,11 +82,47 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
   z-index: 2;
   text-align: center;
   pointer-events: none;
   opacity: 0;
   transform: translateY(30px);
+}
+
+.projectBackgroundText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.05);
+  z-index: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.projectCounter {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: #ffffff;
+  z-index: 3;
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .textBlack {

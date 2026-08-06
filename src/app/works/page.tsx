@@ -20,24 +20,6 @@ const PROJECTS = [
   //   url: "/case-study/mercedes-benz"
   // },
   {
-    image: "/works-page/cb931c85f24c34cc3def0c3fa02a900ea0ecb736.webp",
-    title: "PIONEER",
-    overlayClass: styles.overlayPioneer,
-    url: "/case-study/pioneer"
-  },
-  {
-    image: "/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.webp",
-    title: "VOSS",
-    overlayClass: styles.overlayMercedes,
-    url: "/case-study/voss"
-  },
-  {
-    image: "/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp",
-    title: "MAPEI",
-    overlayClass: styles.overlayPioneer,
-    url: "/case-study/mapei"
-  },
-  {
     image: "/cryo/e10ae3452971f405189d915fb9572403e5e692cf.webp",
     title: "CRYO",
     overlayClass: styles.overlayOakberry,
@@ -60,6 +42,24 @@ const PROJECTS = [
     title: "BETTER LIFE",
     overlayClass: styles.overlayBetterlife,
     url: "/case-study/better-life"
+  },
+  {
+    image: "/works-page/cb931c85f24c34cc3def0c3fa02a900ea0ecb736.webp",
+    title: "PIONEER",
+    overlayClass: styles.overlayPioneer,
+    url: "/case-study/pioneer"
+  },
+  {
+    image: "/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.webp",
+    title: "VOSS",
+    overlayClass: styles.overlayMercedes,
+    url: "/case-study/voss"
+  },
+  {
+    image: "/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp",
+    title: "MAPEI",
+    overlayClass: styles.overlayPioneer,
+    url: "/case-study/mapei"
   },
 
   // {
@@ -109,33 +109,34 @@ export default function WorksPage() {
       const image = block.querySelector("." + styles.projectImage);
       const overlayText = block.querySelector("." + styles.projectOverlayText);
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: block,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-
       if (image) {
-        tl.to(image, {
-          scale: 1,
-          duration: 1.5,
-          ease: "power3.out",
-        });
+        gsap.fromTo(image,
+          { yPercent: -18, scale: 1.25 },
+          {
+            yPercent: 18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: block,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
       }
 
       if (overlayText) {
-        tl.to(
-          overlayText,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
+        gsap.to(overlayText, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: block,
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
-          "-=1.0"
-        );
+        });
       }
     });
 
@@ -164,6 +165,12 @@ export default function WorksPage() {
 
         {PROJECTS.map((project, idx) => (
           <div key={idx} className={styles.projectBlock} onClick={() => router.push(project.url)}>
+            {project.title && (
+              <div className={styles.projectBackgroundText}>
+                {project.title}
+              </div>
+            )}
+
             <div className={styles.projectImageWrapper}>
               {/* Using a standard img tag with width 100% since we want natural height 
                   based on the full viewport width */}
@@ -174,6 +181,11 @@ export default function WorksPage() {
                 className={styles.projectImage}
               />
             </div>
+
+            <div className={styles.projectCounter}>
+              {(idx + 1).toString().padStart(2, "0")}
+            </div>
+
             {project.title && (
               // <div className={`${styles.projectOverlayText} ${project.overlayClass} ${project.textClass ?? ''}`}>
               //   {project.title}
