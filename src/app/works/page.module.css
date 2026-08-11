@@ -52,13 +52,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Will use aspect-ratio or min-height depending on image, 
-     but setting a reasonable default or letting image dictate height */
 }
 
 .projectImageWrapper {
   width: 100%;
-  height: calc(100vh - 100px);
   position: relative;
   overflow: hidden;
   line-height: 0;
@@ -67,24 +64,21 @@
 
 .projectImage {
   width: 100%;
-  max-height: calc(100vh - 100px);
-  object-fit: cover;
+  height: auto;
   display: block;
-  transform: scale(1.25);
-  transform-origin: center;
 }
 
 .projectOverlayText {
   position: absolute;
   font-family: var(--font-delight), sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(24px, 4vw, 40px);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
+  /* color: #ffffff; */
   text-decoration: underline;
   text-underline-offset: 6px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  /* text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); */
   z-index: 2;
   text-align: center;
   pointer-events: none;
@@ -135,7 +129,21 @@
 }
 
 .overlayPioneer {
-  top: 55%;
+  top: 60%;
+  left: 10%;
+  color: #000;
+}
+
+.overlayMapei {
+  top: 13%;
+  left: 10%;
+  color: #fff;
+}
+
+.overlayVoss {
+  top: 45%;
+  left: 10%;
+  color: #000;
 }
 
 .overlayOakberry {

@@ -21,44 +21,44 @@ const PROJECTS = [
   // },
   {
     image: "/cryo/e10ae3452971f405189d915fb9572403e5e692cf.webp",
-    title: "CRYO",
+    // title: "CRYO",
     overlayClass: styles.overlayOakberry,
     url: "/case-study/cryo"
   },
   {
     image: "/food-hub/d6a7b1f5da76949cd949f6db947a05b5de7ec513.jpg",
-    title: "ABUDHABI FOOD HUB",
+    // title: "ABUDHABI FOOD HUB",
     overlayClass: styles.overlayFoodhub,
     url: "/case-study/abudhabi-food-hub"
   },
   {
     image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
-    title: "Dubai International Hotel",
+    // title: "Dubai International Hotel",
     overlayClass: styles.overlayDxb,
     url: "/case-study/dxb-hotel"
   },
   {
     image: "/better-life/a319f6d7a7333d6a314c89c134e6b0ac3ed2bf75.jpg",
-    title: "BETTER LIFE",
+    // title: "BETTER LIFE",
     overlayClass: styles.overlayBetterlife,
     url: "/case-study/better-life"
   },
   {
-    image: "/works-page/cb931c85f24c34cc3def0c3fa02a900ea0ecb736.webp",
+    image: "/works-page/2b7b62e7ba2fa1d213989801b618488ab2b95642.webp",
     title: "PIONEER",
     overlayClass: styles.overlayPioneer,
     url: "/case-study/pioneer"
   },
   {
-    image: "/works-page/85a85960b1e60e62ddbcf62cbaad7e0eefbe6955.webp",
+    image: "/works-page/53e7fd625b0b794ee51a59918952d03afce9746d (1).jpg",
     title: "VOSS",
-    overlayClass: styles.overlayMercedes,
+    overlayClass: styles.overlayVoss,
     url: "/case-study/voss"
   },
   {
-    image: "/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp",
+    image: "/works-page/de029bcf0b4f13aabbc47e1305b70c7793a2d545 (1).webp",
     title: "MAPEI",
-    overlayClass: styles.overlayPioneer,
+    overlayClass: styles.overlayMapei,
     url: "/case-study/mapei"
   },
 
@@ -111,15 +111,16 @@ export default function WorksPage() {
 
       if (image) {
         gsap.fromTo(image,
-          { yPercent: -18, scale: 1.25 },
+          { opacity: 0.85, scale: 0.96 },
           {
-            yPercent: 18,
-            ease: "none",
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: block,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
+              start: "top 80%",
+              toggleActions: "play none none none",
             },
           }
         );
@@ -172,12 +173,9 @@ export default function WorksPage() {
             )}
 
             <div className={styles.projectImageWrapper}>
-              {/* Using a standard img tag with width 100% since we want natural height 
-                  based on the full viewport width */}
-              <Image
+              <img
                 src={project.image}
                 alt={project.title}
-                fill
                 className={styles.projectImage}
               />
             </div>
