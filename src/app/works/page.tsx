@@ -111,16 +111,16 @@ export default function WorksPage() {
 
       if (image) {
         gsap.fromTo(image,
-          { opacity: 0.85, scale: 0.96 },
+          { yPercent: -6, scale: 1.05 },
           {
-            opacity: 1,
+            yPercent: 6,
             scale: 1,
-            duration: 1,
-            ease: "power2.out",
+            ease: "none",
             scrollTrigger: {
               trigger: block,
-              start: "top 80%",
-              toggleActions: "play none none none",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
             },
           }
         );
