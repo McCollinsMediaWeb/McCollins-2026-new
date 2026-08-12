@@ -54,6 +54,18 @@ export default function ContactPage() {
     setStatus("loading");
     setStatusMessage("");
 
+    const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+    let detectedSource = "Contact Page";
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const utmSource = searchParams.get("utm_source") || searchParams.get("source") || searchParams.get("ref");
+      if (utmSource) {
+        detectedSource = `${utmSource} (Url: ${currentUrl})`;
+      } else if (window.location.search) {
+        detectedSource = `Contact Page (${window.location.search})`;
+      }
+    }
+
     try {
       // 1. Submit to local MongoDB database API
       const response = await fetch("/api/form-submit", {
@@ -69,6 +81,8 @@ export default function ContactPage() {
           text: text,
           services: checkedItemsString,
           page: "contact",
+          pageUrl: currentUrl,
+          source: detectedSource,
           date: new Date(),
         }),
       });
@@ -83,6 +97,9 @@ export default function ContactPage() {
       formData.append("jobTitle", jobTitle);
       formData.append("Message", text);
       formData.append("page", "contact");
+      formData.append("pageUrl", currentUrl);
+      formData.append("Url", currentUrl);
+      formData.append("source", detectedSource);
 
       fetch(
         "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",

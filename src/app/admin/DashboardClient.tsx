@@ -20,6 +20,8 @@ interface Submission {
   text?: string;
   date?: string;
   createdAt?: string;
+  pageUrl?: string;
+  source?: string;
 }
 
 interface PortfolioItem {
@@ -84,6 +86,15 @@ interface BlogItem {
   createdAt?: string;
 }
 
+interface WhatsAppLead {
+  _id: string;
+  name: string;
+  phone: string;
+  source?: string;
+  pageUrl?: string;
+  createdAt?: string;
+}
+
 interface DashboardClientProps {
   user: { email: string; name: string };
   stats: {
@@ -91,10 +102,12 @@ interface DashboardClientProps {
     portfolioCount: number;
     testimonialsCount: number;
     submissionsCount: number;
+    whatsappLeadsCount?: number;
     categoriesCount: number;
     metaTagsCount: number;
   };
   submissions: Submission[];
+  whatsappLeads?: WhatsAppLead[];
   blogs: BlogItem[];
   categories: CategoryItem[];
   metaTags: MetaTagItem[];
@@ -103,12 +116,13 @@ interface DashboardClientProps {
   dbCluster?: string;
 }
 
-type TabType = "overview" | "submissions" | "blogs" | "categories" | "metaTags" | "portfolios" | "testimonials";
+type TabType = "overview" | "submissions" | "whatsappLeads" | "blogs" | "categories" | "metaTags" | "portfolios" | "testimonials";
 
 export default function DashboardClient({
   user,
   stats,
   submissions: initialSubmissions,
+  whatsappLeads: initialWhatsappLeads = [],
   blogs: initialBlogs,
   categories: initialCategories,
   metaTags: initialMetaTags,
@@ -121,6 +135,7 @@ export default function DashboardClient({
   
   // Lists state
   const [submissionsList, setSubmissionsList] = useState<Submission[]>(initialSubmissions);
+  const [whatsappLeadsList, setWhatsappLeadsList] = useState<WhatsAppLead[]>(initialWhatsappLeads);
   const [blogsList, setBlogsList] = useState<BlogItem[]>(initialBlogs);
   const [categoriesList, setCategoriesList] = useState<CategoryItem[]>(initialCategories);
   const [metaTagsList, setMetaTagsList] = useState<MetaTagItem[]>(initialMetaTags);
@@ -196,16 +211,16 @@ export default function DashboardClient({
     if (!confirm("Are you sure you want to delete this submission?")) return;
     setDeletingId(id);
     try {
-      const response = await fetch("/api/form-submit", {
+      const res = await fetch("/api/form-submit", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       });
-      if (response.ok) {
-        setSubmissionsList((prev) => prev.filter((item) => item._id !== id));
+      const data = await res.json();
+      if (res.ok) {
+        setSubmissionsList((prev) => prev.filter((sub) => sub._id !== id));
       } else {
-        const data = await response.json();
-        alert(data.error || "Failed to delete submission.");
+        alert(data.error || "Failed to delete submission");
       }
     } catch (err) {
       alert("Failed to delete submission. Server error.");
@@ -213,6 +228,39 @@ export default function DashboardClient({
       setDeletingId(null);
     }
   };
+
+  const handleDeleteWhatsAppLead = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this WhatsApp lead?")) return;
+    setDeletingId(id);
+    try {
+      const res = await fetch("/api/whatsapp-lead", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setWhatsappLeadsList((prev) => prev.filter((lead) => lead._id !== id));
+      } else {
+        alert(data.error || "Failed to delete WhatsApp lead");
+      }
+    } catch (err) {
+      alert("Server connection failed");
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
+  // Filter WhatsApp Leads
+  const filteredWhatsappLeads = whatsappLeadsList.filter((lead) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      (lead.name && lead.name.toLowerCase().includes(query)) ||
+      (lead.phone && lead.phone.toLowerCase().includes(query)) ||
+      (lead.source && lead.source.toLowerCase().includes(query)) ||
+      (lead.pageUrl && lead.pageUrl.toLowerCase().includes(query))
+    );
+  });
 
   // Categories Handlers
   const handleCreateCategory = async (e: React.FormEvent) => {
@@ -446,7 +494,9 @@ export default function DashboardClient({
       (sub.jobTitle && sub.jobTitle.toLowerCase().includes(query)) ||
       (sub.services && sub.services.toLowerCase().includes(query)) ||
       (sub.message && sub.message.toLowerCase().includes(query)) ||
-      (sub.text && sub.text.toLowerCase().includes(query))
+      (sub.text && sub.text.toLowerCase().includes(query)) ||
+      (sub.source && sub.source.toLowerCase().includes(query)) ||
+      (sub.pageUrl && sub.pageUrl.toLowerCase().includes(query))
     );
   });
 
@@ -470,6 +520,12 @@ export default function DashboardClient({
             onClick={() => setActiveTab("submissions")}
           >
             Inquiries ({submissionsList.length})
+          </div>
+          <div
+            className={`${styles.navItem} ${activeTab === "whatsappLeads" ? styles.activeNavItem : ""}`}
+            onClick={() => setActiveTab("whatsappLeads")}
+          >
+            WhatsApp Leads ({whatsappLeadsList.length})
           </div>
           <div
             className={`${styles.navItem} ${activeTab === "blogs" ? styles.activeNavItem : ""}`}
@@ -518,6 +574,7 @@ export default function DashboardClient({
           <h1 className={styles.title}>
             {activeTab === "overview" && "Dashboard Overview"}
             {activeTab === "submissions" && "Contact Inquiries"}
+            {activeTab === "whatsappLeads" && "WhatsApp Leads"}
             {activeTab === "blogs" && "Manage Blogs"}
             {activeTab === "categories" && "Blog Categories"}
             {activeTab === "metaTags" && "Manage Meta Tags"}
@@ -541,6 +598,14 @@ export default function DashboardClient({
           </div>
           <div
             className={`${styles.statCard} ${styles.statThemeGreen}`}
+            onClick={() => setActiveTab("whatsappLeads")}
+            style={{ cursor: "pointer" }}
+          >
+            <span className={styles.statLabel}>WhatsApp Leads</span>
+            <span className={styles.statValue}>{whatsappLeadsList.length}</span>
+          </div>
+          <div
+            className={`${styles.statCard} ${styles.statThemeBlue}`}
             onClick={() => setActiveTab("blogs")}
             style={{ cursor: "pointer" }}
           >
@@ -548,20 +613,12 @@ export default function DashboardClient({
             <span className={styles.statValue}>{blogsList.length}</span>
           </div>
           <div
-            className={`${styles.statCard} ${styles.statThemeBlue}`}
+            className={`${styles.statCard} ${styles.statThemePurple}`}
             onClick={() => setActiveTab("portfolios")}
             style={{ cursor: "pointer" }}
           >
             <span className={styles.statLabel}>Portfolio</span>
             <span className={styles.statValue}>{portfolios.length}</span>
-          </div>
-          <div
-            className={`${styles.statCard} ${styles.statThemePurple}`}
-            onClick={() => setActiveTab("testimonials")}
-            style={{ cursor: "pointer" }}
-          >
-            <span className={styles.statLabel}>Testimonials</span>
-            <span className={styles.statValue}>{testimonials.length}</span>
           </div>
         </section>
 
@@ -631,6 +688,8 @@ export default function DashboardClient({
                         <th>First Name</th>
                         <th>Contact</th>
                         <th>Email</th>
+                        <th>Source</th>
+                        <th>Page / Ad URL</th>
                         <th>Company</th>
                         <th>Job Title</th>
                         <th>Services</th>
@@ -657,9 +716,40 @@ export default function DashboardClient({
                           </td>
                           <td>{sub.contact || sub.phone || "-"}</td>
                           <td>
-                            <a href={`mailto:${sub.email}`} style={{ color: "#ffde11", textDecoration: "underline" }}>
-                              {sub.email}
-                            </a>
+                            {sub.email && sub.email !== "-" ? (
+                              <a href={`mailto:${sub.email}`} style={{ color: "#ffde11", textDecoration: "underline" }}>
+                                {sub.email}
+                              </a>
+                            ) : (
+                              "-"
+                            )}
+                          </td>
+                          <td>
+                            {sub.source ? (
+                              <span style={{
+                                background: "rgba(37, 211, 102, 0.12)",
+                                border: "1px solid rgba(37, 211, 102, 0.25)",
+                                color: "#25D366",
+                                padding: "4px 8px",
+                                borderRadius: "6px",
+                                fontSize: "12px",
+                                whiteSpace: "nowrap"
+                              }}>
+                                {sub.source}
+                              </span>
+                            ) : "-"}
+                          </td>
+                          <td style={{ maxWidth: "250px", wordBreak: "break-all" }}>
+                            {sub.pageUrl ? (
+                              <a
+                                href={sub.pageUrl.startsWith("http") ? sub.pageUrl : `https://${sub.pageUrl}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "#1dbb99", textDecoration: "underline", fontSize: "12px" }}
+                              >
+                                {sub.pageUrl}
+                              </a>
+                            ) : "-"}
                           </td>
                           <td>{sub.company ? <span className={styles.companyTag}>{sub.company}</span> : "-"}</td>
                           <td>{sub.jobTitle || "-"}</td>
@@ -682,6 +772,108 @@ export default function DashboardClient({
                   </table>
                 ) : (
                   <div className={styles.noData}>No submissions found.</div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "whatsappLeads" && (
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "25px", flexWrap: "wrap", gap: "15px" }}>
+                <h2 className={styles.cardTitle} style={{ margin: 0, border: "none", padding: 0 }}>
+                  WhatsApp Leads ({filteredWhatsappLeads.length})
+                </h2>
+                <input
+                  type="text"
+                  placeholder="Search WhatsApp leads..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{
+                    padding: "10px 15px",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: "8px",
+                    color: "white",
+                    width: "250px",
+                  }}
+                />
+              </div>
+
+              <div className={styles.horizontalScrollWrapper}>
+                {filteredWhatsappLeads.length > 0 ? (
+                  <table className={`${styles.table} ${styles.horizontalScrollTable}`}>
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Source</th>
+                        <th>Page / Ad URL</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredWhatsappLeads.map((lead) => (
+                        <tr key={lead._id}>
+                          <td style={{ whiteSpace: "nowrap", color: "#888" }}>
+                            {lead.createdAt ? new Date(lead.createdAt).toLocaleDateString(undefined, {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            }) : "N/A"}
+                          </td>
+                          <td style={{ fontWeight: "bold", color: "#25D366" }}>
+                            {lead.name || "-"}
+                          </td>
+                          <td>
+                            {lead.phone ? (
+                              <a href={`tel:${lead.phone}`} style={{ color: "#ffffff", textDecoration: "underline" }}>
+                                {lead.phone}
+                              </a>
+                            ) : "-"}
+                          </td>
+                          <td>
+                            {lead.source ? (
+                              <span style={{
+                                background: "rgba(37, 211, 102, 0.12)",
+                                border: "1px solid rgba(37, 211, 102, 0.25)",
+                                color: "#25D366",
+                                padding: "4px 8px",
+                                borderRadius: "6px",
+                                fontSize: "12px",
+                                whiteSpace: "nowrap"
+                              }}>
+                                {lead.source}
+                              </span>
+                            ) : "-"}
+                          </td>
+                          <td style={{ maxWidth: "280px", wordBreak: "break-all" }}>
+                            {lead.pageUrl ? (
+                              <a
+                                href={lead.pageUrl.startsWith("http") ? lead.pageUrl : `https://${lead.pageUrl}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "#1dbb99", textDecoration: "underline", fontSize: "12px" }}
+                              >
+                                {lead.pageUrl}
+                              </a>
+                            ) : "-"}
+                          </td>
+                          <td>
+                            <button
+                              className={styles.deleteBtn}
+                              disabled={deletingId === lead._id}
+                              onClick={() => handleDeleteWhatsAppLead(lead._id)}
+                            >
+                              {deletingId === lead._id ? "Deleting..." : "Delete"}
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <div className={styles.noData}>No WhatsApp leads found.</div>
                 )}
               </div>
             </div>

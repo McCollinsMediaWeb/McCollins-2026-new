@@ -81,7 +81,7 @@ export default async function AdminDashboardPage() {
     .find({})
     .sort({ createdAt: -1 })
     .toArray();
-  const submissions = submissionsData.map((sub) => ({
+  const formSubmissions = submissionsData.map((sub) => ({
     _id: sub._id.toString(),
     name: sub.name || "",
     firstName: sub.firstName || "",
@@ -94,14 +94,47 @@ export default async function AdminDashboardPage() {
     services: sub.services || "",
     message: sub.message || "",
     text: sub.text || "",
+    pageUrl: sub.pageUrl || sub.page || "",
+    source: sub.source || "",
     date: sub.date ? new Date(sub.date).toISOString() : undefined,
     createdAt: sub.createdAt ? new Date(sub.createdAt).toISOString() : undefined,
   }));
 
-  // Sort submissions: latest first (checking both date and createdAt)
-  submissions.sort((a, b) => {
+  // Fetch WhatsApp leads collection
+  let whatsappLeads: any[] = [];
+  try {
+    const whatsappData = await db
+      .collection("whatsappLeads")
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+    whatsappLeads = whatsappData.map((lead) => ({
+      _id: lead._id.toString(),
+      name: lead.name || "",
+      firstName: lead.name || "",
+      email: "-",
+      contact: lead.phone || "",
+      phone: lead.phone || "",
+      services: "WhatsApp Lead",
+      pageUrl: lead.pageUrl || "",
+      source: lead.source || "WhatsApp Button",
+      createdAt: lead.createdAt ? new Date(lead.createdAt).toISOString() : undefined,
+    }));
+  } catch (err) {
+    console.error("Failed to fetch whatsappLeads:", err);
+  }
+
+  // Sort formSubmissions: latest first
+  formSubmissions.sort((a, b) => {
     const dateA = new Date(a.date || a.createdAt || 0).getTime();
     const dateB = new Date(b.date || b.createdAt || 0).getTime();
+    return dateB - dateA;
+  });
+
+  // Sort whatsappLeads: latest first
+  whatsappLeads.sort((a, b) => {
+    const dateA = new Date(a.createdAt || 0).getTime();
+    const dateB = new Date(b.createdAt || 0).getTime();
     return dateB - dateA;
   });
 
@@ -109,7 +142,8 @@ export default async function AdminDashboardPage() {
     blogsCount: blogs.length,
     portfolioCount: portfolios.length,
     testimonialsCount: testimonials.length,
-    submissionsCount: submissions.length,
+    submissionsCount: formSubmissions.length,
+    whatsappLeadsCount: whatsappLeads.length,
     categoriesCount: categories.length,
     metaTagsCount: metaTags.length,
   };
@@ -135,7 +169,8 @@ export default async function AdminDashboardPage() {
     <DashboardClient
       user={user}
       stats={stats}
-      submissions={submissions}
+      submissions={formSubmissions}
+      whatsappLeads={whatsappLeads}
       blogs={blogs}
       categories={categories}
       metaTags={metaTags}
