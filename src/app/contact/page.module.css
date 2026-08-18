@@ -110,6 +110,103 @@
   transform: translateY(20px);
 }
 
+.categoryButtons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.categoryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 10px 22px;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.categoryBtn.activeCategoryBtn {
+  background-color: #26262a;
+  border-color: #007cff;
+  box-shadow: 0 0 16px rgba(0, 124, 255, 0.25);
+}
+
+.categoryDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #007cff;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.categoryDot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 1px solid #007cff;
+  animation: pulse-ring 1.8s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+}
+
+.categoryBtnText {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  height: 1.2em;
+  line-height: 1.2em;
+  vertical-align: middle;
+}
+
+.categoryBtnTextInner {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.categoryBtnTextInner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #007cff;
+}
+
+.categoryBtn:hover {
+  background-color: #2c2c2e;
+  border-color: #007cff;
+  box-shadow: 0 0 16px rgba(0, 124, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.categoryBtn:hover .categoryBtnTextInner {
+  transform: translateY(-100%);
+}
+
+.categoryBtn:active {
+  transform: translateY(0);
+}
+
 .formTitle {
   font-family: var(--font-delight), sans-serif;
   font-size: clamp(24px, 3vw, 32px);

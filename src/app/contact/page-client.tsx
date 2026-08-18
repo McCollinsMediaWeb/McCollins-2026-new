@@ -8,6 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
+import CareersModal from "./CareersModal";
+import BusinessEnquiryModal from "./BusinessEnquiryModal";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -18,6 +20,9 @@ export default function ContactPage() {
   const [mounted, setMounted] = useState(false);
 
   const router = useRouter();
+  const [inquiryType, setInquiryType] = useState<"careers" | "business">("careers");
+  const [isCareersModalOpen, setIsCareersModalOpen] = useState(false);
+  const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -80,6 +85,7 @@ export default function ContactPage() {
           contact: contact,
           text: text,
           services: checkedItemsString,
+          inquiryType: inquiryType,
           page: "contact",
           pageUrl: currentUrl,
           source: detectedSource,
@@ -95,6 +101,7 @@ export default function ContactPage() {
       formData.append("Company", company);
       formData.append("Services", checkedItemsString);
       formData.append("jobTitle", jobTitle);
+      formData.append("InquiryType", inquiryType);
       formData.append("Message", text);
       formData.append("page", "contact");
       formData.append("pageUrl", currentUrl);
@@ -261,6 +268,38 @@ export default function ContactPage() {
         {/* Right Column: Form */}
         <div className={styles.formCol}>
           <div className={styles.formHeader}>
+            <div className={styles.categoryButtons}>
+              <button
+                type="button"
+                className={`${styles.categoryBtn}`}
+                onClick={() => {
+                  setInquiryType("careers");
+                  setIsCareersModalOpen(true);
+                }}
+              >
+                <span className={styles.categoryDot} />
+                <span className={styles.categoryBtnText}>
+                  <span className={styles.categoryBtnTextInner} data-text="CAREERS">
+                    CAREERS
+                  </span>
+                </span>
+              </button>
+              <button
+                type="button"
+                className={`${styles.categoryBtn}`}
+                onClick={() => {
+                  setInquiryType("business");
+                  setIsBusinessModalOpen(true);
+                }}
+              >
+                <span className={styles.categoryDot} />
+                <span className={styles.categoryBtnText}>
+                  <span className={styles.categoryBtnTextInner} data-text="BUSINESS ENQUIRY">
+                    BUSINESS ENQUIRY
+                  </span>
+                </span>
+              </button>
+            </div>
             <h2 className={styles.formTitle}>READY TO DO SOMETHING BIG?</h2>
             <p className={styles.formDesc}>
               Have an idea, project, or campaign you want to bring to life? Drop us a line, or visit our office in Dubai Media City.
@@ -454,6 +493,26 @@ export default function ContactPage() {
           <span className={styles.serviceBannerText}>OUR SERVICE</span>
         </Link>
       </section>
+
+      {/* Careers Modal */}
+      <CareersModal
+        isOpen={isCareersModalOpen}
+        onClose={() => setIsCareersModalOpen(false)}
+        onSuccess={() => {
+          setStatus("success");
+          setStatusMessage("Career application submitted successfully!");
+        }}
+      />
+
+      {/* Business Enquiry Modal */}
+      <BusinessEnquiryModal
+        isOpen={isBusinessModalOpen}
+        onClose={() => setIsBusinessModalOpen(false)}
+        onSuccess={() => {
+          setStatus("success");
+          setStatusMessage("Business enquiry submitted successfully!");
+        }}
+      />
 
     </div>
   );

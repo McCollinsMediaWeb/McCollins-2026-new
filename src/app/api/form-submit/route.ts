@@ -6,8 +6,8 @@ import { ObjectId } from 'mongodb'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    if (!body || !body.email || !(body.name || body.firstName)) {
-      return NextResponse.json({ error: 'Name and email are required fields' }, { status: 400 })
+    if (!body || !(body.name || body.firstName)) {
+      return NextResponse.json({ error: 'Name is a required field' }, { status: 400 })
     }
 
     const client = await clientPromise

@@ -22,6 +22,8 @@ interface Submission {
   createdAt?: string;
   pageUrl?: string;
   source?: string;
+  resumeUrl?: string;
+  inquiryType?: string;
 }
 
 interface PortfolioItem {
@@ -693,6 +695,7 @@ export default function DashboardClient({
                         <th>Company</th>
                         <th>Job Title</th>
                         <th>Services</th>
+                        <th>Resume / CV</th>
                         <th>How can we help you</th>
                         <th>Delete</th>
                       </tr>
@@ -727,9 +730,9 @@ export default function DashboardClient({
                           <td>
                             {sub.source ? (
                               <span style={{
-                                background: "rgba(37, 211, 102, 0.12)",
-                                border: "1px solid rgba(37, 211, 102, 0.25)",
-                                color: "#25D366",
+                                background: sub.source.includes("Careers") ? "rgba(37, 99, 235, 0.15)" : "rgba(37, 211, 102, 0.12)",
+                                border: sub.source.includes("Careers") ? "1px solid rgba(37, 99, 235, 0.3)" : "1px solid rgba(37, 211, 102, 0.25)",
+                                color: sub.source.includes("Careers") ? "#60a5fa" : "#25D366",
                                 padding: "4px 8px",
                                 borderRadius: "6px",
                                 fontSize: "12px",
@@ -754,6 +757,33 @@ export default function DashboardClient({
                           <td>{sub.company ? <span className={styles.companyTag}>{sub.company}</span> : "-"}</td>
                           <td>{sub.jobTitle || "-"}</td>
                           <td>{sub.services || "-"}</td>
+                          <td>
+                            {sub.resumeUrl ? (
+                              <a
+                                href={sub.resumeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: "5px",
+                                  background: "rgba(37, 99, 235, 0.15)",
+                                  border: "1px solid #2563eb",
+                                  color: "#60a5fa",
+                                  padding: "5px 12px",
+                                  borderRadius: "6px",
+                                  fontSize: "12px",
+                                  fontWeight: "600",
+                                  textDecoration: "none",
+                                  whiteSpace: "nowrap"
+                                }}
+                              >
+                                📄 View Resume
+                              </a>
+                            ) : (
+                              "-"
+                            )}
+                          </td>
                           <td style={{ minWidth: "300px", color: "#ccc", paddingRight: "25px" }}>
                             {sub.text || sub.message || "-"}
                           </td>

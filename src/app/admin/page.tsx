@@ -96,6 +96,8 @@ export default async function AdminDashboardPage() {
     text: sub.text || "",
     pageUrl: sub.pageUrl || sub.page || "",
     source: sub.source || "",
+    resumeUrl: sub.resumeUrl || sub.resume || "",
+    inquiryType: sub.inquiryType || "",
     date: sub.date ? new Date(sub.date).toISOString() : undefined,
     createdAt: sub.createdAt ? new Date(sub.createdAt).toISOString() : undefined,
   }));
