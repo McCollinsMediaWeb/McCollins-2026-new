@@ -48,6 +48,15 @@ export default function HeroSection() {
         "-=0.6"
       );
 
+    // Glass graphic entrance animation
+    gsap.from(".hero-anim-glass", {
+      scale: 0.88,
+      opacity: 0,
+      duration: 1.4,
+      delay: 0.3,
+      ease: "power3.out",
+    });
+
     // Form entrance animation
     gsap.from(".hero-anim-form", {
       y: 50,
@@ -58,10 +67,40 @@ export default function HeroSection() {
     });
   }, { scope: containerRef });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email) return;
-    setSubmitted(true);
+    if (!formData.fullName || !formData.email || isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const sheetUrl = "https://script.google.com/macros/s/AKfycby83cR9v5EyKUvMAGg1mjEqdgShMB1qwWRs4-YOQDwujB7ID224joonq_K6MqjUxvZr/exec";
+
+      if (sheetUrl) {
+        const payload = new FormData();
+        payload.append("FullName", formData.fullName.trim());
+        payload.append("Email", formData.email.trim());
+        payload.append("Phone", formData.phone.trim());
+        payload.append("Company", formData.company.trim());
+        payload.append("Service", formData.service || "Brand Development");
+        payload.append("Page", "Brand Development Dubai & Abu Dhabi");
+        payload.append("PageUrl", typeof window !== "undefined" ? window.location.href : "");
+        payload.append("SubmittedAt", new Date().toLocaleString());
+
+        await fetch(sheetUrl, {
+          method: "POST",
+          body: payload,
+          mode: "no-cors",
+        }).catch((err) => console.error("Sheet submit error:", err));
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -94,7 +133,7 @@ export default function HeroSection() {
         {/* Right Column */}
         <div className={styles.heroRight}>
           {/* Desaturated Glass Graphic Asset */}
-          <div className={styles.glassGraphicWrapper} ref={glassRef}>
+          <div className={`${styles.glassGraphicWrapper} hero-anim-glass`} ref={glassRef}>
             <Image
               src="/brand-development-dubai-and-abudhabi/glass-image.png"
               alt="Brand Glass Graphic"
@@ -177,8 +216,8 @@ export default function HeroSection() {
                     </select>
                   </div>
 
-                  <button type="submit" className={styles.submitBtn}>
-                    REQUEST MY STRATEGY CALL
+                  <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                    {isSubmitting ? "SUBMITTING..." : "REQUEST MY STRATEGY CALL"}
                   </button>
                 </form>
               </>
@@ -186,7 +225,7 @@ export default function HeroSection() {
               <div className={styles.successMessage}>
                 <h3 className={styles.successTitle}>Strategy Call Requested!</h3>
                 <p className={styles.successDesc}>
-                  Thank you, {formData.fullName}. Our brand directors in Dubai &amp; Abu Dhabi will contact you within 24 hours.
+                  Thank you, {formData.fullName}. Our team will contact you within 24 hours.
                 </p>
               </div>
             )}

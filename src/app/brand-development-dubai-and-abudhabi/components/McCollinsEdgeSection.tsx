@@ -48,7 +48,7 @@ export default function McCollinsEdgeSection() {
         {/* 3D Region Glass Map Image (appears below title on mobile) */}
         <div className={`${styles.edgeLeft} edge-anim-left`}>
           <Image
-            src="/brand-development-dubai-and-abudhabi/arab-market-image.jpg"
+            src="/brand-development-dubai-and-abudhabi/arab-market-image-2.jpg"
             alt="Built for the Arab Market"
             width={720}
             height={480}

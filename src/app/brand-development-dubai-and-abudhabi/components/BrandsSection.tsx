@@ -5,6 +5,11 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const BRAND_ROW_1 = [
     { src: "/home-page-brands/Toshiba_logo 1.webp", alt: "Toshiba" },
@@ -31,7 +36,19 @@ export default function BrandsSection() {
 
     useGSAP(
         () => {
-            // 1. Brands Horizontal Infinite Scroll
+            // Reveal section on scroll into view
+            gsap.from(containerRef.current, {
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 85%",
+                },
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                ease: "power3.out",
+            });
+
+            // Brands Horizontal Infinite Scroll
             gsap.to(".track-left", {
                 xPercent: -50,
                 ease: "none",
