@@ -25,8 +25,10 @@ export default function Header() {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  const isLandingPage = pathname === "/brand-development-dubai-and-abudhabi";
+
   return (
-    <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""} ${pathname === "/about" ? "about-theme" : ""} ${pathname.startsWith("/services") ? "services-theme" : ""} ${pathname === "/industry" ? "industry-theme" : ""}`}>
+    <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""} ${pathname === "/about" ? "about-theme" : ""} ${pathname.startsWith("/services") ? "services-theme" : ""} ${pathname === "/industry" ? "industry-theme" : ""} ${isLandingPage ? "landing-theme" : ""}`}>
       <div className="header-container">
         {/* Left: SVG Logo */}
         <Link href="/" className="logo-link" aria-label="McCollins Home">
@@ -77,43 +79,49 @@ export default function Header() {
           </svg>
         </Link>
 
-        {/* Center: Desktop Nav Links */}
-        <nav className="desktop-nav">
-          <Link href="/about" className="nav-link">
-            <span className="roll-text">
-              <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
-            </span>
-          </Link>
-          <Link href="/services" className="nav-link">
-            <span className="roll-text">
-              <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
-            </span>
-          </Link>
-          <Link href="/works" className="nav-link">
-            <span className="roll-text">
-              <span className="roll-text-inner" data-text="WORK">WORK</span>
-            </span>
-          </Link>
-          <Link href="/industry" className="nav-link">
-            <span className="roll-text">
-              <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
-            </span>
-          </Link>
-          {/* <Link href="/blog" className="nav-link">
-            <span className="roll-text">
-              <span className="roll-text-inner" data-text="BLOG">BLOG</span>
-            </span>
-          </Link> */}
-        </nav>
+        {/* Center: Desktop Nav Links (Hidden on landing page variant) */}
+        {!isLandingPage && (
+          <nav className="desktop-nav">
+            <Link href="/about" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
+              </span>
+            </Link>
+            <Link href="/services" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
+              </span>
+            </Link>
+            <Link href="/works" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="WORK">WORK</span>
+              </span>
+            </Link>
+            <Link href="/industry" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
+              </span>
+            </Link>
+          </nav>
+        )}
 
         {/* Right: CTA & Hamburger Menu */}
         <div className="header-actions">
-          <Link href="/contact" className="cta-button">
-            <span className="dot-indicator"></span>
-            <span className="cta-text">
-              <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
-            </span>
-          </Link>
+          {isLandingPage ? (
+            <Link href="#strategy-form" className="cta-button landing-cta">
+              <span className="dot-indicator"></span>
+              <span className="cta-text">
+                <span className="cta-text-inner" data-text="BOOK A STRATEGY CALL">BOOK A STRATEGY CALL</span>
+              </span>
+            </Link>
+          ) : (
+            <Link href="/contact" className="cta-button">
+              <span className="dot-indicator"></span>
+              <span className="cta-text">
+                <span className="cta-text-inner" data-text="LET'S TALK">LET'S TALK</span>
+              </span>
+            </Link>
+          )}
 
           <button
             className={`hamburger-menu ${isMobileMenuOpen ? "active" : ""}`}
