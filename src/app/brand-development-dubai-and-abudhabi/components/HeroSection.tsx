@@ -1,22 +1,53 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const SERVICE_OPTIONS = [
+  "Brand Development",
+  "Social Media",
+  "Google Ads",
+  "Web Design / Development",
+  "Performance Marketing",
+  "SEO",
+  "Marketing Automation",
+  "Content Production",
+];
+
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const [submitted, setSubmitted] = useState(false);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     company: "",
-    service: "",
   });
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleService = (service: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(service) ? prev.filter((s) => s !== service) : [...prev, service]
+    );
+  };
 
   useGSAP(() => {
     // Left text stagger reveal
@@ -84,7 +115,10 @@ export default function HeroSection() {
         payload.append("Email", formData.email.trim());
         payload.append("Phone", formData.phone.trim());
         payload.append("Company", formData.company.trim());
-        payload.append("Service", formData.service || "Brand Development");
+        payload.append(
+          "Service",
+          selectedServices.length > 0 ? selectedServices.join(", ") : "Brand Development"
+        );
         payload.append("Page", "Brand Development Dubai & Abu Dhabi");
         payload.append("PageUrl", typeof window !== "undefined" ? window.location.href : "");
         payload.append("SubmittedAt", new Date().toLocaleString());
@@ -126,7 +160,7 @@ export default function HeroSection() {
           </h1>
 
           <p className={`${styles.heroSubtitle} hero-anim-subtitle`}>
-            Positioning, identity systems and visual languages built with 15+ years of regional expertise — for businesses that want to stand out, scale and stay memorable across the GCC.
+            Positioning, identity systems and visual languages built with 15+ years of regional expertise - for businesses that want to stand out, scale and stay memorable across the GCC.
           </p>
         </div>
 
@@ -151,7 +185,7 @@ export default function HeroSection() {
                 <div className={styles.formHeader}>
                   <h2 className={styles.formTitle}>Start your brand project</h2>
                   <p className={styles.formSubtitle}>
-                    Tell us about your business — we&apos;ll come back with a tailored approach within 24 hours.
+                    Tell us about your business - we&apos;ll come back with a tailored approach within 24 hours.
                   </p>
                 </div>
 
@@ -198,22 +232,99 @@ export default function HeroSection() {
                     />
                   </div>
 
-                  <div className={styles.inputGroup}>
-                    <select
-                      className={`${styles.input} ${styles.select}`}
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    >
-                      <option value="">Select service required</option>
-                      <option value="Brand Development">Brand Development</option>
-                      <option value="Social Media">Social Media</option>
-                      <option value="Google Ads">Google Ads</option>
-                      <option value="Web Design / Development">Web Design / Development</option>
-                      <option value="Performance Marketing">Performance Marketing</option>
-                      <option value="SEO">SEO</option>
-                      <option value="Marketing Automation">Marketing Automation</option>
-                      <option value="Content Production">Content Production</option>
-                    </select>
+                  <div className={styles.inputGroup} ref={dropdownRef}>
+                    <div className={styles.multiSelectWrapper}>
+                      <button
+                        type="button"
+                        className={`${styles.multiSelectTrigger} ${isDropdownOpen ? styles.multiSelectTriggerOpen : ""}`}
+                        onClick={() => setIsDropdownOpen((prev) => !prev)}
+                        aria-haspopup="listbox"
+                        aria-expanded={isDropdownOpen}
+                      >
+                        <div className={styles.multiSelectDisplay}>
+                          {selectedServices.length === 0 ? (
+                            <span className={styles.multiSelectPlaceholder}>
+                              Select service(s) required
+                            </span>
+                          ) : (
+                            <>
+                              <span
+                                className={styles.multiSelectValue}
+                                title={selectedServices.join(", ")}
+                              >
+                                {selectedServices.join(", ")}
+                              </span>
+                              {selectedServices.length > 1 && (
+                                <span className={styles.multiSelectBadge}>
+                                  {selectedServices.length}
+                                </span>
+                              )}
+                            </>
+                          )}
+                        </div>
+                        <svg
+                          className={`${styles.multiSelectArrow} ${isDropdownOpen ? styles.multiSelectArrowOpen : ""}`}
+                          viewBox="0 0 12 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1 1.5L6 6.5L11 1.5"
+                            stroke="#8E8E93"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+
+                      {isDropdownOpen && (
+                        <div
+                          className={styles.multiSelectMenu}
+                          role="listbox"
+                          data-lenis-prevent="true"
+                          onWheel={(e) => e.stopPropagation()}
+                          onTouchMove={(e) => e.stopPropagation()}
+                        >
+                          {SERVICE_OPTIONS.map((service) => {
+                            const isSelected = selectedServices.includes(service);
+                            return (
+                              <div
+                                key={service}
+                                className={`${styles.multiSelectItem} ${isSelected ? styles.multiSelectItemActive : ""}`}
+                                onClick={() => toggleService(service)}
+                                role="option"
+                                aria-selected={isSelected}
+                              >
+                                <div
+                                  className={`${styles.customCheckbox} ${isSelected ? styles.customCheckboxChecked : ""}`}
+                                >
+                                  {isSelected && (
+                                    <svg
+                                      className={styles.customCheckboxCheckmark}
+                                      width="10"
+                                      height="8"
+                                      viewBox="0 0 10 8"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M1 4L3.5 6.5L9 1"
+                                        stroke="white"
+                                        strokeWidth="1.8"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
+                                <span>{service}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>

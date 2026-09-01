@@ -66,7 +66,7 @@ export default function McCollinsEdgeSection() {
             </h2>
           </div>
           <p className={styles.edgeSubtitle}>
-            We understand the cultural cues, generational dynamics and bilingual nuance that make a brand feel trusted here — from heritage-conscious audiences to Gen Z digital natives across the GCC.
+            We understand the cultural cues, generational dynamics and bilingual nuance that make a brand feel trusted here - from heritage-conscious audiences to Gen Z digital natives across the GCC.
           </p>
           <ul className={styles.edgeList}>
             <li>
