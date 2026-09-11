@@ -107,6 +107,27 @@ export default function HeroSection() {
     setIsSubmitting(true);
 
     try {
+      const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+      const apiResponse = await fetch("/api/form-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.fullName.trim(),
+          firstName: formData.fullName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          company: formData.company.trim(),
+          services: selectedServices.length > 0 ? selectedServices.join(", ") : "Brand Development",
+          page: "Brand Development Dubai & Abu Dhabi",
+          pageUrl: currentUrl,
+          source: "Brand Development landing page",
+        }),
+      });
+
+      if (!apiResponse.ok) {
+        throw new Error("Unable to submit the form. Please try again.");
+      }
+
       const sheetUrl = "https://script.google.com/macros/s/AKfycby83cR9v5EyKUvMAGg1mjEqdgShMB1qwWRs4-YOQDwujB7ID224joonq_K6MqjUxvZr/exec";
 
       if (sheetUrl) {
@@ -120,7 +141,7 @@ export default function HeroSection() {
           selectedServices.length > 0 ? selectedServices.join(", ") : "Brand Development"
         );
         payload.append("Page", "Brand Development Dubai & Abu Dhabi");
-        payload.append("PageUrl", typeof window !== "undefined" ? window.location.href : "");
+        payload.append("PageUrl", currentUrl);
         payload.append("SubmittedAt", new Date().toLocaleString());
 
         await fetch(sheetUrl, {

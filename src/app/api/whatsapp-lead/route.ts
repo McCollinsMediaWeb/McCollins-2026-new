@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
+import { splitFullName, submitToHubSpot } from '@/lib/hubspot';
+import { ObjectId } from 'mongodb';
 
 export async function POST(req: NextRequest) {
   try {
@@ -25,6 +27,24 @@ export async function POST(req: NextRequest) {
     const client = await clientPromise;
     const db = client.db('MccollinsMedia');
     const result = await db.collection('whatsappLeads').insertOne(leadData);
+
+    const { firstname, lastname } = splitFullName(leadData.name);
+    let hubspotSubmitted = false;
+    try {
+      const hubspotResult = await submitToHubSpot(req, {
+        kind: 'whatsapp',
+        fields: [
+          { name: 'firstname', value: firstname },
+          { name: 'lastname', value: lastname },
+          { name: 'phone', value: leadData.phone },
+        ],
+        pageName: leadData.source,
+        pageUri: leadData.pageUrl,
+      });
+      hubspotSubmitted = hubspotResult.submitted;
+    } catch (err) {
+      console.error('HubSpot WhatsApp lead sync error:', err);
+    }
 
     // 2. Forward to Google Sheets Webhook URL if configured
     const webhookUrl =
@@ -58,11 +78,12 @@ export async function POST(req: NextRequest) {
       success: true,
       message: 'WhatsApp lead recorded successfully',
       id: result.insertedId,
+      hubspotSubmitted,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('WhatsApp Lead API error:', error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: error instanceof Error ? error.message : 'Internal server error' },
       { status: 500 }
     );
   }
@@ -75,7 +96,6 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: 'Lead ID is required' }, { status: 400 });
     }
 
-    const { ObjectId } = require('mongodb');
     const client = await clientPromise;
     const db = client.db('MccollinsMedia');
 
@@ -86,8 +106,8 @@ export async function DELETE(req: NextRequest) {
     }
 
     return NextResponse.json({ success: true, message: 'WhatsApp lead deleted successfully' });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Delete WhatsApp lead API error:', error);
-    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal server error' }, { status: 500 });
   }
 }

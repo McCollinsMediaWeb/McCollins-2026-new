@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Script from "next/script";
+import { getHubSpotPortalId } from "@/lib/hubspot";
 
 const delight = localFont({
   src: [
@@ -83,6 +84,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hubSpotPortalId = getHubSpotPortalId();
+
   return (
     <html lang="en" className={`${delight.variable} ${playfairDisplay.variable}`}>
       <body>
@@ -111,6 +114,13 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
         <WhatsAppBubble />
+        {hubSpotPortalId ? (
+          <Script
+            id="hs-script-loader"
+            src={`https://js.hs-scripts.com/${hubSpotPortalId}.js`}
+            strategy="afterInteractive"
+          />
+        ) : null}
       </body>
     </html>
   );

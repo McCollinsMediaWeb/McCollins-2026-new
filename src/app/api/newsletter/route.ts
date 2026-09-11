@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
+import { submitToHubSpot } from '@/lib/hubspot';
 
 export async function POST(req: NextRequest) {
   try {
@@ -25,6 +26,19 @@ export async function POST(req: NextRequest) {
 
     await db.collection('newsletterSubscribers').insertOne(subscriber);
 
+    let hubspotSubmitted = false;
+    try {
+      const hubspotResult = await submitToHubSpot(req, {
+        kind: 'newsletter',
+        fields: [{ name: 'email', value: subscriber.email }],
+        pageName: 'Website newsletter signup',
+        pageUri: req.headers.get('referer') || '',
+      });
+      hubspotSubmitted = hubspotResult.submitted;
+    } catch (err) {
+      console.error('HubSpot newsletter sync error:', err);
+    }
+
     // 2. Forward to Google Sheets Webhook URL from environment variables
     const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
     if (webhookUrl) {
@@ -46,9 +60,9 @@ export async function POST(req: NextRequest) {
       console.warn('GOOGLE_SHEET_WEBHOOK_URL environment variable is not defined.');
     }
 
-    return NextResponse.json({ success: true, message: 'Subscribed successfully' });
-  } catch (error: any) {
+    return NextResponse.json({ success: true, message: 'Subscribed successfully', hubspotSubmitted });
+  } catch (error: unknown) {
     console.error('Newsletter API error:', error);
-    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal server error' }, { status: 500 });
   }
 }
