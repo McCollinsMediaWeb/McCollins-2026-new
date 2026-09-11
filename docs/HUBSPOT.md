@@ -8,7 +8,7 @@ Create three regular forms in HubSpot with these fields and standard internal na
 
 - Contact: `firstname`, `lastname`, `email`, `phone`, `company`, `jobtitle`, `message`, `service_interested`
 - Newsletter: `email`
-- WhatsApp: `firstname`, `lastname`, `phone`
+- WhatsApp: `firstname`, `lastname`, `phone` (or `whatsapp_lead_phone_number` / `phone_number_whatsapp`)
 
 Labels may differ, but the internal names must match. Configure consent/GDPR fields and workflows in HubSpot as required for your account and jurisdiction.
 
