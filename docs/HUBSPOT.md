@@ -6,7 +6,7 @@ The website supports HubSpot visitor tracking and server-side lead submission wh
 
 Create three regular forms in HubSpot with these fields and standard internal names:
 
-- Contact: `firstname`, `lastname`, `email`, `phone`, `company`, `jobtitle`, `message`
+- Contact: `firstname`, `lastname`, `email`, `phone`, `company`, `jobtitle`, `message`, `service_interested`
 - Newsletter: `email`
 - WhatsApp: `firstname`, `lastname`, `phone`
 

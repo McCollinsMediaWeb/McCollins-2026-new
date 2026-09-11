@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
           { name: 'company', value: String(body.company || '') },
           { name: 'jobtitle', value: String(body.jobTitle || '') },
           { name: 'message', value: String(body.text || body.message || '') },
+          { name: 'service_interested', value: String(body.services || '') },
         ],
         pageName: String(body.source || body.page || 'Website contact form'),
         pageUri: String(body.pageUrl || ''),
