@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
 import { splitFullName, submitToHubSpot } from '@/lib/hubspot';
 import { ObjectId } from 'mongodb';
 
@@ -23,10 +22,18 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     };
 
-    // 1. Insert into MongoDB collection 'whatsappLeads'
-    const client = await clientPromise;
-    const db = client.db('MccollinsMedia');
-    const result = await db.collection('whatsappLeads').insertOne(leadData);
+    let insertedId: ObjectId | undefined;
+    if (process.env.MONGODB_URI) {
+      try {
+        const { default: clientPromise } = await import('@/lib/mongodb');
+        const client = await clientPromise;
+        const db = client.db('MccollinsMedia');
+        const result = await db.collection('whatsappLeads').insertOne(leadData);
+        insertedId = result.insertedId;
+      } catch (err) {
+        console.error('MongoDB WhatsApp lead storage error:', err);
+      }
+    }
 
     const { firstname, lastname } = splitFullName(leadData.name);
     let hubspotSubmitted = false;
@@ -77,7 +84,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'WhatsApp lead recorded successfully',
-      id: result.insertedId,
+      id: insertedId,
       hubspotSubmitted,
     });
   } catch (error: unknown) {
@@ -96,6 +103,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: 'Lead ID is required' }, { status: 400 });
     }
 
+    const { default: clientPromise } = await import('@/lib/mongodb');
     const client = await clientPromise;
     const db = client.db('MccollinsMedia');
 

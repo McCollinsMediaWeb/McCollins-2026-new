@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongodb'
 import { getSession } from '@/lib/auth'
 import { ObjectId } from 'mongodb'
 import { splitFullName, submitToHubSpot } from '@/lib/hubspot'
@@ -11,15 +10,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name is a required field' }, { status: 400 })
     }
 
-    const client = await clientPromise
-    const db = client.db('MccollinsMedia')
-
     const submission = {
       ...body,
       createdAt: new Date()
     }
 
-    const result = await db.collection('formSubmit').insertOne(submission)
+    let insertedId: ObjectId | undefined
+    if (process.env.MONGODB_URI) {
+      try {
+        const { default: clientPromise } = await import('@/lib/mongodb')
+        const client = await clientPromise
+        const db = client.db('MccollinsMedia')
+        const result = await db.collection('formSubmit').insertOne(submission)
+        insertedId = result.insertedId
+      } catch (error) {
+        console.error('MongoDB form storage error:', error)
+      }
+    }
 
     const { firstname, lastname } = splitFullName(String(body.firstName || body.name || ''))
     let hubspotSubmitted = false
@@ -44,7 +51,7 @@ export async function POST(req: NextRequest) {
       console.error('HubSpot contact sync error:', error)
     }
 
-    return NextResponse.json({ success: true, message: 'Form submitted successfully', id: result.insertedId, hubspotSubmitted })
+    return NextResponse.json({ success: true, message: 'Form submitted successfully', id: insertedId, hubspotSubmitted })
   } catch (error: unknown) {
     console.error('Form submit API error:', error)
     return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal server error' }, { status: 500 })
@@ -63,6 +70,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: 'Submission ID is required' }, { status: 400 })
     }
 
+    const { default: clientPromise } = await import('@/lib/mongodb')
     const client = await clientPromise
     const db = client.db('MccollinsMedia')
 

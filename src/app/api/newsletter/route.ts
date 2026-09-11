@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
 import { submitToHubSpot } from '@/lib/hubspot';
 
 export async function POST(req: NextRequest) {
@@ -15,16 +14,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Please enter a valid email address' }, { status: 400 });
     }
 
-    // 1. Persist locally to MongoDB
-    const client = await clientPromise;
-    const db = client.db('MccollinsMedia');
-
     const subscriber = {
       email: body.email.toLowerCase().trim(),
       createdAt: new Date()
     };
 
-    await db.collection('newsletterSubscribers').insertOne(subscriber);
+    if (process.env.MONGODB_URI) {
+      try {
+        const { default: clientPromise } = await import('@/lib/mongodb');
+        const client = await clientPromise;
+        const db = client.db('MccollinsMedia');
+        await db.collection('newsletterSubscribers').insertOne(subscriber);
+      } catch (err) {
+        console.error('MongoDB newsletter storage error:', err);
+      }
+    }
 
     let hubspotSubmitted = false;
     try {
