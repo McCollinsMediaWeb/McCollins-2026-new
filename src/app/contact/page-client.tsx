@@ -306,10 +306,11 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form className={styles.contactForm} onSubmit={handleSubmit}>
+          <form id="your-form-id" className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
               <input
                 type="text"
+                name="firstname"
                 className={styles.formInput}
                 placeholder="Name"
                 value={firstName}
@@ -321,6 +322,7 @@ export default function ContactPage() {
             <div className={styles.inputGroup}>
               <input
                 type="text"
+                name="jobtitle"
                 className={styles.formInput}
                 placeholder="Job Title"
                 value={jobTitle}
@@ -331,6 +333,7 @@ export default function ContactPage() {
             <div className={styles.inputGroup}>
               <input
                 type="text"
+                name="company"
                 className={styles.formInput}
                 placeholder="Company"
                 value={company}
@@ -341,6 +344,7 @@ export default function ContactPage() {
             <div className={styles.inputGroup}>
               <input
                 type="email"
+                name="email"
                 className={styles.formInput}
                 placeholder="Email"
                 value={email}
@@ -352,6 +356,7 @@ export default function ContactPage() {
             <div className={styles.inputGroup}>
               <input
                 type="text"
+                name="phone"
                 className={styles.formInput}
                 placeholder="Phone"
                 value={contact}
@@ -361,6 +366,8 @@ export default function ContactPage() {
             </div>
 
             {/* Services Interested Multiple Selector Grid */}
+            <input type="hidden" name="lastname" value="" />
+            <input type="hidden" name="service" value={checkedItems.join(", ")} />
             <div className={`${styles.inputGroup} ${styles.servicesGroup}`}>
               <span className={styles.servicesTitle}>Service Interested</span>
               <div className={styles.servicesGrid}>
