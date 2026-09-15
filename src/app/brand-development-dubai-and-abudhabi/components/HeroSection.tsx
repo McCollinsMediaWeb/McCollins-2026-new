@@ -17,7 +17,11 @@ const SERVICE_OPTIONS = [
   "Content Production",
 ];
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  bookingUrl?: string;
+};
+
+export default function HeroSection({ bookingUrl }: HeroSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -201,7 +205,30 @@ export default function HeroSection() {
 
           {/* Form Card */}
           <div className={`${styles.formCard} hero-anim-form`} id="strategy-form">
-            {!submitted ? (
+            {bookingUrl ? (
+              <div className={styles.bookingContent}>
+                <div className={styles.formHeader}>
+                  <h2 className={styles.formTitle}>Book your brand strategy call</h2>
+                  <p className={styles.formSubtitle}>
+                    Choose a convenient time to speak with our team about your brand, goals and next stage of growth.
+                  </p>
+                </div>
+
+                <a
+                  href={bookingUrl}
+                  className={`${styles.submitBtn} ${styles.bookingButton}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  BOOK A STRATEGY CALL
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+                <p className={styles.bookingNote}>
+                  You&apos;ll be taken to Google Calendar to select an available time.
+                </p>
+              </div>
+            ) : !submitted ? (
               <>
                 <div className={styles.formHeader}>
                   <h2 className={styles.formTitle}>Start your brand project</h2>
