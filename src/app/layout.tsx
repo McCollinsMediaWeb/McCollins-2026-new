@@ -121,20 +121,6 @@ export default function RootLayout({
             strategy="afterInteractive"
           />
         ) : null}
-        <Script id="make-contact-webhook" strategy="afterInteractive">
-          {`
-            document.querySelector('#your-form-id').addEventListener('submit', function () {
-              var f = this, g = function (n) { var el = f.querySelector('[name="' + n + '"]'); return el ? el.value : ''; };
-              navigator.sendBeacon(
-                "https://hook.eu1.make.com/usozfxfmwb6y35v0ss4jw5goebu9ghm4",
-                new Blob([JSON.stringify({
-                  email: g('email'), firstname: g('firstname'), lastname: g('lastname'),
-                  company: g('company'), phone: g('phone'), service: g('service')
-                })], { type: 'application/json' })
-              );
-            });
-          `}
-        </Script>
       </body>
     </html>
   );

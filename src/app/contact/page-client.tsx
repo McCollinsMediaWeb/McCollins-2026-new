@@ -306,7 +306,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form id="your-form-id" className={styles.contactForm} onSubmit={handleSubmit}>
+          <form id="contact-form" className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
               <input
                 type="text"
@@ -396,6 +396,7 @@ export default function ContactPage() {
 
             <div className={styles.inputGroup}>
               <textarea
+                name="message"
                 className={styles.formInput}
                 placeholder="Message"
                 rows={3}

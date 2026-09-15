@@ -51,6 +51,28 @@ export async function POST(req: NextRequest) {
       console.error('HubSpot contact sync error:', error)
     }
 
+    // Forward to Make.com webhook
+    try {
+      await fetch("https://hook.eu1.make.com/usozfxfmwb6y35v0ss4jw5goebu9ghm4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: String(body.email || ''),
+          firstname: firstname,
+          lastname: lastname,
+          company: String(body.company || ''),
+          phone: String(body.contact || body.phone || ''),
+          service: String(body.services || ''),
+          jobtitle: String(body.jobTitle || ''),
+          message: String(body.text || body.message || ''),
+          source: String(body.source || body.page || 'Contact Page'),
+          pageUrl: String(body.pageUrl || ''),
+        }),
+      })
+    } catch (makeError) {
+      console.error('Make.com webhook sync error:', makeError)
+    }
+
     return NextResponse.json({ success: true, message: 'Form submitted successfully', id: insertedId, hubspotSubmitted })
   } catch (error: unknown) {
     console.error('Form submit API error:', error)
