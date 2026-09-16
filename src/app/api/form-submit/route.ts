@@ -29,26 +29,29 @@ export async function POST(req: NextRequest) {
     }
 
     const { firstname, lastname } = splitFullName(String(body.firstName || body.name || ''))
+    const isCareerApplication = String(body.inquiryType || '').toLowerCase() === 'careers'
     let hubspotSubmitted = false
-    try {
-      const hubspotResult = await submitToHubSpot(req, {
-        kind: 'contact',
-        fields: [
-          { name: 'firstname', value: firstname },
-          { name: 'lastname', value: lastname },
-          { name: 'email', value: String(body.email || '') },
-          { name: 'phone', value: String(body.contact || body.phone || '') },
-          { name: 'company', value: String(body.company || '') },
-          { name: 'jobtitle', value: String(body.jobTitle || '') },
-          { name: 'message', value: String(body.text || body.message || '') },
-          { name: 'service_interested', value: String(body.services || '') },
-        ],
-        pageName: String(body.source || body.page || 'Website contact form'),
-        pageUri: String(body.pageUrl || ''),
-      })
-      hubspotSubmitted = hubspotResult.submitted
-    } catch (error) {
-      console.error('HubSpot contact sync error:', error)
+    if (!isCareerApplication) {
+      try {
+        const hubspotResult = await submitToHubSpot(req, {
+          kind: 'contact',
+          fields: [
+            { name: 'firstname', value: firstname },
+            { name: 'lastname', value: lastname },
+            { name: 'email', value: String(body.email || '') },
+            { name: 'phone', value: String(body.contact || body.phone || '') },
+            { name: 'company', value: String(body.company || '') },
+            { name: 'jobtitle', value: String(body.jobTitle || '') },
+            { name: 'message', value: String(body.text || body.message || '') },
+            { name: 'service_interested', value: String(body.services || '') },
+          ],
+          pageName: String(body.source || body.page || 'Website contact form'),
+          pageUri: String(body.pageUrl || ''),
+        })
+        hubspotSubmitted = hubspotResult.submitted
+      } catch (error) {
+        console.error('HubSpot contact sync error:', error)
+      }
     }
 
     // Forward to Make.com webhook

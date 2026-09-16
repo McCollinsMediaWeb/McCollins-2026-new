@@ -9,7 +9,13 @@ export default function WhatsAppBubble() {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
+  const hiddenRoutes = [
+    "/brand-development-dubai-and-abudhabi",
+    "/brand-development-dubai-and-abudhabi-book-now",
+    "/mccollins-brazil-proposal",
+  ];
+
+  if (hiddenRoutes.includes(pathname) || pathname.startsWith("/admin")) return null;
   const phoneNumber = "971559564135";
   const message = "I would like to know more about McCollins Media";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -57,4 +63,3 @@ export default function WhatsAppBubble() {
     </>
   );
 }
-
