@@ -17,6 +17,7 @@ export default function BusinessEnquiryModal({
   const [fullName, setFullName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -32,6 +33,7 @@ export default function BusinessEnquiryModal({
     setFullName("");
     setCompanyName("");
     setEmail("");
+    setPhone("");
     setMessage("");
     onClose();
   };
@@ -51,6 +53,11 @@ export default function BusinessEnquiryModal({
       return;
     }
 
+    if (!phone.trim()) {
+      setError("Please enter your phone / mobile number.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -65,6 +72,8 @@ export default function BusinessEnquiryModal({
           firstName: fullName.trim(),
           company: companyName.trim(),
           email: email.trim(),
+          phone: phone.trim(),
+          contact: phone.trim(),
           text: message.trim(),
           message: message.trim(),
           inquiryType: "Business Enquiry",
@@ -87,6 +96,8 @@ export default function BusinessEnquiryModal({
         formData.append("Firstname", fullName.trim());
         formData.append("Company", companyName.trim());
         formData.append("Email", email.trim());
+        formData.append("Phone", phone.trim());
+        formData.append("Contact", phone.trim());
         formData.append("Message", message.trim());
         formData.append("Services", "Business Enquiry");
         formData.append("page", "contact");
@@ -194,6 +205,18 @@ export default function BusinessEnquiryModal({
                   placeholder="e.g. jane@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label}>Phone Number</label>
+                <input
+                  type="tel"
+                  className={styles.input}
+                  placeholder="e.g. +971 50 123 4567"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   required
                 />
               </div>

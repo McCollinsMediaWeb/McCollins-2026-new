@@ -13,6 +13,7 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -29,6 +30,7 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
     setFirstName("");
     setLastName("");
     setEmail("");
+    setPhone("");
     setFile(null);
     onClose();
   };
@@ -67,6 +69,11 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
       return;
     }
 
+    if (!phone.trim()) {
+      setError("Please enter your phone / mobile number.");
+      return;
+    }
+
     if (!file) {
       setError("Please upload your CV / Resume.");
       return;
@@ -102,6 +109,8 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
           lastName: lastName.trim(),
           name: fullName,
           email: email.trim(),
+          phone: phone.trim(),
+          contact: phone.trim(),
           resumeUrl: resumeUrl,
           inquiryType: "Careers",
           services: "Career Application",
@@ -123,6 +132,8 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
         formData.append("Firstname", firstName.trim());
         formData.append("Lastname", lastName.trim());
         formData.append("Email", email.trim());
+        formData.append("Phone", phone.trim());
+        formData.append("Contact", phone.trim());
         formData.append("ResumeUrl", resumeUrl);
         formData.append("Services", "Career Application");
         formData.append("page", "contact");
@@ -217,16 +228,29 @@ export default function CareersModal({ isOpen, onClose, onSuccess }: CareersModa
                 </div>
               </div>
 
-              <div className={styles.field} style={{ marginTop: "16px", marginBottom: "20px" }}>
-                <label className={styles.label}>Email Address</label>
-                <input
-                  type="email"
-                  className={styles.input}
-                  placeholder="e.g. jane.doe@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
+              <div className={styles.formGroupRow} style={{ marginTop: "16px", marginBottom: "20px" }}>
+                <div className={styles.field} style={{ marginBottom: 0 }}>
+                  <label className={styles.label}>Email Address</label>
+                  <input
+                    type="email"
+                    className={styles.input}
+                    placeholder="e.g. jane.doe@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.field} style={{ marginBottom: 0 }}>
+                  <label className={styles.label}>Phone Number</label>
+                  <input
+                    type="tel"
+                    className={styles.input}
+                    placeholder="e.g. +971 50 123 4567"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
+                </div>
               </div>
 
               <div className={styles.field} style={{ marginTop: "16px" }}>
