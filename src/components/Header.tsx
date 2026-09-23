@@ -26,6 +26,66 @@ export default function Header() {
   };
 
   const isLandingPage = pathname === "/brand-development-dubai-and-abudhabi";
+  const isCodeHtmlLanding = pathname === "/social-media-and-website-development";
+
+  if (isCodeHtmlLanding) {
+    return (
+      <header className="landing-code-header">
+        <div className="landing-code-container">
+          <Link href="/" className="landing-code-logo" aria-label="McCollins Media Home">
+            <img
+              alt="McCollins Media"
+              className="landing-code-logo-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwuc08flIl5KvFATpsA85KLOpiNvZEU_SbttZ0Zl6eqaEJ3jgLGZ3db9IPWCVdw4gsQYoX6IndzHQI4PUKfVBP_ezTX9Qq635zUa43t4ahrhbkp7MuCP9mAc4BgAyUDUcYMkrmu16GGccYBFeZB0gyGvnMKsvyMGate6VNIZTmXfb8UT52IBZPBhwEgrkumPstykZT9JqEod75Hy97fFb7ncRIU00kxocag5__nWHNvpnqu1zdY15yjdmLSKIQ-b1sqw"
+            />
+          </Link>
+
+          <nav className="landing-code-nav" data-active-classes="text-white font-bold">
+            <Link href="/services" className="landing-code-nav-link active">
+              Services
+            </Link>
+            <Link href="/about" className="landing-code-nav-link">
+              About
+            </Link>
+            <Link href="/works" className="landing-code-nav-link">
+              Work
+            </Link>
+            <Link href="/industry" className="landing-code-nav-link">
+              Expertise
+            </Link>
+            <Link href="/blog" className="landing-code-nav-link">
+              Blog
+            </Link>
+            <Link href="/contact" className="landing-code-nav-link">
+              Contact
+            </Link>
+          </nav>
+
+          <div className="landing-code-actions">
+            <Link href="/contact" className="landing-code-cta">
+              <span>Book A Strategy Call</span>
+              <svg className="landing-code-cta-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+
+            <button
+              aria-label="Toggle Navigation Menu"
+              className="landing-code-mobile-toggle"
+              type="button"
+              onClick={toggleMobileMenu}
+            >
+              <svg style={{ width: "24px", height: "24px" }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <NavigationMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      </header>
+    );
+  }
 
   return (
     <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""} ${pathname === "/about" ? "about-theme" : ""} ${pathname.startsWith("/services") ? "services-theme" : ""} ${pathname === "/industry" ? "industry-theme" : ""} ${isLandingPage ? "landing-theme" : ""}`}>
