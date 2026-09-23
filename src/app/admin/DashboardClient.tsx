@@ -162,6 +162,11 @@ export default function DashboardClient({
   const [showEditBlogModal, setShowEditBlogModal] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState<BlogItem | null>(null);
 
+  // Quick category creation inside blog modals
+  const [showQuickAddCategory, setShowQuickAddCategory] = useState(false);
+  const [quickCategoryName, setQuickCategoryName] = useState("");
+  const [quickCategoryLoading, setQuickCategoryLoading] = useState(false);
+
   const initialBlogForm: BlogFormFields = {
     title: "",
     SEOtitle: "",
@@ -332,6 +337,34 @@ export default function DashboardClient({
       }
     } catch (err) {
       alert("Server connection failed");
+    }
+  };
+
+  const handleQuickCreateCategory = async (e?: React.MouseEvent | React.KeyboardEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = quickCategoryName.trim();
+    if (!trimmed) return;
+    setQuickCategoryLoading(true);
+    try {
+      const res = await fetch("/api/blogs/category", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: trimmed }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        const newCategory = { _id: data.id, name: trimmed };
+        setCategoriesList((prev) => [...prev, newCategory]);
+        setBlogForm((prev) => ({ ...prev, category: trimmed }));
+        setShowQuickAddCategory(false);
+        setQuickCategoryName("");
+      } else {
+        alert(data.error || "Failed to create category");
+      }
+    } catch (err) {
+      alert("Server connection failed");
+    } finally {
+      setQuickCategoryLoading(false);
     }
   };
 
@@ -1333,19 +1366,77 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Category *</label>
-                  <select
-                    name="category"
-                    className={styles.formSelect}
-                    value={blogForm.category}
-                    onChange={handleBlogFormChange}
-                    required
-                  >
-                    <option value="">Select Category</option>
-                    {categoriesList.map(c => (
-                      <option key={c._id} value={c.name}>{c.name}</option>
-                    ))}
-                  </select>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
+                    <label className={styles.formLabel} style={{ margin: 0 }}>Category *</label>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowQuickAddCategory(!showQuickAddCategory);
+                        setQuickCategoryName("");
+                      }}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#ffde11",
+                        fontSize: "0.78rem",
+                        cursor: "pointer",
+                        padding: "0 2px",
+                        fontWeight: "600",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      {showQuickAddCategory ? "Select existing" : "+ Add New Category"}
+                    </button>
+                  </div>
+
+                  {showQuickAddCategory ? (
+                    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                      <input
+                        type="text"
+                        className={styles.formInput}
+                        placeholder="New category name..."
+                        value={quickCategoryName}
+                        onChange={(e) => setQuickCategoryName(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            handleQuickCreateCategory(e);
+                          }
+                        }}
+                        autoFocus
+                        style={{ flexGrow: 1 }}
+                      />
+                      <button
+                        type="button"
+                        onClick={handleQuickCreateCategory}
+                        disabled={quickCategoryLoading || !quickCategoryName.trim()}
+                        className={styles.addBtn}
+                        style={{
+                          padding: "10px 14px",
+                          fontSize: "0.85rem",
+                          whiteSpace: "nowrap",
+                          opacity: quickCategoryLoading || !quickCategoryName.trim() ? 0.6 : 1,
+                        }}
+                      >
+                        {quickCategoryLoading ? "Saving..." : "+ Add"}
+                      </button>
+                    </div>
+                  ) : (
+                    <select
+                      name="category"
+                      className={styles.formSelect}
+                      value={blogForm.category}
+                      onChange={handleBlogFormChange}
+                      required
+                    >
+                      <option value="">Select Category</option>
+                      {categoriesList.map((c) => (
+                        <option key={c._id} value={c.name}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </select>
+                  )}
                 </div>
               </div>
 
@@ -1561,19 +1652,77 @@ export default function DashboardClient({
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Category *</label>
-                  <select
-                    name="category"
-                    className={styles.formSelect}
-                    value={blogForm.category}
-                    onChange={handleBlogFormChange}
-                    required
-                  >
-                    <option value="">Select Category</option>
-                    {categoriesList.map(c => (
-                      <option key={c._id} value={c.name}>{c.name}</option>
-                    ))}
-                  </select>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
+                    <label className={styles.formLabel} style={{ margin: 0 }}>Category *</label>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowQuickAddCategory(!showQuickAddCategory);
+                        setQuickCategoryName("");
+                      }}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#ffde11",
+                        fontSize: "0.78rem",
+                        cursor: "pointer",
+                        padding: "0 2px",
+                        fontWeight: "600",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      {showQuickAddCategory ? "Select existing" : "+ Add New Category"}
+                    </button>
+                  </div>
+
+                  {showQuickAddCategory ? (
+                    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                      <input
+                        type="text"
+                        className={styles.formInput}
+                        placeholder="New category name..."
+                        value={quickCategoryName}
+                        onChange={(e) => setQuickCategoryName(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            handleQuickCreateCategory(e);
+                          }
+                        }}
+                        autoFocus
+                        style={{ flexGrow: 1 }}
+                      />
+                      <button
+                        type="button"
+                        onClick={handleQuickCreateCategory}
+                        disabled={quickCategoryLoading || !quickCategoryName.trim()}
+                        className={styles.addBtn}
+                        style={{
+                          padding: "10px 14px",
+                          fontSize: "0.85rem",
+                          whiteSpace: "nowrap",
+                          opacity: quickCategoryLoading || !quickCategoryName.trim() ? 0.6 : 1,
+                        }}
+                      >
+                        {quickCategoryLoading ? "Saving..." : "+ Add"}
+                      </button>
+                    </div>
+                  ) : (
+                    <select
+                      name="category"
+                      className={styles.formSelect}
+                      value={blogForm.category}
+                      onChange={handleBlogFormChange}
+                      required
+                    >
+                      <option value="">Select Category</option>
+                      {categoriesList.map((c) => (
+                        <option key={c._id} value={c.name}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </select>
+                  )}
                 </div>
               </div>
 

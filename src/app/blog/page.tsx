@@ -24,6 +24,12 @@ export default async function BlogPage() {
   // Query live blogs from database
   const blogsData = await db.collection("blogs").find({}).toArray();
 
+  // Query live categories from blogs-category collection
+  const categoriesData = await db.collection("blogs-category").find({}).sort({ name: 1 }).toArray();
+  const dbCategoryNames = categoriesData
+    .map((c: any) => c.name)
+    .filter((n: any) => Boolean(n) && typeof n === "string");
+
   const blogs = blogsData.map((blog) => ({
     id: blog._id.toString(),
     title: blog.title || "",
@@ -49,5 +55,5 @@ export default async function BlogPage() {
     return dateB - dateA;
   });
 
-  return <BlogClient initialBlogs={blogs} />;
+  return <BlogClient initialBlogs={blogs} initialCategories={dbCategoryNames} />;
 }

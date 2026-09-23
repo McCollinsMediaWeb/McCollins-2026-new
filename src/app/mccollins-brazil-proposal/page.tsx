@@ -11,7 +11,6 @@ const fraunces = Fraunces({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "500", "600"],
 });
 
 const ibmPlexMono = IBM_Plex_Mono({

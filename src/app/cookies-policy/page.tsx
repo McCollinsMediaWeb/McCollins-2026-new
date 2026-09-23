@@ -41,7 +41,7 @@ export default function CookiesPolicy() {
             Most web browsers automatically accept cookies, but you can usually modify your browser settings to decline cookies or alert you when a cookie is being sent. If you choose to disable cookies, please note that some parts of our website may not function properly or be fully accessible.
           </p>
           <p className={styles.paragraph}>
-            To learn more about how to manage and delete cookies, visit your browser&apos;s help documentation or visit reference sites like <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>allaboutcookies.org</a>.
+            To learn more about how to manage and delete cookies, visit your browser&apos;s help documentation or visit reference sites like <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.
           </p>
         </section>
 

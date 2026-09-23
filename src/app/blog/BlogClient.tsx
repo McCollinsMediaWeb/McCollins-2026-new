@@ -20,24 +20,27 @@ interface Article {
 
 interface BlogClientProps {
   initialBlogs: any[];
+  initialCategories?: string[];
 }
 
-const CATEGORIES = [
-  "All",
-  "AI Search",
-  "SEO / GEO / AEO",
-  "Automation",
-  "Social Media",
-  "Branding",
-  "GCC Growth",
-];
-
-export default function BlogClient({ initialBlogs }: BlogClientProps) {
+export default function BlogClient({ initialBlogs, initialCategories = [] }: BlogClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
   const POSTS_PER_PAGE = 6;
+
+  // Categories list starting with "All", followed strictly by categories defined in the blogs-category collection
+  const categoriesList = [
+    "All",
+    ...Array.from(
+      new Set(
+        initialCategories.filter(
+          (c) => c && c.trim().toLowerCase() !== "all"
+        )
+      )
+    ),
+  ];
 
   // Transform backend blogs into displayable Articles
   const articles: Article[] = initialBlogs.map((blog, index) => {
@@ -48,7 +51,7 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
     return {
       id: blog.id || blog._id,
       number: (index + 1).toString().padStart(2, "0"),
-      category: blog.category || "Marketing",
+      category: blog.category || "General",
       title: blog.title || "Untitled Blog Story",
       description: blog.shortContent || blog.description || "Read our latest thoughts and insights from the team.",
       readTime: `${readTimeVal} min read`,
@@ -65,7 +68,7 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
 
   const showFeatured = hasArticles && (
     selectedCategory === "All" || 
-    selectedCategory.toLowerCase() === latestArticle.category.toLowerCase()
+    selectedCategory.trim().toLowerCase() === (latestArticle.category || "").trim().toLowerCase()
   );
 
   // Filter latest thinking articles (excluding the featured one)
@@ -74,12 +77,7 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
 
     if (selectedCategory === "All") return true;
 
-    if (selectedCategory === "SEO / GEO / AEO") {
-      const lower = article.category.toLowerCase();
-      return ["seo", "geo", "aeo", "ai citations", "positioning"].some(cat => lower.includes(cat));
-    }
-
-    return article.category.toLowerCase() === selectedCategory.toLowerCase();
+    return (article.category || "").trim().toLowerCase() === selectedCategory.trim().toLowerCase();
   });
 
   const handleCardClick = (blogUrl: string, id: string) => {
@@ -140,10 +138,10 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
 
           {/* Category Filter Pills */}
           <div className={styles.filterPillsRow}>
-            {CATEGORIES.map((category) => (
+            {categoriesList.map((category) => (
               <button
                 key={category}
-                className={`${styles.filterPill} ${selectedCategory === category ? styles.activePill : ""}`}
+                className={`${styles.filterPill} ${selectedCategory.trim().toLowerCase() === category.trim().toLowerCase() ? styles.activePill : ""}`}
                 onClick={() => {
                   setSelectedCategory(category);
                   setCurrentPage(1);
