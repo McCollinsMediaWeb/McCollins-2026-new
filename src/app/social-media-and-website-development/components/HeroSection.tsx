@@ -212,7 +212,7 @@ export default function HeroSection() {
 
         {/* Right Column: Direct Briefing Form Monolith */}
         <div className={styles.heroRight}>
-          <div className={`${styles.formCard} hero-form-card`}>
+          <div className={`${styles.formCard} hero-form-card`} id="strategy-form">
             <div className={styles.formGlow} />
 
             <div className={styles.formHeader}>

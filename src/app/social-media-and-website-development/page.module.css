@@ -487,109 +487,93 @@
 }
 
 /* =========================================================================
-   CLIENT LOGO MARQUEE / TRUST BAND
+   BRANDS MARQUEE SECTION (EXACT AS BRAND DEVELOPMENT)
    ========================================================================= */
-.marqueeSection {
+.brandsSection {
   width: 100%;
-  background-color: #f9f9f9;
-  color: #131313;
-  padding: 24px 5%;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
-  user-select: none;
-  overflow: hidden;
+  background-color: #f5f5f7;
+  padding: 100px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.marqueeContainer {
-  max-width: 1320px;
-  margin: 0 auto;
+/* Top soft drop shadow for transitions from dark hero to light background */
+.brandsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.brandsRow {
+  width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.marqueeTitle {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #6e6e73;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.marqueeTrackWrapper {
-  width: 100%;
-  overflow: hidden;
   position: relative;
 }
 
-.marqueeTrack {
+.brandsRow::before,
+.brandsRow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 15vw;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.brandsRow::before {
+  left: 0;
+  background: linear-gradient(to right, #f5f5f7, transparent);
+}
+
+.brandsRow::after {
+  right: 0;
+  background: linear-gradient(to left, #f5f5f7, transparent);
+}
+
+.brandsTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.brandsList {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  opacity: 0.85;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease, opacity 0.3s ease;
-  overflow-x: auto;
-  padding: 4px 0;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  gap: 70px;
+  padding-right: 70px;
+  min-width: max-content;
 }
 
-.marqueeTrack::-webkit-scrollbar {
-  display: none;
+.brandLogoWrapper {
+  position: relative;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.marqueeTrack:hover {
-  filter: grayscale(0%);
+.brandLogo {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.brandLogo:hover {
   opacity: 1;
-}
-
-.brandLogoText {
-  font-family: var(--font-delight), sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #131313;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.brandLogoToshiba {
-  letter-spacing: 0.12em;
-  font-weight: 800;
-}
-
-.brandLogoPioneer {
-  letter-spacing: 0.08em;
-  font-weight: 700;
-}
-
-.brandLogoVoss {
-  letter-spacing: 0.18em;
-  font-weight: 900;
-}
-
-.brandLogoMapei {
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.brandLogoWagamama {
-  font-family: var(--font-playfair-display), Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  text-transform: lowercase;
-  letter-spacing: normal;
-}
-
-.brandLogoMac {
-  letter-spacing: 0.2em;
-  font-weight: 900;
 }
 
 /* =========================================================================
@@ -776,157 +760,178 @@
 }
 
 /* =========================================================================
-   SERVICES & METHODOLOGY (5 CORE PILLARS)
+   WEBSITES WORK SIMPLY SECTION (EXACT AS /services/web-development)
    ========================================================================= */
-.pillarsSection {
+.workSimplySection {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   width: 100%;
-  background-color: #0e0e0e;
-  color: #f4f4f5;
-  padding: 100px 5%;
-  border-bottom: 1px solid #1f1f1f;
-  position: relative;
+  max-width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.pillarsContainer {
-  max-width: 1320px;
-  margin: 0 auto;
-}
-
-.pillarsHeaderBand {
+.workSimplyHeader {
+  flex: 0 0 380px;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 48px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #222222;
+  flex-direction: column;
+  padding: 60px 40px 60px max(5%, 40px);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.pillarsCounter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #71717a;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  white-space: nowrap;
-}
-
-.pillarsCounterActive {
-  color: #93a8ff;
-}
-
-.pillarsGrid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
-}
-
-.pillarCardCol6 {
-  grid-column: span 6;
-}
-
-.pillarCardCol4 {
-  grid-column: span 4;
-}
-
-.pillarCard {
-  background: #181818;
-  border: 1px solid #262626;
-  border-radius: 12px;
-  padding: 32px 28px;
+.workHeaderContent {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  height: 100%;
 }
 
-.pillarCard:hover {
-  border-color: rgba(52, 82, 255, 0.5);
-  transform: translateY(-2px);
+.workSimplyTitle {
+  font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: var(--font-playfair-display), serif;
+  margin: 0 0 80px 0;
+  color: #000000;
 }
 
-.pillarTop {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.pillarBadgeRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.pillarIndex {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #93a8ff;
-}
-
-.pillarTag {
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: #222222;
-  color: #a1a1aa;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid #333333;
-}
-
-.pillarTitle {
-  font-family: var(--font-delight), "Space Grotesk", sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.pillarTitleItalic {
-  font-family: var(--font-playfair-display), Georgia, serif;
-  font-size: 21px;
+.workSimplyTitleItalic {
+  font-family: var(--font-playfair-display), serif;
   font-style: italic;
   font-weight: 400;
-  text-transform: lowercase;
-  color: #a1a1aa;
+  text-transform: none;
 }
 
-.pillarText {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #a1a1aa;
+.workSimplyTitleStrong {
+  font-family: var(--font-delight), "Space Grotesk", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000000;
 }
 
-.pillarFooter {
-  padding-top: 18px;
-  border-top: 1px solid #262626;
+.workNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.pageIndicator {
+  font-size: 0.9rem;
+  font-family: var(--font-delight), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+.navArrows {
+  display: flex;
+  gap: 15px;
+}
+
+.navArrow {
+  background: none;
+  border: 1px solid #000000;
+  width: 80px;
+  height: 40px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  color: #000000;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navArrow:hover:not(.disabled) {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.navArrow.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.workSimplyGallery {
+  display: flex;
+  gap: 30px;
+  padding: 60px calc(100% - 540px) 60px 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: relative;
+  align-items: center;
+}
+
+.workSimplyGallery::-webkit-scrollbar {
+  display: none;
+}
+
+.simplyCard {
+  min-width: 480px;
+  width: 480px;
+  height: 320px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  color: #93a8ff;
-  font-size: 11px;
+  font-family: var(--font-delight), sans-serif;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.simplyCardBlack {
+  background: #111111;
+  color: #ffffff;
+}
+
+.simplyCardGrey {
+  background: #4D505D;
+  color: #ffffff;
+}
+
+.simplyCardBlue {
+  background: #0038B4;
+  color: #ffffff;
+}
+
+.simplyCardGreen {
+  background: #779C96;
+  color: #ffffff;
+}
+
+.simplyCardTitle {
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
+  margin: 0;
+  line-height: 1.25;
+  color: #ffffff;
 }
 
-.pillarFooterSvg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s ease;
+.simplyCardTitleItalic {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
 }
 
-.pillarCard:hover .pillarFooterSvg {
-  transform: translateX(4px);
+.simplyCardTextContainer {
+  align-self: flex-end;
+  width: 70%;
+}
+
+.simplyCardText {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-weight: 300;
+  opacity: 0.9;
+  margin: 0;
+  text-align: left;
+  color: #ffffff;
 }
 
 /* =========================================================================
@@ -953,13 +958,59 @@
   margin-bottom: 48px;
 }
 
-.techGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+.techRowsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.techRow {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.techRow::before,
+.techRow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10vw;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.techRow::before {
+  left: 0;
+  background: linear-gradient(to right, #111111, transparent);
+}
+
+.techRow::after {
+  right: 0;
+  background: linear-gradient(to left, #111111, transparent);
+}
+
+.techTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.techList {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  padding-right: 20px;
+  min-width: max-content;
 }
 
 .techCard {
+  width: 320px;
   background: #181818;
   border: 1px solid #2a2a2a;
   border-radius: 12px;
@@ -969,6 +1020,7 @@
   justify-content: space-between;
   overflow: hidden;
   transition: border-color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
 }
 
 .techCard:hover {
@@ -1376,30 +1428,104 @@
     grid-template-columns: 1fr;
   }
 
-  .techGrid {
-    grid-template-columns: 1fr;
+  .techCard {
+    width: 280px;
+    padding: 20px 16px 0;
   }
 
-  .marqueeContainer {
+  .techRowsContainer {
+    gap: 16px;
+  }
+
+  .techList {
+    gap: 14px;
+    padding-right: 14px;
+  }
+
+  .brandsSection {
+    padding: 60px 0;
+    gap: 30px;
+  }
+
+  .brandsList {
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  .brandLogoWrapper {
+    width: 150px;
+    height: 60px;
+  }
+
+  .brandLogo {
+    max-height: 45px;
+  }
+
+  .workSimplySection {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .workSimplyHeader {
+    flex: none;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 20px;
+    padding: 60px 24px 32px;
+    border-right: none;
   }
 
-  .marqueeTrack {
-    gap: 24px;
+  .workSimplyTitle {
+    font-size: 2.4rem;
+    margin-bottom: 32px;
   }
 
-  .pillarsHeaderBand,
+  .workHeaderContent {
+    width: 100%;
+  }
+
+  .workNavigation {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .workSimplyGallery {
+    width: 100%;
+    gap: 16px;
+    padding: 0 24px 48px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 24px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+  }
+
+  .simplyCard {
+    flex: 0 0 calc((100vw - 48px) / 1.15);
+    min-width: 0;
+    width: calc((100vw - 48px) / 1.15);
+    height: 320px;
+    padding: 28px 24px;
+    scroll-snap-align: start;
+  }
+
+  .simplyCardTextContainer {
+    width: 100%;
+  }
+
   .techHeaderBand,
   .workHeaderBand {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  }
-
-  .pillarCard {
-    padding: 24px 20px;
   }
 
   .faqItem {

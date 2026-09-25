@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TECH_ITEMS = [
+const TECH_ROW_1 = [
   {
     category: "ECOMMERCE ENGINE",
     version: "v2024",
@@ -43,6 +43,9 @@ const TECH_ITEMS = [
     metricLabel: "PageSpeed Index",
     metricValue: "98/100 BENCHMARK",
   },
+];
+
+const TECH_ROW_2 = [
   {
     category: "ENTERPRISE CMS",
     version: "PROGRESS",
@@ -79,36 +82,87 @@ const TECH_ITEMS = [
 
 export default function TechStackSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const leftTween = useRef<gsap.core.Tween | null>(null);
+  const rightTween = useRef<gsap.core.Tween | null>(null);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
+      // Entrance reveal
+      gsap.from(".tech-header-anim", {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 80%",
           toggleActions: "play none none none",
         },
-      });
-
-      tl.from(".tech-header-anim", {
         y: 30,
         opacity: 0,
         duration: 0.8,
         stagger: 0.1,
         ease: "power3.out",
-      }).from(
-        ".tech-card-anim",
-        {
-          y: 35,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.07,
-          ease: "power2.out",
+      });
+
+      gsap.from(".tech-row-anim", {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
         },
-        "-=0.4"
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+
+      // Continuous Horizontal Auto-Scroll Left
+      leftTween.current = gsap.to(".tech-track-left", {
+        xPercent: -50,
+        ease: "none",
+        duration: 35,
+        repeat: -1,
+      });
+
+      // Continuous Horizontal Auto-Scroll Right
+      rightTween.current = gsap.fromTo(
+        ".tech-track-right",
+        { xPercent: -50 },
+        {
+          xPercent: 0,
+          ease: "none",
+          duration: 35,
+          repeat: -1,
+        }
       );
     },
     { scope: sectionRef }
+  );
+
+  const handleMouseEnter = () => {
+    leftTween.current?.pause();
+    rightTween.current?.pause();
+  };
+
+  const handleMouseLeave = () => {
+    leftTween.current?.play();
+    rightTween.current?.play();
+  };
+
+  const renderCard = (item: (typeof TECH_ROW_1)[number], key: string) => (
+    <div key={key} className={styles.techCard}>
+      <div className={styles.techCardTop}>
+        <div className={styles.techCardHeader}>
+          <span className={styles.techCategory}>{item.category}</span>
+          <span className={styles.techVersionTag}>{item.version}</span>
+        </div>
+        <h3 className={styles.techName}>{item.name}</h3>
+        <p className={styles.techDesc}>{item.desc}</p>
+      </div>
+
+      <div className={styles.techMetricBand}>
+        <span className={styles.techMetricLabel}>{item.metricLabel}</span>
+        <span className={styles.techMetricValue}>{item.metricValue}</span>
+      </div>
+    </div>
   );
 
   return (
@@ -129,26 +183,36 @@ export default function TechStackSection() {
             Selected for extreme speed, developer velocity, airtight regional compliance, and long-term maintainability without vendor lock-in.
           </p>
         </div>
+      </div>
 
-        {/* 8 Tech Cards */}
-        <div className={styles.techGrid}>
-          {TECH_ITEMS.map((item) => (
-            <div key={item.name} className={`${styles.techCard} tech-card-anim`}>
-              <div className={styles.techCardTop}>
-                <div className={styles.techCardHeader}>
-                  <span className={styles.techCategory}>{item.category}</span>
-                  <span className={styles.techVersionTag}>{item.version}</span>
-                </div>
-                <h3 className={styles.techName}>{item.name}</h3>
-                <p className={styles.techDesc}>{item.desc}</p>
-              </div>
-
-              <div className={styles.techMetricBand}>
-                <span className={styles.techMetricLabel}>{item.metricLabel}</span>
-                <span className={styles.techMetricValue}>{item.metricValue}</span>
-              </div>
+      {/* Auto-scrolling Left & Right Dual Tracks */}
+      <div
+        className={styles.techRowsContainer}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Row 1: Auto scroll Left */}
+        <div className={`${styles.techRow} tech-row-anim`}>
+          <div className={`${styles.techTrack} tech-track-left`}>
+            <div className={styles.techList}>
+              {TECH_ROW_1.map((item, i) => renderCard(item, `row1-orig-${i}`))}
             </div>
-          ))}
+            <div className={styles.techList} aria-hidden="true">
+              {TECH_ROW_1.map((item, i) => renderCard(item, `row1-dup-${i}`))}
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2: Auto scroll Right */}
+        <div className={`${styles.techRow} tech-row-anim`}>
+          <div className={`${styles.techTrack} tech-track-right`}>
+            <div className={styles.techList}>
+              {TECH_ROW_2.map((item, i) => renderCard(item, `row2-orig-${i}`))}
+            </div>
+            <div className={styles.techList} aria-hidden="true">
+              {TECH_ROW_2.map((item, i) => renderCard(item, `row2-dup-${i}`))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

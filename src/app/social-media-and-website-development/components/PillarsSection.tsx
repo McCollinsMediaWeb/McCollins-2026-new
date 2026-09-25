@@ -1,153 +1,211 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../page.module.css";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const PILLARS = [
-  {
-    index: "01 // ARCHITECTURE",
-    tag: "ENTERPRISE",
-    title: "CORPORATE WEBSITE",
-    titleItalic: "development",
-    desc: "We engineer tailored corporate websites that elevate your brand identity through seamless user experiences and precision digital design.",
-    cta: "BESPOKE CORPORATE FLAGSHIP",
-    colSpan: 6,
-  },
-  {
-    index: "02 // TRANSACTIONS",
-    tag: "HIGH CONVERSION",
-    title: "E-COMMERCE",
-    titleItalic: "development",
-    desc: "Robust and scalable e-commerce solutions built to maximize conversions and drive sustained online revenue growth across the Middle East and globally.",
-    cta: "HEADLESS & SHOPIFY PLUS",
-    colSpan: 6,
-  },
-  {
-    index: "03 // ACQUISITION",
-    tag: "PIPELINE",
-    title: "LEAD GENERATION FUNNEL",
-    titleItalic: "development",
-    desc: "We make strategic lead funnels designed to maximize acquisition efficiency and convert high-value prospects into loyal customers.",
-    cta: "CONVERSION ARCHITECTURE",
-    colSpan: 4,
-  },
-  {
-    index: "04 // BESPOKE",
-    tag: "CUSTOM UI",
-    title: "TAILORED WEBSITES",
-    titleItalic: "for unique needs",
-    desc: "Tired of One-Size-Fits-All Websites? Generic website templates can’t effectively showcase what sets your business apart. Don’t settle for mediocrity when you can have a website that’s as unique as your brand.",
-    cta: "ZERO TEMPLATES GUARANTEE",
-    colSpan: 4,
-  },
-  {
-    index: "05 // RESPONSIVE",
-    tag: "PWA & SPEED",
-    title: "MOBILE FIRST WEBSITES",
-    titleItalic: "development",
-    desc: "Our mobile-first website development services prioritize the mobile user experience. We ensure your website is designed and optimized for smartphones and tablets, with a focus on speed, functionality, and user-friendliness.",
-    cta: "OPTIMIZED FOR ALL SCREENS",
-    colSpan: 4,
-  },
-];
-
 export default function PillarsSection() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
+      gsap.from(".work-title-anim", {
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none none",
+          trigger: ".work-title-anim",
+          start: "top 85%",
         },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
       });
 
-      tl.from(".pillars-header-anim", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-      }).from(
-        ".pillar-card-anim",
-        {
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "power2.out",
+      gsap.from(".simply-card-anim", {
+        scrollTrigger: {
+          trigger: ".work-gallery-anim",
+          start: "top 75%",
         },
-        "-=0.4"
-      );
+        x: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
     },
-    { scope: sectionRef }
+    { scope: containerRef }
   );
 
-  return (
-    <section className={styles.pillarsSection} ref={sectionRef}>
-      <div className={styles.pillarsContainer}>
-        {/* Header Band */}
-        <div className={styles.pillarsHeaderBand}>
-          <div>
-            <div className={`${styles.kickerPill} pillars-header-anim`} style={{ marginBottom: "12px" }}>
-              <span className={styles.pulseDot} />
-              <span className={styles.kickerText}>SERVICES &amp; METHODOLOGY</span>
-            </div>
-            <h2 className={`${styles.sectionTitle} pillars-header-anim`}>
-              WEBSITES THAT WORK{" "}
-              <span className={styles.serifItalic} style={{ color: "#93a8ff", textTransform: "lowercase" }}>
-                simply.
-              </span>
-            </h2>
-          </div>
+  const handleScroll = () => {
+    if (!galleryRef.current) return;
+    const scrollLeft = galleryRef.current.scrollLeft;
+    const cards = galleryRef.current.children;
+    if (cards.length === 0) return;
 
-          <div className={`${styles.pillarsCounter} pillars-header-anim`}>
-            <span className={styles.pillarsCounterActive}>01</span>
-            <span>/</span>
-            <span>05 PILLARS</span>
+    const style = window.getComputedStyle(galleryRef.current);
+    const paddingLeft = parseFloat(style.paddingLeft) || 0;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i] as HTMLElement;
+      const targetScroll = card.offsetLeft - paddingLeft;
+      const distance = Math.abs(targetScroll - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = i;
+      }
+    }
+
+    const newIndex = closestIndex + 1;
+    if (newIndex !== activeIndex) {
+      setActiveIndex(newIndex);
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!galleryRef.current) return;
+    const cards = galleryRef.current.children;
+    if (index >= 0 && index < cards.length) {
+      const card = cards[index] as HTMLElement;
+      const style = window.getComputedStyle(galleryRef.current);
+      const paddingLeft = parseFloat(style.paddingLeft) || 0;
+
+      galleryRef.current.scrollTo({
+        left: card.offsetLeft - paddingLeft,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    scrollToIndex(activeIndex - 2);
+  };
+
+  const handleNext = () => {
+    scrollToIndex(activeIndex);
+  };
+
+  return (
+    <section className={styles.workSimplySection} ref={containerRef}>
+      <div className={styles.workSimplyHeader}>
+        <div className={styles.workHeaderContent}>
+          <h2 className={`${styles.workSimplyTitle} work-title-anim`}>
+            <span className={styles.workSimplyTitleItalic}>Websites</span>
+            <br />
+            <span className={styles.workSimplyTitleStrong}>
+              THAT WORK
+              <br />
+              SIMPLY.
+            </span>
+          </h2>
+
+          <div className={`${styles.workNavigation} work-title-anim`}>
+            <div className={styles.pageIndicator}>
+              {String(activeIndex).padStart(2, "0")} / 05
+            </div>
+            <div className={styles.navArrows}>
+              <button
+                className={`${styles.navArrow} ${activeIndex === 1 ? styles.disabled : ""}`}
+                onClick={handlePrev}
+                disabled={activeIndex === 1}
+                aria-label="Previous card"
+              >
+                <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                className={`${styles.navArrow} ${activeIndex === 5 ? styles.disabled : ""}`}
+                onClick={handleNext}
+                disabled={activeIndex === 5}
+                aria-label="Next card"
+              >
+                <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 6H39M39 6L34 1M39 6L34 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`${styles.workSimplyGallery} work-gallery-anim`}
+        ref={galleryRef}
+        onScroll={handleScroll}
+      >
+        <div className={`${styles.simplyCard} ${styles.simplyCardBlack} simply-card-anim`}>
+          <h3 className={styles.simplyCardTitle}>
+            CORPORATE WEBSITE
+            <br />
+            <span className={styles.simplyCardTitleItalic}>Development</span>
+          </h3>
+          <div className={styles.simplyCardTextContainer}>
+            <p className={styles.simplyCardText}>
+              We engineer tailored corporate websites that elevate your brand identity through seamless user experiences and precision digital design.
+            </p>
           </div>
         </div>
 
-        {/* 5 Core Pillars Grid */}
-        <div className={styles.pillarsGrid}>
-          {PILLARS.map((p) => (
-            <div
-              key={p.index}
-              className={`${styles.pillarCard} ${
-                p.colSpan === 6 ? styles.pillarCardCol6 : styles.pillarCardCol4
-              } pillar-card-anim`}
-            >
-              <div className={styles.pillarTop}>
-                <div className={styles.pillarBadgeRow}>
-                  <span className={styles.pillarIndex}>{p.index}</span>
-                  <span className={styles.pillarTag}>{p.tag}</span>
-                </div>
-                <h3 className={styles.pillarTitle}>
-                  {p.title}{" "}
-                  <span className={styles.pillarTitleItalic}>
-                    {p.titleItalic}
-                  </span>
-                </h3>
-                <p className={styles.pillarText}>{p.desc}</p>
-              </div>
+        <div className={`${styles.simplyCard} ${styles.simplyCardGrey} simply-card-anim`}>
+          <h3 className={styles.simplyCardTitle}>
+            E-COMMERCE
+            <br />
+            <span className={styles.simplyCardTitleItalic}>Development</span>
+          </h3>
+          <div className={styles.simplyCardTextContainer}>
+            <p className={styles.simplyCardText}>
+              Robust and scalable e-commerce solutions built to maximize conversions and drive sustained online revenue growth.
+            </p>
+          </div>
+        </div>
 
-              <div className={styles.pillarFooter}>
-                <span>{p.cta}</span>
-                <svg className={styles.pillarFooterSvg} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-            </div>
-          ))}
+        <div className={`${styles.simplyCard} ${styles.simplyCardBlue} simply-card-anim`}>
+          <h3 className={styles.simplyCardTitle}>
+            LEAD GENERATION FUNNEL
+            <br />
+            <span className={styles.simplyCardTitleItalic}>Development</span>
+          </h3>
+          <div className={styles.simplyCardTextContainer}>
+            <p className={styles.simplyCardText}>
+              We make strategic lead funnels designed to maximize acquisition efficiency and convert high-value prospects into loyal customers.
+            </p>
+          </div>
+        </div>
+
+        <div className={`${styles.simplyCard} ${styles.simplyCardBlack} simply-card-anim`}>
+          <h3 className={styles.simplyCardTitle}>
+            TAILORED WEBSITES FOR
+            <br />
+            <span className={styles.simplyCardTitleItalic}>YOUR UNIQUE Needs</span>
+          </h3>
+          <div className={styles.simplyCardTextContainer}>
+            <p className={styles.simplyCardText}>
+              Tired of One-Size-Fits-All Websites? Generic website templates can’t effectively showcase what sets your business apart. Don’t settle for mediocrity when you can have a website that’s as unique as your brand.
+            </p>
+          </div>
+        </div>
+
+        <div className={`${styles.simplyCard} ${styles.simplyCardGreen} simply-card-anim`}>
+          <h3 className={styles.simplyCardTitle}>
+            MOBILE FIRST WEBSITES
+            <br />
+            <span className={styles.simplyCardTitleItalic}>Development</span>
+          </h3>
+          <div className={styles.simplyCardTextContainer}>
+            <p className={styles.simplyCardText}>
+              Our mobile-first website development services prioritize the mobile user experience. We ensure your website is designed and optimized for smartphones and tablets, with a focus on speed, functionality, and user-friendliness.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export default function Header() {
     return (
       <header className="landing-code-header">
         <div className="landing-code-container">
-          <Link href="/" className="landing-code-logo" aria-label="McCollins Media Home">
+          <Link href="/social-media-and-website-development" className="landing-code-logo" aria-label="McCollins Media">
             <img
               alt="McCollins Media"
               className="landing-code-logo-img"
@@ -40,49 +40,15 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="landing-code-nav" data-active-classes="text-white font-bold">
-            <Link href="/services" className="landing-code-nav-link active">
-              Services
-            </Link>
-            <Link href="/about" className="landing-code-nav-link">
-              About
-            </Link>
-            <Link href="/works" className="landing-code-nav-link">
-              Work
-            </Link>
-            <Link href="/industry" className="landing-code-nav-link">
-              Expertise
-            </Link>
-            <Link href="/blog" className="landing-code-nav-link">
-              Blog
-            </Link>
-            <Link href="/contact" className="landing-code-nav-link">
-              Contact
-            </Link>
-          </nav>
-
           <div className="landing-code-actions">
-            <Link href="/contact" className="landing-code-cta">
-              <span>Book A Strategy Call</span>
+            <a href="#strategy-form" className="landing-code-cta">
+              <span>Request a Strategy Call</span>
               <svg className="landing-code-cta-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </Link>
-
-            <button
-              aria-label="Toggle Navigation Menu"
-              className="landing-code-mobile-toggle"
-              type="button"
-              onClick={toggleMobileMenu}
-            >
-              <svg style={{ width: "24px", height: "24px" }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+            </a>
           </div>
         </div>
-
-        <NavigationMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       </header>
     );
   }

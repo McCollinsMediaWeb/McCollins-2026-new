@@ -70,12 +70,12 @@ export default function PrecisionCtaSection() {
           </div>
 
           <div className={`${styles.ctaActionBtns} cta-content-anim`}>
-            <Link href="/contact" className={styles.ctaPrimaryBtn}>
-              <span>Book A Strategy Call</span>
+            <a href="#strategy-form" className={styles.ctaPrimaryBtn}>
+              <span>Request a Strategy Call</span>
               <svg style={{ width: "16px", height: "16px" }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </Link>
+            </a>
 
             <a
               href="https://wa.me/971500000000"
