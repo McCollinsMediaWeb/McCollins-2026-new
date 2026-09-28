@@ -8,7 +8,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
-import CareersModal from "./CareersModal";
 import BusinessEnquiryModal from "./BusinessEnquiryModal";
 
 if (typeof window !== "undefined") {
@@ -21,7 +20,6 @@ export default function ContactPage() {
 
   const router = useRouter();
   const [inquiryType, setInquiryType] = useState<"careers" | "business">("careers");
-  const [isCareersModalOpen, setIsCareersModalOpen] = useState(false);
   const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [company, setCompany] = useState("");
@@ -269,13 +267,9 @@ export default function ContactPage() {
         <div className={styles.formCol}>
           <div className={styles.formHeader}>
             <div className={styles.categoryButtons}>
-              <button
-                type="button"
+              <Link
+                href="/careers"
                 className={`${styles.categoryBtn}`}
-                onClick={() => {
-                  setInquiryType("careers");
-                  setIsCareersModalOpen(true);
-                }}
               >
                 <span className={styles.categoryDot} />
                 <span className={styles.categoryBtnText}>
@@ -283,7 +277,7 @@ export default function ContactPage() {
                     CAREERS
                   </span>
                 </span>
-              </button>
+              </Link>
               <button
                 type="button"
                 className={`${styles.categoryBtn}`}
@@ -501,16 +495,6 @@ export default function ContactPage() {
           <span className={styles.serviceBannerText}>OUR SERVICE</span>
         </Link>
       </section>
-
-      {/* Careers Modal */}
-      <CareersModal
-        isOpen={isCareersModalOpen}
-        onClose={() => setIsCareersModalOpen(false)}
-        onSuccess={() => {
-          setStatus("success");
-          setStatusMessage("Career application submitted successfully!");
-        }}
-      />
 
       {/* Business Enquiry Modal */}
       <BusinessEnquiryModal
