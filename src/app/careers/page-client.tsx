@@ -76,7 +76,7 @@ export default function CareersPageClient() {
         date: new Date(),
       };
 
-      const submissionResponse = await fetch("/api/form-submit", {
+      const submissionResponse = await fetch("/api/careers-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -86,23 +86,6 @@ export default function CareersPageClient() {
       if (!submissionResponse.ok) {
         throw new Error(submissionData.error || "Failed to submit application.");
       }
-
-      const sheetData = new FormData();
-      sheetData.append("Firstname", payload.firstName);
-      sheetData.append("Lastname", payload.lastName);
-      sheetData.append("Email", payload.email);
-      sheetData.append("Phone", payload.phone);
-      sheetData.append("Contact", payload.contact);
-      sheetData.append("ResumeUrl", payload.resumeUrl);
-      sheetData.append("Services", payload.services);
-      sheetData.append("page", payload.page);
-      sheetData.append("pageUrl", payload.pageUrl);
-      sheetData.append("source", payload.source);
-
-      fetch(
-        "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",
-        { method: "POST", body: sheetData },
-      ).catch(() => {});
 
       setIsSubmitted(true);
     } catch (submissionError) {
@@ -120,8 +103,8 @@ export default function CareersPageClient() {
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <Link href="/contact" className={styles.backLink}>
-          <span aria-hidden="true">←</span> Back to contact
+        <Link href="/" className={styles.backLink}>
+          <span aria-hidden="true">←</span> Home
         </Link>
 
         <div className={styles.layout}>
@@ -141,7 +124,7 @@ export default function CareersPageClient() {
                 <p className={styles.subtitle}>
                   Thank you for your interest. We have received your application and resume, and our team will get back to you soon.
                 </p>
-                <Link href="/contact" className={styles.submitBtn}>Back to Contact</Link>
+                <Link href="/" className={styles.submitBtn}>Back to Home</Link>
               </div>
             ) : (
               <>
@@ -150,26 +133,31 @@ export default function CareersPageClient() {
 
                 {error && <div className={styles.errorMessage} role="alert">{error}</div>}
 
-                <form onSubmit={handleSubmit}>
+                <form
+                  onSubmit={handleSubmit}
+                  data-hs-ignore="true"
+                  data-hubspot-ignore="true"
+                  className="hs-ignore"
+                >
                   <div className={styles.formGroupRow}>
                     <div className={styles.field}>
                       <label className={styles.label} htmlFor="first-name">First Name</label>
-                      <input id="first-name" type="text" className={styles.input} placeholder="e.g. Jane" value={firstName} onChange={(event) => setFirstName(event.target.value)} required />
+                      <input id="first-name" type="text" data-hs-ignore="true" className={styles.input} placeholder="e.g. Jane" value={firstName} onChange={(event) => setFirstName(event.target.value)} required />
                     </div>
                     <div className={styles.field}>
                       <label className={styles.label} htmlFor="last-name">Last Name</label>
-                      <input id="last-name" type="text" className={styles.input} placeholder="e.g. Doe" value={lastName} onChange={(event) => setLastName(event.target.value)} required />
+                      <input id="last-name" type="text" data-hs-ignore="true" className={styles.input} placeholder="e.g. Doe" value={lastName} onChange={(event) => setLastName(event.target.value)} required />
                     </div>
                   </div>
 
                   <div className={styles.formGroupRow}>
                     <div className={styles.field}>
                       <label className={styles.label} htmlFor="career-email">Email Address</label>
-                      <input id="career-email" type="email" className={styles.input} placeholder="e.g. jane.doe@example.com" value={email} onChange={(event) => setEmail(event.target.value)} required />
+                      <input id="career-email" type="email" data-hs-ignore="true" className={styles.input} placeholder="e.g. jane.doe@example.com" value={email} onChange={(event) => setEmail(event.target.value)} required />
                     </div>
                     <div className={styles.field}>
                       <label className={styles.label} htmlFor="career-phone">Phone Number</label>
-                      <input id="career-phone" type="tel" className={styles.input} placeholder="e.g. +971 50 123 4567" value={phone} onChange={(event) => setPhone(event.target.value)} required />
+                      <input id="career-phone" type="tel" data-hs-ignore="true" className={styles.input} placeholder="e.g. +971 50 123 4567" value={phone} onChange={(event) => setPhone(event.target.value)} required />
                     </div>
                   </div>
 
@@ -184,7 +172,7 @@ export default function CareersPageClient() {
                       }}
                       onDragOver={(event) => event.preventDefault()}
                     >
-                      <input id="career-resume" type="file" ref={fileInputRef} className={styles.fileInput} accept=".pdf,.doc,.docx,.txt" onChange={(event) => selectFile(event.target.files?.[0])} />
+                      <input id="career-resume" type="file" ref={fileInputRef} data-hs-ignore="true" className={styles.fileInput} accept=".pdf,.doc,.docx,.txt" onChange={(event) => selectFile(event.target.files?.[0])} />
                       {file ? (
                         <>
                           <span className={styles.selectedFileName}>📄 {file.name}</span>

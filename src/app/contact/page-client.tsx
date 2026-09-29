@@ -19,7 +19,7 @@ export default function ContactPage() {
   const [mounted, setMounted] = useState(false);
 
   const router = useRouter();
-  const [inquiryType, setInquiryType] = useState<"careers" | "business">("careers");
+  const [inquiryType, setInquiryType] = useState<"business">("business");
   const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [company, setCompany] = useState("");
@@ -267,20 +267,9 @@ export default function ContactPage() {
         <div className={styles.formCol}>
           <div className={styles.formHeader}>
             <div className={styles.categoryButtons}>
-              <Link
-                href="/careers"
-                className={`${styles.categoryBtn}`}
-              >
-                <span className={styles.categoryDot} />
-                <span className={styles.categoryBtnText}>
-                  <span className={styles.categoryBtnTextInner} data-text="CAREERS">
-                    CAREERS
-                  </span>
-                </span>
-              </Link>
               <button
                 type="button"
-                className={`${styles.categoryBtn}`}
+                className={`${styles.categoryBtn} ${styles.activeCategoryBtn}`}
                 onClick={() => {
                   setInquiryType("business");
                   setIsBusinessModalOpen(true);
