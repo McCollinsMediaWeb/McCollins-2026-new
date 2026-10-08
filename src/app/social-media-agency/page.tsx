@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "McCollins Media is a social media agency in Dubai helping brands grow through strategic social media marketing, content creation, paid campaigns, and engaging digital experiences across Dubai, Abu Dhabi, and the GCC.",
   alternates: {
-    canonical: "https://www.mccollinsmedia.com/social-media-agency-dubai",
+    canonical: "https://www.mccollinsmedia.com/social-media-agency",
   },
   robots: {
     index: true,
