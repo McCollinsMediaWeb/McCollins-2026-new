@@ -15,12 +15,17 @@ export default function HeroSection() {
     email: "",
     phone: "",
     company: "",
+    companywebsite: "",
+    message: "",
     techStack: "Next.js & React Digital Flagship",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +46,8 @@ export default function HeroSection() {
           email: formData.email,
           phone: formData.phone,
           company: formData.company,
+          companyWebsite: formData.companywebsite,
+          message: formData.message,
           services: formData.techStack,
           source: "Enterprise Web & App Engineering Landing Page",
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
@@ -62,6 +69,8 @@ export default function HeroSection() {
         email: "",
         phone: "",
         company: "",
+        companywebsite: "",
+        message: "",
         techStack: "Next.js & React Digital Flagship",
       });
     } catch (err: unknown) {
@@ -143,23 +152,23 @@ export default function HeroSection() {
       <div className={styles.heroContainer}>
         {/* Left Column: Value Proposition & Authority Metrics */}
         <div className={styles.heroLeft}>
-          <div className={`${styles.kickerPill} hero-kicker`}>
+          {/* <div className={`${styles.kickerPill} hero-kicker`}>
             <span className={styles.pulseDot} />
             <span className={styles.kickerText}>ENTERPRISE WEB &amp; APP DEVELOPMENT // GCC</span>
-          </div>
+          </div> */}
 
           <h1 className={`${styles.heroTitle} hero-title`}>
             <span className={`${styles.heroTitleRow} hero-title-line`}>
-              ENGINEER A DIGITAL FLAGSHIP
+              Build a social presence
             </span>
             <span className={`${styles.heroTitleRow} hero-title-line`}>
               <span className={styles.heroTitleItalic}>the gcc</span>
-              <span>ACTUALLY TRUSTS.</span>
+              <span>Actually Talks About.</span>
             </span>
           </h1>
 
           <p className={`${styles.heroDescription} hero-desc`}>
-            McCollins Media designs and develops high-performance digital platforms, enterprise web apps, headless e-commerce, and bespoke digital experiences that load in milliseconds, convert high-value regional prospects, and establish undeniable market authority.
+            Content systems, viral short-form reels, and performance ecosystems engineered with 15+ years of regional mastery. We help tier-one brands dominate feeds, foster rabid community loyalty, and command authority across Instagram, TikTok, LinkedIn, and Snapchat.
           </p>
 
           {/* Trust Anchors */}
@@ -168,45 +177,50 @@ export default function HeroSection() {
               <svg className={styles.trustIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span>15+ YEARS GCC EXPERIENCE</span>
+              <span>15+ Years Regional GCC Domain</span>
             </div>
 
             <div className={`${styles.trustAnchorItem} hero-trust-anchor`}>
               <svg className={styles.trustIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span>FULL-STACK JAMSTACK &amp; NEXT.JS</span>
+              <span>Native Bilingual Creative Studio</span>
             </div>
 
             <div className={`${styles.trustAnchorItem} hero-trust-anchor`}>
               <svg className={styles.trustIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span>99.9% UPTIME GUARANTEE</span>
+              <span>140M+ Organic Views Driven</span>
             </div>
           </div>
 
-          {/* Core Web Vitals Widget Card */}
+          {/* Short-Form Velocity Widget Card */}
           <div className={`${styles.benchmarkCard} hero-benchmark`}>
             <div className={styles.benchmarkLeft}>
-              <div className={styles.benchmarkBadge}>98</div>
+              <div className={styles.velocityIconWrapper}>
+                <svg className={styles.velocityPlayIcon} viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="10,8.5 15.5,12 10,15.5" fill="#141414" />
+                </svg>
+              </div>
               <div>
-                <div className={styles.benchmarkLabel}>
-                  <span>PAGESPEED BENCHMARK</span>
-                  <span className={styles.benchmarkDivider}>//</span>
-                  <span style={{ color: "#ffffff" }}>CORE WEB VITALS</span>
+                <div className={styles.velocityLabel}>
+                  SHORT-FORM VELOCITY
                 </div>
-                <div className={styles.benchmarkMetrics}>
-                  LCP &lt; 0.8s • CLS 0.00 • FID &lt; 12ms
+                <div className={styles.velocityValue}>
+                  3.4× Average Reach Multiplier
                 </div>
               </div>
             </div>
 
-            {/* Sparkline Wave SVG */}
-            <svg className={styles.sparklineSvg} fill="none" viewBox="0 0 120 40">
-              <path d="M0 32L15 28L30 31L48 18L65 24L85 10L100 14L120 4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" />
-              <path d="M0 32L15 28L30 31L48 18L65 24L85 10L100 14L120 4V40H0Z" fill="currentColor" fillOpacity="0.15" />
-            </svg>
+            {/* Audio Waveform Equalizer Bars */}
+            <div className={styles.audioWaveContainer}>
+              <span className={`${styles.audioBar} ${styles.audioBar1}`} />
+              <span className={`${styles.audioBar} ${styles.audioBar2}`} />
+              <span className={`${styles.audioBar} ${styles.audioBar3}`} />
+              <span className={`${styles.audioBar} ${styles.audioBar4}`} />
+            </div>
           </div>
         </div>
 
@@ -220,9 +234,9 @@ export default function HeroSection() {
                 <span className={styles.formKicker}>DIRECT BRIEFING</span>
                 <span className={styles.formLiveDot} />
               </div>
-              <h2 className={styles.formTitle}>START YOUR WEB PROJECT</h2>
+              <h2 className={styles.formTitle}>Start your social growth project</h2>
               <p className={styles.formSubtitle}>
-                Tell us about your brand. Our senior Dubai architects will deliver a bespoke specification and tech roadmap within 24 hours.
+                Tell us about your brand. Our senior Dubai strategists will deliver a bespoke platform roadmap within 24 hours.
               </p>
             </div>
 
@@ -268,7 +282,7 @@ export default function HeroSection() {
               </div>
 
               <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Brand / Enterprise Name *</label>
+                <label className={styles.inputLabel}>Brand / Company Name *</label>
                 <input
                   type="text"
                   name="company"
@@ -281,7 +295,21 @@ export default function HeroSection() {
               </div>
 
               <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Primary Tech Stack</label>
+                <label className={styles.inputLabel}>Company Website (optional)</label>
+                <input
+                  type="text"
+                  name="companywebsite"
+                  placeholder="https://www.enterprise.ae"
+                  className={styles.inputField}
+                  value={formData.companywebsite}
+                  onChange={handleChange}
+                />
+              </div>
+
+
+
+              <div className={styles.inputGroup}>
+                <label className={styles.inputLabel}>Primary Growth Focus</label>
                 <div className={styles.selectWrapper}>
                   <select
                     name="techStack"
@@ -289,11 +317,11 @@ export default function HeroSection() {
                     value={formData.techStack}
                     onChange={handleChange}
                   >
-                    <option value="Next.js & React Digital Flagship">Next.js &amp; React Digital Flagship</option>
-                    <option value="Headless Shopify Plus E-Commerce">Headless Shopify Plus E-Commerce</option>
-                    <option value="Sitecore DXP Composable Enterprise">Sitecore DXP Composable Enterprise</option>
-                    <option value="WordPress VIP Enterprise CMS">WordPress VIP Enterprise CMS</option>
-                    <option value="Custom Web Application / SaaS Portal">Custom Web Application / SaaS Portal</option>
+                    <option value="Viral Reels & Short-Form Content">Viral Reels & Short-Form Content</option>
+                    <option value="Full-Funnel Social Retainer (Multi-platform)">Full-Funnel Social Retainer (Multi-platform)</option>
+                    <option value="Community Management & Engagement">Community Management &amp; Engagement</option>
+                    <option value="Influencer Outreach & Creator Network">Influencer Outreach &amp; Creator Network</option>
+                    <option value="Performance Social & Paid Amplification">Performance Social &amp; Paid Amplification</option>
                   </select>
                   <svg className={styles.selectChevron} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
@@ -301,12 +329,25 @@ export default function HeroSection() {
                 </div>
               </div>
 
+              <div className={styles.inputGroup}>
+                <label className={styles.inputLabel}>Message / Project Brief *</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={3}
+                  placeholder="Tell us about your project..."
+                  className={styles.inputField}
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className={styles.submitBtn}
               >
-                <span>{isSubmitting ? "TRANSMITTING BRIEF..." : "REQUEST ARCHITECTURE BRIEFING"}</span>
+                <span>{isSubmitting ? "TRANSMITTING BRIEF..." : "REQUEST MY STRATEGY CALL"}</span>
                 <svg className={styles.submitBtnSvg} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -314,16 +355,15 @@ export default function HeroSection() {
 
               {feedback && (
                 <div
-                  className={`${styles.formFeedback} ${
-                    feedback.type === "error" ? styles.formFeedbackError : ""
-                  }`}
+                  className={`${styles.formFeedback} ${feedback.type === "error" ? styles.formFeedbackError : ""
+                    }`}
                 >
                   {feedback.message}
                 </div>
               )}
 
               <p className={styles.formDisclaimer}>
-                Zero spam. Guaranteed NDA protection for enterprise technical data.
+                Zero spam. Guaranteed NDA protection for enterprise inquiries.
               </p>
             </form>
           </div>

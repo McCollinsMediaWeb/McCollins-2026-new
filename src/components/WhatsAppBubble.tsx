@@ -10,7 +10,7 @@ export default function WhatsAppBubble() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const hiddenRoutes = [
-    "/brand-development-dubai-and-abudhabi",
+    // "/brand-development-dubai-and-abudhabi",
     "/brand-development-dubai-and-abudhabi-book-now",
     "/mccollins-brazil-proposal",
   ];

@@ -192,19 +192,19 @@
   flex-shrink: 0;
 }
 
-/* Pagespeed Benchmark Card */
+/* Short-Form Velocity Widget Card */
 .benchmarkCard {
   margin-top: 10px;
   width: 100%;
   max-width: 520px;
   min-height: 96px;
-  background: #181818;
-  border: 1px solid #2a2a2a;
+  background: #141414;
+  border: 1px solid #262626;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 18px 22px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
   gap: 16px;
 }
@@ -215,48 +215,95 @@
   gap: 16px;
 }
 
-.benchmarkBadge {
+.velocityIconWrapper {
   width: 48px;
   height: 48px;
   border-radius: 10px;
-  background: rgba(52, 82, 255, 0.18);
-  border: 1px solid rgba(52, 82, 255, 0.4);
-  color: #93a8ff;
-  font-size: 20px;
-  font-weight: 800;
+  background: rgba(52, 82, 255, 0.16);
+  border: 1px solid rgba(52, 82, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.benchmarkLabel {
+.velocityPlayIcon {
+  width: 24px;
+  height: 24px;
+  color: #93a8ff;
+}
+
+.velocityLabel {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #93a8ff;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
-.benchmarkDivider {
-  color: #52525b;
+.velocityValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
-.benchmarkMetrics {
-  font-size: 13px;
-  font-weight: 500;
-  color: #d4d4d8;
-  line-height: 1.4;
-}
-
-.sparklineSvg {
-  width: 100px;
-  height: 36px;
-  color: #3452ff;
+/* Animated Audio Equalizer Bars */
+.audioWaveContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   flex-shrink: 0;
+  height: 42px;
+}
+
+.audioBar {
+  width: 6px;
+  border-radius: 9999px;
+  display: inline-block;
+  transform-origin: center;
+  animation: audioWave 1.3s ease-in-out infinite alternate;
+}
+
+.audioBar1 {
+  height: 24px;
+  background: #3452ff;
+  animation-delay: 0s;
+}
+
+.audioBar2 {
+  height: 40px;
+  background: #93a8ff;
+  animation-delay: 0.25s;
+}
+
+.audioBar3 {
+  height: 16px;
+  background: #2563eb;
+  animation-delay: 0.5s;
+}
+
+.audioBar4 {
+  height: 32px;
+  background: #a5b4fc;
+  animation-delay: 0.15s;
+}
+
+@keyframes audioWave {
+  0% {
+    transform: scaleY(0.45);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.55);
+    opacity: 0.85;
+  }
 }
 
 /* Direct Briefing Form Monolith */
@@ -362,6 +409,14 @@
   font-family: inherit;
   transition: all 0.2s ease;
   outline: none;
+}
+
+textarea.inputField {
+  height: auto;
+  min-height: 90px;
+  padding: 12px 14px;
+  resize: vertical;
+  line-height: 1.5;
 }
 
 .inputField:focus {
@@ -588,17 +643,28 @@
   color: #f4f4f5;
   padding: 100px 5%;
   border-bottom: 1px solid #1f1f1f;
+  overflow: clip;
 }
 
 .capabilitiesContainer {
   max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .capabilitiesGrid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 48px;
+  min-width: 0;
+  width: 100%;
+}
+
+.bentoContainer {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .capabilitiesEditorial {
@@ -761,6 +827,174 @@
 
 .bentoCell:hover .bentoArrowSvg {
   transform: translate(2px, -2px);
+}
+
+.mobileCarouselNav {
+  display: none;
+}
+
+/* =========================================================================
+   STRATEGIC IMPACT - THE SOCIAL METRICS MAP
+   ========================================================================= */
+.metricsSection {
+  width: 100%;
+  background-color: #0b0b0d;
+  color: #f4f4f5;
+  padding: 100px 5%;
+  border-bottom: 1px solid #1f1f23;
+  position: relative;
+}
+
+.metricsContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.metricsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.metricsHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 780px;
+}
+
+.metricsKicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #93a8ff;
+}
+
+.metricsTitle {
+  font-family: var(--font-delight), "Space Grotesk", sans-serif;
+  font-size: clamp(32px, 4.2vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.metricsDescription {
+  font-size: clamp(14px, 1.15vw, 16px);
+  color: #a1a1aa;
+  line-height: 1.6;
+}
+
+.frameworkBadge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #71717a;
+  padding: 10px 18px;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: monospace, sans-serif;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.metricsTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #111113;
+  border: 1px solid #222226;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.metricsTable {
+  min-width: 960px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.metricsTableHeader {
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr 2.3fr 1.5fr 1.7fr;
+  background: #17171b;
+  border-bottom: 1px solid #26262b;
+  padding: 16px 24px;
+  gap: 20px;
+}
+
+.thCell {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.metricsTableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricsTableRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr 2.3fr 1.5fr 1.7fr;
+  padding: 22px 24px;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid #1a1a1e;
+  transition: background-color 0.2s ease;
+}
+
+.metricsTableRow:last-child {
+  border-bottom: none;
+}
+
+.metricsTableRow:hover {
+  background-color: rgba(52, 82, 255, 0.04);
+}
+
+.tdCell {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tdJourney {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.tdObjective {
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+.tdActivity {
+  color: #a1a1aa;
+  font-size: 13.5px;
+}
+
+.tdKpis {
+  color: #93a8ff;
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+.tdReturn {
+  color: #f4f4f5;
+  font-weight: 600;
+  font-size: 13.5px;
 }
 
 /* =========================================================================
@@ -1351,7 +1585,7 @@
 .workTitleItalic {
   font-family: var(--font-playfair-display), Georgia, serif;
   /* font-size: clamp(28px, 3.4vw, 44px); */
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(36px, 4.2vw, 58px);
   font-style: italic;
   font-weight: 400;
   text-transform: lowercase;
@@ -1574,6 +1808,8 @@
   .capabilitiesGrid {
     grid-template-columns: 1fr;
     gap: 40px;
+    min-width: 0;
+    width: 100%;
   }
 
   .pillarCardCol6,
@@ -1614,12 +1850,19 @@
   }
 
   .capabilitiesSection,
+  .metricsSection,
   .pillarsSection,
   .methodologySection,
   .techSection,
   .workSection,
   .faqSection {
     padding: 60px 4%;
+  }
+
+  .metricsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
   .methodologyHeaderRow {
@@ -1652,23 +1895,104 @@
   }
 
   .benchmarkCard {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 12px;
     height: auto;
-    padding: 16px;
+    padding: 16px 18px;
   }
 
-  .sparklineSvg {
-    display: none;
+  .velocityValue {
+    font-size: 17px;
   }
 
   .formCard {
     padding: 24px 18px;
   }
 
+  .bentoContainer {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .bentoGrid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 14px;
+    padding: 6px 2px 16px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .bentoGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bentoCell {
+    flex: 0 0 85%;
+    width: 85%;
+    min-width: 85%;
+    max-width: 85%;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    border-radius: 14px;
+    border: 1px solid #262626;
+    background-color: #121214;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    padding: 24px 20px;
+  }
+
+  .mobileCarouselNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 4px;
+  }
+
+  .mobileSwipeHint {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #71717a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobileDots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobileDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #27272a;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .mobileDotActive {
+    width: 18px;
+    border-radius: 9999px;
+    background: #3452ff;
   }
 
   .inputRowTwo {

@@ -26,13 +26,13 @@ export default function Header() {
   };
 
   const isLandingPage = pathname === "/brand-development-dubai-and-abudhabi";
-  const isCodeHtmlLanding = pathname === "/social-media-and-website-development";
+  const isCodeHtmlLanding = pathname === "/web-development-agency" || pathname === "/social-media-agency-dubai";
 
   if (isCodeHtmlLanding) {
     return (
       <header className="landing-code-header">
         <div className="landing-code-container">
-          <Link href="/social-media-and-website-development" className="landing-code-logo" aria-label="McCollins Media">
+          <Link href={pathname} className="landing-code-logo" aria-label="McCollins Media">
             <img
               alt="McCollins Media"
               className="landing-code-logo-img"
@@ -149,15 +149,18 @@ export default function Header() {
             </Link>
           )}
 
-          <button
-            className={`hamburger-menu ${isMobileMenuOpen ? "active" : ""}`}
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className="line line-1"></span>
-            <span className="line line-2"></span>
-          </button>
+          {!isLandingPage && (
+            <button
+              className={`hamburger-menu ${isMobileMenuOpen ? "active" : ""}`}
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className="line line-1"></span>
+              <span className="line line-2"></span>
+            </button>
+          )}
+
         </div>
       </div>
 

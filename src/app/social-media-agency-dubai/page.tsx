@@ -5,19 +5,15 @@ import styles from "./page.module.css";
 import HeroSection from "./components/HeroSection";
 import MarqueeSection from "./components/MarqueeSection";
 import WhatsIncludedSection from "./components/WhatsIncludedSection";
-import PillarsSection from "./components/PillarsSection";
-import TechStackSection from "./components/TechStackSection";
+import SocialMetricsMapSection from "./components/SocialMetricsMapSection";
 import SelectedWorkSection from "./components/SelectedWorkSection";
 import FaqSection from "./components/FaqSection";
-import TechStackSectionNoAnimation from "./components/TechStackSectionNoAnimation";
-import WebsitesThatWorkSection from "./components/WebsitesThatWorkSection";
-
 export const metadata: Metadata = {
-  title: "Enterprise Web & App Engineering | McCollins Media",
+  title: "Social Media Agency Dubai | McCollins Media",
   description:
-    "McCollins Media designs and develops high-performance digital platforms, enterprise web apps, headless e-commerce, and bespoke digital experiences across Dubai, Abu Dhabi, and the GCC.",
+    "McCollins Media is a social media agency in Dubai helping brands grow through strategic social media marketing, content creation, paid campaigns, and engaging digital experiences across Dubai, Abu Dhabi, and the GCC.",
   alternates: {
-    canonical: "https://www.mccollinsmedia.com/social-media-and-website-development",
+    canonical: "https://www.mccollinsmedia.com/social-media-agency-dubai",
   },
   robots: {
     index: true,
@@ -31,10 +27,7 @@ export default function SocialMediaWebsiteDevelopmentPage() {
       <HeroSection />
       <MarqueeSection />
       <WhatsIncludedSection />
-      <PillarsSection />
-      {/* <WebsitesThatWorkSection /> */}
-      <TechStackSection />
-      {/* <TechStackSectionNoAnimation /> */}
+      <SocialMetricsMapSection />
       <SelectedWorkSection />
       <FaqSection />
     </main>
