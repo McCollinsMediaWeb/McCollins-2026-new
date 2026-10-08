@@ -40,9 +40,44 @@ export default function Header() {
             />
           </Link>
 
+          <nav className="desktop-nav">
+            <Link href="/services" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
+              </span>
+            </Link>
+            <Link href="/about" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
+              </span>
+            </Link>
+            <Link href="/works" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="WORK">WORK</span>
+              </span>
+            </Link>
+            <Link href="/industry" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
+              </span>
+            </Link>
+            <Link href="/blog" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="BLOG">BLOG</span>
+              </span>
+            </Link>
+            <Link href="/contact" className="nav-link">
+              <span className="roll-text">
+                <span className="roll-text-inner" data-text="CONTACT">CONTACT</span>
+              </span>
+            </Link>
+
+
+          </nav>
+
           <div className="landing-code-actions">
             <a href="#strategy-form" className="landing-code-cta">
-              <span>Request a Strategy Call</span>
+              <span>Book a Strategy Call</span>
               <svg className="landing-code-cta-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

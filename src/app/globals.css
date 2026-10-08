@@ -755,7 +755,8 @@ html.lenis body {
   color: #ffffff !important;
   font-family: var(--font-delight), "Space Grotesk", sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  /* font-weight: 700; */
+  font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 10px 24px;
@@ -819,4 +820,3 @@ html.lenis body {
     font-size: 11px;
   }
 }
-

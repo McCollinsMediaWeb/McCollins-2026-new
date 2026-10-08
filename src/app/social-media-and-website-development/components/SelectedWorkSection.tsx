@@ -18,8 +18,9 @@ const CASE_STUDIES = [
     subtitle: "2024 Launch",
     tag: "E-COMMERCE • HEADLESS",
     desc: "Regional flagship electronics ecosystem with multi-region checkout & live showroom inventory sync.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCD9yg-T2uZ-mBS9EUqFTBBJvX1yTxfCE8TUZfRGyZi85Gl3uIYrHJd4bfpvAmtBCk7AAZG5x6y1ng72JRvANkxPFiRwPGoIZfRtdLbJN5FvpR8s9Y4EIEGCts5Ch9ket-wbui3HvA8GADAGVKpuNtadYeAxFOcTXzB34h9TLTBgGsQfMliZhV_UrzRCke8h9jypfc33LL1TCvpsX5P5zaSLLPt0Qojbk0mFw2mVo34UVVsC3fs6dzo",
+    // image:
+    //   "https://lh3.googleusercontent.com/aida-public/AB6AXuCD9yg-T2uZ-mBS9EUqFTBBJvX1yTxfCE8TUZfRGyZi85Gl3uIYrHJd4bfpvAmtBCk7AAZG5x6y1ng72JRvANkxPFiRwPGoIZfRtdLbJN5FvpR8s9Y4EIEGCts5Ch9ket-wbui3HvA8GADAGVKpuNtadYeAxFOcTXzB34h9TLTBgGsQfMliZhV_UrzRCke8h9jypfc33LL1TCvpsX5P5zaSLLPt0Qojbk0mFw2mVo34UVVsC3fs6dzo",
+    image: "/works/pioneer-new.png",
     link: "/case-study/pioneer",
   },
   {
@@ -27,8 +28,9 @@ const CASE_STUDIES = [
     subtitle: "MENA Experience",
     tag: "LUXURY DIGITAL EXPERIENCE",
     desc: "Immersive storytelling and B2B hospitality procurement portal engineered with fluid WebGL animations.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCnHZ6G_59mu7BNVPnhI9EtgYJ2BK6pZGAvmU0M-n67Cpi2LrHOPXw7TdfeD3fr9HjVsZxoS0IgwVKm5XkhDbKGgWXcOHsCTWdIsCMf8urwRF7ndBOOAmW7VHPiAy3B4d4xUNZbqPbkA1xGcW3s16OfVczPbQAzLoj-kpZwdbvDwSTm_Ya15XWTs8Pk74EgG6DVxvr-LHQnpio-1DRcENpQ0N8HMA29AywhjlKttb-xub7P8BQB-rmn",
+    // image:
+    //   "https://lh3.googleusercontent.com/aida-public/AB6AXuCnHZ6G_59mu7BNVPnhI9EtgYJ2BK6pZGAvmU0M-n67Cpi2LrHOPXw7TdfeD3fr9HjVsZxoS0IgwVKm5XkhDbKGgWXcOHsCTWdIsCMf8urwRF7ndBOOAmW7VHPiAy3B4d4xUNZbqPbkA1xGcW3s16OfVczPbQAzLoj-kpZwdbvDwSTm_Ya15XWTs8Pk74EgG6DVxvr-LHQnpio-1DRcENpQ0N8HMA29AywhjlKttb-xub7P8BQB-rmn",
+    image: "/works/53e7fd625b0b794ee51a59918952d03afce9746d.jpg",
     link: "/case-study/voss",
   },
   {
@@ -36,8 +38,9 @@ const CASE_STUDIES = [
     subtitle: "Specification Engine",
     tag: "ENTERPRISE BIM PORTAL",
     desc: "Industrial specification and BIM catalog portal connecting structural engineers directly with local inventory.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCqtOUQP8GoKiNqctoMvYZms4mB_BGBflHbjqI0UX6lCsha2QDFH4Poyh-nqZNns4FoT2kmy7yUDF3SRdcdBqa-0GLKPyepmEUV7p-We_x9RW6TXZoF3cqyE6kyR3gHyCIGnVTL6G4Yqc_OhQ47zBp8gS9UMsbaDouC9-bW_6g8QuZCCffswOqxBKntyuYm1wEorJj_z0LaLILaJ06QV_HCs-u-AI-OUtKQu1L-zeute3Ir1-nDoQkN",
+    // image:
+    //   "https://lh3.googleusercontent.com/aida-public/AB6AXuCqtOUQP8GoKiNqctoMvYZms4mB_BGBflHbjqI0UX6lCsha2QDFH4Poyh-nqZNns4FoT2kmy7yUDF3SRdcdBqa-0GLKPyepmEUV7p-We_x9RW6TXZoF3cqyE6kyR3gHyCIGnVTL6G4Yqc_OhQ47zBp8gS9UMsbaDouC9-bW_6g8QuZCCffswOqxBKntyuYm1wEorJj_z0LaLILaJ06QV_HCs-u-AI-OUtKQu1L-zeute3Ir1-nDoQkN",
+    image: "/works/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp",
     link: "/case-study/mapei",
   },
 ];

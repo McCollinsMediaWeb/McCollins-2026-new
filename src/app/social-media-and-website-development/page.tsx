@@ -9,6 +9,8 @@ import PillarsSection from "./components/PillarsSection";
 import TechStackSection from "./components/TechStackSection";
 import SelectedWorkSection from "./components/SelectedWorkSection";
 import FaqSection from "./components/FaqSection";
+import TechStackSectionNoAnimation from "./components/TechStackSectionNoAnimation";
+import WebsitesThatWorkSection from "./components/WebsitesThatWorkSection";
 
 export const metadata: Metadata = {
   title: "Enterprise Web & App Engineering | McCollins Media",
@@ -29,8 +31,10 @@ export default function SocialMediaWebsiteDevelopmentPage() {
       <HeroSection />
       <MarqueeSection />
       <WhatsIncludedSection />
-      <PillarsSection />
-      <TechStackSection />
+      {/* <PillarsSection /> */}
+      <WebsitesThatWorkSection />
+      {/* <TechStackSection /> */}
+      <TechStackSectionNoAnimation />
       <SelectedWorkSection />
       <FaqSection />
     </main>
