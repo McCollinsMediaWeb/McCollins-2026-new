@@ -26,7 +26,10 @@ export default function Header() {
   };
 
   const isLandingPage = pathname === "/brand-development-dubai-and-abudhabi";
-  const isCodeHtmlLanding = pathname === "/web-development-agency" || pathname === "/social-media-agency-dubai";
+  const isCodeHtmlLanding =
+    pathname === "/web-development-agency" ||
+    pathname === "/social-media-agency" ||
+    pathname === "/social-media-agency-dubai";
 
   if (isCodeHtmlLanding) {
     return (
@@ -41,6 +44,13 @@ export default function Header() {
           </Link>
 
           <div className="landing-code-actions">
+            <a href="mailto:info@mccollinsmedia.com" className="landing-code-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <span>info@mccollinsmedia.com</span>
+            </a>
             <a href="#strategy-form" className="landing-code-cta">
               <span>Book a Strategy Call</span>
               <svg className="landing-code-cta-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

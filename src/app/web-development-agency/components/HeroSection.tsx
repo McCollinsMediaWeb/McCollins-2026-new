@@ -357,6 +357,11 @@ export default function HeroSection() {
 
               <p className={styles.formDisclaimer}>
                 Zero spam. Guaranteed NDA protection for enterprise technical data.
+                <br />
+                Prefer direct email?{" "}
+                <a href="mailto:info@mccollinsmedia.com" className={styles.formEmailLink}>
+                  Email us at info@mccollinsmedia.com
+                </a>
               </p>
             </form>
           </div>

@@ -746,6 +746,34 @@ html.lenis body {
   gap: 16px;
 }
 
+.landing-code-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a1a1aa !important;
+  font-family: var(--font-delight), "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s ease;
+}
+
+.landing-code-email:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .landing-code-email {
+    display: none;
+  }
+}
+
 .landing-code-cta {
   display: inline-flex;
   align-items: center;
