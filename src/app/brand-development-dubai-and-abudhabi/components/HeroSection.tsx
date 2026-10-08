@@ -35,6 +35,8 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
     email: "",
     phone: "",
     company: "",
+    companyWebsite: "",
+    message: ""
   });
 
   useEffect(() => {
@@ -121,6 +123,8 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
           email: formData.email.trim(),
           phone: formData.phone.trim(),
           company: formData.company.trim(),
+          companyWebsite: formData.companyWebsite.trim(),
+          message: formData.message.trim(),
           services: selectedServices.length > 0 ? selectedServices.join(", ") : "Brand Development",
           page: "Brand Development Dubai & Abu Dhabi",
           pageUrl: currentUrl,
@@ -140,6 +144,8 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
         payload.append("Email", formData.email.trim());
         payload.append("Phone", formData.phone.trim());
         payload.append("Company", formData.company.trim());
+        payload.append("CompanyWebsite", formData.companyWebsite.trim());
+        payload.append("Message", formData.message.trim());
         payload.append(
           "Service",
           selectedServices.length > 0 ? selectedServices.join(", ") : "Brand Development"
@@ -277,6 +283,25 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
                       placeholder="Company name"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <input
+                      type="text"
+                      className={styles.input}
+                      placeholder="Company website"
+                      value={formData.companyWebsite}
+                      onChange={(e) => setFormData({ ...formData, companyWebsite: e.target.value })}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <input
+                      className={styles.input}
+                      placeholder="Message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
                   </div>
 

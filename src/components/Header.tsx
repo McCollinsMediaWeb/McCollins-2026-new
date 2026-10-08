@@ -40,41 +40,6 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="desktop-nav">
-            <Link href="/services" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="SERVICES">SERVICES</span>
-              </span>
-            </Link>
-            <Link href="/about" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="ABOUT">ABOUT</span>
-              </span>
-            </Link>
-            <Link href="/works" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="WORK">WORK</span>
-              </span>
-            </Link>
-            <Link href="/industry" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="EXPERTISE">EXPERTISE</span>
-              </span>
-            </Link>
-            <Link href="/blog" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="BLOG">BLOG</span>
-              </span>
-            </Link>
-            <Link href="/contact" className="nav-link">
-              <span className="roll-text">
-                <span className="roll-text-inner" data-text="CONTACT">CONTACT</span>
-              </span>
-            </Link>
-
-
-          </nav>
-
           <div className="landing-code-actions">
             <a href="#strategy-form" className="landing-code-cta">
               <span>Book a Strategy Call</span>
@@ -92,7 +57,7 @@ export default function Header() {
     <header className={`site-header ${isScrolled ? "scrolled" : ""} ${isLightMode ? "light-theme" : ""} ${pathname === "/about" ? "about-theme" : ""} ${pathname.startsWith("/services") ? "services-theme" : ""} ${pathname === "/industry" ? "industry-theme" : ""} ${isLandingPage ? "landing-theme" : ""}`}>
       <div className="header-container">
         {/* Left: SVG Logo */}
-        <Link href="/" className="logo-link" aria-label="McCollins Home">
+        <Link href={`${isLandingPage ? "/brand-development-dubai-and-abudhabi" : "/"}`} className="logo-link" aria-label="McCollins Home">
           <svg
             width="112"
             height="17"

@@ -31,10 +31,10 @@ export default function SocialMediaWebsiteDevelopmentPage() {
       <HeroSection />
       <MarqueeSection />
       <WhatsIncludedSection />
-      {/* <PillarsSection /> */}
-      <WebsitesThatWorkSection />
-      {/* <TechStackSection /> */}
-      <TechStackSectionNoAnimation />
+      <PillarsSection />
+      {/* <WebsitesThatWorkSection /> */}
+      <TechStackSection />
+      {/* <TechStackSectionNoAnimation /> */}
       <SelectedWorkSection />
       <FaqSection />
     </main>
