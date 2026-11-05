@@ -1,0 +1,9 @@
+# robots.txt for https://www.mccollinsmedia.com/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Do not block /_next/ - search engines need its CSS/JS to render the site
+
+Sitemap: https://www.mccollinsmedia.com/sitemap.xml

@@ -1,0 +1,40 @@
+# McCollins Media
+
+> McCollins Media is a digital marketing agency based in Dubai Media City, Dubai, UAE. It offers brand development, web development, performance marketing, SEO, marketing automation, content production, social media marketing and Google Ads, with a data-driven, globally minded approach and transparent reporting.
+
+McCollins Media works across industries including real estate, luxury, food & beverage, technology, startups and B2B. Brands featured on the site include Toshiba, Pioneer, Costa Coffee, Fujifilm, Wagamama, RTA, Energizer and Damac.
+
+## Main pages
+
+- [Home](https://www.mccollinsmedia.com/): Agency overview, core services and highlighted work
+- [About](https://www.mccollinsmedia.com/about): Who McCollins Media is and how the agency works
+- [Services](https://www.mccollinsmedia.com/services): Full list of digital marketing services
+- [Work](https://www.mccollinsmedia.com/works): Case studies and client projects
+- [Expertise](https://www.mccollinsmedia.com/industry): Industries the agency specializes in
+- [Blog](https://www.mccollinsmedia.com/blog): Articles and insights on digital marketing
+- [Contact](https://www.mccollinsmedia.com/contact): Book a strategy call or get in touch
+
+## Services
+
+- [Brand Development](https://www.mccollinsmedia.com/services/brand-development): Cohesive brand identities for global audiences
+- [Web Development](https://www.mccollinsmedia.com/services/web-development): High-performance, responsive, conversion-focused websites
+- [Performance Marketing](https://www.mccollinsmedia.com/services/performance-marketing): Data-driven, cross-border campaigns focused on ROI
+- [SEO](https://www.mccollinsmedia.com/services/seo): Search engine optimization
+- [Marketing Automation](https://www.mccollinsmedia.com/services/marketing-automation): Automation for sustainable, consistent growth
+- [Content Production](https://www.mccollinsmedia.com/services/content-production): Cinematic, strategy-led content
+- [Social Media Marketing](https://www.mccollinsmedia.com/services/social-media-marketing): Community building and engagement through social content
+- [Google Ads](https://www.mccollinsmedia.com/services/google-ads): Paid search and advertising management
+
+## Contact
+
+- Email: info@mccollinsmedia.com
+- Address: G04, Loft Office 2, Entrance C, Dubai Media City, Dubai, UAE
+- Instagram: https://www.instagram.com/mccollinsmedia/
+- LinkedIn: https://www.linkedin.com/company/mccollins-media/
+
+## Optional
+
+- [Privacy Policy](https://www.mccollinsmedia.com/privacy-policy)
+- [Cookies Policy](https://www.mccollinsmedia.com/cookies-policy)
+- [Terms & Conditions](https://www.mccollinsmedia.com/terms-conditions)
+- [Sitemap](https://www.mccollinsmedia.com/sitemap.xml)
