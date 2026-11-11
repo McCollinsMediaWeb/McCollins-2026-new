@@ -6,6 +6,7 @@ import styles from "./Footer.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -37,12 +38,13 @@ export default function Footer() {
     setErrorMessage("");
 
     try {
+      const recaptchaToken = await getRecaptchaToken("newsletter");
       const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, recaptchaToken }),
       });
 
       const data = await response.json();

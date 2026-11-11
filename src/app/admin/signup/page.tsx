@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../login/login.module.css";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 export default function AdminSignupPage() {
   const router = useRouter();
@@ -20,10 +21,11 @@ export default function AdminSignupPage() {
     setSuccess("");
 
     try {
+      const recaptchaToken = await getRecaptchaToken("admin_signup");
       const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, recaptchaToken }),
       });
 
       const data = await response.json();

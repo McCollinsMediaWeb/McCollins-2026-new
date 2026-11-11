@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import clientPromise from '@/lib/mongodb'
 import { hash } from 'bcryptjs'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, name } = await req.json()
+    const { email, password, name, recaptchaToken } = await req.json()
+
+    if (!(await verifyRecaptcha(req, recaptchaToken, 'admin_signup'))) {
+      return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 })
+    }
 
     if (!email || !email.includes('@') || !password) {
       return NextResponse.json({ error: 'Invalid details' }, { status: 422 })

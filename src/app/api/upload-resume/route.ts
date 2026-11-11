@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
+    if (!(await verifyRecaptcha(req, formData.get("recaptchaToken"), "career_upload"))) {
+      return NextResponse.json({ error: "CAPTCHA verification failed. Please try again." }, { status: 403 });
+    }
     const file = formData.get("file") as File;
     if (!file) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });

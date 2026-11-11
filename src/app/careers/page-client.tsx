@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 export default function CareersPageClient() {
   const [firstName, setFirstName] = useState("");
@@ -45,8 +46,10 @@ export default function CareersPageClient() {
     setIsSubmitting(true);
 
     try {
+      const uploadRecaptchaToken = await getRecaptchaToken("career_upload");
       const uploadFormData = new FormData();
       uploadFormData.append("file", file);
+      uploadFormData.append("recaptchaToken", uploadRecaptchaToken);
 
       const uploadResponse = await fetch("/api/upload-resume", {
         method: "POST",
@@ -60,6 +63,7 @@ export default function CareersPageClient() {
 
       const fullName = `${firstName.trim()} ${lastName.trim()}`;
       const currentUrl = window.location.href;
+      const recaptchaToken = await getRecaptchaToken("career_application");
       const payload = {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
@@ -74,6 +78,7 @@ export default function CareersPageClient() {
         pageUrl: currentUrl,
         source: "Careers Page Application",
         date: new Date(),
+        recaptchaToken,
       };
 
       const submissionResponse = await fetch("/api/careers-submit", {

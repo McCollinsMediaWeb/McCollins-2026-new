@@ -2,16 +2,22 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getSession } from '@/lib/auth'
 import { ObjectId } from 'mongodb'
 import { splitFullName, submitToHubSpot } from '@/lib/hubspot'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
+    if (!(await verifyRecaptcha(req, body?.recaptchaToken, 'contact_form'))) {
+      return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 })
+    }
     if (!body || !(body.name || body.firstName)) {
       return NextResponse.json({ error: 'Name is a required field' }, { status: 400 })
     }
 
+    const formFields = { ...body }
+    delete formFields.recaptchaToken
     const submission = {
-      ...body,
+      ...formFields,
       createdAt: new Date()
     }
 

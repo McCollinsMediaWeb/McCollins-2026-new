@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./WhatsAppModal.module.css";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 interface WhatsAppModalProps {
   isOpen: boolean;
@@ -69,6 +70,7 @@ export default function WhatsAppModal({
     setLoading(true);
 
     try {
+      const recaptchaToken = await getRecaptchaToken("whatsapp_lead");
       const response = await fetch("/api/whatsapp-lead", {
         method: "POST",
         headers: {
@@ -79,6 +81,7 @@ export default function WhatsAppModal({
           phone: phone.trim(),
           source: source.trim() || "Website",
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
+          recaptchaToken,
         }),
       });
 

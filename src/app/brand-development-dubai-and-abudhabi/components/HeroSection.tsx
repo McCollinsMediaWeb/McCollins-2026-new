@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 const SERVICE_OPTIONS = [
   "Brand Development",
@@ -114,6 +115,7 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
 
     try {
       const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+      const recaptchaToken = await getRecaptchaToken("contact_form");
       const apiResponse = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -129,6 +131,7 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
           page: "Brand Development Dubai & Abu Dhabi",
           pageUrl: currentUrl,
           source: "Brand Development landing page",
+          recaptchaToken,
         }),
       });
 
@@ -160,11 +163,11 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
           mode: "no-cors",
         }).catch((err) => console.error("Sheet submit error:", err));
       }
+      setSubmitted(true);
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
     }
   };
 

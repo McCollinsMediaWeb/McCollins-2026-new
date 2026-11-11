@@ -16,6 +16,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Google reCAPTCHA
+
+All public forms and admin authentication use reCAPTCHA v3. Create a v3 key pair in
+the Google reCAPTCHA admin console, add both the production hostname and `localhost`,
+then copy `.env.example` to `.env.local` and set:
+
+```bash
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_site_key
+RECAPTCHA_SECRET_KEY=your_secret_key
+RECAPTCHA_MIN_SCORE=0.5
+```
+
+The server rejects submissions when reCAPTCHA is missing, misconfigured, returns a
+different action, or scores below the configured threshold.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

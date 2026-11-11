@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import BusinessEnquiryModal from "./BusinessEnquiryModal";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -70,6 +71,7 @@ export default function ContactPage() {
     }
 
     try {
+      const recaptchaToken = await getRecaptchaToken("contact_form");
       // 1. Submit to local MongoDB database API
       const response = await fetch("/api/form-submit", {
         method: "POST",
@@ -88,6 +90,7 @@ export default function ContactPage() {
           pageUrl: currentUrl,
           source: detectedSource,
           date: new Date(),
+          recaptchaToken,
         }),
       });
 

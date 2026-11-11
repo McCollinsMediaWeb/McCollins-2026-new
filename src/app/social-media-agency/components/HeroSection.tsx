@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,6 +39,7 @@ export default function HeroSection() {
     setFeedback(null);
 
     try {
+      const recaptchaToken = await getRecaptchaToken("contact_form");
       const response = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,6 +53,7 @@ export default function HeroSection() {
           services: formData.techStack,
           source: "Enterprise Web & App Engineering Landing Page",
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
+          recaptchaToken,
         }),
       });
 

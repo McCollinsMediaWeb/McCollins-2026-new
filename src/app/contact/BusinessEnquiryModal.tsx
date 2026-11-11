@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./BusinessEnquiryModal.module.css";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 interface BusinessEnquiryModalProps {
   isOpen: boolean;
@@ -62,6 +63,7 @@ export default function BusinessEnquiryModal({
 
     try {
       const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+      const recaptchaToken = await getRecaptchaToken("contact_form");
 
       // 1. Save submission to MongoDB DB (/api/form-submit)
       const res = await fetch("/api/form-submit", {
@@ -82,6 +84,7 @@ export default function BusinessEnquiryModal({
           pageUrl: currentUrl,
           source: "Business Enquiry Modal",
           date: new Date(),
+          recaptchaToken,
         }),
       });
 
