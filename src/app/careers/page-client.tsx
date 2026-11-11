@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 export default function CareersPageClient() {
   const [firstName, setFirstName] = useState("");
@@ -42,14 +42,18 @@ export default function CareersPageClient() {
       setError("Please upload your CV / Resume.");
       return;
     }
+    const recaptchaToken = getRecaptchaResponse(event.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setError("Please confirm that you are not a robot.");
+      return;
+    }
 
     setIsSubmitting(true);
 
     try {
-      const uploadRecaptchaToken = await getRecaptchaToken("career_upload");
       const uploadFormData = new FormData();
       uploadFormData.append("file", file);
-      uploadFormData.append("recaptchaToken", uploadRecaptchaToken);
+      uploadFormData.append("recaptchaToken", recaptchaToken);
 
       const uploadResponse = await fetch("/api/upload-resume", {
         method: "POST",
@@ -63,7 +67,6 @@ export default function CareersPageClient() {
 
       const fullName = `${firstName.trim()} ${lastName.trim()}`;
       const currentUrl = window.location.href;
-      const recaptchaToken = await getRecaptchaToken("career_application");
       const payload = {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
@@ -72,13 +75,13 @@ export default function CareersPageClient() {
         phone: phone.trim(),
         contact: phone.trim(),
         resumeUrl: uploadData.url,
+        captchaProof: uploadData.captchaProof,
         inquiryType: "Careers",
         services: "Career Application",
         page: "careers",
         pageUrl: currentUrl,
         source: "Careers Page Application",
         date: new Date(),
-        recaptchaToken,
       };
 
       const submissionResponse = await fetch("/api/careers-submit", {
@@ -192,6 +195,7 @@ export default function CareersPageClient() {
                     </div>
                   </div>
 
+                  <RecaptchaCheckbox />
                   <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                     {isSubmitting ? "Uploading CV & Submitting..." : "Submit Application"}
                   </button>

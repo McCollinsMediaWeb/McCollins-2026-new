@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   try {
     const { email, password, recaptchaToken } = await req.json()
 
-    if (!(await verifyRecaptcha(req, recaptchaToken, 'admin_login'))) {
+    if (!(await verifyRecaptcha(req, recaptchaToken))) {
       return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 })
     }
 
@@ -32,8 +32,8 @@ export async function POST(req: NextRequest) {
     await createSession(user._id.toString(), user.email, user.name || 'Admin')
 
     return NextResponse.json({ success: true, name: user.name, email: user.email })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Login API error:', error)
-    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 })
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal server error' }, { status: 500 })
   }
 }

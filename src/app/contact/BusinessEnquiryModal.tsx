@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./BusinessEnquiryModal.module.css";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 interface BusinessEnquiryModalProps {
   isOpen: boolean;
@@ -58,12 +58,16 @@ export default function BusinessEnquiryModal({
       setError("Please enter your phone / mobile number.");
       return;
     }
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setError("Please confirm that you are not a robot.");
+      return;
+    }
 
     setIsSubmitting(true);
 
     try {
       const currentUrl = typeof window !== "undefined" ? window.location.href : "";
-      const recaptchaToken = await getRecaptchaToken("contact_form");
 
       // 1. Save submission to MongoDB DB (/api/form-submit)
       const res = await fetch("/api/form-submit", {
@@ -235,6 +239,7 @@ export default function BusinessEnquiryModal({
                 />
               </div>
 
+              <RecaptchaCheckbox theme="dark" />
               <button
                 type="submit"
                 className={styles.submitBtn}

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../login/login.module.css";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 export default function AdminSignupPage() {
   const router = useRouter();
@@ -16,12 +16,16 @@ export default function AdminSignupPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setError("Please confirm that you are not a robot.");
+      return;
+    }
     setLoading(true);
     setError("");
     setSuccess("");
 
     try {
-      const recaptchaToken = await getRecaptchaToken("admin_signup");
       const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -105,6 +109,7 @@ export default function AdminSignupPage() {
             />
           </div>
 
+          <RecaptchaCheckbox theme="dark" />
           <button className={styles.button} type="submit" disabled={loading}>
             {loading ? "Registering..." : "Create Account"}
           </button>

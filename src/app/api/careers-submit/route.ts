@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ObjectId } from 'mongodb'
-import { verifyRecaptcha } from '@/lib/recaptcha'
+import { verifyRecaptchaProof } from '@/lib/recaptcha'
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    if (!(await verifyRecaptcha(req, body?.recaptchaToken, 'career_application'))) {
+    if (!(await verifyRecaptchaProof(body?.captchaProof, body?.resumeUrl))) {
       return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 })
     }
     if (!body || !(body.firstName || body.name)) {
@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
 
     const applicationFields = { ...body }
     delete applicationFields.recaptchaToken
+    delete applicationFields.captchaProof
     const submission = {
       ...applicationFields,
       inquiryType: 'Careers',

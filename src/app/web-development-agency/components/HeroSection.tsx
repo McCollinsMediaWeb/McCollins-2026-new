@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,12 +34,16 @@ export default function HeroSection() {
       setFeedback({ type: "error", message: "Please fill in all required fields." });
       return;
     }
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setFeedback({ type: "error", message: "Please confirm that you are not a robot." });
+      return;
+    }
 
     setIsSubmitting(true);
     setFeedback(null);
 
     try {
-      const recaptchaToken = await getRecaptchaToken("contact_form");
       const response = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -338,6 +342,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
+              <RecaptchaCheckbox theme="dark" />
               <button
                 type="submit"
                 disabled={isSubmitting}

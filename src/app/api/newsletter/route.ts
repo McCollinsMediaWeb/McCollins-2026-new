@@ -5,7 +5,7 @@ import { verifyRecaptcha } from '@/lib/recaptcha';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    if (!(await verifyRecaptcha(req, body?.recaptchaToken, 'newsletter'))) {
+    if (!(await verifyRecaptcha(req, body?.recaptchaToken))) {
       return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 });
     }
     if (!body || !body.email) {

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./WhatsAppModal.module.css";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 interface WhatsAppModalProps {
   isOpen: boolean;
@@ -67,10 +67,15 @@ export default function WhatsAppModal({
       return;
     }
 
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setError("Please confirm that you are not a robot.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const recaptchaToken = await getRecaptchaToken("whatsapp_lead");
       const response = await fetch("/api/whatsapp-lead", {
         method: "POST",
         headers: {
@@ -207,6 +212,7 @@ export default function WhatsAppModal({
             </div>
           </div>
 
+          <RecaptchaCheckbox />
           <button
             type="submit"
             className={styles.submitBtn}

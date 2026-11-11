@@ -6,7 +6,7 @@ import styles from "./Footer.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox from "@/components/RecaptchaCheckbox";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -21,6 +21,7 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState("");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,11 +35,16 @@ export default function Footer() {
       return;
     }
 
+    if (!recaptchaToken) {
+      setStatus("error");
+      setErrorMessage("Please confirm that you are not a robot.");
+      return;
+    }
+
     setStatus("loading");
     setErrorMessage("");
 
     try {
-      const recaptchaToken = await getRecaptchaToken("newsletter");
       const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
@@ -214,6 +220,8 @@ export default function Footer() {
                     <span className={styles.successCheck}>✓</span>
                   </div>
                 ) : (
+                  <>
+                  <RecaptchaCheckbox theme="dark" onChange={setRecaptchaToken} />
                   <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
                     <input
                       type="email"
@@ -227,6 +235,7 @@ export default function Footer() {
                       {status === "loading" ? <span className={styles.spinner}></span> : "→"}
                     </button>
                   </form>
+                  </>
                 )}
                 {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
               </div>
@@ -325,6 +334,8 @@ export default function Footer() {
                 <span className={styles.successCheck}>✓</span>
               </div>
             ) : (
+              <>
+              <RecaptchaCheckbox theme="dark" onChange={setRecaptchaToken} />
               <form className={styles.mobileNewsletterForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"
@@ -338,6 +349,7 @@ export default function Footer() {
                   {status === "loading" ? <span className={styles.spinner}></span> : "→"}
                 </button>
               </form>
+              </>
             )}
             {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
           </div>

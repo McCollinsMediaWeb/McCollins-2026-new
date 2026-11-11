@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 const SERVICE_OPTIONS = [
   "Brand Development",
@@ -110,12 +110,13 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || isSubmitting) return;
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) return;
 
     setIsSubmitting(true);
 
     try {
       const currentUrl = typeof window !== "undefined" ? window.location.href : "";
-      const recaptchaToken = await getRecaptchaToken("contact_form");
       const apiResponse = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -403,6 +404,7 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
                     </div>
                   </div>
 
+                  <RecaptchaCheckbox theme="dark" />
                   <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                     {isSubmitting ? "SUBMITTING..." : "REQUEST MY STRATEGY CALL"}
                   </button>

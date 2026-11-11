@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyRecaptcha } from "@/lib/recaptcha";
+import { createRecaptchaProof, verifyRecaptcha } from "@/lib/recaptcha";
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    if (!(await verifyRecaptcha(req, formData.get("recaptchaToken"), "career_upload"))) {
+    if (!(await verifyRecaptcha(req, formData.get("recaptchaToken")))) {
       return NextResponse.json({ error: "CAPTCHA verification failed. Please try again." }, { status: 403 });
     }
     const file = formData.get("file") as File;
@@ -33,14 +33,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const captchaProof = await createRecaptchaProof(data.secure_url);
     return NextResponse.json({
       success: true,
       url: data.secure_url,
+      captchaProof,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Resume upload error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to upload resume to Cloudinary" },
+      { error: error instanceof Error ? error.message : "Failed to upload resume to Cloudinary" },
       { status: 500 }
     );
   }

@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import BusinessEnquiryModal from "./BusinessEnquiryModal";
-import { getRecaptchaToken } from "@/lib/recaptcha-client";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -54,6 +54,12 @@ export default function ContactPage() {
       setStatusMessage("You must agree to the privacy policy.");
       return;
     }
+    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    if (!recaptchaToken) {
+      setStatus("error");
+      setStatusMessage("Please confirm that you are not a robot.");
+      return;
+    }
 
     setStatus("loading");
     setStatusMessage("");
@@ -71,7 +77,6 @@ export default function ContactPage() {
     }
 
     try {
-      const recaptchaToken = await getRecaptchaToken("contact_form");
       // 1. Submit to local MongoDB database API
       const response = await fetch("/api/form-submit", {
         method: "POST",
@@ -405,6 +410,7 @@ export default function ContactPage() {
                 <span className={styles.checkboxLabel}>I agree to the privacy policy</span>
               </label>
 
+              <RecaptchaCheckbox theme="dark" />
               <button type="submit" className={styles.submitBtn} disabled={status === "loading"}>
                 <span className={styles.submitBtnDot} />
                 <span className={styles.submitBtnText}>
