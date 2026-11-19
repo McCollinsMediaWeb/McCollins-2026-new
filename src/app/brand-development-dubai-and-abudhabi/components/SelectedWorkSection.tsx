@@ -51,7 +51,7 @@ export default function SelectedWorkSection() {
         {/* Header */}
         <div className={styles.selectedWorkHeader}>
           <div>
-            <span className={styles.selectedWorkKicker}>SELECTED WORK</span>
+            <span className={styles.selectedWorkKicker}>BRANDING CASE STUDIES</span>
             <h2 className={styles.selectedWorkTitle}>
               BRANDS WE&apos;VE BUILT AND <span className={styles.selectedWorkItalic}>Rebuilt.</span>
             </h2>
@@ -79,6 +79,20 @@ export default function SelectedWorkSection() {
               </div>
             </Link>
           ))}
+        </div>
+        <div className={styles.featuredWorkCard}>
+          <Image
+            src="/brand-development-dubai-and-abudhabi/cleaning-superstore.jpg"
+            alt="Cleaning Superstore campaign vehicle"
+            fill
+            className={styles.workImage}
+          />
+          <h3 className={styles.featuredWorkTitle}>Cleaning Superstore</h3>
+        </div>
+        <div className={styles.recognitionStrip}>
+          <strong>AGENCY RECOGNITION</strong>
+          <span>Best Social Media Campaign - Government</span>
+          <span>Internet Awards Middle East</span>
         </div>
       </div>
     </section>

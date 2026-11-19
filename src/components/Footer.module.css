@@ -18,6 +18,14 @@
   gap: 80px;
 }
 
+.landingFooter .topSection {
+  justify-content: flex-end;
+}
+
+.landingFooter .middleSection {
+  margin-top: -190px;
+}
+
 /* TOP SECTION */
 .topSection {
   display: flex;
@@ -404,4 +412,37 @@
     font-size: 16px;
     padding: 0 5px;
   }
+}
+
+@media (max-width: 768px) {
+  .landingFooter {
+    padding: 56px 20px 24px;
+  }
+
+  .landingFooter .footerInner {
+    gap: 46px;
+  }
+
+  .landingFooter .mobileFooter {
+    gap: 38px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .landingFooter .mobileGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .landingFooter .mobileNavLinks { gap: 11px; }
+  .landingFooter .mobileNavLinks a { font-size: 27px; line-height: 1; }
+  .landingFooter .mobileDetailsCol { gap: 24px; }
+  .landingFooter .mobileSocials { gap: 8px; }
+  .landingFooter .mobileSocials a { font-size: 12px; }
+  .landingFooter .mobileNewBusiness { font-size: 11px; }
+  .landingFooter .mobileAddress { font-size: 10px; }
+  .landingFooter .mobileNewsletter { margin-top: 0; gap: 12px; }
+  .landingFooter .mobileNewsletterLabel { font-size: 12px; }
+  .landingFooter .footerLogoSvg { visibility: visible !important; transform: none !important; }
 }

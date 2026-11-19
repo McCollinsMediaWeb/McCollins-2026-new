@@ -572,6 +572,143 @@
   }
 }
 
+/* PDF-matched Abu Dhabi landing page */
+.heroSection {
+  min-height: 980px;
+  padding: 170px 5% 90px;
+  align-items: center;
+}
+
+.heroContainer {
+  max-width: 1720px;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 90px;
+}
+
+.heroLeft { max-width: 900px; }
+.kicker { font-size: 12px; margin-bottom: 18px; }
+.heroTitle {
+  max-width: 900px;
+  font-size: clamp(54px, 3.7vw, 70px);
+  line-height: 1.02;
+  text-transform: none;
+  margin-bottom: 24px;
+}
+.heroRating { color: #fff; font-size: 14px; margin-bottom: 28px; }
+.heroRating::before { content: "★"; color: #d7b34b; margin-right: 8px; }
+.heroSubtitle { max-width: 650px; font-size: 19px; line-height: 1.55; }
+.heroActions { display: flex; gap: 14px; margin-top: 34px; }
+.phoneButton, .whatsappButton {
+  min-width: 185px;
+  padding: 15px 22px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.phoneButton { border: 1px solid rgba(255,255,255,.4); }
+.whatsappButton { background: #3158ff; }
+.heroRight { margin-top: 90px; justify-content: flex-end; }
+.formCard { max-width: 670px; padding: 44px 42px; background: rgba(12,12,12,.86); }
+.formTitle { font-size: 26px; }
+.formSubtitle { font-size: 14px; }
+.form { gap: 14px; }
+.input { height: 54px; border-radius: 0; }
+.submitBtn { border-radius: 0; }
+.glassGraphicWrapper { width: 760px; height: 610px; right: -80px; bottom: -260px; }
+
+.brandsSection { padding: 80px 5% 95px; gap: 0; background: #f3f3f3; }
+.brandsSection::before { display: none; }
+.brandsInner { width: 100%; max-width: 1720px; margin: 0 auto; }
+.brandsLabel { color: #111; font-size: 12px; font-weight: 700; letter-spacing: .11em; margin-bottom: 58px; }
+.brandsGrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 48px 58px; align-items: center; }
+.brandLogoWrapper { width: 100%; height: 64px; }
+.brandLogo { object-fit: contain; filter: brightness(0); }
+
+.includedSection { padding: 170px 5%; }
+.includedContainer { max-width: 1720px; grid-template-columns: .9fr 1.1fr; gap: 100px; }
+.includedKicker { color: #fff; }
+.includedTitle { font-size: 48px; }
+.includedTitleItalic { color: #fff; text-transform: none; }
+.includedTableCell { min-height: 150px; padding: 34px 30px; }
+
+.ascensionSection { max-width: 1920px; padding: 120px 3.5% 160px; }
+.ascensionHeader { font-size: 48px; margin-bottom: 100px; }
+.ascensionGrid { justify-content: center; gap: 26px; overflow: visible; }
+.cardShort { height: 290px; }
+.cardTall { height: 500px; }
+.cardNarrow { width: 280px; }
+.cardWide { width: 380px; }
+
+.edgeSection { padding: 150px 5%; }
+.edgeContainer { max-width: 1720px; gap: 70px; }
+.edgeImage { border-radius: 0; }
+.edgeTitle { font-size: 48px; }
+
+.selectedWorkSection { background: #000; padding: 150px 5% 120px; }
+.selectedWorkContainer { max-width: 1720px; }
+.selectedWorkKicker, .selectedWorkTitle, .selectedWorkItalic, .seeAllWorkLink { color: #fff; }
+.selectedWorkHeader { margin-bottom: 90px; }
+.selectedWorkGrid { grid-template-columns: 1fr 1fr; gap: 24px; }
+.workCard:first-child { grid-column: 1 / -1; }
+.workImageWrapper { margin: 0; aspect-ratio: .9 / 1; }
+.workCard:first-child .workImageWrapper { aspect-ratio: 1.55 / 1; }
+.workMeta { position: absolute; z-index: 2; padding: 54px 58px; }
+.workCard { position: relative; }
+.workTitle { color: #fff; font-size: 42px; }
+.workSubtitle { color: #fff; font-size: 23px; }
+.workCard:nth-child(2) .workTitle, .workCard:nth-child(2) .workSubtitle { color: #111; }
+.featuredWorkCard { position: relative; width: 100%; aspect-ratio: 1.86 / 1; margin-top: 90px; overflow: hidden; }
+.featuredWorkTitle { position: absolute; top: 56px; left: 70px; z-index: 2; color: #fff; font-size: 38px; }
+.recognitionStrip { display: flex; align-items: center; gap: 24px; margin: 56px 14px 0; padding: 22px 28px; background: #fff; color: #111; font-size: 13px; }
+.recognitionStrip strong { color: #3158ff; font-size: 11px; letter-spacing: .06em; }
+
+.faqSection { padding: 160px 5%; }
+.faqContainer { max-width: 1080px; }
+.faqHeader { margin-bottom: 70px; }
+.faqTitle { font-size: 54px; }
+.faqItem { padding: 25px 0; }
+
+.precisionSection { padding: 110px 5%; }
+
+.mainContainer :global(.included-cell-anim),
+.mainContainer :global(.ascension-anim-header),
+.mainContainer :global(.ascension-card-anim),
+.mainContainer :global(.edge-anim-left),
+.mainContainer :global(.edge-anim-right),
+.mainContainer :global(.work-card-anim),
+.mainContainer :global(.faq-item-anim),
+.mainContainer :global(.precision-anim) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (max-width: 1200px) {
+  .brandsGrid { grid-template-columns: repeat(4, 1fr); }
+  .heroContainer { gap: 40px; }
+  .heroTitle { font-size: 56px; }
+  .formCard { max-width: 560px; }
+  .ascensionGrid { overflow-x: auto; justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .heroSection { min-height: auto; padding-top: 120px !important; }
+  .heroTitle { font-size: 42px; }
+  .heroActions { flex-direction: column; }
+  .phoneButton, .whatsappButton { width: 100%; }
+  .brandsGrid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .includedSection { padding-top: 80px !important; padding-bottom: 80px !important; }
+  .selectedWorkGrid { grid-template-columns: 1fr; }
+  .workCard:first-child { grid-column: auto; }
+  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
+  .workMeta { padding: 28px; }
+  .workTitle { font-size: 28px; }
+  .workSubtitle { font-size: 16px; }
+  .featuredWorkCard { aspect-ratio: 4 / 5; }
+  .recognitionStrip { align-items: flex-start; flex-direction: column; }
+}
+
 /* ==========================================
    What's Included Section (Pinned Left + Table Grid Right)
    ========================================== */
@@ -1539,4 +1676,164 @@
     justify-content: flex-end !important;
     margin-top: auto !important;
   }
+}
+
+/* Keep the PDF desktop composition authoritative over the legacy section rules above. */
+.includedSection { padding: 170px 5%; }
+.includedContainer { max-width: 1720px; grid-template-columns: .9fr 1.1fr; gap: 100px; }
+.includedKicker { color: #fff; }
+.includedTitle { font-size: 48px; }
+.includedTitleItalic { color: #fff; text-transform: none; }
+.includedTableCell { min-height: 150px; padding: 34px 30px; }
+.ascensionSection { max-width: 1920px; padding: 120px 3.5% 160px; }
+.ascensionHeader { font-size: 48px; margin-bottom: 100px; }
+.ascensionGrid { justify-content: center; gap: 26px; overflow: visible; }
+.cardShort { height: 290px; }
+.cardTall { height: 500px; }
+.cardNarrow { width: 280px; }
+.cardWide { width: 380px; }
+.edgeSection { padding: 150px 5%; }
+.edgeContainer { max-width: 1720px; gap: 70px; }
+.edgeImage { border-radius: 0; }
+.edgeTitle { font-size: 48px; }
+.selectedWorkSection { background: #000; padding: 150px 5% 120px; }
+.selectedWorkContainer { max-width: 1720px; }
+.selectedWorkKicker, .selectedWorkTitle, .selectedWorkItalic, .seeAllWorkLink { color: #fff; }
+.selectedWorkHeader { margin-bottom: 90px; }
+.selectedWorkGrid { grid-template-columns: 1fr 1fr; gap: 24px; }
+.workCard:first-child { grid-column: 1 / -1; }
+.workImageWrapper { margin: 0; aspect-ratio: .9 / 1; }
+.workCard:first-child .workImageWrapper { aspect-ratio: 1.55 / 1; }
+.workMeta { position: absolute; z-index: 2; padding: 54px 58px; }
+.workCard { position: relative; }
+.workTitle { color: #fff; font-size: 42px; }
+.workSubtitle { color: #fff; font-size: 23px; }
+.workCard:nth-child(2) .workTitle, .workCard:nth-child(2) .workSubtitle { color: #111; }
+.featuredWorkCard { position: relative; width: 100%; aspect-ratio: 1.86 / 1; margin-top: 90px; overflow: hidden; }
+.featuredWorkTitle { position: absolute; top: 56px; left: 70px; z-index: 2; color: #fff; font-size: 38px; }
+.recognitionStrip { display: flex; align-items: center; gap: 24px; margin: 56px 14px 0; padding: 22px 28px; background: #fff; color: #111; font-size: 13px; }
+.recognitionStrip strong { color: #3158ff; font-size: 11px; letter-spacing: .06em; }
+.faqSection { padding: 160px 5%; }
+.faqContainer { max-width: 1080px; }
+.faqHeader { margin-bottom: 70px; }
+.faqTitle { font-size: 54px; }
+.faqItem { padding: 25px 0; }
+.precisionSection { padding: 110px 5%; }
+
+@media (max-width: 1200px) {
+  .ascensionGrid { overflow-x: auto; justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .includedSection { padding-top: 80px !important; padding-bottom: 80px !important; }
+  .selectedWorkGrid { grid-template-columns: 1fr; }
+  .workCard:first-child { grid-column: auto; }
+  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
+  .workMeta { padding: 28px; }
+  .workTitle { font-size: 28px; }
+  .workSubtitle { font-size: 16px; }
+  .featuredWorkCard { aspect-ratio: 4 / 5; }
+  .recognitionStrip { align-items: flex-start; flex-direction: column; }
+}
+
+/* Mobile art direction */
+@media (max-width: 768px) {
+  .mainContainer { overflow: clip; }
+
+  .heroSection {
+    min-height: auto;
+    padding: 108px 20px 52px !important;
+    align-items: flex-start;
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 0;
+  }
+
+  .heroLeft { max-width: none; }
+  .kicker { font-size: 10px; margin-bottom: 14px; letter-spacing: .13em; }
+  .heroTitle { max-width: 340px; font-size: clamp(36px, 10.8vw, 44px); line-height: .98; margin-bottom: 18px; }
+  .heroRating { font-size: 12px; margin-bottom: 22px; }
+  .heroSubtitle { font-size: 15px; line-height: 1.55; }
+  .heroActions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
+  .phoneButton, .whatsappButton { min-width: 0; width: 100%; padding: 14px 8px; font-size: 12px; }
+
+  .heroRight { width: 100%; margin-top: 0; }
+  .formCard { max-width: none; padding: 24px 18px 20px; }
+  .formHeader { margin-bottom: 20px; }
+  .formTitle { font-size: 23px; }
+  .formSubtitle { font-size: 12px; line-height: 1.55; }
+  .form { gap: 10px; }
+  .input { height: 50px; padding-inline: 14px; }
+  .submitBtn { min-height: 50px; margin-top: 4px; font-size: 11px; }
+  .glassGraphicWrapper { width: 330px; height: 250px; right: -100px; bottom: -92px; opacity: .75; }
+
+  .brandsSection { padding: 48px 20px 54px !important; }
+  .brandsLabel { margin-bottom: 34px; font-size: 10px; }
+  .brandsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; }
+  .brandLogoWrapper { height: 48px; }
+
+  .includedSection { padding: 70px 20px !important; }
+  .includedContainer { display: flex; flex-direction: column; gap: 42px; }
+  .includedLeft { width: 100%; }
+  .includedKicker { font-size: 10px; margin-bottom: 14px; }
+  .includedTitle { font-size: 39px; line-height: .98; }
+  .includedTitleItalic { margin-top: 6px; font-size: 34px; line-height: 1.05; }
+  .includedRight { width: 100%; }
+  .includedTable { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .includedTableCell { min-height: 142px; padding: 20px 15px; border-right: 1px solid rgba(255,255,255,.08) !important; }
+  .includedTableCell:nth-child(2n) { border-right: 0 !important; }
+  .includedTableCell:nth-last-child(1) { display: none; }
+  .includedTableCell:nth-last-child(2) { border-bottom: 0; }
+  .cellTitle { font-size: 11px; line-height: 1.25; margin-bottom: 8px; }
+  .cellDesc { font-size: 10px; line-height: 1.45; }
+
+  .ascensionSection { padding: 72px 20px 78px !important; }
+  .ascensionHeader { max-width: 340px; margin: 0 auto 48px; font-size: 35px; line-height: 1.02; }
+  .ascensionGrid { gap: 12px !important; }
+  .ascensionCard, .cardShort, .cardTall, .cardNarrow, .cardWide { min-height: 240px !important; padding: 24px 20px !important; }
+  .ascensionCard.cardTall { min-height: 390px !important; }
+  .cardTitle { font-size: 25px; }
+  .cardDesc { font-size: 12px; line-height: 1.4; }
+
+  .edgeSection { padding: 72px 20px 78px !important; }
+  .edgeContainer { gap: 26px; }
+  .edgeKicker { font-size: 10px; margin-bottom: 14px; }
+  .edgeTitle { font-size: 38px; line-height: .98; margin-bottom: 0; }
+  .edgeImage { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .edgeSubtitle { font-size: 14px; line-height: 1.55; margin-bottom: 22px; }
+  .edgeList { gap: 13px; }
+  .edgeList li { gap: 9px; font-size: 12px; line-height: 1.45; }
+
+  .selectedWorkSection { padding: 72px 20px 68px !important; }
+  .selectedWorkHeader { align-items: flex-start; gap: 18px; margin-bottom: 40px; }
+  .selectedWorkKicker { font-size: 10px; margin-bottom: 12px; }
+  .selectedWorkTitle { font-size: 35px; line-height: 1; }
+  .seeAllWorkLink { font-size: 11px; }
+  .selectedWorkGrid { gap: 14px; }
+  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
+  .workMeta { padding: 24px 20px; }
+  .workTitle { font-size: 27px; }
+  .workSubtitle { font-size: 13px; }
+  .featuredWorkCard { aspect-ratio: 16 / 10; margin-top: 30px; }
+  .featuredWorkTitle { top: 24px; left: 22px; max-width: 220px; font-size: 25px; line-height: 1; }
+  .recognitionStrip { width: 100%; margin: 24px 0 0; padding: 18px; gap: 8px; font-size: 10px; line-height: 1.35; }
+
+  .faqSection { padding: 72px 20px !important; }
+  .faqHeader { margin-bottom: 36px; }
+  .faqKicker { font-size: 10px; margin-bottom: 12px; }
+  .faqTitle { font-size: 39px; line-height: 1; }
+  .faqItem { padding: 20px 0; }
+  .faqQuestionRow { gap: 16px; align-items: flex-start; }
+  .faqQuestion { font-size: 13px; line-height: 1.35; }
+  .faqIcon { font-size: 19px; }
+  .faqAnswer { padding-right: 26px; font-size: 12px; line-height: 1.55; }
+
+  .precisionSection { padding: 68px 20px !important; }
+  .precisionTitle { font-size: 35px; line-height: 1; }
+  .precisionSubtitle { max-width: 300px; font-size: 13px; margin-bottom: 26px; }
+  .precisionBtn { padding: 15px 25px; font-size: 11px; }
 }

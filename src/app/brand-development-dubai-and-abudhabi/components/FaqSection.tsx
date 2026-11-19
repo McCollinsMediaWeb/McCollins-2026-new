@@ -7,8 +7,8 @@ import { useGSAP } from "@gsap/react";
 
 const FAQS = [
   {
-    question: "How long does a brand development project take?",
-    answer: "A typical brand development project takes between 6 to 12 weeks depending on the scope, number of deliverables, and feedback cycles. We provide a clear week-by-week timeline before kick-off.",
+    question: "Can you support an Abu Dhabi brand in English and Arabic?",
+    answer: "Yes. We create bilingual brand systems for Abu Dhabi audiences from the outset, including English and Arabic typography, messaging and rollout guidance.",
   },
   {
     question: "Do you design for Arabic and English audiences?",

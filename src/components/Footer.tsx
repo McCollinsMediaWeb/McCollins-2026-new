@@ -137,15 +137,17 @@ export default function Footer() {
   if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
 
   return (
-    <footer className={styles.footer} ref={containerRef}>
+    <footer className={`${styles.footer} ${pathname === "/brand-development-dubai-and-abudhabi" ? styles.landingFooter : ""}`} ref={containerRef}>
       <div className={styles.footerInner}>
         {/* Desktop Footer (hidden on mobile) */}
         <div className={styles.desktopFooter}>
           <div className={`${styles.topSection} footer-reveal`}>
-            <h2 className={styles.footerTitle}>
-              <span className={styles.sansText}>Precision from the</span>{" "}
-              <span className={styles.italicText}>first click.</span>
-            </h2>
+            {pathname !== "/brand-development-dubai-and-abudhabi" && (
+              <h2 className={styles.footerTitle}>
+                <span className={styles.sansText}>Precision from the</span>{" "}
+                <span className={styles.italicText}>first click.</span>
+              </h2>
+            )}
             <div className={styles.linksGrid}>
               <ul className={styles.linksList}>
                 <li><Link href="/">Home</Link></li>
