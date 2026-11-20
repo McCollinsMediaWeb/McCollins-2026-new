@@ -54,7 +54,7 @@ export default function ContactPage() {
       setStatusMessage("You must agree to the privacy policy.");
       return;
     }
-    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(e.currentTarget as HTMLFormElement, "contact_lead");
     if (!recaptchaToken) {
       setStatus("error");
       setStatusMessage("Please confirm that you are not a robot.");

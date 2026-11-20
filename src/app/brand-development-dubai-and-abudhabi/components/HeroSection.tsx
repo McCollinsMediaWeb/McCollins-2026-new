@@ -15,7 +15,7 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.fullName || !formData.email || isSubmitting) return;
-    const recaptchaToken = getRecaptchaResponse(event.currentTarget);
+    const recaptchaToken = await getRecaptchaResponse(event.currentTarget, "brand_strategy_lead");
     if (!recaptchaToken) return;
     setIsSubmitting(true);
     try {

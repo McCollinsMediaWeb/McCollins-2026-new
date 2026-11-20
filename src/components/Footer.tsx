@@ -6,7 +6,7 @@ import styles from "./Footer.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import RecaptchaCheckbox from "@/components/RecaptchaCheckbox";
+import RecaptchaCheckbox, { getRecaptchaResponse } from "@/components/RecaptchaCheckbox";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -21,7 +21,6 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState("");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +34,7 @@ export default function Footer() {
       return;
     }
 
+    const recaptchaToken = await getRecaptchaResponse(undefined, "newsletter_signup");
     if (!recaptchaToken) {
       setStatus("error");
       setErrorMessage("Please confirm that you are not a robot.");
@@ -223,7 +223,7 @@ export default function Footer() {
                   </div>
                 ) : (
                   <>
-                  <RecaptchaCheckbox theme="dark" onChange={setRecaptchaToken} />
+                  <RecaptchaCheckbox theme="dark" />
                   <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
                     <input
                       type="email"
@@ -337,7 +337,7 @@ export default function Footer() {
               </div>
             ) : (
               <>
-              <RecaptchaCheckbox theme="dark" onChange={setRecaptchaToken} />
+              <RecaptchaCheckbox theme="dark" />
               <form className={styles.mobileNewsletterForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"

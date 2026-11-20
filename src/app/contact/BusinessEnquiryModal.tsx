@@ -58,7 +58,7 @@ export default function BusinessEnquiryModal({
       setError("Please enter your phone / mobile number.");
       return;
     }
-    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(e.currentTarget as HTMLFormElement, "business_enquiry");
     if (!recaptchaToken) {
       setError("Please confirm that you are not a robot.");
       return;

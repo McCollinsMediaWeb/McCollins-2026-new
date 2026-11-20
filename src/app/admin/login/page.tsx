@@ -14,7 +14,7 @@ export default function AdminLoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(e.currentTarget as HTMLFormElement, "admin_login");
     if (!recaptchaToken) {
       setError("Please confirm that you are not a robot.");
       return;

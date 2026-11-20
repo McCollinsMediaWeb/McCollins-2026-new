@@ -35,7 +35,10 @@ export async function verifyRecaptcha(
     if (!response.ok) return false;
 
     const result = (await response.json()) as RecaptchaResponse;
-    return result.success === true;
+    if (result.success !== true) return false;
+
+    const minimumScore = Number(process.env.RECAPTCHA_MIN_SCORE ?? "0.5");
+    return typeof result.score !== "number" || result.score >= minimumScore;
   } catch (error) {
     console.error("reCAPTCHA verification error:", error);
     return false;

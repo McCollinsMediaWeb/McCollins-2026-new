@@ -67,7 +67,7 @@ export default function WhatsAppModal({
       return;
     }
 
-    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(e.currentTarget as HTMLFormElement, "whatsapp_lead");
     if (!recaptchaToken) {
       setError("Please confirm that you are not a robot.");
       return;

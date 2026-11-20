@@ -70,6 +70,7 @@ export default function SelectedWorkSection() {
                   src={work.image}
                   alt={work.title}
                   fill
+                  sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 850px"
                   className={styles.workImage}
                 />
               </div>
@@ -85,6 +86,7 @@ export default function SelectedWorkSection() {
             src="/brand-development-dubai-and-abudhabi/cleaning-superstore.jpg"
             alt="Cleaning Superstore campaign vehicle"
             fill
+            sizes="(max-width: 768px) calc(100vw - 40px), 90vw"
             className={styles.workImage}
           />
           <h3 className={styles.featuredWorkTitle}>Cleaning Superstore</h3>

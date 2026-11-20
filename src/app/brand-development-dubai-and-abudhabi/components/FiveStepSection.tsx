@@ -57,7 +57,13 @@ export default function FiveStepSection() {
 
         <div className={`${styles.ascensionCard} ${styles.cardTall} ${styles.cardWide} ascension-card-anim`}>
           <div className={styles.cardImageWrapper}>
-            <Image src="/brand-development-dubai-and-abudhabi/positioning-bg.png" alt="Design" fill className={styles.cardImage} />
+            <Image
+              src="/brand-development-dubai-and-abudhabi/positioning-bg.png"
+              alt="Design"
+              fill
+              sizes="(max-width: 768px) calc(100vw - 40px), 380px"
+              className={styles.cardImage}
+            />
           </div>
           <div className={`${styles.cardContent} ${styles.cardContentBottom}`}>
             <div>
@@ -76,10 +82,22 @@ export default function FiveStepSection() {
 
         <div className={`${styles.ascensionCard} ${styles.cardTall} ${styles.cardWide} ascension-card-anim`}>
           <div className={styles.cardImageWrapper}>
-            <Image src="/brand-development-dubai-and-abudhabi/brand-collateral-bg.png" alt="Brand Collateral Background" fill className={styles.cardImage} />
+            <Image
+              src="/brand-development-dubai-and-abudhabi/brand-collateral-bg.png"
+              alt="Brand Collateral Background"
+              fill
+              sizes="(max-width: 768px) calc(100vw - 40px), 380px"
+              className={styles.cardImage}
+            />
           </div>
           <div className={styles.cardOverlayImageWrapper}>
-            <Image src="/brand-development-dubai-and-abudhabi/brand-collateral-image.png" alt="Brand Collateral Overlay" fill className={styles.cardOverlayImage} />
+            <Image
+              src="/brand-development-dubai-and-abudhabi/brand-collateral-image.png"
+              alt="Brand Collateral Overlay"
+              fill
+              sizes="(max-width: 768px) 70vw, 266px"
+              className={styles.cardOverlayImage}
+            />
           </div>
           <div className={`${styles.cardContent} ${styles.cardContentBottom}`}>
             <div>

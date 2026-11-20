@@ -42,7 +42,7 @@ export default function CareersPageClient() {
       setError("Please upload your CV / Resume.");
       return;
     }
-    const recaptchaToken = getRecaptchaResponse(event.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(event.currentTarget as HTMLFormElement, "career_application");
     if (!recaptchaToken) {
       setError("Please confirm that you are not a robot.");
       return;

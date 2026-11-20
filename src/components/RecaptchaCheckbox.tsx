@@ -1,80 +1,77 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-const SCRIPT_ID = "google-recaptcha-v2";
+const SCRIPT_ID = "google-recaptcha-v3";
 
 declare global {
   interface Window {
     grecaptcha?: {
       ready(callback: () => void): void;
-      render(container: HTMLElement, options: {
-        sitekey: string;
-        theme: "light" | "dark";
-        callback?: (token: string) => void;
-        "expired-callback"?: () => void;
-      }): number;
+      execute(siteKey: string, options: { action: string }): Promise<string>;
     };
   }
 }
 
 function loadRecaptchaScript() {
+  if (!SITE_KEY) return Promise.reject(new Error("reCAPTCHA is not configured."));
+
   const existing = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
   if (existing) {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>((resolve, reject) => {
       if (window.grecaptcha) resolve();
-      else existing.addEventListener("load", () => resolve(), { once: true });
+      else {
+        existing.addEventListener("load", () => resolve(), { once: true });
+        existing.addEventListener("error", () => reject(new Error("Unable to load reCAPTCHA.")), { once: true });
+      }
     });
   }
 
   return new Promise<void>((resolve, reject) => {
     const script = document.createElement("script");
     script.id = SCRIPT_ID;
-    script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(SITE_KEY)}`;
     script.async = true;
     script.defer = true;
     script.onload = () => resolve();
-    script.onerror = () => reject(new Error("Unable to load reCAPTCHA"));
+    script.onerror = () => reject(new Error("Unable to load reCAPTCHA."));
     document.head.appendChild(script);
   });
 }
 
 export default function RecaptchaCheckbox({
-  theme = "light",
-  onChange,
+  theme: _theme = "light",
 }: {
   theme?: "light" | "dark";
   onChange?: (token: string) => void;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const renderedRef = useRef(false);
-
   useEffect(() => {
-    if (!SITE_KEY || !containerRef.current || renderedRef.current) return;
+    loadRecaptchaScript().catch((error) => console.error(error));
+  }, []);
 
-    loadRecaptchaScript().then(() => {
-      window.grecaptcha?.ready(() => {
-        if (!containerRef.current || renderedRef.current) return;
-        window.grecaptcha!.render(containerRef.current, {
-          sitekey: SITE_KEY,
-          theme,
-          callback: onChange,
-          "expired-callback": () => onChange?.(""),
-        });
-        renderedRef.current = true;
-      });
-    }).catch((error) => console.error(error));
-  }, [onChange, theme]);
-
-  if (!SITE_KEY) {
-    return <p role="alert">reCAPTCHA is not configured.</p>;
-  }
-
-  return <div ref={containerRef} style={{ margin: "16px 0", minHeight: 78 }} />;
+  if (!SITE_KEY) return <p role="alert">reCAPTCHA is not configured.</p>;
+  return null;
 }
 
-export function getRecaptchaResponse(form: HTMLFormElement) {
-  const value = new FormData(form).get("g-recaptcha-response");
-  return typeof value === "string" ? value : "";
+export async function getRecaptchaResponse(
+  _form?: HTMLFormElement,
+  action = "form_submit",
+) {
+  if (!SITE_KEY) return "";
+
+  try {
+    await loadRecaptchaScript();
+    return await new Promise<string>((resolve, reject) => {
+      window.grecaptcha?.ready(() => {
+        window.grecaptcha!
+          .execute(SITE_KEY, { action })
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+  } catch (error) {
+    console.error("reCAPTCHA execution error:", error);
+    return "";
+  }
 }

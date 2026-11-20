@@ -11,8 +11,40 @@ const CLIENTS = [
 ] as const;
 
 export default function BrandsSection() {
-  return <section className={styles.brandsSection}><div className={styles.brandsInner}>
-    <p className={styles.brandsLabel}>SELECTED CLIENTS</p>
-    <div className={styles.brandsGrid}>{CLIENTS.map(([src, alt]) => <div key={alt} className={styles.brandLogoWrapper}><Image src={src} alt={alt} fill sizes="(max-width: 768px) 45vw, 13vw" className={styles.brandLogo} /></div>)}</div>
-  </div></section>;
+  const rows = [CLIENTS.slice(0, 6), CLIENTS.slice(6)];
+
+  return (
+    <section className={styles.brandsSection}>
+      <div className={styles.brandsInner}>
+        <p className={styles.brandsLabel}>SELECTED CLIENTS</p>
+        <div className={styles.brandsMarquee}>
+          {rows.map((clients, rowIndex) => (
+            <div className={styles.brandsRow} key={rowIndex}>
+              <div className={`${styles.brandsTrack} ${rowIndex === 1 ? styles.brandsTrackReverse : ""}`}>
+                {[0, 1].map((copyIndex) => (
+                  <div
+                    className={styles.brandsList}
+                    aria-hidden={copyIndex === 1}
+                    key={copyIndex}
+                  >
+                    {clients.map(([src, alt]) => (
+                      <div className={styles.brandLogoWrapper} key={`${alt}-${copyIndex}`}>
+                        <Image
+                          src={src}
+                          alt={copyIndex === 0 ? alt : ""}
+                          fill
+                          sizes="(max-width: 768px) 34vw, 14vw"
+                          className={styles.brandLogo}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

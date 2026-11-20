@@ -34,7 +34,7 @@ export default function HeroSection() {
       setFeedback({ type: "error", message: "Please fill in all required fields." });
       return;
     }
-    const recaptchaToken = getRecaptchaResponse(e.currentTarget as HTMLFormElement);
+    const recaptchaToken = await getRecaptchaResponse(e.currentTarget as HTMLFormElement, "web_development_lead");
     if (!recaptchaToken) {
       setFeedback({ type: "error", message: "Please confirm that you are not a robot." });
       return;
