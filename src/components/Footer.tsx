@@ -205,8 +205,9 @@ export default function Footer() {
   const middleLeftContent = (
     <div className={styles.middleLeft}>
       <div className={styles.contactInfo}>
-        <p>New Business:</p>
+        <p>Get in Touch:</p>
         <p><a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a></p>
+        <p><a href="tel:+971559564135">+971 55 956 4135</a></p>
       </div>
       <div className={styles.newsletter}>
         <p>Sign up for our newsletter</p>
@@ -217,20 +218,20 @@ export default function Footer() {
           </div>
         ) : (
           <>
-          <RecaptchaCheckbox theme="dark" />
-          <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
-            <input
-              type="email"
-              placeholder={status === "loading" ? "Subscribing..." : "Email"}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={styles.newsletterInput}
-              disabled={status === "loading"}
-            />
-            <button type="submit" className={styles.newsletterSubmit} disabled={status === "loading"}>
-              {status === "loading" ? <span className={styles.spinner}></span> : "→"}
-            </button>
-          </form>
+            <RecaptchaCheckbox theme="dark" />
+            <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                placeholder={status === "loading" ? "Subscribing..." : "Email"}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.newsletterInput}
+                disabled={status === "loading"}
+              />
+              <button type="submit" className={styles.newsletterSubmit} disabled={status === "loading"}>
+                {status === "loading" ? <span className={styles.spinner}></span> : "→"}
+              </button>
+            </form>
           </>
         )}
         {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
@@ -345,10 +346,11 @@ export default function Footer() {
                 </a>
               </div>
 
-              {/* New Business Contact */}
+              {/* Contact */}
               <div className={styles.mobileNewBusiness}>
-                <span>New Business:</span>
+                <span>Get in Touch:</span>
                 <a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a>
+                <a href="tel:+971559564135">+971 55 956 4135</a>
               </div>
 
               {/* Address & Copyright */}
@@ -370,20 +372,20 @@ export default function Footer() {
               </div>
             ) : (
               <>
-              <RecaptchaCheckbox theme="dark" />
-              <form className={styles.mobileNewsletterForm} onSubmit={handleSubscribe}>
-                <input
-                  type="email"
-                  placeholder={status === "loading" ? "Subscribing..." : "Email"}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={styles.mobileNewsletterInput}
-                  disabled={status === "loading"}
-                />
-                <button type="submit" className={styles.mobileNewsletterSubmit} disabled={status === "loading"}>
-                  {status === "loading" ? <span className={styles.spinner}></span> : "→"}
-                </button>
-              </form>
+                <RecaptchaCheckbox theme="dark" />
+                <form className={styles.mobileNewsletterForm} onSubmit={handleSubscribe}>
+                  <input
+                    type="email"
+                    placeholder={status === "loading" ? "Subscribing..." : "Email"}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={styles.mobileNewsletterInput}
+                    disabled={status === "loading"}
+                  />
+                  <button type="submit" className={styles.mobileNewsletterSubmit} disabled={status === "loading"}>
+                    {status === "loading" ? <span className={styles.spinner}></span> : "→"}
+                  </button>
+                </form>
               </>
             )}
             {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}

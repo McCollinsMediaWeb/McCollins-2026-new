@@ -94,7 +94,7 @@ export default function MasonrySection() {
         </div>
       </div>
 
-      <div className="masonry-reveal">
+      {/* <div className="masonry-reveal">
         <Image
           src="/brand-development/946fbdc42b3572313c5408025c343812221bf890.webp"
           alt="Steak on hot stone"
@@ -103,7 +103,7 @@ export default function MasonrySection() {
           className={styles.fullWidthImage}
           style={{ "--mobile-image-ratio": "2560 / 1271" } as React.CSSProperties}
         />
-      </div>
+      </div> */}
 
       <div className={styles.masonryGrid}>
         <div className="masonry-reveal">

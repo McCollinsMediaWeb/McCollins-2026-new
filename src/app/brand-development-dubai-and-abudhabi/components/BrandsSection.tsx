@@ -6,7 +6,9 @@ const CLIENTS = [
   ["/home-page-brands/costa-coffee-white.png.webp", "Costa Coffee"], ["/home-page-brands/mmi-white.png.webp", "MMI"],
   ["/home-page-brands/oak-berry-white.png.webp", "Oak Berry"], ["/home-page-brands/dxb-white.png.webp", "Dubai Airport Freezone"],
   ["/home-page-brands/fujifilm-white.png.webp", "Fujifilm"], ["/home-page-brands/trader-vics-white.png.webp", "Trader Vic's"],
-  ["/home-page-brands/wagamama-white.png.webp", "Wagamama"], ["/home-page-brands/rta-white.png.webp", "RTA"],
+  ["/home-page-brands/wagamama-white.png.webp", "Wagamama"], ["/home-page-brands/rta-new.png", "RTA"],
+  ["/home-page-brands/better-life.png", "Better Life"], ["/home-page-brands/urban-company.png", "Urban Company"],
+  ["/home-page-brands/zabeel-feed.png", "Zabeel Feed"], ["/home-page-brands/Toshiba_logo 1.webp", "Toshiba"],
   ["/home-page-brands/energizer-white.png.webp", "Energizer"], ["/home-page-brands/damac-white.png.webp", "Damac"],
 ] as const;
 

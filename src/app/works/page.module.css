@@ -160,14 +160,18 @@
 
 .overlayFoodhub {
   bottom: 20%;
+  left: 10%;
 }
 
 .overlayDxb {
-  bottom: 20%;
+  bottom: 17%;
+  /* color: #000000; */
 }
 
 .overlayBetterlife {
-  bottom: 20%;
+  top: 80%;
+  /* left: 35%; */
+  color: #000000;
 }
 
 .overlayLG {

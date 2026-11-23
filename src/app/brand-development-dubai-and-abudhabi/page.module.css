@@ -56,9 +56,9 @@
 
 .heroTitle {
   font-family: var(--font-delight), sans-serif;
-  font-size: 62px;
+  font-size: 50px;
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: #ffffff;
   text-transform: uppercase;
@@ -617,8 +617,8 @@
 
 .heroTitle {
   max-width: 900px;
-  font-size: clamp(54px, 3.7vw, 70px);
-  line-height: 1.02;
+  font-size: clamp(44px, 3vw, 56px);
+  line-height: 1.08;
   text-transform: none;
   margin-bottom: 24px;
 }
@@ -656,6 +656,16 @@
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.buttonIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 .phoneButton {
@@ -692,6 +702,14 @@
 .input {
   height: 54px;
   border-radius: 0;
+}
+
+.textarea {
+  height: auto;
+  min-height: 90px;
+  padding: 14px 16px;
+  resize: vertical;
+  line-height: 1.5;
 }
 
 .submitBtn {
@@ -770,7 +788,7 @@
 .ascensionSection {
   width: 100%;
   max-width: 100%;
-  padding: 120px 0 160px;
+  padding: 100px 0 100px;
   overflow: hidden;
   background-color: #ffffff;
 }
@@ -1113,7 +1131,7 @@
   }
 
   .heroTitle {
-    font-size: 56px;
+    font-size: 46px;
   }
 
   .formCard {
@@ -1133,7 +1151,7 @@
   }
 
   .heroTitle {
-    font-size: 42px;
+    font-size: 36px;
   }
 
   .heroActions {
@@ -1583,7 +1601,7 @@
 
 @media (max-width: 1200px) {
   .heroTitle {
-    font-size: 52px;
+    font-size: 44px;
   }
 
   .glassGraphicWrapper {
@@ -1613,7 +1631,7 @@
   }
 
   .heroTitle {
-    font-size: clamp(32px, 6.5vw, 44px);
+    font-size: clamp(28px, 5.5vw, 38px);
     line-height: 1.1;
     margin-bottom: 20px;
   }
@@ -1694,7 +1712,7 @@
   }
 
   .heroTitle {
-    font-size: clamp(26px, 7.5vw, 34px);
+    font-size: clamp(24px, 6.5vw, 30px);
     line-height: 1.1;
     margin-bottom: 16px;
   }
@@ -2222,7 +2240,7 @@
 .ascensionSection {
   width: 100%;
   max-width: 100%;
-  padding: 120px 0 160px;
+  padding: 100px 0 100px;
   overflow: hidden;
   background-color: #ffffff;
 }
@@ -2651,7 +2669,7 @@
 
   .heroTitle {
     max-width: 340px;
-    font-size: clamp(36px, 10.8vw, 44px);
+    font-size: clamp(30px, 9vw, 38px);
     line-height: .98;
     margin-bottom: 18px;
   }
@@ -3050,7 +3068,7 @@
 
   .heroTitle {
     max-width: 100%;
-    font-size: clamp(38px, 11vw, 46px);
+    font-size: clamp(32px, 9vw, 40px);
   }
 
   .heroSubtitle,
@@ -3157,6 +3175,6 @@
   }
 
   .heroTitle {
-    font-size: clamp(34px, 11vw, 42px);
+    font-size: clamp(28px, 9vw, 34px);
   }
 }

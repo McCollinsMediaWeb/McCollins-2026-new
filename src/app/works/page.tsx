@@ -21,25 +21,25 @@ const PROJECTS = [
   // },
   {
     image: "/cryo/e10ae3452971f405189d915fb9572403e5e692cf.webp",
-    // title: "CRYO",
+    title: "CRYO",
     overlayClass: styles.overlayOakberry,
     url: "/case-study/cryo"
   },
   {
     image: "/food-hub/d6a7b1f5da76949cd949f6db947a05b5de7ec513.jpg",
-    // title: "ABUDHABI FOOD HUB",
+    title: "ABUDHABI FOOD HUB",
     overlayClass: styles.overlayFoodhub,
     url: "/case-study/abudhabi-food-hub"
   },
   {
     image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
-    // title: "Dubai International Hotel",
+    title: "Dubai International Hotel",
     overlayClass: styles.overlayDxb,
     url: "/case-study/dxb-hotel"
   },
   {
     image: "/better-life/a319f6d7a7333d6a314c89c134e6b0ac3ed2bf75.jpg",
-    // title: "BETTER LIFE",
+    title: "BETTER LIFE",
     overlayClass: styles.overlayBetterlife,
     url: "/case-study/better-life"
   },

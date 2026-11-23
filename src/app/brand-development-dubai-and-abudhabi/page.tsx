@@ -33,7 +33,7 @@ export default function BrandDevelopmentDubaiAbuDhabiPage() {
       <WhatIsIncludedSection />
       <FiveStepSection />
       <McCollinsEdgeSection />
-      <CardsSection />
+      {/* <CardsSection /> */}
       <GifPlaceholder />
       <SelectedWorkSection />
       <MasonrySection />

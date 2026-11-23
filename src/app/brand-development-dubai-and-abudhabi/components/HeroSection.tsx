@@ -10,7 +10,7 @@ type HeroSectionProps = { bookingUrl?: string };
 export default function HeroSection({ bookingUrl }: HeroSectionProps) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ fullName: "", company: "", phone: "", email: "", budget: "" });
+  const [formData, setFormData] = useState({ fullName: "", company: "", phone: "", email: "", budget: "", message: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,13 +20,18 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
     setIsSubmitting(true);
     try {
       const currentUrl = window.location.href;
+      const messageContent = [
+        formData.message.trim(),
+        formData.budget ? `Project budget: ${formData.budget}` : ""
+      ].filter(Boolean).join("\n\n") || "Not specified";
+
       const response = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.fullName.trim(), firstName: formData.fullName.trim(),
           email: formData.email.trim(), phone: formData.phone.trim(), company: formData.company.trim(),
-          message: `Project budget: ${formData.budget || "Not specified"}`,
+          message: messageContent,
           services: "Brand Development", page: "Brand Development Dubai & Abu Dhabi",
           pageUrl: currentUrl, source: "Brand Development landing page", recaptchaToken,
         }),
@@ -44,15 +49,32 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
     <section className={styles.heroSection}>
       <div className={styles.heroContainer}>
         <div className={styles.heroLeft}>
-          <span className={styles.kicker}>BRAND DEVELOPMENT · ABU DHABI</span>
-          <h1 className={styles.heroTitle}>Branding Agency in Abu Dhabi</h1>
+          <span className={styles.kicker}>BRAND DEVELOPMENT · DUBAI · ABU DHABI</span>
+          <h1 className={styles.heroTitle}>Branding Agency in Dubai and Abu Dhabi</h1>
           <p className={styles.heroRating}>Rated 4.4/5 on Google</p>
           <p className={styles.heroSubtitle}>
             Build or refresh a brand for Abu Dhabi audiences with clear positioning,
             bilingual identity and practical guidelines for digital, print and physical spaces.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.phoneButton} href="tel:+971559564135">+971 55 956 4135</a>
+            <a className={styles.phoneButton} href="tel:+971559564135">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={styles.buttonIcon}
+                aria-hidden="true"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span>+971 55 956 4135</span>
+            </a>
             <a className={styles.whatsappButton} href="https://wa.me/971559564135" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
@@ -81,6 +103,13 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
                   <select className={`${styles.input} ${styles.select}`} value={formData.budget} onChange={(event) => setFormData({ ...formData, budget: event.target.value })} aria-label="Project budget">
                     <option value="">Project budget</option><option value="AED 25k-50k">AED 25k-50k</option><option value="AED 50k-100k">AED 50k-100k</option><option value="AED 100k-250k">AED 100k-250k</option><option value="AED 250k+">AED 250k+</option>
                   </select>
+                  <textarea
+                    className={`${styles.input} ${styles.textarea}`}
+                    placeholder="Message"
+                    rows={3}
+                    value={formData.message}
+                    onChange={(event) => setFormData({ ...formData, message: event.target.value })}
+                  />
                   <RecaptchaCheckbox theme="dark" />
                   <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>{isSubmitting ? "SUBMITTING..." : "REQUEST MY STRATEGY CALL"}</button>
                 </form>
