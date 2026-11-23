@@ -2373,6 +2373,28 @@
   color: #111;
 }
 
+.betterLifeOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.48) 9%,
+      rgba(0, 0, 0, 0.18) 30%,
+      transparent 78%);
+  /* pointer-events: none; */
+}
+
+.betterLifeTitle {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.betterLifeSubtitle {
+  color: #F2F2F2 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
 .featuredWorkCard {
   position: relative;
   width: 100%;

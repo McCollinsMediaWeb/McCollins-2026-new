@@ -33,11 +33,18 @@ const WORKS = [
   //   link: "/case-study/cleaning-superstore",
   // },
 
+  // {
+  //   title: "Dubai International Hotel",
+  //   subtitle: "Brand Development · Hotel",
+  //   image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
+  //   link: "/case-study/dxb-hotel",
+  // },
+
   {
-    title: "Dubai International Hotel",
-    subtitle: "Brand Development · Hotel",
-    image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
-    link: "/case-study/dxb-hotel",
+    title: "Better Life",
+    subtitle: "Brand Development · Home Appliances",
+    image: "/better-life/a319f6d7a7333d6a314c89c134e6b0ac3ed2bf75.jpg",
+    link: "/case-study/better-life",
   },
 ];
 
@@ -115,23 +122,35 @@ export default function SelectedWorkSection() {
 
         {/* Grid */}
         <div className={styles.selectedWorkGrid}>
-          {WORKS.map((work, idx) => (
-            <Link key={idx} href={work.link} className={`${styles.workCard} work-card-anim`}>
-              <div className={styles.workImageWrapper}>
-                <Image
-                  src={work.image}
-                  alt={work.title}
-                  fill
-                  sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 1720px"
-                  className={styles.workImage}
-                />
-              </div>
-              <div className={styles.workMeta}>
-                <h3 className={styles.workTitle}>{work.title}</h3>
-                <p className={styles.workSubtitle}>{work.subtitle}</p>
-              </div>
-            </Link>
-          ))}
+          {WORKS.map((work, idx) => {
+            const isBetterLife = work.title === "Better Life";
+            return (
+              <Link
+                key={idx}
+                href={work.link}
+                className={`${styles.workCard} ${isBetterLife ? styles.betterLifeCard : ""} work-card-anim`}
+              >
+                <div className={styles.workImageWrapper}>
+                  <Image
+                    src={work.image}
+                    alt={work.title}
+                    fill
+                    sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 1720px"
+                    className={styles.workImage}
+                  />
+                  {isBetterLife && <div className={styles.betterLifeOverlay} aria-hidden="true" />}
+                </div>
+                <div className={`${styles.workMeta} ${isBetterLife ? styles.betterLifeMeta : ""}`}>
+                  <h3 className={`${styles.workTitle} ${isBetterLife ? styles.betterLifeTitle : ""}`}>
+                    {work.title}
+                  </h3>
+                  <p className={`${styles.workSubtitle} ${isBetterLife ? styles.betterLifeSubtitle : ""}`}>
+                    {work.subtitle}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         {/* Agency Recognition / Awards Section */}
