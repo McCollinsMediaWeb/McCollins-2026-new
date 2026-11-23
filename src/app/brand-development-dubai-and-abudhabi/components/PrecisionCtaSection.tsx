@@ -26,8 +26,11 @@ export default function PrecisionCtaSection() {
   return (
     <section className={styles.precisionSection} ref={containerRef}>
       <div className={styles.precisionContainer}>
-        <h2 className={`${styles.precisionTitle} precision-anim`}>
+        {/* <h2 className={`${styles.precisionTitle} precision-anim`}>
           Precision from the first click.
+        </h2> */}
+        <h2 className={`${styles.precisionTitle} precision-anim`}>
+          Enquire Now.
         </h2>
         <p className={`${styles.precisionSubtitle} precision-anim`}>
           Book a free strategy call and see how we&apos;d approach your brand.

@@ -822,7 +822,7 @@
 }
 
 .edgeSection {
-  padding: 150px 5%;
+  padding: 100px 5%;
 }
 
 .edgeContainer {
@@ -926,7 +926,7 @@
    Agency Recognition / Awards Section
    ========================================= */
 .awardsSection {
-  margin-top: 130px;
+  /* margin-top: 130px; */
   padding-top: 80px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   width: 100%;
@@ -2274,7 +2274,7 @@
 }
 
 .edgeSection {
-  padding: 150px 5%;
+  padding: 100px 5%;
 }
 
 .edgeContainer {
@@ -2376,7 +2376,7 @@
    Agency Recognition / Awards Section
    ========================================= */
 .awardsSection {
-  margin-top: 130px;
+  /* margin-top: 130px; */
   padding-top: 80px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   width: 100%;

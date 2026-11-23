@@ -1,0 +1,56 @@
+.masonrySection {
+  width: 100%;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* padding-top: 80px; */
+  border-top: 1px solid #000000;
+}
+
+.fullWidthImage {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.logoEvolution {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 0;
+}
+
+.logoEvolution img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.masonryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 4px;
+}
+
+.masonryGrid img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .masonryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .masonrySection img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--mobile-image-ratio, auto);
+    object-fit: contain;
+    display: block;
+  }
+}

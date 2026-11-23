@@ -6,7 +6,10 @@ import BrandsSection from "./components/BrandsSection";
 import WhatIsIncludedSection from "./components/WhatIsIncludedSection";
 import FiveStepSection from "./components/FiveStepSection";
 import McCollinsEdgeSection from "./components/McCollinsEdgeSection";
+import CardsSection from "./components/CardsSection";
+import GifPlaceholder from "./components/GifPlaceholder";
 import SelectedWorkSection from "./components/SelectedWorkSection";
+import MasonrySection from "./components/MasonrySection";
 import FaqSection from "./components/FaqSection";
 import PrecisionCtaSection from "./components/PrecisionCtaSection";
 
@@ -30,7 +33,10 @@ export default function BrandDevelopmentDubaiAbuDhabiPage() {
       <WhatIsIncludedSection />
       <FiveStepSection />
       <McCollinsEdgeSection />
+      <CardsSection />
+      <GifPlaceholder />
       <SelectedWorkSection />
+      <MasonrySection />
       <FaqSection />
       <PrecisionCtaSection />
     </main>
