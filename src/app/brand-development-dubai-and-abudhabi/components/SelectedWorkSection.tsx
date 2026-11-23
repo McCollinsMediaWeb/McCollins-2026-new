@@ -26,11 +26,18 @@ const WORKS = [
     image: "/works/de029bcf0b4f13aabbc47e1305b70c7793a2d545.webp",
     link: "/case-study/mapei",
   },
+  // {
+  //   title: "Cleaning Superstore",
+  //   subtitle: "Brand Development · Retail",
+  //   image: "/brand-development-dubai-and-abudhabi/cleaning-superstore.jpg",
+  //   link: "/case-study/cleaning-superstore",
+  // },
+
   {
-    title: "Cleaning Superstore",
-    subtitle: "Brand Development · Retail",
-    image: "/brand-development-dubai-and-abudhabi/cleaning-superstore.jpg",
-    link: "/case-study/cleaning-superstore",
+    title: "Dubai International Hotel",
+    subtitle: "Brand Development · Hotel",
+    image: "/dxb/144c3fd5e33f3f0eebecf10c48732aa24231bead.webp",
+    link: "/case-study/dxb-hotel",
   },
 ];
 

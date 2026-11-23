@@ -147,7 +147,8 @@
 }
 
 .overlayOakberry {
-  bottom: 20%;
+  top: 10%;
+  left: 5%;
 }
 
 .overlayCleaning {
@@ -159,19 +160,18 @@
 }
 
 .overlayFoodhub {
-  bottom: 20%;
-  left: 10%;
+  top: 30%;
+  left: 5%;
 }
 
 .overlayDxb {
-  bottom: 17%;
-  /* color: #000000; */
+  top: 10%;
+  left: 5%;
 }
 
 .overlayBetterlife {
-  top: 80%;
-  /* left: 35%; */
-  color: #000000;
+  top: 10%;
+  left: 5%;
 }
 
 .overlayLG {
