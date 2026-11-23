@@ -7,12 +7,12 @@ import { useGSAP } from "@gsap/react";
 
 const FAQS = [
   {
-    question: "Can you support an Abu Dhabi brand in English and Arabic?",
-    answer: "Yes. We create bilingual brand systems for Abu Dhabi audiences from the outset, including English and Arabic typography, messaging and rollout guidance.",
+    question: "Can you support a Dubai and Abu Dhabi brand in English and Arabic?",
+    answer: "Yes. We create bilingual brand systems for Dubai and Abu Dhabi audiences from the outset, including English and Arabic typography, messaging, and rollout guidance.",
   },
   {
-    question: "Do you design for Arabic and English audiences?",
-    answer: "Yes, we specialize in native bilingual brand systems for Dubai, Abu Dhabi, and the GCC. Our team crafts harmonious English and Arabic typography, visual assets, and brand guidelines that feel authentic in both languages.",
+    question: "How long does a branding project take?",
+    answer: "Most full-cycle brand identity projects in Dubai and Abu Dhabi take 4–8 weeks, depending on business complexity and your review speed. We deliver a complete brand package including a logo suite, visual identity, brand guidelines, and templates.",
   },
   {
     question: "What do we actually receive at the end?",
