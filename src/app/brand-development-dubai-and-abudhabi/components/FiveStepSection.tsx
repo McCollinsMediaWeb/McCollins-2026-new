@@ -13,6 +13,32 @@ if (typeof window !== "undefined") {
 
 export default function FiveStepSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftStart = useRef(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    startX.current = e.pageX - (gridRef.current?.offsetLeft || 0);
+    scrollLeftStart.current = gridRef.current?.scrollLeft || 0;
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || !gridRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (gridRef.current.offsetLeft || 0);
+    const walk = (x - startX.current) * 1.5;
+    gridRef.current.scrollLeft = scrollLeftStart.current - walk;
+  };
 
   useGSAP(() => {
     gsap.from(".ascension-anim-header", {
@@ -47,7 +73,14 @@ export default function FiveStepSection() {
 
       <div className={styles.ascensionSubHeader}></div>
 
-      <div className={`${styles.ascensionGrid} ascension-grid-trigger`}>
+      <div
+        ref={gridRef}
+        className={`${styles.ascensionGrid} ascension-grid-trigger`}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
         <div className={`${styles.ascensionCard} ${styles.cardBlack} ${styles.cardShort} ${styles.cardNarrow} ascension-card-anim`}>
           <div className={styles.cardContent}>
             <h3 className={styles.cardTitle}>Brand<br />Discovery</h3>

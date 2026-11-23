@@ -18,12 +18,17 @@
   gap: 80px;
 }
 
-.landingFooter .topSection {
-  justify-content: flex-end;
+.landingDesktopGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 40px;
 }
 
-.landingFooter .middleSection {
-  margin-top: -190px;
+.landingRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 /* TOP SECTION */
@@ -243,6 +248,10 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
+  .landingDesktopGrid {
+    flex-direction: column;
+    gap: 60px;
+  }
   .topSection {
     flex-direction: column;
     gap: 60px;

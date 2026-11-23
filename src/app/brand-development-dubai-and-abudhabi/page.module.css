@@ -19,6 +19,7 @@
   align-items: center;
   justify-content: center;
   z-index: 25;
+  overflow: hidden;
 }
 
 .heroContainer {
@@ -106,7 +107,7 @@
 
 .glassGraphicWrapper {
   position: absolute;
-  bottom: -200px;
+  bottom: 0;
   right: -20px;
   width: 720px;
   height: 680px;
@@ -323,6 +324,7 @@
     opacity: 0;
     transform: translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -595,6 +597,7 @@
   min-height: 980px;
   padding: 170px 5% 90px;
   align-items: center;
+  overflow: hidden;
 }
 
 .heroContainer {
@@ -603,8 +606,15 @@
   gap: 90px;
 }
 
-.heroLeft { max-width: 900px; }
-.kicker { font-size: 12px; margin-bottom: 18px; }
+.heroLeft {
+  max-width: 900px;
+}
+
+.kicker {
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
 .heroTitle {
   max-width: 900px;
   font-size: clamp(54px, 3.7vw, 70px);
@@ -612,11 +622,33 @@
   text-transform: none;
   margin-bottom: 24px;
 }
-.heroRating { color: #fff; font-size: 14px; margin-bottom: 28px; }
-.heroRating::before { content: "★"; color: #d7b34b; margin-right: 8px; }
-.heroSubtitle { max-width: 650px; font-size: 19px; line-height: 1.55; }
-.heroActions { display: flex; gap: 14px; margin-top: 34px; }
-.phoneButton, .whatsappButton {
+
+.heroRating {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.heroRating::before {
+  content: "★";
+  color: #d7b34b;
+  margin-right: 8px;
+}
+
+.heroSubtitle {
+  max-width: 650px;
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.phoneButton,
+.whatsappButton {
   min-width: 185px;
   padding: 15px 22px;
   color: #fff;
@@ -625,69 +657,443 @@
   text-align: center;
   text-decoration: none;
 }
-.phoneButton { border: 1px solid rgba(255,255,255,.4); }
-.whatsappButton { background: #3158ff; }
-.heroRight { margin-top: 90px; justify-content: flex-end; }
-.formCard { max-width: 670px; padding: 44px 42px; background: rgba(12,12,12,.86); }
-.formTitle { font-size: 26px; }
-.formSubtitle { font-size: 14px; }
-.form { gap: 14px; }
-.input { height: 54px; border-radius: 0; }
-.submitBtn { border-radius: 0; }
-.glassGraphicWrapper { width: 760px; height: 610px; right: -80px; bottom: -260px; }
 
-.brandsSection { padding: 80px 5% 95px; gap: 0; background: #f3f3f3; }
-.brandsSection::before { display: none; }
-.brandsInner { width: 100%; max-width: 1720px; margin: 0 auto; }
-.brandsLabel { color: #111; font-size: 12px; font-weight: 700; letter-spacing: .11em; margin-bottom: 58px; }
-.brandLogoWrapper { width: 170px; height: 64px; }
-.brandLogo { object-fit: contain; filter: brightness(0); }
+.phoneButton {
+  border: 1px solid rgba(255, 255, 255, .4);
+}
 
-.includedSection { padding: 170px 5%; }
-.includedContainer { max-width: 1720px; grid-template-columns: .9fr 1.1fr; gap: 100px; }
-.includedKicker { color: #fff; }
-.includedTitle { font-size: 48px; }
-.includedTitleItalic { color: #fff; text-transform: none; }
-.includedTableCell { min-height: 150px; padding: 34px 30px; }
+.whatsappButton {
+  background: #3158ff;
+}
 
-.ascensionSection { max-width: 1920px; padding: 120px 3.5% 160px; }
-.ascensionHeader { font-size: 48px; margin-bottom: 100px; }
-.ascensionGrid { justify-content: center; gap: 26px; overflow: visible; }
-.cardShort { height: 290px; }
-.cardTall { height: 500px; }
-.cardNarrow { width: 280px; }
-.cardWide { width: 380px; }
+.heroRight {
+  margin-top: 90px;
+  justify-content: flex-end;
+}
 
-.edgeSection { padding: 150px 5%; }
-.edgeContainer { max-width: 1720px; gap: 70px; }
-.edgeImage { border-radius: 0; }
-.edgeTitle { font-size: 48px; }
+.formCard {
+  max-width: 670px;
+  padding: 44px 42px;
+  background: rgba(12, 12, 12, .86);
+}
 
-.selectedWorkSection { background: #000; padding: 150px 5% 120px; }
-.selectedWorkContainer { max-width: 1720px; }
-.selectedWorkKicker, .selectedWorkTitle, .selectedWorkItalic, .seeAllWorkLink { color: #fff; }
-.selectedWorkHeader { margin-bottom: 90px; }
-.selectedWorkGrid { grid-template-columns: 1fr 1fr; gap: 24px; }
-.workCard:first-child { grid-column: 1 / -1; }
-.workImageWrapper { margin: 0; aspect-ratio: .9 / 1; }
-.workCard:first-child .workImageWrapper { aspect-ratio: 1.55 / 1; }
-.workMeta { position: absolute; z-index: 2; padding: 54px 58px; }
-.workCard { position: relative; }
-.workTitle { color: #fff; font-size: 42px; }
-.workSubtitle { color: #fff; font-size: 23px; }
-.workCard:nth-child(2) .workTitle, .workCard:nth-child(2) .workSubtitle { color: #111; }
-.featuredWorkCard { position: relative; width: 100%; aspect-ratio: 1.86 / 1; margin-top: 90px; overflow: hidden; }
-.featuredWorkTitle { position: absolute; top: 56px; left: 70px; z-index: 2; color: #fff; font-size: 38px; }
-.recognitionStrip { display: flex; align-items: center; gap: 24px; margin: 56px 14px 0; padding: 22px 28px; background: #fff; color: #111; font-size: 13px; }
-.recognitionStrip strong { color: #3158ff; font-size: 11px; letter-spacing: .06em; }
+.formTitle {
+  font-size: 26px;
+}
 
-.faqSection { padding: 160px 5%; }
-.faqContainer { max-width: 1080px; }
-.faqHeader { margin-bottom: 70px; }
-.faqTitle { font-size: 54px; }
-.faqItem { padding: 25px 0; }
+.formSubtitle {
+  font-size: 14px;
+}
 
-.precisionSection { padding: 110px 5%; }
+.form {
+  gap: 14px;
+}
+
+.input {
+  height: 54px;
+  border-radius: 0;
+}
+
+.submitBtn {
+  border-radius: 0;
+}
+
+.glassGraphicWrapper {
+  width: 760px;
+  height: 610px;
+  right: -80px;
+  bottom: -130px;
+}
+
+.brandsSection {
+  padding: 80px 5% 95px;
+  gap: 0;
+  background: #f3f3f3;
+}
+
+.brandsSection::before {
+  display: none;
+}
+
+.brandsInner {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.brandsLabel {
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  margin-bottom: 58px;
+}
+
+.brandLogoWrapper {
+  width: 170px;
+  height: 64px;
+}
+
+.brandLogo {
+  object-fit: contain;
+  filter: brightness(0);
+}
+
+.includedSection {
+  padding: 170px 5%;
+}
+
+.includedContainer {
+  max-width: 1720px;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 100px;
+}
+
+.includedKicker {
+  color: #fff;
+}
+
+.includedTitle {
+  font-size: 48px;
+}
+
+.includedTitleItalic {
+  color: #fff;
+  text-transform: none;
+}
+
+.includedTableCell {
+  min-height: 150px;
+  padding: 34px 30px;
+}
+
+.ascensionSection {
+  width: 100%;
+  max-width: 100%;
+  padding: 120px 0 160px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.ascensionHeader {
+  max-width: 1720px;
+  margin: 0 auto 80px;
+  padding: 0 5%;
+  font-size: 48px;
+}
+
+.ascensionGrid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 0 5% 40px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+
+.ascensionGrid:active {
+  cursor: grabbing;
+}
+
+.ascensionGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.cardShort {
+  height: 400px;
+}
+
+.cardTall {
+  height: 560px;
+}
+
+.cardNarrow {
+  width: 360px;
+}
+
+.cardWide {
+  width: 420px;
+}
+
+.edgeSection {
+  padding: 150px 5%;
+}
+
+.edgeContainer {
+  max-width: 1720px;
+  gap: 70px;
+}
+
+.edgeImage {
+  border-radius: 0;
+}
+
+.edgeTitle {
+  font-size: 48px;
+}
+
+.selectedWorkSection {
+  background: #000;
+  padding: 150px 5% 120px;
+}
+
+.selectedWorkContainer {
+  max-width: 1720px;
+}
+
+.selectedWorkKicker,
+.selectedWorkTitle,
+.selectedWorkItalic,
+.seeAllWorkLink {
+  color: #fff;
+}
+
+.selectedWorkHeader {
+  margin-bottom: 90px;
+}
+
+.selectedWorkGrid {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.workCard:first-child,
+.workCard:last-child {
+  grid-column: 1 / -1;
+}
+
+.workImageWrapper {
+  margin: 0;
+  aspect-ratio: .9 / 1;
+}
+
+.workCard:first-child .workImageWrapper,
+.workCard:last-child .workImageWrapper {
+  aspect-ratio: 1.55 / 1;
+}
+
+.workMeta {
+  position: absolute;
+  z-index: 2;
+  padding: 54px 58px;
+}
+
+.workCard {
+  position: relative;
+}
+
+.workTitle {
+  color: #fff;
+  font-size: 42px;
+}
+
+.workSubtitle {
+  color: #fff;
+  font-size: 23px;
+}
+
+.workCard:nth-child(1) .workTitle,
+.workCard:nth-child(2) .workTitle,
+.workCard:nth-child(1) .workSubtitle,
+.workCard:nth-child(2) .workSubtitle {
+  color: #111;
+}
+
+.featuredWorkCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.86 / 1;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.featuredWorkTitle {
+  position: absolute;
+  top: 56px;
+  left: 70px;
+  z-index: 2;
+  color: #fff;
+  font-size: 38px;
+}
+
+/* =========================================
+   Agency Recognition / Awards Section
+   ========================================= */
+.awardsSection {
+  margin-top: 130px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.awardsHeader {
+  margin-bottom: 40px;
+}
+
+.awardsMainTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(34px, 3.4vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.awardsInfoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 0;
+  margin-bottom: 60px;
+}
+
+.awardsInfoLeft {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.awardsInfoRight {
+  grid-column: 3;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.awardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.awardCard {
+  display: flex;
+  flex-direction: column;
+  background: rgba(18, 18, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.awardCard:hover {
+  border-color: rgba(49, 88, 255, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(49, 88, 255, 0.08);
+}
+
+.awardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #0c0c0e;
+  margin-bottom: 24px;
+}
+
+.awardImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.awardCard:hover .awardImage {
+  transform: scale(1.05);
+}
+
+.awardYearBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #3158ff;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  z-index: 2;
+}
+
+.awardTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.awardDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.awardAwardedBy {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3158ff;
+  letter-spacing: 0.02em;
+}
+
+.awardDescription {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+.faqSection {
+  padding: 160px 5%;
+}
+
+.faqContainer {
+  max-width: 1080px;
+}
+
+.faqHeader {
+  margin-bottom: 70px;
+}
+
+.faqTitle {
+  font-size: 54px;
+}
+
+.faqItem {
+  padding: 25px 0;
+}
+
+.precisionSection {
+  padding: 110px 5%;
+}
 
 .mainContainer :global(.included-cell-anim),
 .mainContainer :global(.ascension-anim-header),
@@ -702,26 +1108,108 @@
 }
 
 @media (max-width: 1200px) {
-  .heroContainer { gap: 40px; }
-  .heroTitle { font-size: 56px; }
-  .formCard { max-width: 560px; }
-  .ascensionGrid { overflow-x: auto; justify-content: flex-start; }
+  .heroContainer {
+    gap: 40px;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .formCard {
+    max-width: 560px;
+  }
+
+  .ascensionGrid {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 768px) {
-  .heroSection { min-height: auto; padding-top: 120px !important; }
-  .heroTitle { font-size: 42px; }
-  .heroActions { flex-direction: column; }
-  .phoneButton, .whatsappButton { width: 100%; }
-  .includedSection { padding-top: 80px !important; padding-bottom: 80px !important; }
-  .selectedWorkGrid { grid-template-columns: 1fr; }
-  .workCard:first-child { grid-column: auto; }
-  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
-  .workMeta { padding: 28px; }
-  .workTitle { font-size: 28px; }
-  .workSubtitle { font-size: 16px; }
-  .featuredWorkCard { aspect-ratio: 4 / 5; }
-  .recognitionStrip { align-items: flex-start; flex-direction: column; }
+  .heroSection {
+    min-height: auto;
+    padding-top: 120px !important;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .phoneButton,
+  .whatsappButton {
+    width: 100%;
+  }
+
+  .includedSection {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .selectedWorkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .workCard:first-child,
+  .workCard:last-child {
+    grid-column: auto;
+  }
+
+  .workImageWrapper,
+  .workCard:first-child .workImageWrapper,
+  .workCard:last-child .workImageWrapper {
+    aspect-ratio: 4 / 5;
+  }
+
+  .workMeta {
+    padding: 28px;
+  }
+
+  .workTitle {
+    font-size: 28px;
+  }
+
+  .workSubtitle {
+    font-size: 16px;
+  }
+
+  .featuredWorkCard {
+    aspect-ratio: 4 / 5;
+  }
+
+  .awardsSection {
+    margin-top: 70px;
+    padding-top: 50px;
+  }
+
+  .awardsInfoRow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0;
+    margin-bottom: 36px;
+  }
+
+  .awardsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .awardCard {
+    padding: 20px;
+  }
+
+  .awardTitle {
+    font-size: 16px;
+  }
+
+  .awardDescription {
+    font-size: 13px;
+  }
 }
 
 /* ==========================================
@@ -1058,14 +1546,19 @@
 
 @media (max-width: 768px) {
   .ascensionSection {
-    padding: 60px 20px;
+    padding: 60px 0 !important;
+    overflow: hidden !important;
   }
 
   .ascensionGrid {
-    flex-direction: column !important;
-    overflow-x: visible !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
     width: 100% !important;
-    gap: 20px !important;
+    gap: 16px !important;
+    padding: 0 20px 24px !important;
+    scrollbar-width: none !important;
   }
 
   .ascensionCard,
@@ -1073,14 +1566,18 @@
   .cardTall,
   .cardNarrow,
   .cardWide {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 220px !important;
-    padding: 28px 24px !important;
+    width: min(300px, calc(100vw - 48px)) !important;
+    min-height: 240px !important;
+    padding: 24px 20px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cardShort {
+    height: 320px !important;
   }
 
   .cardTall {
-    min-height: 320px !important;
+    height: 440px !important;
   }
 }
 
@@ -1129,7 +1626,7 @@
 
   .glassGraphicWrapper {
     position: absolute;
-    bottom: -60px;
+    bottom: 0;
     right: -20px;
     top: auto;
     left: auto;
@@ -1694,66 +2191,440 @@
 }
 
 /* Keep the PDF desktop composition authoritative over the legacy section rules above. */
-.includedSection { padding: 170px 5%; }
-.includedContainer { max-width: 1720px; grid-template-columns: .9fr 1.1fr; gap: 100px; }
-.includedKicker { color: #fff; }
-.includedTitle { font-size: 48px; }
-.includedTitleItalic { color: #fff; text-transform: none; }
-.includedTableCell { min-height: 150px; padding: 34px 30px; }
-.ascensionSection { max-width: 1920px; padding: 120px 3.5% 160px; }
-.ascensionHeader { font-size: 48px; margin-bottom: 100px; }
-.ascensionGrid { justify-content: center; gap: 26px; overflow: visible; }
-.cardShort { height: 290px; }
-.cardTall { height: 500px; }
-.cardNarrow { width: 280px; }
-.cardWide { width: 380px; }
-.edgeSection { padding: 150px 5%; }
-.edgeContainer { max-width: 1720px; gap: 70px; }
-.edgeImage { border-radius: 0; }
-.edgeTitle { font-size: 48px; }
-.selectedWorkSection { background: #000; padding: 150px 5% 120px; }
-.selectedWorkContainer { max-width: 1720px; }
-.selectedWorkKicker, .selectedWorkTitle, .selectedWorkItalic, .seeAllWorkLink { color: #fff; }
-.selectedWorkHeader { margin-bottom: 90px; }
-.selectedWorkGrid { grid-template-columns: 1fr 1fr; gap: 24px; }
-.workCard:first-child { grid-column: 1 / -1; }
-.workImageWrapper { margin: 0; aspect-ratio: .9 / 1; }
-.workCard:first-child .workImageWrapper { aspect-ratio: 1.55 / 1; }
-.workMeta { position: absolute; z-index: 2; padding: 54px 58px; }
-.workCard { position: relative; }
-.workTitle { color: #fff; font-size: 42px; }
-.workSubtitle { color: #fff; font-size: 23px; }
-.workCard:nth-child(2) .workTitle, .workCard:nth-child(2) .workSubtitle { color: #111; }
-.featuredWorkCard { position: relative; width: 100%; aspect-ratio: 1.86 / 1; margin-top: 90px; overflow: hidden; }
-.featuredWorkTitle { position: absolute; top: 56px; left: 70px; z-index: 2; color: #fff; font-size: 38px; }
-.recognitionStrip { display: flex; align-items: center; gap: 24px; margin: 56px 14px 0; padding: 22px 28px; background: #fff; color: #111; font-size: 13px; }
-.recognitionStrip strong { color: #3158ff; font-size: 11px; letter-spacing: .06em; }
-.faqSection { padding: 160px 5%; }
-.faqContainer { max-width: 1080px; }
-.faqHeader { margin-bottom: 70px; }
-.faqTitle { font-size: 54px; }
-.faqItem { padding: 25px 0; }
-.precisionSection { padding: 110px 5%; }
+.includedSection {
+  padding: 170px 5%;
+}
+
+.includedContainer {
+  max-width: 1720px;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 100px;
+}
+
+.includedKicker {
+  color: #fff;
+}
+
+.includedTitle {
+  font-size: 48px;
+}
+
+.includedTitleItalic {
+  color: #fff;
+  text-transform: none;
+}
+
+.includedTableCell {
+  min-height: 150px;
+  padding: 34px 30px;
+}
+
+.ascensionSection {
+  width: 100%;
+  max-width: 100%;
+  padding: 120px 0 160px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.ascensionHeader {
+  max-width: 1720px;
+  margin: 0 auto 80px;
+  padding: 0 5%;
+  font-size: 48px;
+}
+
+.ascensionGrid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 0 5% 40px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+
+.ascensionGrid:active {
+  cursor: grabbing;
+}
+
+.ascensionGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.cardShort {
+  height: 400px;
+}
+
+.cardTall {
+  height: 560px;
+}
+
+.cardNarrow {
+  width: 360px;
+}
+
+.cardWide {
+  width: 420px;
+}
+
+.edgeSection {
+  padding: 150px 5%;
+}
+
+.edgeContainer {
+  max-width: 1720px;
+  gap: 70px;
+}
+
+.edgeImage {
+  border-radius: 0;
+}
+
+.edgeTitle {
+  font-size: 48px;
+}
+
+.selectedWorkSection {
+  background: #000;
+  padding: 150px 5% 120px;
+}
+
+.selectedWorkContainer {
+  max-width: 1720px;
+}
+
+.selectedWorkKicker,
+.selectedWorkTitle,
+.selectedWorkItalic,
+.seeAllWorkLink {
+  color: #fff;
+}
+
+.selectedWorkHeader {
+  margin-bottom: 90px;
+}
+
+.selectedWorkGrid {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.workCard:first-child,
+.workCard:last-child {
+  grid-column: 1 / -1;
+}
+
+.workImageWrapper {
+  margin: 0;
+  aspect-ratio: .9 / 1;
+}
+
+.workCard:first-child .workImageWrapper,
+.workCard:last-child .workImageWrapper {
+  aspect-ratio: 1.55 / 1;
+}
+
+.workMeta {
+  position: absolute;
+  z-index: 2;
+  padding: 54px 58px;
+}
+
+.workCard {
+  position: relative;
+}
+
+.workTitle {
+  color: #fff;
+  font-size: 42px;
+}
+
+.workSubtitle {
+  color: #fff;
+  font-size: 23px;
+}
+
+.workCard:nth-child(2) .workTitle,
+.workCard:nth-child(2) .workSubtitle {
+  color: #111;
+}
+
+.featuredWorkCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.86 / 1;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.featuredWorkTitle {
+  position: absolute;
+  top: 56px;
+  left: 70px;
+  z-index: 2;
+  color: #fff;
+  font-size: 38px;
+}
+
+/* =========================================
+   Agency Recognition / Awards Section
+   ========================================= */
+.awardsSection {
+  margin-top: 130px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.awardsHeader {
+  margin-bottom: 40px;
+}
+
+.awardsMainTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: clamp(34px, 3.4vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.awardsInfoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 0;
+  margin-bottom: 60px;
+}
+
+.awardsInfoLeft {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.awardsInfoRight {
+  grid-column: 3;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.awardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.awardCard {
+  display: flex;
+  flex-direction: column;
+  background: rgba(18, 18, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.awardCard:hover {
+  border-color: rgba(49, 88, 255, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(49, 88, 255, 0.08);
+}
+
+.awardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #0c0c0e;
+  margin-bottom: 24px;
+}
+
+.awardImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.awardCard:hover .awardImage {
+  transform: scale(1.05);
+}
+
+.awardYearBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #3158ff;
+  font-family: var(--font-delight), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  z-index: 2;
+}
+
+.awardTitle {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.awardDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.awardAwardedBy {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3158ff;
+  letter-spacing: 0.02em;
+}
+
+.awardDescription {
+  font-family: var(--font-delight), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+.faqSection {
+  padding: 160px 5%;
+}
+
+.faqContainer {
+  max-width: 1080px;
+}
+
+.faqHeader {
+  margin-bottom: 70px;
+}
+
+.faqTitle {
+  font-size: 54px;
+}
+
+.faqItem {
+  padding: 25px 0;
+}
+
+.precisionSection {
+  padding: 110px 5%;
+}
 
 @media (max-width: 1200px) {
-  .ascensionGrid { overflow-x: auto; justify-content: flex-start; }
+  .ascensionGrid {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 768px) {
-  .includedSection { padding-top: 80px !important; padding-bottom: 80px !important; }
-  .selectedWorkGrid { grid-template-columns: 1fr; }
-  .workCard:first-child { grid-column: auto; }
-  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
-  .workMeta { padding: 28px; }
-  .workTitle { font-size: 28px; }
-  .workSubtitle { font-size: 16px; }
-  .featuredWorkCard { aspect-ratio: 4 / 5; }
-  .recognitionStrip { align-items: flex-start; flex-direction: column; }
+  .includedSection {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .selectedWorkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .workCard:first-child,
+  .workCard:last-child {
+    grid-column: auto;
+  }
+
+  .workImageWrapper,
+  .workCard:first-child .workImageWrapper,
+  .workCard:last-child .workImageWrapper {
+    aspect-ratio: 4 / 5;
+  }
+
+  .workMeta {
+    padding: 28px;
+  }
+
+  .workTitle {
+    font-size: 28px;
+  }
+
+  .workSubtitle {
+    font-size: 16px;
+  }
+
+  .featuredWorkCard {
+    aspect-ratio: 4 / 5;
+  }
+
+  .awardsSection {
+    margin-top: 70px;
+    padding-top: 50px;
+  }
+
+  .awardsInfoRow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0;
+    margin-bottom: 36px;
+  }
+
+  .awardsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .awardCard {
+    padding: 20px;
+  }
+
+  .awardTitle {
+    font-size: 16px;
+  }
+
+  .awardDescription {
+    font-size: 13px;
+  }
 }
 
 /* Mobile art direction */
 @media (max-width: 768px) {
-  .mainContainer { overflow: clip; }
+  .mainContainer {
+    overflow: clip;
+  }
 
   .heroSection {
     min-height: auto;
@@ -1768,90 +2639,401 @@
     padding: 0;
   }
 
-  .heroLeft { max-width: none; }
-  .kicker { font-size: 10px; margin-bottom: 14px; letter-spacing: .13em; }
-  .heroTitle { max-width: 340px; font-size: clamp(36px, 10.8vw, 44px); line-height: .98; margin-bottom: 18px; }
-  .heroRating { font-size: 12px; margin-bottom: 22px; }
-  .heroSubtitle { font-size: 15px; line-height: 1.55; }
-  .heroActions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
-  .phoneButton, .whatsappButton { min-width: 0; width: 100%; padding: 14px 8px; font-size: 12px; }
+  .heroLeft {
+    max-width: none;
+  }
 
-  .heroRight { width: 100%; margin-top: 0; }
-  .formCard { max-width: none; padding: 24px 18px 20px; }
-  .formHeader { margin-bottom: 20px; }
-  .formTitle { font-size: 23px; }
-  .formSubtitle { font-size: 12px; line-height: 1.55; }
-  .form { gap: 10px; }
-  .input { height: 50px; padding-inline: 14px; }
-  .submitBtn { min-height: 50px; margin-top: 4px; font-size: 11px; }
-  .glassGraphicWrapper { width: 330px; height: 250px; right: -100px; bottom: -92px; opacity: .75; }
+  .kicker {
+    font-size: 10px;
+    margin-bottom: 14px;
+    letter-spacing: .13em;
+  }
 
-  .brandsSection { padding: 48px 20px 54px !important; }
-  .brandsLabel { margin-bottom: 34px; font-size: 10px; }
-  .brandsMarquee { gap: 22px; }
-  .brandsList { gap: 32px; padding-right: 32px; }
-  .brandLogoWrapper { width: 130px; height: 48px; }
+  .heroTitle {
+    max-width: 340px;
+    font-size: clamp(36px, 10.8vw, 44px);
+    line-height: .98;
+    margin-bottom: 18px;
+  }
 
-  .includedSection { padding: 70px 20px !important; }
-  .includedContainer { display: flex; flex-direction: column; gap: 42px; }
-  .includedLeft { width: 100%; }
-  .includedKicker { font-size: 10px; margin-bottom: 14px; }
-  .includedTitle { font-size: 39px; line-height: .98; }
-  .includedTitleItalic { margin-top: 6px; font-size: 34px; line-height: 1.05; }
-  .includedRight { width: 100%; }
-  .includedTable { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .includedTableCell { min-height: 142px; padding: 20px 15px; border-right: 1px solid rgba(255,255,255,.08) !important; }
-  .includedTableCell:nth-child(2n) { border-right: 0 !important; }
-  .includedTableCell:nth-last-child(1) { display: none; }
-  .includedTableCell:nth-last-child(2) { border-bottom: 0; }
-  .cellTitle { font-size: 11px; line-height: 1.25; margin-bottom: 8px; }
-  .cellDesc { font-size: 10px; line-height: 1.45; }
+  .heroRating {
+    font-size: 12px;
+    margin-bottom: 22px;
+  }
 
-  .ascensionSection { padding: 72px 20px 78px !important; }
-  .ascensionHeader { max-width: 340px; margin: 0 auto 48px; font-size: 35px; line-height: 1.02; }
-  .ascensionGrid { gap: 12px !important; }
-  .ascensionCard, .cardShort, .cardTall, .cardNarrow, .cardWide { min-height: 240px !important; padding: 24px 20px !important; }
-  .ascensionCard.cardTall { min-height: 390px !important; }
-  .cardTitle { font-size: 25px; }
-  .cardDesc { font-size: 12px; line-height: 1.4; }
+  .heroSubtitle {
+    font-size: 15px;
+    line-height: 1.55;
+  }
 
-  .edgeSection { padding: 72px 20px 78px !important; }
-  .edgeContainer { gap: 26px; }
-  .edgeKicker { font-size: 10px; margin-bottom: 14px; }
-  .edgeTitle { font-size: 38px; line-height: .98; margin-bottom: 0; }
-  .edgeImage { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-  .edgeSubtitle { font-size: 14px; line-height: 1.55; margin-bottom: 22px; }
-  .edgeList { gap: 13px; }
-  .edgeList li { gap: 9px; font-size: 12px; line-height: 1.45; }
+  .heroActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 26px;
+  }
 
-  .selectedWorkSection { padding: 72px 20px 68px !important; }
-  .selectedWorkHeader { align-items: flex-start; gap: 18px; margin-bottom: 40px; }
-  .selectedWorkKicker { font-size: 10px; margin-bottom: 12px; }
-  .selectedWorkTitle { font-size: 35px; line-height: 1; }
-  .seeAllWorkLink { font-size: 11px; }
-  .selectedWorkGrid { gap: 14px; }
-  .workImageWrapper, .workCard:first-child .workImageWrapper { aspect-ratio: 4 / 5; }
-  .workMeta { padding: 24px 20px; }
-  .workTitle { font-size: 27px; }
-  .workSubtitle { font-size: 13px; }
-  .featuredWorkCard { aspect-ratio: 16 / 10; margin-top: 30px; }
-  .featuredWorkTitle { top: 24px; left: 22px; max-width: 220px; font-size: 25px; line-height: 1; }
-  .recognitionStrip { width: 100%; margin: 24px 0 0; padding: 18px; gap: 8px; font-size: 10px; line-height: 1.35; }
+  .phoneButton,
+  .whatsappButton {
+    min-width: 0;
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 12px;
+  }
 
-  .faqSection { padding: 72px 20px !important; }
-  .faqHeader { margin-bottom: 36px; }
-  .faqKicker { font-size: 10px; margin-bottom: 12px; }
-  .faqTitle { font-size: 39px; line-height: 1; }
-  .faqItem { padding: 20px 0; }
-  .faqQuestionRow { gap: 16px; align-items: flex-start; }
-  .faqQuestion { font-size: 13px; line-height: 1.35; }
-  .faqIcon { font-size: 19px; }
-  .faqAnswer { padding-right: 26px; font-size: 12px; line-height: 1.55; }
+  .heroRight {
+    width: 100%;
+    margin-top: 0;
+  }
 
-  .precisionSection { padding: 68px 20px !important; }
-  .precisionTitle { font-size: 35px; line-height: 1; }
-  .precisionSubtitle { max-width: 300px; font-size: 13px; margin-bottom: 26px; }
-  .precisionBtn { padding: 15px 25px; font-size: 11px; }
+  .formCard {
+    max-width: none;
+    padding: 24px 18px 20px;
+  }
+
+  .formHeader {
+    margin-bottom: 20px;
+  }
+
+  .formTitle {
+    font-size: 23px;
+  }
+
+  .formSubtitle {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .input {
+    height: 50px;
+    padding-inline: 14px;
+  }
+
+  .submitBtn {
+    min-height: 50px;
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  .glassGraphicWrapper {
+    width: 330px;
+    height: 250px;
+    right: -100px;
+    bottom: 0;
+    opacity: .75;
+  }
+
+  .brandsSection {
+    padding: 48px 20px 54px !important;
+  }
+
+  .brandsLabel {
+    margin-bottom: 34px;
+    font-size: 10px;
+  }
+
+  .brandsMarquee {
+    gap: 22px;
+  }
+
+  .brandsList {
+    gap: 32px;
+    padding-right: 32px;
+  }
+
+  .brandLogoWrapper {
+    width: 130px;
+    height: 48px;
+  }
+
+  .includedSection {
+    padding: 70px 20px !important;
+  }
+
+  .includedContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+  }
+
+  .includedLeft {
+    width: 100%;
+  }
+
+  .includedKicker {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+
+  .includedTitle {
+    font-size: 39px;
+    line-height: .98;
+  }
+
+  .includedTitleItalic {
+    margin-top: 6px;
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  .includedRight {
+    width: 100%;
+  }
+
+  .includedTable {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .includedTableCell {
+    min-height: 142px;
+    padding: 20px 15px;
+    border-right: 1px solid rgba(255, 255, 255, .08) !important;
+  }
+
+  .includedTableCell:nth-child(2n) {
+    border-right: 0 !important;
+  }
+
+  .includedTableCell:nth-last-child(1) {
+    display: none;
+  }
+
+  .includedTableCell:nth-last-child(2) {
+    border-bottom: 0;
+  }
+
+  .cellTitle {
+    font-size: 11px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .cellDesc {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .ascensionSection {
+    padding: 72px 0 78px !important;
+    overflow: hidden !important;
+  }
+
+  .ascensionHeader {
+    max-width: 340px;
+    margin: 0 auto 48px;
+    font-size: 35px;
+    line-height: 1.02;
+    padding-inline: 20px;
+  }
+
+  .ascensionGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 16px !important;
+    padding: 0 20px 24px !important;
+    scrollbar-width: none !important;
+  }
+
+  .ascensionCard,
+  .cardShort,
+  .cardTall,
+  .cardNarrow,
+  .cardWide {
+    min-height: 240px !important;
+    padding: 24px 20px !important;
+    flex-shrink: 0 !important;
+    width: min(300px, calc(100vw - 48px)) !important;
+  }
+
+  .ascensionCard.cardTall {
+    min-height: 390px !important;
+  }
+
+  .cardTitle {
+    font-size: 25px;
+  }
+
+  .cardDesc {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .edgeSection {
+    padding: 72px 20px 78px !important;
+  }
+
+  .edgeContainer {
+    gap: 26px;
+  }
+
+  .edgeKicker {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+
+  .edgeTitle {
+    font-size: 38px;
+    line-height: .98;
+    margin-bottom: 0;
+  }
+
+  .edgeImage {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .edgeSubtitle {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+
+  .edgeList {
+    gap: 13px;
+  }
+
+  .edgeList li {
+    gap: 9px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .selectedWorkSection {
+    padding: 72px 20px 68px !important;
+  }
+
+  .selectedWorkHeader {
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .selectedWorkKicker {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .selectedWorkTitle {
+    font-size: 35px;
+    line-height: 1;
+  }
+
+  .seeAllWorkLink {
+    font-size: 11px;
+  }
+
+  .selectedWorkGrid {
+    gap: 14px;
+  }
+
+  .workImageWrapper,
+  .workCard:first-child .workImageWrapper,
+  .workCard:last-child .workImageWrapper {
+    aspect-ratio: 4 / 5;
+  }
+
+  .workMeta {
+    padding: 24px 20px;
+  }
+
+  .workTitle {
+    font-size: 27px;
+  }
+
+  .workSubtitle {
+    font-size: 13px;
+  }
+
+  .featuredWorkCard {
+    aspect-ratio: 16 / 10;
+    margin-top: 30px;
+  }
+
+  .featuredWorkTitle {
+    top: 24px;
+    left: 22px;
+    max-width: 220px;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .recognitionStrip {
+    width: 100%;
+    margin: 24px 0 0;
+    padding: 18px;
+    gap: 8px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .faqSection {
+    padding: 72px 20px !important;
+  }
+
+  .faqHeader {
+    margin-bottom: 36px;
+  }
+
+  .faqKicker {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .faqTitle {
+    font-size: 39px;
+    line-height: 1;
+  }
+
+  .faqItem {
+    padding: 20px 0;
+  }
+
+  .faqQuestionRow {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .faqQuestion {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .faqIcon {
+    font-size: 19px;
+  }
+
+  .faqAnswer {
+    padding-right: 26px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .precisionSection {
+    padding: 68px 20px !important;
+  }
+
+  .precisionTitle {
+    font-size: 35px;
+    line-height: 1;
+  }
+
+  .precisionSubtitle {
+    max-width: 300px;
+    font-size: 13px;
+    margin-bottom: 26px;
+  }
+
+  .precisionBtn {
+    padding: 15px 25px;
+    font-size: 11px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1935,6 +3117,7 @@
   .cardWide,
   .ascensionCard.cardTall {
     min-height: 280px !important;
+    flex-shrink: 0 !important;
   }
 
   .cardDesc {
@@ -1952,7 +3135,8 @@
   }
 
   .workImageWrapper,
-  .workCard:first-child .workImageWrapper {
+  .workCard:first-child .workImageWrapper,
+  .workCard:last-child .workImageWrapper {
     aspect-ratio: 3 / 4;
   }
 

@@ -46,7 +46,7 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
         <div className={styles.heroLeft}>
           <span className={styles.kicker}>BRAND DEVELOPMENT · ABU DHABI</span>
           <h1 className={styles.heroTitle}>Branding Agency in Abu Dhabi</h1>
-          <p className={styles.heroRating}>4.4 from 44 Google reviews</p>
+          <p className={styles.heroRating}>Rated 4.4/5 on Google</p>
           <p className={styles.heroSubtitle}>
             Build or refresh a brand for Abu Dhabi audiences with clear positioning,
             bilingual identity and practical guidelines for digital, print and physical spaces.
@@ -58,9 +58,6 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
         </div>
 
         <div className={styles.heroRight}>
-          <div className={styles.glassGraphicWrapper} aria-hidden="true">
-            <Image src="/brand-development-dubai-and-abudhabi/glass-image.png" alt="" width={1254} height={888} className={styles.glassGraphic} priority />
-          </div>
           <div className={styles.formCard} id="strategy-form">
             {bookingUrl ? (
               <div className={styles.bookingContent}>
@@ -91,6 +88,9 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
             ) : (
               <div className={styles.successMessage}><h3 className={styles.successTitle}>Strategy call requested</h3><p className={styles.successDesc}>Thank you, {formData.fullName}. Our team will contact you within 24 hours.</p></div>
             )}
+          </div>
+          <div className={styles.glassGraphicWrapper} aria-hidden="true">
+            <Image src="/brand-development-dubai-and-abudhabi/glass-image.png" alt="" width={1254} height={888} className={styles.glassGraphic} priority />
           </div>
         </div>
       </div>

@@ -136,125 +136,158 @@ export default function Footer() {
 
   if (pathname === "/mccollins-brazil-proposal" || pathname.startsWith("/admin")) return null;
 
+  const isLanding = pathname === "/brand-development-dubai-and-abudhabi";
+
+  const navLinksList = (
+    <ul className={styles.linksList}>
+      <li><Link href="/">Home</Link></li>
+      <li><Link href="/works">Work</Link></li>
+      <li><Link href="/about">About</Link></li>
+      <li><Link href="/services">Services</Link></li>
+      <li><Link href="/industry">Expertise</Link></li>
+      <li><Link href="/blog">Blog</Link></li>
+      {!isLanding && (
+        <li><Link href="/contact">Contact</Link></li>
+      )}
+    </ul>
+  );
+
+  const socialLinksList = (
+    <ul className={styles.linksList}>
+      <li>
+        <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
+          Instagram
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
+          Facebook
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
+          Tiktok
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
+          X
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  );
+
+  const middleLeftContent = (
+    <div className={styles.middleLeft}>
+      <div className={styles.contactInfo}>
+        <p>New Business:</p>
+        <p><a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a></p>
+      </div>
+      <div className={styles.newsletter}>
+        <p>Sign up for our newsletter</p>
+        {status === "success" ? (
+          <div className={styles.successMessage}>
+            <span>Thank you for subscribing!</span>
+            <span className={styles.successCheck}>✓</span>
+          </div>
+        ) : (
+          <>
+          <RecaptchaCheckbox theme="dark" />
+          <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder={status === "loading" ? "Subscribing..." : "Email"}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.newsletterInput}
+              disabled={status === "loading"}
+            />
+            <button type="submit" className={styles.newsletterSubmit} disabled={status === "loading"}>
+              {status === "loading" ? <span className={styles.spinner}></span> : "→"}
+            </button>
+          </form>
+          </>
+        )}
+        {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
+      </div>
+    </div>
+  );
+
+  const middleRightContent = (
+    <div className={styles.middleRight}>
+      <div className={styles.address}>
+        <p> G04, Loft Office 2, Entrance C,</p>
+        <p>Dubai Media City, Dubai</p>
+      </div>
+      <div className={styles.legal}>
+        <p><Link href="/privacy-policy">Privacy Policy</Link></p>
+        <p><Link href="/cookies-policy">Cookies Policy</Link></p>
+        <p><Link href="/terms-conditions">Terms of Use</Link></p>
+        <p>©13–26</p>
+      </div>
+    </div>
+  );
+
   return (
-    <footer className={`${styles.footer} ${pathname === "/brand-development-dubai-and-abudhabi" ? styles.landingFooter : ""}`} ref={containerRef}>
+    <footer className={`${styles.footer} ${isLanding ? styles.landingFooter : ""}`} ref={containerRef}>
       <div className={styles.footerInner}>
         {/* Desktop Footer (hidden on mobile) */}
         <div className={styles.desktopFooter}>
-          <div className={`${styles.topSection} footer-reveal`}>
-            {pathname !== "/brand-development-dubai-and-abudhabi" && (
-              <h2 className={styles.footerTitle}>
-                <span className={styles.sansText}>Precision from the</span>{" "}
-                <span className={styles.italicText}>first click.</span>
-              </h2>
-            )}
-            <div className={styles.linksGrid}>
-              <ul className={styles.linksList}>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/works">Work</Link></li>
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="/services">Services</Link></li>
-                <li><Link href="/industry">Expertise</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
-              </ul>
-              <ul className={styles.linksList}>
-                <li>
-                  <a href="https://www.instagram.com/mccollinsmedia/?hl=en" target="_blank" rel="noopener noreferrer">
-                    Instagram
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/company/mccollins-media/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com/mccollinsmedia/" target="_blank" rel="noopener noreferrer">
-                    Facebook
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tiktok.com/mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                    Tiktok
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.x.com/@mccollinsmedia" target="_blank" rel="noopener noreferrer">
-                    X
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "6px", display: "inline-block", verticalAlign: "middle", transition: "transform 0.2s ease" }}>
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+          {isLanding ? (
+            <div className={`${styles.landingDesktopGrid} footer-reveal`}>
+              {middleLeftContent}
+              <div className={styles.landingRightCol}>
+                <div className={styles.linksGrid}>
+                  {navLinksList}
+                  {socialLinksList}
+                </div>
+                {middleRightContent}
+              </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className={`${styles.topSection} footer-reveal`}>
+                <h2 className={styles.footerTitle}>
+                  <span className={styles.sansText}>Precision from the</span>{" "}
+                  <span className={styles.italicText}>first click.</span>
+                </h2>
+                <div className={styles.linksGrid}>
+                  {navLinksList}
+                  {socialLinksList}
+                </div>
+              </div>
 
-          <div className={`${styles.middleSection} footer-reveal`}>
-            <div className={styles.middleLeft}>
-              <div className={styles.contactInfo}>
-                <p>New Business:</p>
-                <p><a href="mailto:info@mccollinsmedia.com">info@mccollinsmedia.com</a></p>
+              <div className={`${styles.middleSection} footer-reveal`}>
+                {middleLeftContent}
+                {middleRightContent}
               </div>
-              <div className={styles.newsletter}>
-                <p>Sign up for our newsletter</p>
-                {status === "success" ? (
-                  <div className={styles.successMessage}>
-                    <span>Thank you for subscribing!</span>
-                    <span className={styles.successCheck}>✓</span>
-                  </div>
-                ) : (
-                  <>
-                  <RecaptchaCheckbox theme="dark" />
-                  <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
-                    <input
-                      type="email"
-                      placeholder={status === "loading" ? "Subscribing..." : "Email"}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className={styles.newsletterInput}
-                      disabled={status === "loading"}
-                    />
-                    <button type="submit" className={styles.newsletterSubmit} disabled={status === "loading"}>
-                      {status === "loading" ? <span className={styles.spinner}></span> : "→"}
-                    </button>
-                  </form>
-                  </>
-                )}
-                {status === "error" && <p className={styles.errorMessage}>{errorMessage}</p>}
-              </div>
-            </div>
-            <div className={styles.middleRight}>
-              <div className={styles.address}>
-                <p> G04, Loft Office 2, Entrance C,</p>
-                <p>Dubai Media City, Dubai</p>
-              </div>
-              <div className={styles.legal}>
-                <p><Link href="/privacy-policy">Privacy Policy</Link></p>
-                <p><Link href="/cookies-policy">Cookies Policy</Link></p>
-                <p><Link href="/terms-conditions">Terms of Use</Link></p>
-                <p>©13–26</p>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
 
         {/* Mobile Footer (shown only on mobile) */}
@@ -268,7 +301,7 @@ export default function Footer() {
               <Link href="/services">Services</Link>
               <Link href="/industry">Expertise</Link>
               <Link href="/blog">Blog</Link>
-              <Link href="/contact">Contact</Link>
+              {!isLanding && <Link href="/contact">Contact</Link>}
             </div>
 
             {/* Right Column: Details & Socials */}

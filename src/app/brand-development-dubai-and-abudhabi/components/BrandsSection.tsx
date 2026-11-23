@@ -16,7 +16,7 @@ export default function BrandsSection() {
   return (
     <section className={styles.brandsSection}>
       <div className={styles.brandsInner}>
-        <p className={styles.brandsLabel}>SELECTED CLIENTS</p>
+        {/* <p className={styles.brandsLabel}>SELECTED CLIENTS</p> */}
         <div className={styles.brandsMarquee}>
           {rows.map((clients, rowIndex) => (
             <div className={styles.brandsRow} key={rowIndex}>
