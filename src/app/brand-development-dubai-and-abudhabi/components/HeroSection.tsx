@@ -14,7 +14,16 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!formData.fullName.trim() || !formData.email.trim() || !formData.phone.trim() || isSubmitting) return;
+    if (
+      !formData.fullName.trim() ||
+      !formData.company.trim() ||
+      !formData.phone.trim() ||
+      !formData.email.trim() ||
+      !formData.budget.trim() ||
+      isSubmitting
+    ) {
+      return;
+    }
     const recaptchaToken = await getRecaptchaResponse(event.currentTarget, "brand_strategy_lead");
     if (!recaptchaToken) return;
     setIsSubmitting(true);
@@ -97,11 +106,11 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
                   <input className={styles.input} type="text" placeholder="Full name" required value={formData.fullName} onChange={(event) => setFormData({ ...formData, fullName: event.target.value })} />
-                  <input className={styles.input} type="text" placeholder="Company name" value={formData.company} onChange={(event) => setFormData({ ...formData, company: event.target.value })} />
+                  <input className={styles.input} type="text" placeholder="Company name" required value={formData.company} onChange={(event) => setFormData({ ...formData, company: event.target.value })} />
                   <input className={styles.input} type="tel" placeholder="Phone number" required value={formData.phone} onChange={(event) => setFormData({ ...formData, phone: event.target.value })} />
                   <input className={styles.input} type="email" placeholder="Work email" required value={formData.email} onChange={(event) => setFormData({ ...formData, email: event.target.value })} />
-                  <select className={`${styles.input} ${styles.select}`} value={formData.budget} onChange={(event) => setFormData({ ...formData, budget: event.target.value })} aria-label="Project budget">
-                    <option value="">Project budget</option><option value="AED 25k-50k">AED 25k-50k</option><option value="AED 50k-100k">AED 50k-100k</option><option value="AED 100k-250k">AED 100k-250k</option><option value="AED 250k+">AED 250k+</option>
+                  <select className={`${styles.input} ${styles.select}`} required value={formData.budget} onChange={(event) => setFormData({ ...formData, budget: event.target.value })} aria-label="Project budget">
+                    <option value="">Project budget</option><option value="Below AED 25k">Below AED 25k</option><option value="AED 25k-50k">AED 25k-50k</option><option value="AED 50k-100k">AED 50k-100k</option><option value="AED 100k-250k">AED 100k-250k</option><option value="AED 250k+">AED 250k+</option>
                   </select>
                   <textarea
                     className={`${styles.input} ${styles.textarea}`}

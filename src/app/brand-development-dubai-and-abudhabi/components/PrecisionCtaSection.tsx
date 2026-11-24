@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import styles from "../page.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -23,6 +22,20 @@ export default function PrecisionCtaSection() {
     });
   }, { scope: containerRef });
 
+  const handleScrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.getElementById("strategy-form");
+    if (target) {
+      const lenis = (window as unknown as { lenis?: { scrollTo: (el: HTMLElement, opts?: object) => void } }).lenis;
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -100, duration: 1.2 });
+      } else {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      window.history.pushState(null, "", "#strategy-form");
+    }
+  };
+
   return (
     <section className={styles.precisionSection} ref={containerRef}>
       <div className={styles.precisionContainer}>
@@ -36,9 +49,13 @@ export default function PrecisionCtaSection() {
           Book a free strategy call and see how we&apos;d approach your brand.
         </p>
         <div className="precision-anim">
-          <Link href="#strategy-form" className={styles.precisionBtn}>
+          <a
+            href="#strategy-form"
+            onClick={handleScrollToForm}
+            className={styles.precisionBtn}
+          >
             BOOK A STRATEGY CALL
-          </Link>
+          </a>
         </div>
       </div>
     </section>

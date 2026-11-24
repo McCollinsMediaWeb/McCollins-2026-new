@@ -31,6 +31,20 @@ export default function Header() {
     pathname === "/social-media-agency" ||
     pathname === "/social-media-agency-dubai";
 
+  const handleScrollToStrategyForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.getElementById("strategy-form");
+    if (target) {
+      e.preventDefault();
+      const lenis = (window as unknown as { lenis?: { scrollTo: (el: HTMLElement, opts?: object) => void } }).lenis;
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -100, duration: 1.2 });
+      } else {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      window.history.pushState(null, "", "#strategy-form");
+    }
+  };
+
   if (isCodeHtmlLanding) {
     return (
       <header className="landing-code-header">
@@ -51,7 +65,7 @@ export default function Header() {
               </svg>
               <span>info@mccollinsmedia.com</span>
             </a>
-            <a href="#strategy-form" className="landing-code-cta">
+            <a href="#strategy-form" onClick={handleScrollToStrategyForm} className="landing-code-cta">
               <span>Book a Strategy Call</span>
               <svg className="landing-code-cta-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" />
@@ -144,12 +158,16 @@ export default function Header() {
         {/* Right: CTA & Hamburger Menu */}
         <div className="header-actions">
           {isLandingPage ? (
-            <Link href="#strategy-form" className="cta-button landing-cta">
+            <a
+              href="#strategy-form"
+              onClick={handleScrollToStrategyForm}
+              className="cta-button landing-cta"
+            >
               <span className="dot-indicator"></span>
               <span className="cta-text">
                 <span className="cta-text-inner" data-text="BOOK A STRATEGY CALL">BOOK A STRATEGY CALL</span>
               </span>
-            </Link>
+            </a>
           ) : (
             <Link href="/contact" className="cta-button">
               <span className="dot-indicator"></span>
