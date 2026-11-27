@@ -20,6 +20,7 @@ export default function BusinessEnquiryModal({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -88,6 +89,7 @@ export default function BusinessEnquiryModal({
           pageUrl: currentUrl,
           source: "Business Enquiry Modal",
           date: new Date(),
+          b_website_hp: honeypot,
           recaptchaToken,
         }),
       });
@@ -96,26 +98,6 @@ export default function BusinessEnquiryModal({
       if (!res.ok) {
         throw new Error(data.error || "Failed to submit enquiry.");
       }
-
-      // 2. Submit to Google Sheets script if configured
-      try {
-        let formData = new FormData();
-        formData.append("Firstname", fullName.trim());
-        formData.append("Company", companyName.trim());
-        formData.append("Email", email.trim());
-        formData.append("Phone", phone.trim());
-        formData.append("Contact", phone.trim());
-        formData.append("Message", message.trim());
-        formData.append("Services", "Business Enquiry");
-        formData.append("page", "contact");
-        formData.append("pageUrl", currentUrl);
-        formData.append("source", "Business Enquiry Modal");
-
-        fetch(
-          "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",
-          { method: "POST", body: formData }
-        ).catch(() => {});
-      } catch (err) {}
 
       setSuccessMessage("Thank you! Your enquiry has been submitted successfully.");
       setIsSubmitted(true);
@@ -181,6 +163,16 @@ export default function BusinessEnquiryModal({
             )}
 
             <form onSubmit={handleSubmit}>
+              <div style={{ display: "none", position: "absolute", left: "-9999px" }} aria-hidden="true">
+                <input
+                  type="text"
+                  name="b_website_hp"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
               <div className={styles.field}>
                 <label className={styles.label}>Full Name</label>
                 <input

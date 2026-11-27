@@ -30,6 +30,7 @@ export default function ContactPage() {
   const [text, setText] = useState("");
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
   const [agree, setAgree] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
@@ -77,7 +78,7 @@ export default function ContactPage() {
     }
 
     try {
-      // 1. Submit to local MongoDB database API
+      // 1. Submit to local database API (which securely verifies reCAPTCHA and triggers Google email notifications on the server)
       const response = await fetch("/api/form-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,37 +96,10 @@ export default function ContactPage() {
           pageUrl: currentUrl,
           source: detectedSource,
           date: new Date(),
+          b_website_hp: honeypot,
           recaptchaToken,
         }),
       });
-
-      // 2. Submit to Google Sheets script
-      let formData = new FormData();
-      formData.append("Firstname", firstName);
-      formData.append("Email", email);
-      formData.append("Phone", contact);
-      formData.append("Company", company);
-      formData.append("Services", checkedItemsString);
-      formData.append("jobTitle", jobTitle);
-      formData.append("InquiryType", inquiryType);
-      formData.append("Message", text);
-      formData.append("page", "contact");
-      formData.append("pageUrl", currentUrl);
-      formData.append("Url", currentUrl);
-      formData.append("source", detectedSource);
-
-      fetch(
-        "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Google sheets submit success:", data);
-        })
-        .catch((error) => console.error("Google sheets submit error:", error));
 
       if (response.ok) {
         setStatus("success");
@@ -136,6 +110,7 @@ export default function ContactPage() {
         setContact("");
         setEmail("");
         setText("");
+        setHoneypot("");
         setCheckedItems([]);
         setAgree(false);
 
@@ -298,6 +273,16 @@ export default function ContactPage() {
           </div>
 
           <form id="contact-form" className={styles.contactForm} onSubmit={handleSubmit}>
+            <div style={{ display: "none", position: "absolute", left: "-9999px" }} aria-hidden="true">
+              <input
+                type="text"
+                name="b_website_hp"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
             <div className={styles.inputGroup}>
               <input
                 type="text"

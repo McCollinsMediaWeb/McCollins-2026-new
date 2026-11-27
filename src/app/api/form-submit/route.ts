@@ -7,6 +7,14 @@ import { verifyRecaptcha } from '@/lib/recaptcha'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
+
+    // 1. Honeypot check - silently drop bot submissions without sending emails or alerts
+    if (body?.b_website_hp || body?.honeypot) {
+      console.warn('[Anti-Spam] Bot submission dropped via honeypot trap:', body?.email || body?.name)
+      return NextResponse.json({ success: true, message: 'Form submitted successfully' })
+    }
+
+    // 2. Cryptographic reCAPTCHA verification
     if (!(await verifyRecaptcha(req, body?.recaptchaToken))) {
       return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 403 })
     }
@@ -16,6 +24,8 @@ export async function POST(req: NextRequest) {
 
     const formFields = { ...body }
     delete formFields.recaptchaToken
+    delete formFields.b_website_hp
+    delete formFields.honeypot
     const submission = {
       ...formFields,
       createdAt: new Date()
@@ -83,6 +93,31 @@ export async function POST(req: NextRequest) {
         })
       } catch (makeError) {
         console.error('Make.com webhook sync error:', makeError)
+      }
+
+      // Forward to Google Apps Script for email notifications (ONLY after reCAPTCHA verification passes!)
+      try {
+        const scriptData = new FormData();
+        scriptData.append("Firstname", firstname);
+        scriptData.append("Email", String(body.email || ''));
+        scriptData.append("Phone", String(body.contact || body.phone || ''));
+        scriptData.append("Contact", String(body.contact || body.phone || ''));
+        scriptData.append("Company", String(body.company || ''));
+        scriptData.append("Services", String(body.services || ''));
+        scriptData.append("jobTitle", String(body.jobTitle || ''));
+        scriptData.append("InquiryType", String(body.inquiryType || 'business'));
+        scriptData.append("Message", String(body.text || body.message || ''));
+        scriptData.append("page", String(body.page || ''));
+        scriptData.append("pageUrl", String(body.pageUrl || ''));
+        scriptData.append("Url", String(body.pageUrl || ''));
+        scriptData.append("source", String(body.source || body.page || 'Contact Page'));
+
+        await fetch("https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec", {
+          method: "POST",
+          body: scriptData,
+        });
+      } catch (scriptErr) {
+        console.error('Server Google Apps Script forwarding error:', scriptErr);
       }
     }
 

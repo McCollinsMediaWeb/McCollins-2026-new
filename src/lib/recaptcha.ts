@@ -38,7 +38,12 @@ export async function verifyRecaptcha(
     if (result.success !== true) return false;
 
     const minimumScore = Number(process.env.RECAPTCHA_MIN_SCORE ?? "0.5");
-    return typeof result.score !== "number" || result.score >= minimumScore;
+    if (typeof result.score === "number" && result.score < minimumScore) {
+      console.warn(`[reCAPTCHA] Blocked bot / low-score request: score ${result.score} < ${minimumScore}`);
+      return false;
+    }
+
+    return true;
   } catch (error) {
     console.error("reCAPTCHA verification error:", error);
     return false;

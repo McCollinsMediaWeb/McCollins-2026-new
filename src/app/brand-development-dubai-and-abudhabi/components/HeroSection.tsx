@@ -10,6 +10,7 @@ type HeroSectionProps = { bookingUrl?: string };
 export default function HeroSection({ bookingUrl }: HeroSectionProps) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [formData, setFormData] = useState({ fullName: "", company: "", phone: "", email: "", budget: "", message: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -49,36 +50,10 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
           page: "Brand Development Dubai & Abu Dhabi",
           pageUrl: currentUrl,
           source: "Brand Development Dubai and Abu Dhabi Page",
+          b_website_hp: honeypot,
           recaptchaToken,
         }),
       });
-
-      // 2. Submit to Google Apps Script (triggers the same email notification to info@mccollinsmedia.com as the Contact Us form)
-      try {
-        const sheetData = new FormData();
-        sheetData.append("Firstname", formData.fullName.trim());
-        sheetData.append("Email", formData.email.trim());
-        sheetData.append("Phone", formData.phone.trim());
-        sheetData.append("Contact", formData.phone.trim());
-        sheetData.append("Company", formData.company.trim());
-        sheetData.append("Services", "Brand Development - Dubai & Abu Dhabi");
-        sheetData.append("InquiryType", "Brand Strategy Call");
-        sheetData.append("Message", messageContent);
-        sheetData.append("page", "brand-development-dubai-and-abudhabi");
-        sheetData.append("pageUrl", currentUrl);
-        sheetData.append("Url", currentUrl);
-        sheetData.append("source", "Brand Development Dubai and Abu Dhabi Page");
-
-        fetch(
-          "https://script.google.com/macros/s/AKfycbxmDwaT4Le95NuEGMeviV3p_ofzhwfqW6w7TDLttjg0N2n0NdkRNHiPYBVt20eI4VgVKg/exec",
-          {
-            method: "POST",
-            body: sheetData,
-          }
-        ).catch((err) => console.error("Google script submit error:", err));
-      } catch (scriptErr) {
-        console.error("Google script trigger error:", scriptErr);
-      }
 
       if (!response.ok) throw new Error("Unable to submit the form.");
       setSubmitted(true);
@@ -140,6 +115,16 @@ export default function HeroSection({ bookingUrl }: HeroSectionProps) {
                   <p className={styles.formSubtitle}>Tell us about your business - we&apos;ll come back with a tailored approach within 24 hours.</p>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
+                  <div style={{ display: "none", position: "absolute", left: "-9999px" }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="b_website_hp"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
                   <input className={styles.input} type="text" placeholder="Full name" required value={formData.fullName} onChange={(event) => setFormData({ ...formData, fullName: event.target.value })} />
                   <input className={styles.input} type="text" placeholder="Company name" required value={formData.company} onChange={(event) => setFormData({ ...formData, company: event.target.value })} />
                   <input className={styles.input} type="tel" placeholder="Phone number" required value={formData.phone} onChange={(event) => setFormData({ ...formData, phone: event.target.value })} />
